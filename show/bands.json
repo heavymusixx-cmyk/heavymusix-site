@@ -8,7 +8,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 14
  },
  "job-for-a-cowboy": {
   "name": "Job For A Cowboy",
@@ -19,7 +19,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 3
+  "songs": 43
  },
  "aggression": {
   "name": "Aggression",
@@ -52,7 +52,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 3
+  "songs": 12
  },
  "the-red-chord": {
   "name": "The Red Chord",
@@ -85,7 +85,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 6
+  "songs": 53
  },
  "the-zenith-passage": {
   "name": "The Zenith Passage",
@@ -173,7 +173,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 3
+  "songs": 12
  },
  "kreator": {
   "name": "Kreator",
@@ -184,7 +184,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 2
  },
  "sepultura": {
   "name": "Sepultura",
@@ -195,7 +195,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 2
  },
  "fusion-bomb": {
   "name": "Fusion Bomb",
@@ -206,7 +206,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 3
  },
  "testament": {
   "name": "Testament",
@@ -217,7 +217,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 3
+  "songs": 12
  },
  "crisix": {
   "name": "Crisix",
@@ -250,7 +250,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 3
+  "songs": 5
  },
  "gorod": {
   "name": "Gorod",
@@ -294,7 +294,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 10
  },
  "pantera": {
   "name": "Pantera",
@@ -305,7 +305,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 10
  },
  "after-the-burial": {
   "name": "After The Burial",
@@ -349,14 +349,14 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 6
  },
  "vio-lence": {
   "name": "Vio-Lence",
-  "city": "",
-  "region": "",
-  "country": "",
-  "genre": "",
+  "city": "San Francisco Bay Area",
+  "region": "California",
+  "country": "USA",
+  "genre": "Bay Area thrash",
   "unsigned": false,
   "links": {},
   "bio": "",
@@ -415,7 +415,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 9
  },
  "black-sabbath": {
   "name": "Black Sabbath",
@@ -426,7 +426,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 11
  },
  "angelus-apatrida": {
   "name": "Angelus Apatrida",
@@ -437,7 +437,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 3
+  "songs": 33
  },
  "fayence-dream": {
   "name": "Fayence Dream",
@@ -459,7 +459,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 3
+  "songs": 13
  },
  "aborted": {
   "name": "Aborted",
@@ -492,7 +492,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 8
  },
  "enforced": {
   "name": "Enforced",
@@ -525,7 +525,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 3
+  "songs": 6
  },
  "the-faceless": {
   "name": "The Faceless",
@@ -536,7 +536,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 3
+  "songs": 17
  },
  "power-trip": {
   "name": "Power Trip",
@@ -580,7 +580,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 9
  },
  "vision-of-disorder": {
   "name": "Vision Of Disorder",
@@ -613,7 +613,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 2
  },
  "exodus": {
   "name": "Exodus",
@@ -624,7 +624,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 26
  },
  "alkaloid": {
   "name": "Alkaloid",
@@ -646,7 +646,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 8
  },
  "slipknot": {
   "name": "Slipknot",
@@ -657,7 +657,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 3
  },
  "watchtower": {
   "name": "Watchtower",
@@ -668,7 +668,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 6
  },
  "nothingface": {
   "name": "Nothingface",
@@ -701,7 +701,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 4
  },
  "cradle-of-filth": {
   "name": "Cradle Of Filth",
@@ -723,7 +723,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 4
  },
  "walls-of-blood": {
   "name": "Walls Of Blood",
@@ -745,7 +745,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 10
  },
  "f-k-ü": {
   "name": "F.K.Ü.",
@@ -756,7 +756,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 4
  },
  "riot": {
   "name": "Riot",
@@ -778,7 +778,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 5
  },
  "grip-inc": {
   "name": "Grip Inc.",
@@ -844,7 +844,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 4
+  "songs": 36
  },
  "baest": {
   "name": "Baest",
@@ -866,7 +866,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 3
+  "songs": 33
  },
  "dillinger-escape-plan": {
   "name": "Dillinger Escape Plan",
@@ -888,7 +888,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 4
  },
  "ophidian-i": {
   "name": "Ophidian I",
@@ -987,7 +987,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 10
  },
  "judas-priest": {
   "name": "Judas Priest",
@@ -998,7 +998,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 14
  },
  "emerson-string-quartet": {
   "name": "Emerson String Quartet",
@@ -1097,7 +1097,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 12
  },
  "municipal-waste": {
   "name": "Municipal Waste",
@@ -1108,7 +1108,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 3
  },
  "metal-church": {
   "name": "Metal Church",
@@ -1130,7 +1130,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 16
  },
  "vader": {
   "name": "Vader",
@@ -1141,7 +1141,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 7
  },
  "the-haunted": {
   "name": "The Haunted",
@@ -1240,7 +1240,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 7
  },
  "up-front": {
   "name": "Up Front",
@@ -1273,7 +1273,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 6
+  "songs": 25
  },
  "exhorder": {
   "name": "Exhorder",
@@ -1284,7 +1284,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 8
  },
  "metamorphose-string-orchestra": {
   "name": "Metamorphose String Orchestra",
@@ -1317,7 +1317,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 5
  },
  "first-fragment": {
   "name": "First Fragment",
@@ -1361,7 +1361,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 13
  },
  "mental-cruelty": {
   "name": "Mental Cruelty",
@@ -1391,6 +1391,28 @@
   "region": "England",
   "country": "UK",
   "genre": "Progressive metal",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 3
+ },
+ "lamb-of-god": {
+  "name": "Lamb of God",
+  "city": "Richmond",
+  "region": "Virginia",
+  "country": "USA",
+  "genre": "Groove metal",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 14
+ },
+ "ektonorth": {
+  "name": "Ektonorth",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
   "unsigned": false,
   "links": {},
   "bio": "",

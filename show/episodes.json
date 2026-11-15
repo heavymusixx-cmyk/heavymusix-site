@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-15T00:00-07:00",
+ "updated": "2026-11-15T00:05-07:00",
  "playlist": "PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M",
  "ready_ahead": 0,
  "episodes": [
@@ -12,76 +12,76 @@
    "clips_total": 15,
    "songs": [
     {
-     "v": "9i3ETtUmIC0",
-     "b": "destrage",
-     "band": "Destrage",
-     "song": "Destroy Create Transform Sublimate"
-    },
-    {
-     "v": "FjYLLZZ-xDI",
-     "b": "emerson-string-quartet",
-     "band": "Emerson String Quartet",
-     "song": "Shostakovich: String Quartet No. 8 in C Minor, Op. 110: II. Allegro molto (Live)"
-    },
-    {
-     "v": "OBgyiQnlKnU",
-     "b": "death",
-     "band": "Death",
-     "song": "See Through Dreams"
-    },
-    {
-     "v": "ea5CNoYjiYY",
-     "b": "arch-enemy",
-     "band": "Arch Enemy",
-     "song": "Paper Tiger"
-    },
-    {
-     "v": "JP72ujulJYc",
-     "b": "body-count",
-     "band": "Body Count",
-     "song": "No Remorse"
-    },
-    {
-     "v": "hv4lKJ0pdTg",
-     "b": "riot",
-     "band": "Riot",
-     "song": "Swords and Tequila"
-    },
-    {
-     "v": "O5PNMMs_Dl4",
-     "b": "testament",
-     "band": "Testament",
-     "song": "A Day in the Death"
-    },
-    {
-     "v": "E-MRgpdwVtU",
-     "b": "veil-of-maya",
-     "band": "Veil of Maya",
-     "song": "Phoenix"
-    },
-    {
-     "v": "-ABqhtOH7TM",
+     "v": "4_2ipjaP6eg",
      "b": "gojira",
      "band": "Gojira",
-     "song": "Silvera"
+     "song": "The Fall"
     },
     {
-     "v": "qJaoeE1U3No",
-     "b": "cryptosis",
-     "band": "Cryptosis",
-     "song": "Death Technology"
+     "v": "L6I5JhdJUxk",
+     "b": "feared",
+     "band": "Feared",
+     "song": "FEARED \"Hate Mantra\" 03 - SVART Album Stream"
     },
     {
-     "v": "NbTVAXNyA2c",
-     "b": "opeth",
-     "band": "Opeth",
-     "song": "§3"
+     "v": "EvvBi6AHZ20",
+     "b": "whitechapel",
+     "band": "Whitechapel",
+     "song": "Mark of the Blade"
     },
     {
-     "v": "OFAdLIYk5ws",
-     "b": "overkill",
-     "band": "Overkill",
-     "song": "Mean, Green, Killing Machine"
+     "v": "F_t06tUFI_A",
+     "b": "spiritbox",
+     "band": "Spiritbox",
+     "song": "Holy Roller"
+    },
+    {
+     "v": "EkGI9VXncQw",
+     "b": "trivium",
+     "band": "Trivium",
+     "song": "Amongst The Shadows & The Stones"
+    },
+    {
+     "v": "T6R4QASBJQQ",
+     "b": "vader",
+     "band": "Vader",
+     "song": "Emptiness"
+    },
+    {
+     "v": "A4lhTw69Sn4",
+     "b": "nile",
+     "band": "Nile",
+     "song": "The Oxford Handbook of Savage Genocidal Warfare"
+    },
+    {
+     "v": "my8kOqVAHTU",
+     "b": "death-angel",
+     "band": "Death Angel",
+     "song": "The Never Was"
+    },
+    {
+     "v": "5tvQufI3jL8",
+     "b": "destrage",
+     "band": "Destrage",
+     "song": "Where the Things Have No Colour"
+    },
+    {
+     "v": "MsFedJOjeAE",
+     "b": "the-faceless",
+     "band": "The Faceless",
+     "song": "An Autopsy"
+    },
+    {
+     "v": "6U3RMcSfLcQ",
+     "b": "evile",
+     "band": "Evile",
+     "song": "Hell Unleashed"
+    },
+    {
+     "v": "up8taupsRwY",
+     "b": "necrophagist",
+     "band": "Necrophagist",
+     "song": "Stabwound"
     }
    ],
    "clips": [
@@ -91,27 +91,27 @@
     },
     {
      "code": "E001-02",
-     "role": "Intro: Destrage - Destroy Create Transform Sublimate"
+     "role": "Intro: Gojira - The Fall"
     },
     {
      "code": "E001-03",
-     "role": "Intro: Emerson String Quartet - Shostakovich: String Quartet No. 8 in C Minor, Op. 110: II. Allegro molto (Live)"
+     "role": "Intro: Feared - FEARED \"Hate Mantra\" 03 - SVART Album Stream"
     },
     {
      "code": "E001-04",
-     "role": "Intro: Death - See Through Dreams"
+     "role": "Intro: Whitechapel - Mark of the Blade"
     },
     {
      "code": "E001-05",
-     "role": "Intro: Arch Enemy - Paper Tiger"
+     "role": "Intro: Spiritbox - Holy Roller"
     },
     {
      "code": "E001-06",
-     "role": "Intro: Body Count - No Remorse"
+     "role": "Intro: Trivium - Amongst The Shadows & The Stones"
     },
     {
      "code": "E001-07",
-     "role": "Intro: Riot - Swords and Tequila"
+     "role": "Intro: Vader - Emptiness"
     },
     {
      "code": "E001-90",
@@ -119,27 +119,27 @@
     },
     {
      "code": "E001-08",
-     "role": "Intro: Testament - A Day in the Death"
+     "role": "Intro: Nile - The Oxford Handbook of Savage Genocidal Warfare"
     },
     {
      "code": "E001-09",
-     "role": "Intro: Veil of Maya - Phoenix"
+     "role": "Intro: Death Angel - The Never Was"
     },
     {
      "code": "E001-10",
-     "role": "Intro: Gojira - Silvera"
+     "role": "Intro: Destrage - Where the Things Have No Colour"
     },
     {
      "code": "E001-11",
-     "role": "Intro: Cryptosis - Death Technology"
+     "role": "Intro: The Faceless - An Autopsy"
     },
     {
      "code": "E001-12",
-     "role": "Intro: Opeth - §3"
+     "role": "Intro: Evile - Hell Unleashed"
     },
     {
      "code": "E001-13",
-     "role": "Intro: Overkill - Mean, Green, Killing Machine"
+     "role": "Intro: Necrophagist - Stabwound"
     },
     {
      "code": "E001-99",
@@ -156,46 +156,10 @@
    "clips_total": 15,
    "songs": [
     {
-     "v": "4IgoitlgZOI",
-     "b": "iron-maiden",
-     "band": "Iron Maiden",
-     "song": "Powerslave (2015 Remaster)"
-    },
-    {
-     "v": "up8taupsRwY",
-     "b": "necrophagist",
-     "band": "Necrophagist",
-     "song": "Stabwound"
-    },
-    {
-     "v": "LNd_SlINFLM",
-     "b": "armida-quartett",
-     "band": "Armida Quartett",
-     "song": "Shostakovich: String Quartet No. 10 in A-Flat Major, Op. 118: II. Allegretto furioso"
-    },
-    {
-     "v": "4SbuvVtj-xE",
-     "b": "angelus-apatrida",
-     "band": "Angelus Apatrida",
-     "song": "Disposable Liberty"
-    },
-    {
-     "v": "2p2vnhR4EAw",
-     "b": "decapitated",
-     "band": "Decapitated",
-     "song": "Day 69"
-    },
-    {
-     "v": "Ch6tT9Z9FIc",
-     "b": "angel-witch",
-     "band": "Angel Witch",
-     "song": "Baphomet (Demo)"
-    },
-    {
-     "v": "A4lhTw69Sn4",
-     "b": "nile",
-     "band": "Nile",
-     "song": "The Oxford Handbook of Savage Genocidal Warfare"
+     "v": "rDDqA4QR8Ck",
+     "b": "havok",
+     "band": "Havok",
+     "song": "Scumbag In Disguise"
     },
     {
      "v": "jiKjcrniJKY",
@@ -204,28 +168,64 @@
      "song": "43% Burnt"
     },
     {
-     "v": "vZtpZSF1qU8",
-     "b": "vader",
-     "band": "Vader",
-     "song": "Bones"
+     "v": "5CSx0o7qAHs",
+     "b": "ektonorth",
+     "band": "Ektonorth",
+     "song": "Necrophagist - Extreme Unction (Live) [HQ]"
     },
     {
-     "v": "soq5DEdDZCY",
-     "b": "up-front",
-     "band": "Up Front",
-     "song": "Break it up"
+     "v": "FjwNA4f_bwk",
+     "b": "the-haunted",
+     "band": "The Haunted",
+     "song": "99"
     },
     {
-     "v": "NL3lt71pD_0",
-     "b": "otep",
-     "band": "Otep",
-     "song": "Fillthee"
+     "v": "NQY-RV7Z9W8",
+     "b": "alkaloid",
+     "band": "Alkaloid",
+     "song": "Clusterfuck"
     },
     {
-     "v": "CsblubJl7Yg",
-     "b": "nothingface",
-     "band": "Nothingface",
-     "song": "Villains"
+     "v": "UYQkMScS1Ps",
+     "b": "aborted",
+     "band": "Aborted",
+     "song": "Insect Politics (feat. Jason Evans)"
+    },
+    {
+     "v": "JYALpvUGNk8",
+     "b": "metallica",
+     "band": "Metallica",
+     "song": "Leper Messiah (Remastered)"
+    },
+    {
+     "v": "eCI2C8ibi5A",
+     "b": "crypta",
+     "band": "Crypta",
+     "song": "Trial of Traitors"
+    },
+    {
+     "v": "I7V1iMlROlk",
+     "b": "chronosphere",
+     "band": "Chronosphere",
+     "song": "Killing My Sins"
+    },
+    {
+     "v": "Bquz9LScP3E",
+     "b": "psycroptic",
+     "band": "Psycroptic",
+     "song": "COLD"
+    },
+    {
+     "v": "9sKnMA_APOo",
+     "b": "every-time-i-die",
+     "band": "Every Time I Die",
+     "song": "We'rewolf"
+    },
+    {
+     "v": "810rb1PKIHI",
+     "b": "crisix",
+     "band": "Crisix",
+     "song": "Critical Mass"
     }
    ],
    "clips": [
@@ -235,27 +235,27 @@
     },
     {
      "code": "E002-02",
-     "role": "Intro: Iron Maiden - Powerslave (2015 Remaster)"
+     "role": "Intro: Havok - Scumbag In Disguise"
     },
     {
      "code": "E002-03",
-     "role": "Intro: Necrophagist - Stabwound"
+     "role": "Intro: Dillinger Escape Plan - 43% Burnt"
     },
     {
      "code": "E002-04",
-     "role": "Intro: Armida Quartett - Shostakovich: String Quartet No. 10 in A-Flat Major, Op. 118: II. Allegretto furioso"
+     "role": "Intro: Ektonorth - Necrophagist - Extreme Unction (Live) [HQ]"
     },
     {
      "code": "E002-05",
-     "role": "Intro: Angelus Apatrida - Disposable Liberty"
+     "role": "Intro: The Haunted - 99"
     },
     {
      "code": "E002-06",
-     "role": "Intro: Decapitated - Day 69"
+     "role": "Intro: Alkaloid - Clusterfuck"
     },
     {
      "code": "E002-07",
-     "role": "Intro: Angel Witch - Baphomet (Demo)"
+     "role": "Intro: Aborted - Insect Politics (feat. Jason Evans)"
     },
     {
      "code": "E002-90",
@@ -263,27 +263,27 @@
     },
     {
      "code": "E002-08",
-     "role": "Intro: Nile - The Oxford Handbook of Savage Genocidal Warfare"
+     "role": "Intro: Metallica - Leper Messiah (Remastered)"
     },
     {
      "code": "E002-09",
-     "role": "Intro: Dillinger Escape Plan - 43% Burnt"
+     "role": "Intro: Crypta - Trial of Traitors"
     },
     {
      "code": "E002-10",
-     "role": "Intro: Vader - Bones"
+     "role": "Intro: Chronosphere - Killing My Sins"
     },
     {
      "code": "E002-11",
-     "role": "Intro: Up Front - Break it up"
+     "role": "Intro: Psycroptic - COLD"
     },
     {
      "code": "E002-12",
-     "role": "Intro: Otep - Fillthee"
+     "role": "Intro: Every Time I Die - We'rewolf"
     },
     {
      "code": "E002-13",
-     "role": "Intro: Nothingface - Villains"
+     "role": "Intro: Crisix - Critical Mass"
     },
     {
      "code": "E002-99",
@@ -300,76 +300,76 @@
    "clips_total": 15,
    "songs": [
     {
-     "v": "mW7XuIpYTtc",
-     "b": "obscura",
-     "band": "Obscura",
-     "song": "Akróasis"
+     "v": "O5lkqSb-V48",
+     "b": "iced-earth",
+     "band": "Iced Earth",
+     "song": "Ten Thousand Strong"
     },
     {
-     "v": "EkGI9VXncQw",
-     "b": "trivium",
-     "band": "Trivium",
-     "song": "Amongst The Shadows & The Stones"
+     "v": "PcxBP9IdFfM",
+     "b": "first-fragment",
+     "band": "First Fragment",
+     "song": "Gula"
     },
     {
-     "v": "qPtxytP_DF4",
-     "b": "lazarus-a-d",
-     "band": "Lazarus A.D.",
-     "song": "American Dreams"
+     "v": "C_1c8jqxUic",
+     "b": "cattle-decapitation",
+     "band": "Cattle Decapitation",
+     "song": "The Carbon Stampede"
     },
     {
-     "v": "4eRYMSt1rg8",
+     "v": "cXGt_Dtil2c",
+     "b": "cannibal-corpse",
+     "band": "Cannibal Corpse",
+     "song": "Evisceration Plague"
+    },
+    {
+     "v": "XCJjn7yohoM",
+     "b": "make-them-suffer",
+     "band": "Make Them Suffer",
+     "song": "Midnight Run"
+    },
+    {
+     "v": "V_lptHHokws",
+     "b": "hagen-quartett",
+     "band": "Hagen Quartett",
+     "song": "Shostakovich: String Quartet No. 3 in F Major, Op. 73: III. Allegro non troppo"
+    },
+    {
+     "v": "ZcSoW_iLDo0",
+     "b": "annihilator",
+     "band": "Annihilator",
+     "song": "Alison Hell"
+    },
+    {
+     "v": "RXOLimWeJ4k",
+     "b": "after-the-burial",
+     "band": "After The Burial",
+     "song": "Berzerker"
+    },
+    {
+     "v": "LNd_SlINFLM",
+     "b": "armida-quartett",
+     "band": "Armida Quartett",
+     "song": "Shostakovich: String Quartet No. 10 in A-Flat Major, Op. 118: II. Allegretto furioso"
+    },
+    {
+     "v": "86HYHjTfhXE",
+     "b": "dr-living-dead",
+     "band": "Dr. Living Dead",
+     "song": "Can't Kill the Dead"
+    },
+    {
+     "v": "cXM0U1V4BTA",
      "b": "jinjer",
      "band": "Jinjer",
-     "song": "A Plus or a Minus"
+     "song": "Under the Dome"
     },
     {
-     "v": "sEIymfD4Z2E",
-     "b": "release",
-     "band": "Release",
-     "song": "Etudes for Piano, Op. 740: No. 14 in G Minor"
-    },
-    {
-     "v": "wsM6VKYgAaM",
-     "b": "aggression",
-     "band": "Aggression",
-     "song": "Chaos Anatomy"
-    },
-    {
-     "v": "EzRC8rKbA_o",
-     "b": "the-red-chord",
-     "band": "The Red Chord",
-     "song": "Hour Of Rats"
-    },
-    {
-     "v": "3L9DIDuhJlg",
-     "b": "spiritworld",
-     "band": "SpiritWorld",
-     "song": "Waiting on the Reaper"
-    },
-    {
-     "v": "esDkLrZm0jU",
-     "b": "judas-priest",
-     "band": "Judas Priest",
-     "song": "Exciter (Live)"
-    },
-    {
-     "v": "PZWPMwQJL60",
-     "b": "evile",
-     "band": "Evile",
-     "song": "Hell Unleashed"
-    },
-    {
-     "v": "t4nXEYX1HHI",
-     "b": "terrifier",
-     "band": "Terrifier",
-     "song": "Trial by Combat"
-    },
-    {
-     "v": "MvKcJoGRtyk",
-     "b": "designing-creation",
-     "band": "Designing Creation",
-     "song": "The Kid"
+     "v": "kLb33z4kNXw",
+     "b": "rings-of-saturn",
+     "band": "Rings of Saturn",
+     "song": "Fruitless Existence"
     }
    ],
    "clips": [
@@ -379,27 +379,27 @@
     },
     {
      "code": "E003-02",
-     "role": "Intro: Obscura - Akróasis"
+     "role": "Intro: Iced Earth - Ten Thousand Strong"
     },
     {
      "code": "E003-03",
-     "role": "Intro: Trivium - Amongst The Shadows & The Stones"
+     "role": "Intro: First Fragment - Gula"
     },
     {
      "code": "E003-04",
-     "role": "Intro: Lazarus A.D. - American Dreams"
+     "role": "Intro: Cattle Decapitation - The Carbon Stampede"
     },
     {
      "code": "E003-05",
-     "role": "Intro: Jinjer - A Plus or a Minus"
+     "role": "Intro: Cannibal Corpse - Evisceration Plague"
     },
     {
      "code": "E003-06",
-     "role": "Intro: Release - Etudes for Piano, Op. 740: No. 14 in G Minor"
+     "role": "Intro: Make Them Suffer - Midnight Run"
     },
     {
      "code": "E003-07",
-     "role": "Intro: Aggression - Chaos Anatomy"
+     "role": "Intro: Hagen Quartett - Shostakovich: String Quartet No. 3 in F Major, Op. 73: III. Allegro non troppo"
     },
     {
      "code": "E003-90",
@@ -407,27 +407,27 @@
     },
     {
      "code": "E003-08",
-     "role": "Intro: The Red Chord - Hour Of Rats"
+     "role": "Intro: Annihilator - Alison Hell"
     },
     {
      "code": "E003-09",
-     "role": "Intro: SpiritWorld - Waiting on the Reaper"
+     "role": "Intro: After The Burial - Berzerker"
     },
     {
      "code": "E003-10",
-     "role": "Intro: Judas Priest - Exciter (Live)"
+     "role": "Intro: Armida Quartett - Shostakovich: String Quartet No. 10 in A-Flat Major, Op. 118: II. Allegretto furioso"
     },
     {
      "code": "E003-11",
-     "role": "Intro: Evile - Hell Unleashed"
+     "role": "Intro: Dr. Living Dead - Can't Kill the Dead"
     },
     {
      "code": "E003-12",
-     "role": "Intro: Terrifier - Trial by Combat"
+     "role": "Intro: Jinjer - Under the Dome"
     },
     {
      "code": "E003-13",
-     "role": "Intro: Designing Creation - The Kid"
+     "role": "Intro: Rings of Saturn - Fruitless Existence"
     },
     {
      "code": "E003-99",
@@ -444,52 +444,22 @@
    "clips_total": 15,
    "songs": [
     {
-     "v": "eBa0SgvxQXo",
-     "b": "fusion-bomb",
-     "band": "Fusion Bomb",
-     "song": "Slam Tornado"
+     "v": "3L9DIDuhJlg",
+     "b": "spiritworld",
+     "band": "SpiritWorld",
+     "song": "Waiting on the Reaper"
     },
     {
-     "v": "EWGoAVxiVRU",
-     "b": "fayence-dream",
-     "band": "Fayence Dream",
-     "song": "Faith's Mystery"
+     "v": "Yqb_rwkE4EM",
+     "b": "kittie",
+     "band": "Kittie",
+     "song": "Spit XXV"
     },
     {
-     "v": "dQZ7QerXE2k",
-     "b": "sepultura",
-     "band": "Sepultura",
-     "song": "Inner Self"
-    },
-    {
-     "v": "bCypb--lv1M",
-     "b": "berliner-philharmoniker",
-     "band": "Berliner Philharmoniker",
-     "song": "Shostakovich: Symphony No. 10 in E Minor, Op. 93: II. Allegro"
-    },
-    {
-     "v": "V_lptHHokws",
-     "b": "hagen-quartett",
-     "band": "Hagen Quartett",
-     "song": "Shostakovich: String Quartet No. 3 in F Major, Op. 73: III. Allegro non troppo"
-    },
-    {
-     "v": "x3nqOGML6uo",
-     "b": "hilary-hahn",
-     "band": "Hilary Hahn",
-     "song": "Violin Concerto No. 1 in A Minor, Op. 77: II. Scherzo. Allegro non troppo"
-    },
-    {
-     "v": "te-G45J_t1o",
-     "b": "kreator",
-     "band": "Kreator",
-     "song": "Suicide Terrorist"
-    },
-    {
-     "v": "JYALpvUGNk8",
-     "b": "metallica",
-     "band": "Metallica",
-     "song": "Leper Messiah (Remastered)"
+     "v": "k-HE3EGrAu4",
+     "b": "lazarus-a-d",
+     "band": "Lazarus A.D.",
+     "song": "The Ultimate Sacrifice"
     },
     {
      "v": "gBB1OJL-4Ew",
@@ -498,22 +468,52 @@
      "song": "Roboticist"
     },
     {
-     "v": "OtyJNH3o6rI",
-     "b": "f-k-ü",
-     "band": "F.K.Ü.",
-     "song": "The Pit and the Poser"
+     "v": "aAydVbloBLc",
+     "b": "testament",
+     "band": "Testament",
+     "song": "Children of the Next Level"
     },
     {
-     "v": "TXhLqG8hHHs",
-     "b": "grip-inc",
-     "band": "Grip Inc.",
-     "song": "Pathetic Liar"
+     "v": "6JTsS2QFDqM",
+     "b": "meshuggah",
+     "band": "Meshuggah",
+     "song": "Pravus"
     },
     {
-     "v": "lcdsa4AmRis",
-     "b": "down",
-     "band": "Down",
-     "song": "The Myth"
+     "v": "BbxDEnkSI-M",
+     "b": "walls-of-blood",
+     "band": "Walls Of Blood",
+     "song": "Tarnished Dreams"
+    },
+    {
+     "v": "Ch6tT9Z9FIc",
+     "b": "angel-witch",
+     "band": "Angel Witch",
+     "song": "Baphomet (Demo)"
+    },
+    {
+     "v": "g1TM_o5lslY",
+     "b": "accept",
+     "band": "Accept",
+     "song": "Fast as a Shark"
+    },
+    {
+     "v": "4_sSV_KqU4o",
+     "b": "judas-priest",
+     "band": "Judas Priest",
+     "song": "Dissident Aggressor"
+    },
+    {
+     "v": "8PF3rcDeMB0",
+     "b": "decapitated",
+     "band": "Decapitated",
+     "song": "Veins"
+    },
+    {
+     "v": "EBFckAwVCos",
+     "b": "vio-lence",
+     "band": "Vio-Lence",
+     "song": "Gato Negro"
     }
    ],
    "clips": [
@@ -523,27 +523,27 @@
     },
     {
      "code": "E004-02",
-     "role": "Intro: Fusion Bomb - Slam Tornado"
+     "role": "Intro: SpiritWorld - Waiting on the Reaper"
     },
     {
      "code": "E004-03",
-     "role": "Intro: Fayence Dream - Faith's Mystery"
+     "role": "Intro: Kittie - Spit XXV"
     },
     {
      "code": "E004-04",
-     "role": "Intro: Sepultura - Inner Self"
+     "role": "Intro: Lazarus A.D. - The Ultimate Sacrifice"
     },
     {
      "code": "E004-05",
-     "role": "Intro: Berliner Philharmoniker - Shostakovich: Symphony No. 10 in E Minor, Op. 93: II. Allegro"
+     "role": "Intro: Fear Factory - Roboticist"
     },
     {
      "code": "E004-06",
-     "role": "Intro: Hagen Quartett - Shostakovich: String Quartet No. 3 in F Major, Op. 73: III. Allegro non troppo"
+     "role": "Intro: Testament - Children of the Next Level"
     },
     {
      "code": "E004-07",
-     "role": "Intro: Hilary Hahn - Violin Concerto No. 1 in A Minor, Op. 77: II. Scherzo. Allegro non troppo"
+     "role": "Intro: Meshuggah - Pravus"
     },
     {
      "code": "E004-90",
@@ -551,27 +551,27 @@
     },
     {
      "code": "E004-08",
-     "role": "Intro: Kreator - Suicide Terrorist"
+     "role": "Intro: Walls Of Blood - Tarnished Dreams"
     },
     {
      "code": "E004-09",
-     "role": "Intro: Metallica - Leper Messiah (Remastered)"
+     "role": "Intro: Angel Witch - Baphomet (Demo)"
     },
     {
      "code": "E004-10",
-     "role": "Intro: Fear Factory - Roboticist"
+     "role": "Intro: Accept - Fast as a Shark"
     },
     {
      "code": "E004-11",
-     "role": "Intro: F.K.Ü. - The Pit and the Poser"
+     "role": "Intro: Judas Priest - Dissident Aggressor"
     },
     {
      "code": "E004-12",
-     "role": "Intro: Grip Inc. - Pathetic Liar"
+     "role": "Intro: Decapitated - Veins"
     },
     {
      "code": "E004-13",
-     "role": "Intro: Down - The Myth"
+     "role": "Intro: Vio-Lence - Gato Negro"
     },
     {
      "code": "E004-99",
@@ -588,76 +588,76 @@
    "clips_total": 15,
    "songs": [
     {
-     "v": "llOWHE2U0rI",
-     "b": "exhorder",
-     "band": "Exhorder",
-     "song": "Forever and Beyond Despair"
+     "v": "ea5CNoYjiYY",
+     "b": "arch-enemy",
+     "band": "Arch Enemy",
+     "song": "Paper Tiger"
     },
     {
-     "v": "1iaUNBlocSM",
-     "b": "unburier",
-     "band": "Unburier",
-     "song": "Over The Worlds They Create"
+     "v": "R18pqnsUG1I",
+     "b": "kreator",
+     "band": "Kreator",
+     "song": "Phantom Antichrist"
     },
     {
-     "v": "tRPBmDtZmbY",
-     "b": "carnifex",
-     "band": "Carnifex",
-     "song": "Lie To My Face"
+     "v": "NBvVAxEJDMM",
+     "b": "overt-enemy",
+     "band": "Overt Enemy",
+     "song": "At Dawn They Sleep"
     },
     {
-     "v": "sxiklX-P77o",
-     "b": "dying-fetus",
-     "band": "Dying Fetus",
-     "song": "The Blood of Power"
+     "v": "I9e8G1wDb3I",
+     "b": "beyond-creation",
+     "band": "Beyond Creation",
+     "song": "No Request for the Corrupted"
     },
     {
-     "v": "_42L6KLFXhI",
-     "b": "funeral-dancer",
-     "band": "Funeral Dancer",
-     "song": "Starborn"
+     "v": "GjZRR2Eo9u4",
+     "b": "archspire",
+     "band": "Archspire",
+     "song": "Golden Mouth of Ruin"
     },
     {
-     "v": "PcxBP9IdFfM",
-     "b": "first-fragment",
-     "band": "First Fragment",
-     "song": "Gula"
+     "v": "guHb0ops9wY",
+     "b": "revocation",
+     "band": "Revocation",
+     "song": "The Outer Ones"
     },
     {
-     "v": "ChBHghE29o4",
-     "b": "sikth",
-     "band": "SikTh",
-     "song": "Pussyfoot"
+     "v": "Vf4telkiYio",
+     "b": "anthrax",
+     "band": "Anthrax",
+     "song": "The Devil You Know"
     },
     {
-     "v": "NQY-RV7Z9W8",
-     "b": "alkaloid",
-     "band": "Alkaloid",
-     "song": "Clusterfuck"
+     "v": "btaTUNbdD6s",
+     "b": "melvins",
+     "band": "Melvins",
+     "song": "Honey Bucket"
     },
     {
-     "v": "WjqGDEv5-k0",
-     "b": "cattle-decapitation",
-     "band": "Cattle Decapitation",
-     "song": "A Photic Doom"
+     "v": "sEIymfD4Z2E",
+     "b": "release",
+     "band": "Release",
+     "song": "Etudes for Piano, Op. 740: No. 14 in G Minor"
     },
     {
-     "v": "gMCXDcfa3T0",
-     "b": "meshuggah",
-     "band": "Meshuggah",
-     "song": "By the Ton"
+     "v": "qJaoeE1U3No",
+     "b": "cryptosis",
+     "band": "Cryptosis",
+     "song": "Death Technology"
     },
     {
-     "v": "kGNHwLicV2g",
-     "b": "pantera",
-     "band": "Pantera",
-     "song": "Cowboys from Hell"
+     "v": "MrmAyUXu-Cg",
+     "b": "gorod",
+     "band": "Gorod",
+     "song": "Aethra"
     },
     {
-     "v": "aJvR8jZ3htA",
-     "b": "slipknot",
-     "band": "Slipknot",
-     "song": "Gematria (The Killing Name)"
+     "v": "WvHkiJ8KokA",
+     "b": "machine-head",
+     "band": "Machine Head",
+     "song": "The Blood, the Sweat, the Tears"
     }
    ],
    "clips": [
@@ -667,27 +667,27 @@
     },
     {
      "code": "E005-02",
-     "role": "Intro: Exhorder - Forever and Beyond Despair"
+     "role": "Intro: Arch Enemy - Paper Tiger"
     },
     {
      "code": "E005-03",
-     "role": "Intro: Unburier - Over The Worlds They Create"
+     "role": "Intro: Kreator - Phantom Antichrist"
     },
     {
      "code": "E005-04",
-     "role": "Intro: Carnifex - Lie To My Face"
+     "role": "Intro: Overt Enemy - At Dawn They Sleep"
     },
     {
      "code": "E005-05",
-     "role": "Intro: Dying Fetus - The Blood of Power"
+     "role": "Intro: Beyond Creation - No Request for the Corrupted"
     },
     {
      "code": "E005-06",
-     "role": "Intro: Funeral Dancer - Starborn"
+     "role": "Intro: Archspire - Golden Mouth of Ruin"
     },
     {
      "code": "E005-07",
-     "role": "Intro: First Fragment - Gula"
+     "role": "Intro: Revocation - The Outer Ones"
     },
     {
      "code": "E005-90",
@@ -695,27 +695,27 @@
     },
     {
      "code": "E005-08",
-     "role": "Intro: SikTh - Pussyfoot"
+     "role": "Intro: Anthrax - The Devil You Know"
     },
     {
      "code": "E005-09",
-     "role": "Intro: Alkaloid - Clusterfuck"
+     "role": "Intro: Melvins - Honey Bucket"
     },
     {
      "code": "E005-10",
-     "role": "Intro: Cattle Decapitation - A Photic Doom"
+     "role": "Intro: Release - Etudes for Piano, Op. 740: No. 14 in G Minor"
     },
     {
      "code": "E005-11",
-     "role": "Intro: Meshuggah - By the Ton"
+     "role": "Intro: Cryptosis - Death Technology"
     },
     {
      "code": "E005-12",
-     "role": "Intro: Pantera - Cowboys from Hell"
+     "role": "Intro: Gorod - Aethra"
     },
     {
      "code": "E005-13",
-     "role": "Intro: Slipknot - Gematria (The Killing Name)"
+     "role": "Intro: Machine Head - The Blood, the Sweat, the Tears"
     },
     {
      "code": "E005-99",
