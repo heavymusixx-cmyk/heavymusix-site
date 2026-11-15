@@ -1,0 +1,42 @@
+name: Auto-post to HeavyMusix accounts
+
+# Posts to HeavyMusix's OWN Threads, Instagram and Facebook Page only (never groups).
+# Off until the account secrets are added (see the Daily Playbook). Twice a day:
+# 8:41 AM Arizona = today's lead story, 5:41 PM Arizona = today in metal history.
+on:
+  schedule:
+    - cron: "41 15 * * *"
+    - cron: "41 0 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: site-robots
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Post
+        env:
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_TOKEN: ${{ secrets.THREADS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+        run: python3 scripts/autopost.py
+      - name: Remember what was posted
+        if: always()
+        run: |
+          git config user.name "HeavyMusix Social Bot"
+          git config user.email "social-bot@users.noreply.github.com"
+          git add social/posted.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Social: posted $(date -u '+%F %H:%M')"
+            git pull --rebase
+            git push
+          fi

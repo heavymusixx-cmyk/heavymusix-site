@@ -1,0 +1,126 @@
+"""HeavyMusix auto-poster: posts to HeavyMusix's OWN accounts only (Threads, Instagram, Facebook Page).
+Never posts in groups or other people's spaces. Runs on GitHub twice a day.
+
+Morning slot (8:41 AM Arizona): today's lead story.   Evening slot (5:41 PM): today in metal history.
+Text comes from social/queue.json (written by the morning content task) when it has an entry for today and the slot;
+otherwise it is built from news.js / history.js. Each platform is skipped quietly until its secrets exist:
+  THREADS_USER_ID + THREADS_TOKEN          (Threads API)
+  IG_USER_ID + META_PAGE_TOKEN             (Instagram professional account linked to the Facebook Page)
+  FB_PAGE_ID + META_PAGE_TOKEN             (Facebook Page)
+Never posts the same thing twice: social/posted.json remembers what went out."""
+import datetime, json, os, re, subprocess, sys, time, urllib.parse, urllib.request
+
+SITE = "https://heavymusix.com/"
+AZ = datetime.timezone(datetime.timedelta(hours=-7))
+now = datetime.datetime.now(AZ)
+today = now.date().isoformat()
+slot = sys.argv[1] if len(sys.argv) > 1 else ("morning" if now.hour < 13 else "evening")
+
+
+def js(file, var):
+    code = f"eval(require('fs').readFileSync({json.dumps(file)},'utf8')+';process.stdout.write(JSON.stringify({var}))')"
+    return json.loads(subprocess.check_output(["node", "-e", code], text=True))
+
+
+def slug_of(n):
+    return n["date"] + "-" + re.sub(r"[^a-z0-9]+", "-", n["title"].lower()).strip("-")[:60]
+
+
+def clip(s, n):
+    return s if len(s) <= n else s[:n - 1].rsplit(" ", 1)[0] + "…"
+
+
+def load(path, default):
+    try:
+        return json.load(open(path, encoding="utf-8"))
+    except (FileNotFoundError, ValueError):
+        return default
+
+
+# ---------- what to post
+queue = load("social/queue.json", [])
+item = next((q for q in queue if q.get("date") == today and q.get("slot") == slot), None)
+if not item:
+    if slot == "morning":
+        news = [n for n in js("news.js", "NEWS") if n["date"] == today and n.get("tag") not in ("Site", "Coming soon")]
+        if not news:
+            print("No story for today yet; nothing to post."); sys.exit(0)
+        n, s = news[0], slug_of(news[0])
+        item = {"text": f"{n['title']}\n\n{clip(n['text'][0], 330)}",
+                "link": f"{SITE}news/{s}.html", "image": f"{SITE}og/{s}.png",
+                "tags": "#HeavyMusixRadio #UnsignedMetal #MetalNews"}
+    else:
+        hist = js("history.js", "HISTORY").get(now.strftime("%m-%d"), [])
+        if not hist:
+            print("No history for today; nothing to post."); sys.exit(0)
+        h = sorted(hist, key=lambda x: x["year"])[0]
+        item = {"text": f"Today in metal history: {h['year']}\n\n{clip(h['text'], 330)}\n\nWhat else happened today?",
+                "link": f"{SITE}today/", "image": f"{SITE}og/history-{now.strftime('%m-%d')}.png",
+                "tags": "#MetalHistory #HeavyMusixRadio"}
+key = f"{today}-{slot}"
+posted = load("social/posted.json", {})
+done = posted.get(key, {})
+
+
+def call(url, data):
+    req = urllib.request.Request(url, data=urllib.parse.urlencode(data).encode(), method="POST")
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return json.loads(r.read())
+
+
+def image_ok(u):
+    try:
+        with urllib.request.urlopen(urllib.request.Request(u, method="HEAD"), timeout=30) as r:
+            return r.status == 200
+    except Exception:
+        return False
+
+
+img = item.get("image") if item.get("image") and image_ok(item["image"]) else None
+results = {}
+
+# ---------- Threads (500 characters max)
+if os.getenv("THREADS_TOKEN") and os.getenv("THREADS_USER_ID") and "threads" not in done:
+    text = clip(item["text"], 500 - len(item["link"]) - 4) + "\n\n" + item["link"]
+    base = f"https://graph.threads.net/v1.0/{os.environ['THREADS_USER_ID']}"
+    tok = os.environ["THREADS_TOKEN"]
+    try:
+        c = call(f"{base}/threads", {"media_type": "IMAGE" if img else "TEXT", "text": text, **({"image_url": img} if img else {}), "access_token": tok})
+        time.sleep(30)
+        p = call(f"{base}/threads_publish", {"creation_id": c["id"], "access_token": tok})
+        results["threads"] = p.get("id", "ok")
+    except Exception as e:
+        results["threads_error"] = str(e)[:300]
+
+# ---------- Instagram (needs a picture)
+if os.getenv("META_PAGE_TOKEN") and os.getenv("IG_USER_ID") and img and "instagram" not in done:
+    cap = f"{item['text']}\n\nFull story: link in bio or heavymusix.com\n\n{item.get('tags', '#HeavyMusixRadio')}"
+    base = f"https://graph.facebook.com/v21.0/{os.environ['IG_USER_ID']}"
+    tok = os.environ["META_PAGE_TOKEN"]
+    try:
+        c = call(f"{base}/media", {"image_url": img, "caption": clip(cap, 2100), "access_token": tok})
+        time.sleep(30)
+        p = call(f"{base}/media_publish", {"creation_id": c["id"], "access_token": tok})
+        results["instagram"] = p.get("id", "ok")
+    except Exception as e:
+        results["instagram_error"] = str(e)[:300]
+
+# ---------- Facebook Page
+if os.getenv("META_PAGE_TOKEN") and os.getenv("FB_PAGE_ID") and "facebook" not in done:
+    try:
+        p = call(f"https://graph.facebook.com/v21.0/{os.environ['FB_PAGE_ID']}/feed",
+                 {"message": item["text"], "link": item["link"], "access_token": os.environ["META_PAGE_TOKEN"]})
+        results["facebook"] = p.get("id", "ok")
+    except Exception as e:
+        results["facebook_error"] = str(e)[:300]
+
+if not results:
+    print("No accounts connected yet (or already posted). Nothing to do."); sys.exit(0)
+done.update({k: v for k, v in results.items() if not k.endswith("_error")})
+posted[key] = done
+cutoff = (now.date() - datetime.timedelta(days=60)).isoformat()
+posted = {k: v for k, v in posted.items() if k[:10] >= cutoff}
+os.makedirs("social", exist_ok=True)
+json.dump(posted, open("social/posted.json", "w"), indent=1)
+print(json.dumps(results, indent=1))
+sys.exit(1 if any(k.endswith("_error") for k in results) else 0)
