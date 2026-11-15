@@ -138,7 +138,7 @@ def read_playlist(pl):
                 out.append(it)
                 n += 1
             else:
-                mm = re.search(r'"token":"([^"]+)"', json.dumps(o))
+                mm = re.search(r'"token":"([^"]+)"', json.dumps(o, separators=(",", ":")))
                 if mm:
                     tok = mm.group(1)
         if not n:
@@ -299,6 +299,12 @@ def main():
             city, region, country, genre = known.get(s["n"], ("", "", "", ""))
             bands[s["b"]] = {"name": s["n"], "city": city, "region": region, "country": country,
                              "genre": genre, "unsigned": False, "links": {}, "bio": ""}
+        else:
+            kn = known.get(bands[s["b"]].get("name", s["n"]))
+            if kn:
+                for f, val in zip(("city", "region", "country", "genre"), kn):
+                    if not bands[s["b"]].get(f):
+                        bands[s["b"]][f] = val
     for b in bands:
         bands[b]["songs"] = counts.get(b, 0)
     save("bands.json", bands)
