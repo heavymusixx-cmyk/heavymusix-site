@@ -144,3 +144,10 @@ ul.az .wsrc,ul.songs .wsrc{font-size:14px;opacity:.7;width:100%}
 ol.tracks{counter-reset:t;margin:10px 0 18px}
 ol.tracks li{counter-increment:t;padding:4px 0}
 ol.tracks li::before{content:counter(t) ". ";opacity:.6;font-weight:700}
+
+/* Movable player */
+#hmx-dock .dock-bar{cursor:grab;touch-action:none;user-select:none}
+#hmx-dock.dragging .dock-bar{cursor:grabbing}
+#hmx-dock.dragging iframe{pointer-events:none}
+#hmx-dock .dock-grip{font-size:16px;letter-spacing:-3px;opacity:.75;margin-right:2px}
+#hmx-dock .dock-title{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}

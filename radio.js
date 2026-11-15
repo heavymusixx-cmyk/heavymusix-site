@@ -46,7 +46,7 @@
     d.id = 'hmx-dock';
     d.setAttribute('aria-label', 'HeavyMusix Radio player');
     d.innerHTML =
-      '<div class="dock-bar"><span class="dock-title">HeavyMusix Radio<span class="dock-now"></span></span>' +
+      '<div class="dock-bar" title="Drag to move the player"><span class="dock-grip" aria-hidden="true">&#8942;&#8942;</span><span class="dock-title">HeavyMusix Radio<span class="dock-now"></span></span>' +
       '<button type="button" class="dock-btn" data-act="radio" aria-label="Back to the radio" title="Back to the radio">&#9673;</button>' +
       '<button type="button" class="dock-btn" data-act="min" aria-label="Shrink or expand the player" title="Shrink or expand">&#8211;</button>' +
       '<button type="button" class="dock-btn" data-act="close" aria-label="Stop and close the player" title="Stop">&#215;</button></div>' +
@@ -58,6 +58,7 @@
       if (b.dataset.act === 'close'){ d.remove(); location.reload(); }
     });
     document.body.appendChild(d);
+    makeDraggable(d);
     markHome();
     var go = function(){
       player = new YT.Player('hmx-yt', {
@@ -76,6 +77,44 @@
       window.onYouTubeIframeAPIReady = function(){ if (prev) prev(); go(); };
       var s = document.createElement('script'); s.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(s);
     }
+  }
+
+
+  /* Drag the player anywhere by its red title bar (mouse or finger). Remembers the spot. */
+  function place(d, x, y){
+    var w = d.offsetWidth, h = d.offsetHeight;
+    x = Math.max(4, Math.min(x, window.innerWidth - w - 4));
+    y = Math.max(4, Math.min(y, window.innerHeight - h - 4));
+    d.style.left = x + 'px'; d.style.top = y + 'px';
+    d.style.right = 'auto'; d.style.bottom = 'auto';
+    return [x, y];
+  }
+  function makeDraggable(d){
+    var bar = d.querySelector('.dock-bar'), start = null;
+    try { var saved = JSON.parse(localStorage.getItem('hmxDockPos') || 'null'); if (saved) place(d, saved[0], saved[1]); } catch (x) {}
+    bar.addEventListener('pointerdown', function(e){
+      if (e.target.closest('.dock-btn')) return;
+      var r = d.getBoundingClientRect();
+      start = {dx: e.clientX - r.left, dy: e.clientY - r.top};
+      d.classList.add('dragging');
+      bar.setPointerCapture(e.pointerId);
+      e.preventDefault();
+    });
+    bar.addEventListener('pointermove', function(e){
+      if (!start) return;
+      place(d, e.clientX - start.dx, e.clientY - start.dy);
+    });
+    function end(){
+      if (!start) return;
+      start = null;
+      d.classList.remove('dragging');
+      try { var r = d.getBoundingClientRect(); localStorage.setItem('hmxDockPos', JSON.stringify([r.left, r.top])); } catch (x) {}
+    }
+    bar.addEventListener('pointerup', end);
+    bar.addEventListener('pointercancel', end);
+    window.addEventListener('resize', function(){
+      if (d.style.left){ var r = d.getBoundingClientRect(); place(d, r.left, r.top); }
+    });
   }
 
   function withPlayer(fn){
