@@ -23,6 +23,8 @@ jobs:
           python-version: "3.12"
       - name: Fetch headlines
         run: python scripts/wire.py
+      - name: Install picture maker
+        run: pip install --quiet pillow
       - name: Rebuild story, band and show pages, news feed and sitemap
         run: python scripts/build_pages.py
       - name: Publish if changed
@@ -31,7 +33,7 @@ jobs:
         run: |
           git config user.name "HeavyMusix News Bot"
           git config user.email "news-bot@users.noreply.github.com"
-          git add wire.js sitemap.xml feed.xml arizona-metal-shows.html news bands episodes
+          git add wire.js sitemap.xml feed.xml arizona-metal-shows.html news bands episodes og
           if git diff --cached --quiet; then
             echo "No new headlines this run."
           else

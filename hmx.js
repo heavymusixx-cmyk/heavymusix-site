@@ -18,6 +18,13 @@ var HMX = window.HMX || {};
   if (!window.__hmxClicks) { window.__hmxClicks = true; document.addEventListener('click', function(e){
     var b = e.target.closest('.playbtn');
     if (b && window.hmxPlaySong){ hmxPlaySong(b.dataset.v, b.dataset.label); return; }
+    var sh = e.target.closest('.sharebtn[data-share]');
+    if (sh){
+      var url = location.href.split('#')[0], title = document.title;
+      if (navigator.share){ navigator.share({title: title, url: url}).catch(function(){}); return; }
+      try { navigator.clipboard.writeText(url).then(function(){ sh.textContent = 'Link copied'; }); } catch (x) { prompt('Copy this link', url); }
+      return;
+    }
     var p = e.target.closest('.playep');
     if (p && window.hmxPlayEpisode){ hmxPlayEpisode(+p.dataset.n); }
   }); }

@@ -54,7 +54,7 @@ STYLE = re.search(r'<link rel="stylesheet" href="([^"]+)"', TEMPLATE).group(1)
 RADIO = re.search(r'<script src="(radio\.js[^"]*)"', TEMPLATE).group(1)
 
 
-def page(path, title, desc, body, nav=None, ld=None, extra_head=""):
+def page(path, title, desc, body, nav=None, ld=None, extra_head="", image="og/default.png"):
     head_nav = HEADER.replace(' class="on"', "")
     if nav:
         head_nav = head_nav.replace(f'<a href="{nav}">', f'<a href="{nav}" class="on">', 1)
@@ -74,7 +74,10 @@ def page(path, title, desc, body, nav=None, ld=None, extra_head=""):
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{SITE}{path}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="{SITE}{image}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="HeavyMusix metal news" href="{SITE}feed.xml">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,7 +92,7 @@ def page(path, title, desc, body, nav=None, ld=None, extra_head=""):
 {body}
 
 {FOOTER}
-<script src="hmx.js?v=2"></script>
+<script src="hmx.js?v=3"></script>
 <script src="{RADIO}"></script>
 </body>
 </html>
@@ -108,6 +111,77 @@ def fresh_dir(d):
     os.makedirs(d)
 
 
+# ---------------------------------------------------------------- share pictures (1200x630, for Instagram/Facebook/Threads link previews)
+try:
+    from PIL import Image, ImageDraw, ImageFont
+except ImportError:
+    Image = None
+FONT = os.path.join("assets", "fonts", "DejaVuSans-Bold.ttf")
+
+
+def share_picture(path, headline, footer, force=False):
+    if Image is None or (os.path.exists(path) and not force):
+        return
+    W, H = 1200, 630
+    im = Image.new("RGB", (W, H), (8, 8, 8))
+    d = ImageDraw.Draw(im)
+    for i in range(H):  # red glow from the top right
+        d.line([(0, i), (W, i)], fill=(int(8 + 90 * max(0, 1 - i / 420)), 8, 10))
+    d.rectangle([0, 0, W, 86], fill=(163, 18, 27))
+    d.text((48, 18), "HEAVYMUSIX", font=ImageFont.truetype(FONT, 46), fill=(244, 236, 220))
+    d.text((W - 48, 30), "Every band gets a turn.", font=ImageFont.truetype(FONT, 26), fill=(244, 236, 220), anchor="ra")
+    size = 64
+    while size > 34:
+        f = ImageFont.truetype(FONT, size)
+        words, lines, cur = headline.split(), [], ""
+        for w in words:
+            t = (cur + " " + w).strip()
+            if d.textlength(t, font=f) <= W - 96:
+                cur = t
+            else:
+                lines.append(cur); cur = w
+        lines.append(cur)
+        if len(lines) * size * 1.18 <= 400:
+            break
+        size -= 4
+    y = 120 + (400 - len(lines) * size * 1.18) / 2
+    for ln in lines:
+        d.text((48, y), ln, font=f, fill=(244, 236, 220))
+        y += size * 1.18
+    d.rectangle([48, H - 78, 160, H - 72], fill=(209, 22, 31))
+    d.text((48, H - 60), footer, font=ImageFont.truetype(FONT, 26), fill=(190, 180, 170))
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    im.save(path, optimize=True)
+
+
+share_picture("og/default.png", "Unsigned metal from around the world + the heavy hitters you love",
+              "heavymusix.com  ·  HeavyMusix Radio, news, bands", force=not os.path.exists("og/default.png"))
+
+# ---------------------------------------------------------------- which bands a story mentions
+bands = load_json("show/bands.json", {})
+_names = sorted(((b["name"], k) for k, b in bands.items() if b.get("songs") and len(b.get("name", "")) >= 3),
+                key=lambda x: -len(x[0]))
+
+
+COMMON_WORDS = {"Down", "Death", "Riot", "Kingdom", "Opeth Down"}   # band names that are also everyday words
+
+
+def bands_in(text, title=""):
+    found, taken = [], []
+    for name, key in _names:
+        if name in COMMON_WORDS and not re.search(r"(?<![\w])" + re.escape(name) + r"(?![\w])", title):
+            continue  # only link these when the headline names them
+        for m in re.finditer(r"(?<![\w])" + re.escape(name) + r"(?![\w])", text):
+            if any(a <= m.start() < b for a, b in taken):
+                continue
+            taken.append((m.start(), m.end()))
+            if key not in found:
+                found.append(key)
+    return found
+
+
+story_bands = {}
+
 # ---------------------------------------------------------------- news stories
 news = js_data("news.js", "NEWS")
 fresh_dir("news")
@@ -116,12 +190,21 @@ for i, n in enumerate(news):
     paras = "".join(f'<p class="src">{esc(p)}</p>' if re.match(r"(?i)source:", p) else f"<p>{esc(p)}</p>"
                     for p in n["text"])
     more = [m for m in news if m is not n][:6]
+    in_story = bands_in(n["title"] + " " + " ".join(n["text"]), n["title"])
+    for k in in_story:
+        story_bands.setdefault(k, []).append(n)
+    chips = ("<h2 class=\"sub\">Bands in this story</h2><ul class=\"bandchips\">" +
+             "".join(f'<li><a href="bands/{esc(k)}.html">&#9654; {esc(bands[k]["name"])} on HeavyMusix Radio</a></li>' for k in in_story) +
+             "</ul>") if in_story else ""
+    share_picture(f"og/{slug}.png", n["title"], f"heavymusix.com  ·  {n['tag']}  ·  {fmt_date(n['date'])}")
     body = f"""<section><div class="wrap">
     <article class="post story">
       <span class="tag">{esc(n['tag'])}</span>
       <div class="date muted"><time datetime="{n['date']}">{fmt_date(n['date'])}</time> &middot; HeavyMusix</div>
       <h1>{esc(n['title'])}</h1>
       {paras}
+      <div class="sharebar"><button type="button" class="sharebtn" data-share>Share this story</button><a class="sharebtn" href="https://www.instagram.com/heavymusixradio/">Follow @heavymusixradio</a></div>
+      {chips}
     </article>
     <h2 class="sub">More metal news</h2>
     <ul class="morenews">{''.join(f'<li><a href="news/{slug_of(m)}.html">{esc(m["title"])}</a><span class="wsrc">{fmt_date(m["date"])}</span></li>' for m in more)}</ul>
@@ -133,7 +216,8 @@ for i, n in enumerate(news):
           "articleSection": n["tag"], "description": desc,
           "author": ORG, "publisher": ORG,
           "mainEntityOfPage": f"{SITE}news/{slug}.html"}
-    page(f"news/{slug}.html", f"{n['title']} | HeavyMusix", desc, body, nav="news.html", ld=ld)
+    ld["image"] = f"{SITE}og/{slug}.png"
+    page(f"news/{slug}.html", f"{n['title']} | HeavyMusix", desc, body, nav="news.html", ld=ld, image=f"og/{slug}.png")
     pages.append((f"news/{slug}.html", n["date"]))
 
 # ---------------------------------------------------------------- RSS feed
@@ -167,7 +251,6 @@ with open("feed.xml", "w", encoding="utf-8") as f:
 """)
 
 # ---------------------------------------------------------------- bands
-bands = load_json("show/bands.json", {})
 catalog = load_json("show/catalog.json", [])
 eps = load_json("show/episodes.json", {}).get("episodes", [])
 live = [e for e in eps if e.get("status") == "live"]
@@ -198,6 +281,8 @@ for key, b in bands.items():
   {f'<div class="btns">{link_html}</div>' if link_html else ''}
   <h2 class="sub">{len(songs)} song{'s' if len(songs) != 1 else ''} on HeavyMusix Radio</h2>
   <ul class="songs">{song_list}</ul>
+  {('<h2 class="sub">' + esc(b['name']) + ' in the news</h2><ul class="morenews">' + ''.join(f'<li><a href="news/{slug_of(m)}.html">{esc(m["title"])}</a><span class="wsrc">{fmt_date(m["date"])}</span></li>' for m in story_bands.get(key, [])[:8]) + '</ul>') if story_bands.get(key) else ''}
+  <div class="sharebar"><button type="button" class="sharebtn" data-share>Share this band</button></div>
   {('<p class="wupd">Played on ' + ', '.join(f'<a href="episodes/{e["n"]}.html">Show #{e["n"]}</a>' for e in on_eps) + '.</p>') if on_eps else ''}
   <div class="btns"><a class="btn ghost" href="bands.html">Find another band</a></div>
 </div></section>"""
@@ -274,7 +359,7 @@ pages.append(("arizona-metal-shows.html", TODAY.isoformat()))
 
 # ---------------------------------------------------------------- sitemap
 MAIN = ["", "news.html", "show.html", "bands.html", "arizona.html", "series.html",
-        "submit.html", "shop.html", "about.html", "checklist-ep1.html"]
+        "submit.html", "shop.html", "about.html", "checklist-ep1.html", "search.html"]
 urls = [(p, TODAY.isoformat()) for p in MAIN] + pages
 with open("sitemap.xml", "w", encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')

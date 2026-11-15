@@ -136,7 +136,7 @@
   }
   function makeDraggable(d){
     var bar = d.querySelector('.dock-bar'), start = null;
-    try { var saved = JSON.parse(localStorage.getItem('hmxDockPos') || 'null'); if (saved) place(d, saved[0], saved[1]); } catch (x) {}
+    try { var saved = JSON.parse(localStorage.getItem('hmxDockPos') || 'null'); if (saved && saved[1] > 130 && window.innerWidth > 600) place(d, saved[0], saved[1]); } catch (x) {}   // never cover the menu; phones keep the corner
     bar.addEventListener('pointerdown', function(e){
       if (e.target.closest('.dock-btn')) return;
       var r = d.getBoundingClientRect();

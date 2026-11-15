@@ -210,3 +210,29 @@ body.popout{margin:0;background:#000;overflow:hidden}
 body.popout #hmx-dock{position:fixed;inset:0;width:auto;max-width:none;border:0;box-shadow:none;display:flex;flex-direction:column}
 body.popout #hmx-dock .dock-bar{cursor:default;touch-action:auto}
 body.popout #hmx-dock .dock-video{flex:1;aspect-ratio:auto}
+
+/* ---- Easy to use (Nov 2026) ---- */
+.hsearch{display:flex;gap:6px;margin:18px 0 6px;max-width:560px}
+.hsearch input{flex:1;min-width:0;font:600 17px "Archivo",sans-serif;padding:11px 12px;border:2px solid var(--bone);background:#000;color:var(--bone)}
+.hsearch button{font:800 16px "Archivo",sans-serif;padding:0 16px;border:2px solid var(--bone);background:var(--blood);color:#fff;cursor:pointer}
+.hsearch button:hover,.hsearch button:focus-visible{background:var(--bone);color:#000;outline:none}
+nav.main a.navsearch{color:var(--bone)}
+.sharebar{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px}
+.sharebtn{font:800 15px "Archivo",sans-serif;padding:8px 14px;border:2px solid currentColor;background:transparent;color:inherit;cursor:pointer;text-decoration:none}
+.sharebtn:hover,.sharebtn:focus-visible{background:var(--blood);color:#fff;outline:none}
+.bandchips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0;padding:0;list-style:none}
+.bandchips a{display:inline-block;font:800 15px "Archivo",sans-serif;padding:6px 12px;border:2px solid currentColor;text-decoration:none;color:inherit}
+.bandchips a:hover{background:var(--blood);color:#fff}
+.followbox{margin-top:26px;padding:16px 18px;border:2px dashed currentColor}
+.sresults h2{margin-top:28px}
+.card p.muted{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+@media (max-width:640px){
+  .wip{font-size:12px;padding:4px 10px}
+  section.hero{padding:30px 0 46px}
+  .hero-top{gap:14px;flex-wrap:nowrap}
+  .emblem{width:84px}
+  .hero .lead{font-size:17px}
+  .card p.muted{-webkit-line-clamp:2}
+  .grid .card{transform:none!important}
+  #hmx-dock{left:auto;width:230px}
+}
