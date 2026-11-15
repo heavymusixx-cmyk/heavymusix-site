@@ -467,7 +467,7 @@ for key, items in sorted(HIST.items()):
 
 # ---------------------------------------------------------------- sitemap
 MAIN = ["", "news.html", "show.html", "bands.html", "arizona.html", "series.html",
-        "submit.html", "shop.html", "about.html", "checklist-ep1.html", "search.html", "ideas.html"]
+        "submit.html", "shop.html", "about.html", "checklist-ep1.html", "search.html", "ideas.html", "privacy.html"]
 urls = [(p, TODAY.isoformat()) for p in MAIN] + pages
 with open("sitemap.xml", "w", encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
