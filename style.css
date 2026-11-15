@@ -162,3 +162,29 @@ ul.morenews{list-style:none;margin:0;padding:0}
 ul.morenews li{padding:10px 0;border-bottom:1px dashed currentColor;display:flex;flex-direction:column;gap:2px}
 ul.morenews a{color:inherit;font-weight:700}
 ul.morenews a:hover{color:var(--blood-hot)}
+
+/* Arizona: the desert at dusk */
+body.az{--copper:#c2410c;--sand:#e9cfa6}
+body.az section.hero.az-hero{position:relative;overflow:hidden;padding:90px 0 210px;background:#050203}
+.az-scene{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.az-hero .wrap{position:relative;z-index:1}
+.az-hero h1{text-shadow:4px 4px 0 var(--copper),0 0 34px rgba(255,90,31,.45)}
+.az-hero .kicker{color:#ff7a3d}
+.az-hero .lead{max-width:56ch;text-shadow:0 2px 8px #000}
+body.az section:not(.hero):nth-of-type(even){background-color:var(--sand)}
+body.az .card{box-shadow:6px 6px 0 var(--copper)}
+body.az section:not(.hero):nth-of-type(odd) h2{text-shadow:3px 3px 0 var(--copper)}
+body.az .tag{background:var(--copper)}
+/* Shows list */
+ul.shows{list-style:none;margin:0;padding:0;border-top:2px solid currentColor}
+ul.shows li{display:flex;gap:18px;align-items:center;padding:14px 0;border-bottom:1px dashed currentColor}
+ul.shows .sdate{flex:none;width:74px;text-align:center;font-weight:700;font-size:13px;text-transform:none;border:2px solid currentColor;padding:6px 0;line-height:1.2}
+ul.shows .sdate b{display:block;font-family:var(--display);font-size:22px;font-weight:400}
+ul.shows li.tonight .sdate{background:var(--blood-hot);border-color:var(--blood-hot);color:#fff}
+ul.shows .sinfo{display:flex;flex-direction:column;gap:3px}
+ul.shows .sinfo strong{font-size:18px;line-height:1.3}
+ul.shows .sinfo span{font-size:15px;opacity:.8}
+ul.az-list{list-style:none;margin:0 0 18px;padding:0}
+ul.az-list li{padding:10px 0;border-bottom:1px dashed currentColor;display:flex;flex-direction:column}
+ul.az-list a{color:inherit;font-weight:800;font-size:20px}
+@media (max-width:600px){body.az section.hero.az-hero{padding:60px 0 170px}}

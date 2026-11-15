@@ -217,6 +217,7 @@
       var doc = new DOMParser().parseFromString(html, 'text/html');
       var d = dock();
       document.title = doc.title;
+      document.body.className = doc.body.className;
       Array.prototype.slice.call(document.body.childNodes).forEach(function(n){ if (n !== d) n.remove(); });
       var scripts = [];
       Array.prototype.slice.call(doc.body.childNodes).forEach(function(n){
