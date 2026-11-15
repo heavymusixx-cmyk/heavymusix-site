@@ -12,6 +12,36 @@
   var mode = null;          // {kind:'radio'} | {kind:'episode', i} | {kind:'song', v, label}
   var episodes = null;      // live episodes, oldest first
 
+  /* Pop-out player: a separate small window (player.html) that keeps playing
+     after the fan leaves heavymusix.com or closes its tab. */
+  var POPOUT = !!window.HMX_POPOUT;
+  var ALIVE = 'hmxPopoutAlive';
+  var chan = null;
+  try { chan = new BroadcastChannel('hmx-radio'); } catch (x) {}
+  function popoutAlive(){
+    if (POPOUT) return false;
+    try { return Date.now() - Number(localStorage.getItem(ALIVE) || 0) < 6000; } catch (x) { return false; }
+  }
+  function tellPopout(msg){
+    if (!chan || !popoutAlive()) return false;
+    chan.postMessage(msg);
+    return true;
+  }
+  function openPopout(){
+    remember();
+    var w = window.open('player.html', 'hmxPlayer', 'popup,width=460,height=320');
+    if (!w){ setLabel(' \u00b7 allow pop-ups to pop out'); return; }
+    try { player.stopVideo(); player.destroy(); } catch (x) {}
+    player = null; ready = false; pending = null; mode = null;
+    try { sessionStorage.removeItem(KEY); } catch (x) {}   // this tab no longer holds the music
+    var d = dock(); if (d) d.remove();
+    var r = document.getElementById('radio');
+    if (r) r.innerHTML = '<button class="playcover" type="button" onclick="startRadio()">' +
+      '<span class="pc-kicker">Popped out</span>' +
+      '<span class="pc-title">HeavyMusix <em>Radio</em></span>' +
+      '<span class="pc-cta">The radio is playing in its own window. Go anywhere on the web and it keeps rolling until you close it.</span></button>';
+  }
+
   function dock(){ return document.getElementById('hmx-dock'); }
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
@@ -33,7 +63,14 @@
 
   function markHome(){
     var r = document.getElementById('radio');
-    if (!r || !dock()) return;
+    if (!r || POPOUT) return;
+    if (!dock()){
+      if (popoutAlive()) r.innerHTML = '<button class="playcover" type="button" onclick="startRadio()">' +
+        '<span class="pc-kicker">Popped out</span>' +
+        '<span class="pc-title">HeavyMusix <em>Radio</em></span>' +
+        '<span class="pc-cta">The radio is playing in its own window. Close that window to stop it.</span></button>';
+      return;
+    }
     r.classList.add('cover');
     r.innerHTML = '<button class="playcover" type="button" onclick="startRadio()">' +
       '<span class="pc-kicker">Now playing</span>' +
@@ -46,20 +83,28 @@
     d.id = 'hmx-dock';
     d.setAttribute('aria-label', 'HeavyMusix Radio player');
     d.innerHTML =
-      '<div class="dock-bar" title="Drag to move the player"><span class="dock-grip" aria-hidden="true">&#8942;&#8942;</span><span class="dock-title">HeavyMusix Radio<span class="dock-now"></span></span>' +
+      '<div class="dock-bar"' + (POPOUT ? '' : ' title="Drag to move the player"') + '>' +
+      (POPOUT ? '' : '<span class="dock-grip" aria-hidden="true">&#8942;&#8942;</span>') +
+      '<span class="dock-title">HeavyMusix Radio<span class="dock-now"></span></span>' +
       '<button type="button" class="dock-btn" data-act="radio" aria-label="Back to the radio" title="Back to the radio">&#9673;</button>' +
-      '<button type="button" class="dock-btn" data-act="min" aria-label="Shrink or expand the player" title="Shrink or expand">&#8211;</button>' +
+      (POPOUT ? '' :
+      '<button type="button" class="dock-btn" data-act="pop" aria-label="Pop out the player so it keeps playing when you leave the site" title="Pop out: keeps playing when you leave the site">&#10697;</button>' +
+      '<button type="button" class="dock-btn" data-act="min" aria-label="Shrink or expand the player" title="Shrink or expand">&#8211;</button>') +
       '<button type="button" class="dock-btn" data-act="close" aria-label="Stop and close the player" title="Stop">&#215;</button></div>' +
       '<div class="dock-video"><div id="hmx-yt"></div></div>';
     d.addEventListener('click', function(e){
       var b = e.target.closest('.dock-btn'); if (!b) return;
       if (b.dataset.act === 'min') d.classList.toggle('min');
       if (b.dataset.act === 'radio') startDefault();
-      if (b.dataset.act === 'close'){ forget(); d.remove(); location.reload(); }
+      if (b.dataset.act === 'pop') openPopout();
+      if (b.dataset.act === 'close'){
+        forget();
+        if (POPOUT){ try { localStorage.removeItem(ALIVE); } catch (x) {} window.close(); return; }
+        d.remove(); location.reload();
+      }
     });
     document.body.appendChild(d);
-    makeDraggable(d);
-    markHome();
+    if (!POPOUT){ makeDraggable(d); markHome(); }
     var go = function(){
       player = new YT.Player('hmx-yt', {
         width: '100%', height: '100%',
@@ -203,7 +248,8 @@
   function resumeIfPlaying(){
     var st = null;
     try { st = JSON.parse(sessionStorage.getItem(KEY) || localStorage.getItem(KEY) || 'null'); } catch (x) {}
-    if (!st || !st.ts || Date.now() - st.ts > 30 * 60 * 1000) return;
+    if (!POPOUT && popoutAlive()) return true;   // the pop-out window has the music
+    if (!st || !st.ts || Date.now() - st.ts > 30 * 60 * 1000) return false;
     if (st.m === 'song' && st.v){
       mode = {kind: 'song', v: st.v, label: st.label};
       withPlayer(function(){ player.setLoop(false); player.loadVideoById({videoId: st.v, startSeconds: st.t || 0}); setLabel(st.label ? ' \u00b7 ' + st.label : ''); checkStarted(); });
@@ -218,20 +264,27 @@
       mode = {kind: 'radio'};
       withPlayer(function(){ player.loadPlaylist({list: PL, listType: 'playlist', index: st.idx || 0, startSeconds: st.t || 0}); player.setLoop(true); setLabel(' \u00b7 24/7 playlist'); checkStarted(); });
     }
+    return true;
   }
 
-  window.startRadio = function(){ if (dock() && mode){ dock().classList.remove('min'); return; } startDefault(); };
+  window.startRadio = function(){
+    if (tellPopout({cmd: 'show'})) return;
+    if (dock() && mode){ dock().classList.remove('min'); return; }
+    startDefault();
+  };
   window.hmxPlaySong = function(v, label){
+    if (tellPopout({cmd: 'song', v: v, label: label})) return;
     mode = {kind: 'song', v: v, label: label};
     withPlayer(function(){ player.setLoop(false); player.loadVideoById(v); setLabel(label ? ' · ' + label : ''); });
   };
   window.hmxPlayEpisode = function(n){
+    if (tellPopout({cmd: 'episode', n: n})) return;
     loadEpisodes().then(function(eps){
       for (var i = 0; i < eps.length; i++) if (eps[i].n === n) return playEpisode(i);
       playRadio();
     });
   };
-  window.hmxPlayRadio = playRadio;
+  window.hmxPlayRadio = function(){ if (tellPopout({cmd: 'radio'})) return; playRadio(); };
 
   /* Keep the player alive: while it is playing, load other pages of the site in place. */
   function sameSite(a){
@@ -303,5 +356,20 @@
     if (dock()) load(location.href, false);
   });
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', resumeIfPlaying); else resumeIfPlaying();
+  function boot(){
+    if (!POPOUT){ resumeIfPlaying(); markHome(); return; }
+    /* Pop-out window: say it is alive, take requests from the site's pages, start the music. */
+    var beat = function(){ try { localStorage.setItem(ALIVE, String(Date.now())); } catch (x) {} };
+    beat(); setInterval(beat, 2000);
+    window.addEventListener('pagehide', function(){ forget(); try { localStorage.removeItem(ALIVE); } catch (x) {} });   // closing the window stops the radio
+    if (chan) chan.onmessage = function(e){
+      var m = e.data || {};
+      if (m.cmd === 'song'){ mode = {kind: 'song', v: m.v, label: m.label}; withPlayer(function(){ player.setLoop(false); player.loadVideoById(m.v); setLabel(m.label ? ' \u00b7 ' + m.label : ''); checkStarted(); }); }
+      if (m.cmd === 'episode') window.hmxPlayEpisode(m.n);
+      if (m.cmd === 'radio') playRadio();
+      if (m.cmd === 'show'){ try { window.focus(); } catch (x) {} if (!mode) startDefault(); }
+    };
+    if (!resumeIfPlaying()){ startDefault(); setTimeout(function(){ if (player) checkStarted(); }, 1500); }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
