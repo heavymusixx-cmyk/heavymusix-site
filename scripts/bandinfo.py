@@ -71,7 +71,7 @@ B = {
 "Deftones":("Sacramento","California","USA","Alternative metal"),
 "After The Burial":("Minneapolis","Minnesota","USA","Progressive metalcore"),
 "Psycroptic":("Hobart","Tasmania","Australia","Technical death metal"),
-"Vio-lence":("San Francisco Bay Area","California","USA","Bay Area thrash"),
+"Vio-Lence":("San Francisco Bay Area","California","USA","Bay Area thrash"),
 "Trivium":("Orlando","Florida","USA","Heavy metal / metalcore"),
 "Cryptosis":("Enschede","","Netherlands","Progressive thrash"),
 "Down":("New Orleans","Louisiana","USA","Sludge / stoner metal"),
