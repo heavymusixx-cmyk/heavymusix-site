@@ -7,6 +7,16 @@
 const NEWS = [
   {
     date: "2026-11-15",
+    tag: "Shows",
+    title: "Phoenix metal this week: DragonForce tonight, Imminence and Trivium coming",
+    text: [
+      "Power metal takes over The Van Buren tonight: DragonForce, with Ensiferum and Rhapsody of Fire, Sunday Nov 15 at 7:30 PM.",
+      "Coming up: Imminence with Dying Wish at The Van Buren on Nov 27, and Trivium at Arizona Financial Theatre on Dec 2.",
+      "Heading out? Tag @heavymusixradio in your show pics. And if your band is opening a local bill, send it to submit@heavymusix.com."
+    ]
+  },
+  {
+    date: "2026-11-15",
     tag: "Releases",
     title: "Big week ahead: Trivium, Down, Disfear and Wolf all drop new albums Nov 20",
     text: [
