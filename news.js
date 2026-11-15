@@ -4,7 +4,7 @@
   and change the date, title, tag and text. Newest post goes first.
   Each line of "text" becomes its own paragraph.
 */
-const NEWS = [
+var NEWS = [
   {
     date: "2026-11-15",
     tag: "Shows",
@@ -71,24 +71,47 @@ function fmtDate(d){
 }
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));}
 
-/* Home page: latest 3 as cards */
+/* Each story has its own page: article.html?p=<slug> */
+function slugOf(n){return n.date+"-"+n.title.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,60);}
+function storyUrl(n){return "article.html?p="+encodeURIComponent(slugOf(n));}
+function bodyHtml(n){return n.text.map(p=>/^Source:/i.test(p)?`<p class="src">${esc(p)}</p>`:`<p>${esc(p)}</p>`).join("");}
+
+/* Home page: latest 3 headlines, each opening our own story */
 function renderLatest(el){
   el.innerHTML = NEWS.slice(0,3).map(n=>`
     <div class="card">
       <span class="tag">${esc(n.tag)}</span>
       <div class="date">${fmtDate(n.date)}</div>
-      <h3>${esc(n.title)}</h3>
+      <h3><a class="hl" href="${storyUrl(n)}">${esc(n.title)}</a></h3>
       <p class="muted">${esc(n.text[0])}</p>
-      <a href="news.html">Read more</a>
+      <a href="${storyUrl(n)}">Read the story</a>
     </div>`).join("");
 }
-/* News page: everything */
+/* News page: every headline, newest first */
 function renderAll(el){
   el.innerHTML = NEWS.map(n=>`
     <article class="post">
       <span class="tag">${esc(n.tag)}</span>
       <div class="date muted">${fmtDate(n.date)}</div>
-      <h2>${esc(n.title)}</h2>
-      ${n.text.map(p=>`<p>${esc(p)}</p>`).join("")}
+      <h2><a class="hl" href="${storyUrl(n)}">${esc(n.title)}</a></h2>
+      <p>${esc(n.text[0])}</p>
+      <a href="${storyUrl(n)}">Read the story</a>
     </article>`).join("");
+}
+/* Story page: the full HeavyMusix story, plus more headlines */
+function renderArticle(el){
+  const p=new URLSearchParams(location.search).get("p");
+  const n=NEWS.find(x=>slugOf(x)===p)||NEWS[0];
+  document.title=n.title+" | HeavyMusix";
+  const more=NEWS.filter(x=>x!==n).slice(0,6);
+  el.innerHTML=`
+    <article class="post story">
+      <span class="tag">${esc(n.tag)}</span>
+      <div class="date muted">${fmtDate(n.date)}</div>
+      <h1>${esc(n.title)}</h1>
+      ${bodyHtml(n)}
+    </article>
+    <h2 class="sub">More metal news</h2>
+    <ul class="morenews">${more.map(m=>`<li><a href="${storyUrl(m)}">${esc(m.title)}</a><span class="wsrc">${fmtDate(m.date)}</span></li>`).join("")}</ul>
+    <div class="btns"><a class="btn ghost" href="news.html">All news</a></div>`;
 }
