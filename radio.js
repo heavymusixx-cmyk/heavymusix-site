@@ -26,7 +26,7 @@
       '<div class="dock-bar"><span class="dock-title">HeavyMusix Radio</span>' +
       '<button type="button" class="dock-btn" data-act="min" aria-label="Shrink or expand the player">&#8211;</button>' +
       '<button type="button" class="dock-btn" data-act="close" aria-label="Stop and close the player">&#215;</button></div>' +
-      '<div class="dock-video"><iframe src="https://www.youtube.com/embed/videoseries?list=' + PL + '&autoplay=1" ' +
+      '<div class="dock-video"><iframe src="https://www.youtube.com/embed/videoseries?list=' + PL + '&autoplay=1&loop=1" ' +
       'title="HeavyMusix Radio playlist" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>';
     d.addEventListener('click', function(e){
       var b = e.target.closest('.dock-btn'); if (!b) return;
@@ -89,6 +89,11 @@
   document.addEventListener('click', function(e){
     if (!dock() || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     var a = e.target.closest('a');
+    if (a && /^https?:/.test(a.href) && new URL(a.href).origin !== location.origin){
+      e.preventDefault();
+      window.open(a.href, '_blank', 'noopener');
+      return;
+    }
     if (!sameSite(a)) return;
     e.preventDefault();
     load(a.href, true);
