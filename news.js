@@ -141,9 +141,9 @@ function slugOf(n){return n.date+"-"+n.title.toLowerCase().replace(/[^a-z0-9]+/g
 function storyUrl(n){return "article.html?p="+encodeURIComponent(slugOf(n));}
 function bodyHtml(n){return n.text.map(p=>/^Source:/i.test(p)?`<p class="src">${esc(p)}</p>`:`<p>${esc(p)}</p>`).join("");}
 
-/* Home page: latest 3 headlines, each opening our own story */
+/* Home page: latest 6 headlines, each opening our own story */
 function renderLatest(el){
-  el.innerHTML = NEWS.slice(0,3).map(n=>`
+  el.innerHTML = NEWS.slice(0,6).map(n=>`
     <div class="card">
       <span class="tag">${esc(n.tag)}</span>
       <div class="date">${fmtDate(n.date)}</div>
