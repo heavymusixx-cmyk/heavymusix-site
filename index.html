@@ -24,10 +24,22 @@
   <p class="kicker">HeavyMusix Radio &middot; Underground + Heavy Hitters</p>
   <h1>Every band gets <em>a turn.</em></h1>
   <p class="lead">Unsigned metal from around the world, mixed with the heavy hitters you already love. The playlist reshuffles every day, so every band in it gets heard.</p>
-  <div class="player">
-    <div class="fallback">Loading HeavyMusix Radio&hellip;</div>
-    <iframe src="https://www.youtube.com/embed/videoseries?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M" title="HeavyMusix Radio playlist" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+  <div class="player cover" id="radio">
+    <button class="playcover" type="button" aria-label="Listen now: play HeavyMusix Radio" onclick="startRadio()">
+      <span class="pc-kicker">Underground + Heavy Hitters</span>
+      <span class="pc-title">HeavyMusix <em>Radio</em></span>
+      <span class="pc-play"><span class="pc-tri"></span></span>
+      <span class="pc-cta">Listen now</span>
+    </button>
   </div>
+  <script>
+  function startRadio(){
+    var el=document.getElementById('radio');
+    el.classList.remove('cover');
+    el.innerHTML='<iframe src="https://www.youtube.com/embed/videoseries?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M&autoplay=1" title="HeavyMusix Radio playlist" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+  }
+  </script>
+</div>
   <div class="btns">
     <a class="btn" href="https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M">Listen on YouTube Music</a>
     <a class="btn ghost" href="submit.html">Submit your band</a>
