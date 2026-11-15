@@ -194,3 +194,9 @@ ul.az-list a{color:inherit;font-weight:800;font-size:20px}
 .tagbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .tagbtn{border:2px solid currentColor;background:transparent;color:inherit;font:700 15px var(--text);padding:6px 12px;cursor:pointer}
 .tagbtn.on,.tagbtn:hover,.tagbtn:focus-visible{background:var(--blood);border-color:var(--blood);color:#fff;outline:none}
+
+/* Arizona title panel: readable over the desert */
+.az-panel{display:inline-block;max-width:760px;background:rgba(0,0,0,.72);border-left:6px solid var(--copper);padding:22px 28px;box-shadow:8px 8px 0 rgba(194,65,12,.55)}
+.az-panel h1{margin:4px 0 12px}
+.az-panel .lead{color:#fff;margin:0;font-weight:500}
+@media (max-width:600px){.az-panel{padding:16px 18px}}
