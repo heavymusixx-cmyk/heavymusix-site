@@ -163,16 +163,37 @@ function renderLatest(el){
       <a href="${storyUrl(n)}">Read the story</a>
     </div>`).join("");
 }
-/* News page: every headline, newest first */
+/* News page: search + category buttons, then every matching headline, newest first */
 function renderAll(el){
-  el.innerHTML = NEWS.map(n=>`
+  var tags = ["All"].concat(NEWS.map(function(n){return n.tag;}).filter(function(t,i,a){return a.indexOf(t)===i;}));
+  el.innerHTML =
+    '<form class="finder newsfind" onsubmit="return false" role="search">' +
+    '<label for="nq">Search the news</label>' +
+    '<input id="nq" type="search" placeholder="Try Jinjer, Trivium, tour, Arizona, new album" autocomplete="off">' +
+    '<div class="tagbtns">' + tags.map(function(t,i){return '<button type="button" class="tagbtn' + (i===0?' on':'') + '" data-t="' + esc(t) + '">' + esc(t) + '</button>';}).join("") + '</div></form>' +
+    '<div id="newslist" aria-live="polite"></div>';
+  var q = el.querySelector("#nq"), out = el.querySelector("#newslist"), tag = "All";
+  function draw(){
+    var term = q.value.trim().toLowerCase();
+    var list = NEWS.filter(function(n){
+      if (tag !== "All" && n.tag !== tag) return false;
+      return !term || (n.title + " " + n.tag + " " + n.text.join(" ")).toLowerCase().indexOf(term) > -1;
+    });
+    out.innerHTML = list.length ? list.map(function(n){return `
     <article class="post">
       <span class="tag">${esc(n.tag)}</span>
       <div class="date muted">${fmtDate(n.date)}</div>
       <h2><a class="hl" href="${storyUrl(n)}">${esc(n.title)}</a></h2>
       <p>${esc(n.text[0])}</p>
       <a href="${storyUrl(n)}">Read the story</a>
-    </article>`).join("");
+    </article>`;}).join("") : '<p class="lead">No stories match that yet. Try a band, a city, or a word like tour or album.</p>';
+  }
+  q.addEventListener("input", draw);
+  el.querySelectorAll(".tagbtn").forEach(function(b){ b.addEventListener("click", function(){
+    tag = b.dataset.t; el.querySelectorAll(".tagbtn").forEach(function(x){ x.classList.toggle("on", x === b); }); draw();
+  }); });
+  var pre = new URLSearchParams(location.search).get("q"); if (pre) q.value = pre;
+  draw();
 }
 /* Story page: the full HeavyMusix story, plus more headlines */
 function renderArticle(el){

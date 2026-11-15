@@ -188,3 +188,9 @@ ul.az-list{list-style:none;margin:0 0 18px;padding:0}
 ul.az-list li{padding:10px 0;border-bottom:1px dashed currentColor;display:flex;flex-direction:column}
 ul.az-list a{color:inherit;font-weight:800;font-size:20px}
 @media (max-width:600px){body.az section.hero.az-hero{padding:50px 0 330px}.az-scene{height:340px}}
+
+/* News search */
+.newsfind{margin-bottom:26px}
+.tagbtns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.tagbtn{border:2px solid currentColor;background:transparent;color:inherit;font:700 15px var(--text);padding:6px 12px;cursor:pointer}
+.tagbtn.on,.tagbtn:hover,.tagbtn:focus-visible{background:var(--blood);border-color:var(--blood);color:#fff;outline:none}
