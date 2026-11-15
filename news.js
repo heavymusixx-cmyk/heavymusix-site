@@ -7,6 +7,17 @@
 var NEWS = [
   {
     date: "2026-11-15",
+    tag: "World",
+    title: "Jinjer's huge 2026: three tours, 50,000 fans in Europe and a stop in Tempe",
+    text: [
+      "Ukraine's Jinjer have had a massive year on the road behind their fifth album \"Duél\". It started in January with their first European headline tour in six years, opening in Cologne, Germany, and wrapping up in front of more than 50,000 fans across the continent.",
+      "Next came their first North American headline run since 2024: 37 cities from Ottawa on June 5 to Long Beach on July 25, with Crystal Lake and Entheos as special guests. Arizona got its turn on June 30 at Marquee Theatre in Tempe.",
+      "Then it was back to Europe in the fall as special guests on Spiritbox's arena tour with Dying Wish, including nights at Manchester's Co-op Live and London's OVO Arena Wembley. Not bad for a band that started out booking its own shows.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-15",
     tag: "Releases",
     title: "Death Angel's next album is aiming for early 2028",
     text: [
