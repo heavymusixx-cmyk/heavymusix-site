@@ -359,7 +359,7 @@ pages.append(("arizona-metal-shows.html", TODAY.isoformat()))
 
 # ---------------------------------------------------------------- sitemap
 MAIN = ["", "news.html", "show.html", "bands.html", "arizona.html", "series.html",
-        "submit.html", "shop.html", "about.html", "checklist-ep1.html", "search.html"]
+        "submit.html", "shop.html", "about.html", "checklist-ep1.html", "search.html", "ideas.html"]
 urls = [(p, TODAY.isoformat()) for p in MAIN] + pages
 with open("sitemap.xml", "w", encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')

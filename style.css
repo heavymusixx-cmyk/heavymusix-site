@@ -236,3 +236,7 @@ nav.main a.navsearch{color:var(--bone)}
   .grid .card{transform:none!important}
   #hmx-dock{left:auto;width:230px}
 }
+.ideaform{display:grid;gap:14px;max-width:640px;margin-top:20px}
+.ideaform label{display:grid;gap:6px;font:700 16px "Archivo",sans-serif}
+.ideaform input,.ideaform select,.ideaform textarea{font:500 17px "Archivo",sans-serif;padding:10px 12px;border:2px solid var(--bone);background:#000;color:var(--bone)}
+.ideaform .btn{justify-self:start}
