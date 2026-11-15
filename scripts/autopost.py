@@ -68,6 +68,14 @@ def call(url, data):
         return json.loads(r.read())
 
 
+def permalink(url):
+    try:
+        with urllib.request.urlopen(url, timeout=30) as r:
+            return json.loads(r.read()).get("permalink", "")
+    except Exception:
+        return ""
+
+
 def image_ok(u):
     try:
         with urllib.request.urlopen(urllib.request.Request(u, method="HEAD"), timeout=30) as r:
@@ -88,7 +96,7 @@ if os.getenv("THREADS_TOKEN") and os.getenv("THREADS_USER_ID") and "threads" not
         c = call(f"{base}/threads", {"media_type": "IMAGE" if img else "TEXT", "text": text, **({"image_url": img} if img else {}), "access_token": tok})
         time.sleep(30)
         p = call(f"{base}/threads_publish", {"creation_id": c["id"], "access_token": tok})
-        results["threads"] = p.get("id", "ok")
+        results["threads"] = permalink(f"https://graph.threads.net/v1.0/{p['id']}?fields=permalink&access_token={tok}") or p.get("id", "ok")
     except Exception as e:
         results["threads_error"] = str(e)[:300]
 
@@ -101,7 +109,7 @@ if os.getenv("META_PAGE_TOKEN") and os.getenv("IG_USER_ID") and img and "instagr
         c = call(f"{base}/media", {"image_url": img, "caption": clip(cap, 2100), "access_token": tok})
         time.sleep(30)
         p = call(f"{base}/media_publish", {"creation_id": c["id"], "access_token": tok})
-        results["instagram"] = p.get("id", "ok")
+        results["instagram"] = permalink(f"https://graph.facebook.com/v21.0/{p['id']}?fields=permalink&access_token={tok}") or p.get("id", "ok")
     except Exception as e:
         results["instagram_error"] = str(e)[:300]
 
@@ -110,13 +118,15 @@ if os.getenv("META_PAGE_TOKEN") and os.getenv("FB_PAGE_ID") and "facebook" not i
     try:
         p = call(f"https://graph.facebook.com/v21.0/{os.environ['FB_PAGE_ID']}/feed",
                  {"message": item["text"], "link": item["link"], "access_token": os.environ["META_PAGE_TOKEN"]})
-        results["facebook"] = p.get("id", "ok")
+        results["facebook"] = f"https://www.facebook.com/{p['id']}" if p.get("id") else "ok"
     except Exception as e:
         results["facebook_error"] = str(e)[:300]
 
 if not results:
     print("No accounts connected yet (or already posted). Nothing to do."); sys.exit(0)
 done.update({k: v for k, v in results.items() if not k.endswith("_error")})
+done["what"] = item["text"].split("\n")[0][:120]
+done["site_link"] = item["link"]
 posted[key] = done
 cutoff = (now.date() - datetime.timedelta(days=60)).isoformat()
 posted = {k: v for k, v in posted.items() if k[:10] >= cutoff}
