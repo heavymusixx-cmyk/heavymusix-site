@@ -113,7 +113,7 @@
   var list=(HISTORY[key]||[]).slice().sort(function(a,b){return a.year-b.year;});
   if(!list.length){ el.innerHTML='<h2>'+esc(label)+' in metal</h2><p class="muted">Today\'s history is being dug up. Check back after 5 AM Arizona time.</p>'; return; }
   el.innerHTML='<h2>'+esc(label)+' in metal</h2><ul class="morenews">'+list.slice(0,6).map(function(h){
-    var ago=yr-h.year, who=h.band?' <a href="bands/'+esc(h.band)+'.html">Play them on HeavyMusix Radio</a>':'';
+    var ago=yr-h.year, who=h.band?' <a href="bands/'+esc(h.band)+'.html">Listen on HeavyMusix Radio</a>':'';
     return '<li><strong>'+h.year+' &middot; '+esc(h.type)+(ago>0?' &middot; '+ago+' years ago':'')+'</strong><span>'+esc(h.text)+who+'</span></li>';
   }).join('')+'</ul><div class="btns"><a class="btn ghost" href="history/'+key+'.html">More from '+esc(label)+'</a></div>';
 })();

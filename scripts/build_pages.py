@@ -444,7 +444,7 @@ for key, items in sorted(HIST.items()):
     label = datetime.date(2000, m, d).strftime("%B %-d")
     rows = "".join(
         f'<li><strong>{h["year"]} &middot; {esc(h["type"])}</strong><span>{esc(h["text"])}'
-        + (f' <a href="bands/{esc(h["band"])}.html">Play them on HeavyMusix Radio</a>' if h.get("band") and os.path.exists(f"bands/{h['band']}.html") else "")
+        + (f' <a href="bands/{esc(h["band"])}.html">Listen on HeavyMusix Radio</a>' if h.get("band") and os.path.exists(f"bands/{h['band']}.html") else "")
         + f'</span><span class="wsrc">Source: {esc(h.get("source", ""))}</span></li>'
         for h in sorted(items, key=lambda h: h["year"]))
     prev_d = datetime.date(2000, m, d) - datetime.timedelta(days=1)

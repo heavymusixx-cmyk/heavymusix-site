@@ -55,6 +55,16 @@ if ep:
     d = (now - datetime.datetime.fromisoformat(ep)).total_seconds() / 3600
     (problems if d > 30 else notes).append(f"Radio Show builder last ran {d:.0f} hour(s) ago.")
 
+# 4. Today in metal history has entries (the morning task adds them by about 5 AM)
+try:
+    hist = open("history.js", encoding="utf-8").read()
+    key = now.strftime("%m-%d")
+    if now.hour >= 7:
+        n = len(re.findall(r"year:\s*\d{4}", hist.split('"' + key + '"', 1)[1].split("]", 1)[0])) if '"' + key + '"' in hist else 0
+        (problems if n == 0 else notes).append(f"Today in metal history ({key}) has {n} entr{'y' if n == 1 else 'ies'}.")
+except Exception as e:
+    problems.append(f"history.js could not be read ({e})")
+
 report = ["# HeavyMusix health check", f"Checked {now.strftime('%Y-%m-%d %H:%M')} Arizona time.", ""]
 report += ["## Problems"] + [f"- {p}" for p in problems] + [""] if problems else ["All good."]
 report += ["## Details"] + [f"- {n}" for n in notes]
