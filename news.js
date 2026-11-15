@@ -7,6 +7,71 @@
 var NEWS = [
   {
     date: "2026-11-15",
+    tag: "Releases",
+    title: "Death Angel's next album is aiming for early 2028",
+    text: [
+      "Bay Area thrash veterans Death Angel are writing and demoing songs for the follow-up to 2019's Grammy-nominated \"Humanicide\", but singer Mark Osegueda says fans shouldn't expect it before the first quarter of 2028.",
+      "The plan is to record by summer 2027. The band wants to write a big batch of songs and keep only the best, the same way they built 1990's \"Act III\". That means the recent singles \"Wrath (Bring Fire)\", \"Cult Of The Used\" and \"The Never Was\" may or may not make the album.",
+      "Osegueda blamed most of the long gap on the pandemic, which hit drummer Will Carroll hard. Until the album lands, Death Angel keep touring, with shows planned in Europe and Australia plus their yearly holiday gigs.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-15",
+    tag: "News",
+    title: "Tiamat's Johan Edlund hospitalized; Belgrade show canceled",
+    text: [
+      "Swedish gothic metal pioneers Tiamat canceled their Saturday, November 14 concert at Zappa Barka in Belgrade, Serbia, after founder and singer Johan Edlund suffered a brain hemorrhage.",
+      "The band shared the news on social media, saying Edlund will stay in the hospital until further notice. They asked fans to keep him in their thoughts.",
+      "Everyone at HeavyMusix is wishing Johan a full and fast recovery.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-15",
+    tag: "Tours",
+    title: "Murderdolls reunite for 25th anniversary shows in 2027",
+    text: [
+      "Wednesday 13 is bringing Murderdolls back. He, Eric Griffin and Acey Slade will play select 2027 shows celebrating 25 years of the debut album \"Beyond the Valley of the Murderdolls\", with Griffin moving from bass to guitar.",
+      "Drummer Mike Dupke and bassist Jack Tankersley from Wednesday 13's solo band round out the lineup. The shows honor late members Joey Jordison and Ben Graves, with the blessing of Jordison's family. Wednesday 13 made it clear that nobody is replacing Joey.",
+      "The three last played together in 2018 at a Ben Graves tribute in Hollywood. Show dates haven't been announced yet.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-15",
+    tag: "Tours",
+    title: "Agalloch, Nevermore and Immolation lead Metal & Beer Fest Philly's 10th year",
+    text: [
+      "Decibel's Metal & Beer Fest: Philly turns 10 on Saturday, April 10, 2027 at the Fillmore Philadelphia, and the lineup is stacked: Agalloch headline, with Nevermore, Immolation, Solitude Aeturnus, Undeath, Evoken and Anagnorisis.",
+      "Solitude Aeturnus will play their second album in full for its 35th anniversary. Tickets are on sale now through Ticketmaster, in two kinds: a music-only ticket, and a 21+ ticket with unlimited craft beer samples, capped at 500.",
+      "3 Floyds Brewing presents the beer side, with more than a dozen breweries pouring on the Fillmore's mezzanine.",
+      "Source: Decibel"
+    ]
+  },
+  {
+    date: "2026-11-15",
+    tag: "Releases",
+    title: "North Dakota death metal: Gorgatron's fifth album \"Turmoil\" lands Dec 11",
+    text: [
+      "Gorgatron, death metal from North Dakota, have shared the title track from their fifth album, \"Turmoil\".",
+      "The record comes out December 11 on Time To Kill Records. Proof that heavy music comes from everywhere, even the snowy middle of the map.",
+      "Source: No Clean Singing"
+    ]
+  },
+  {
+    date: "2026-11-15",
+    tag: "News",
+    title: "KISS avatar show heading to Las Vegas, likely in 2028",
+    text: [
+      "KISS may be done touring, but they aren't done performing. An avatar-based KISS show is being built for Las Vegas, tentatively for 2028, with the venue still to be announced.",
+      "It's a project with Pophouse Entertainment, the Swedish company co-founded by ABBA's Björn Ulvaeus, which bought KISS's catalog and name in a deal reported at over $300 million. Expect The Demon, The Starchild, the classics and some new surprises.",
+      "Paul Stanley says the idea was never to copy a KISS concert. It's meant to be its own experience, built for fans and newcomers alike.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-15",
     tag: "Shows",
     title: "Phoenix metal this week: DragonForce tonight, Imminence and Trivium coming",
     text: [
