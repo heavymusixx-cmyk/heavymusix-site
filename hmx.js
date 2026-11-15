@@ -15,12 +15,12 @@ var HMX = window.HMX || {};
   function playBtn(v, label){
     return '<button type="button" class="playbtn" data-v="' + esc(v) + '" data-label="' + esc(label) + '" aria-label="Play ' + esc(label) + '">&#9654; Play</button>';
   }
-  document.addEventListener('click', function(e){
+  if (!window.__hmxClicks) { window.__hmxClicks = true; document.addEventListener('click', function(e){
     var b = e.target.closest('.playbtn');
     if (b && window.hmxPlaySong){ hmxPlaySong(b.dataset.v, b.dataset.label); return; }
     var p = e.target.closest('.playep');
     if (p && window.hmxPlayEpisode){ hmxPlayEpisode(+p.dataset.n); }
-  });
+  }); }
 
   HMX.renderShow = function(el){
     if (!el) return;
@@ -33,8 +33,8 @@ var HMX = window.HMX || {};
              '<div class="btns"><button type="button" class="btn" onclick="startRadio()">Listen now</button></div></div>';
       } else {
         h += '<div class="eplist">' + live.map(function(e){
-          return '<article class="card ep"><p class="date">Show #' + e.n + (e.live ? ' &middot; ' + esc(e.live) : '') + '</p><h3>' + esc(e.title) + '</h3>' +
-            '<ol class="tracks">' + e.songs.map(function(s){ return '<li><a href="band.html?b=' + esc(s.b) + '">' + esc(s.band) + '</a> &ndash; ' + esc(s.song) + '</li>'; }).join('') + '</ol>' +
+          return '<article class="card ep"><p class="date"><a href="episodes/' + e.n + '.html">Show #' + e.n + '</a>' + (e.live ? ' &middot; ' + esc(e.live) : '') + '</p><h3>' + esc(e.title) + '</h3>' +
+            '<ol class="tracks">' + e.songs.map(function(s){ return '<li><a href="bands/' + esc(s.b) + '.html">' + esc(s.band) + '</a> &ndash; ' + esc(s.song) + '</li>'; }).join('') + '</ol>' +
             '<button type="button" class="btn playep" data-n="' + e.n + '">&#9654; Play Show #' + e.n + '</button></article>';
         }).join('') + '</div>';
       }
@@ -72,7 +72,7 @@ var HMX = window.HMX || {};
           var keys = Object.keys(bandsOk).filter(function(k){ return bandsOk[k].songs; }).sort(function(a, b){ return bandsOk[a].name.localeCompare(bandsOk[b].name); });
           out.innerHTML = '<h2 class="sub">' + keys.length + ' bands A&ndash;Z</h2><ul class="az">' + keys.map(function(k){
             var b = bandsOk[k];
-            return '<li><a href="band.html?b=' + esc(k) + '">' + esc(b.name) + '</a>' + (b.unsigned ? ' <span class="badge">Unsigned</span>' : '') + '<span class="wsrc">' + esc(where(b) || '') + '</span></li>';
+            return '<li><a href="bands/' + esc(k) + '.html">' + esc(b.name) + '</a>' + (b.unsigned ? ' <span class="badge">Unsigned</span>' : '') + '<span class="wsrc">' + esc(where(b) || '') + '</span></li>';
           }).join('') + '</ul>';
           return;
         }
@@ -82,7 +82,7 @@ var HMX = window.HMX || {};
         }).slice(0, 120);
         out.innerHTML = hits.length ? '<h2 class="sub">' + hits.length + (hits.length === 120 ? '+' : '') + ' songs</h2><ul class="songs">' + hits.map(function(s){
           var b = bandsOk[s.b], ep = epsBy[s.v];
-          return '<li>' + playBtn(s.v, b.name + ' – ' + s.t) + '<span class="sinfo"><strong>' + esc(s.t) + '</strong><a href="band.html?b=' + esc(s.b) + '">' + esc(b.name) + '</a>' +
+          return '<li>' + playBtn(s.v, b.name + ' – ' + s.t) + '<span class="sinfo"><strong>' + esc(s.t) + '</strong><a href="bands/' + esc(s.b) + '.html">' + esc(b.name) + '</a>' +
             (b.unsigned ? ' <span class="badge">Unsigned</span>' : '') + '<span class="wsrc">' + esc(where(b)) + (ep ? ' &middot; Played on Show #' + ep.join(', #') : '') + '</span></span></li>';
         }).join('') + '</ul>' : '<p class="lead">Nothing matches that yet. Try a band name, a song, a city or a country.</p>';
       }

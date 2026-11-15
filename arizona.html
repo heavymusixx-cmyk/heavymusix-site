@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="/">
 <title>Arizona Metal | HeavyMusix</title>
 <meta name="description" content="Arizona metal: upcoming Phoenix and Arizona metal shows, local news and Arizona bands.">
 <meta property="og:title" content="News | HeavyMusix">
 <meta property="og:description" content="Arizona metal: upcoming Phoenix and Arizona metal shows, local news and Arizona bands.">
+<link rel="alternate" type="application/rss+xml" title="HeavyMusix metal news" href="https://heavymusix.com/feed.xml">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,6 +72,7 @@
 <section><div class="wrap">
   <h2>Upcoming shows</h2>
   <div id="azshows"></div>
+  <div class="btns"><a class="btn ghost" href="arizona-metal-shows.html">Metal shows this week</a></div>
   <p class="wupd">Updated every morning. Show times and tickets are at each venue.</p>
 </div></section>
 
@@ -89,7 +92,7 @@
   <div>Bands: <a href="submit.html">submit@heavymusix.com</a><br>Everything else: <a href="mailto:info@heavymusix.com">info@heavymusix.com</a><br>
   <a href="https://www.youtube.com/@HeavyMusix">YouTube</a> &middot; <a href="https://www.instagram.com/heavymusixradio/">Instagram</a> &middot; <a href="https://www.threads.com/@heavymusixradio">Threads</a> &middot; <a href="https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M">YouTube Music</a></div>
 </div></footer>
-<script src="news.js?v=12"></script><script src="shows.js?v=1"></script><script>
+<script src="news.js?v=13"></script><script src="shows.js?v=1"></script><script>
 renderShows(document.getElementById("azshows"));
 (function(){
   var re=/arizona|phoenix|tempe|tucson|mesa|glendale|scottsdale|chandler|flagstaff/i;

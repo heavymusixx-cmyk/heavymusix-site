@@ -1,0 +1,45 @@
+name: Build pages
+
+# Turns news.js, shows.js and the show data into real pages Google can read:
+# a page per story, band and episode, the Arizona shows page, the RSS feed and the sitemap.
+on:
+  push:
+    branches: [main]
+    paths: ["news.js", "shows.js", "show/**", "article.html", "scripts/build_pages.py"]
+  schedule:
+    - cron: "41 7 * * *"     # every night at 12:41 AM Arizona time (rolls the shows page to the new day)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: site-robots
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build pages
+        run: python scripts/build_pages.py
+      - name: Publish if changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "HeavyMusix Page Bot"
+          git config user.email "page-bot@users.noreply.github.com"
+          git add -A news bands episodes feed.xml sitemap.xml arizona-metal-shows.html
+          if git diff --cached --quiet; then
+            echo "Pages already up to date."
+          else
+            git commit -m "Pages: rebuild $(date -u '+%F %H:%M')"
+            git pull --rebase
+            git push
+            gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
+          fi

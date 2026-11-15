@@ -2,12 +2,12 @@
 
 Runs on GitHub Actions (free). Each run it:
   1. Reads the HeavyMusix Radio playlist from YouTube -> show/catalog.json
-  2. Keeps the band directory up to date -> show/bands.json (never removes Don's edits)
+  2. Keeps the band directory up to date -> show/bands.json (never removes Heavy's edits)
   3. Plans episodes ahead (5-episode buffer) with fair rotation:
        - no band repeats until every band has played, then a new random round
        - no song by a band repeats until all of that band's songs have played
-       - bands Don has selected as unsigned picks get guaranteed spots every episode
-  4. Looks for Don's uploaded DJ clips (titles containing E001-01 style codes)
+       - bands Heavy has selected as unsigned picks get guaranteed spots every episode
+  4. Looks for Heavy's uploaded DJ clips (titles containing E001-01 style codes)
   5. Marks episodes ready when every clip is uploaded, and releases one a week
 Writes show/episodes.json for the website. Python standard library only.
 """
@@ -196,7 +196,7 @@ def plan_episode(n, catalog, bands, state, rng):
         state["songs"][b] = cyc
         return v
 
-    # Guaranteed unsigned spots, rotating fairly among Don's picks
+    # Guaranteed unsigned spots, rotating fairly among Heavy's picks
     for _ in range(min(UNSIGNED_SLOTS, len(unsigned))):
         q = [b for b in state.get("unsigned_cycle", []) if b in unsigned and b not in picks]
         if not q:
@@ -282,7 +282,7 @@ def main():
         print("No catalog yet; nothing to plan")
         return
 
-    # 2. Band directory (keep everything Don or Claude already filled in)
+    # 2. Band directory (keep everything Heavy or Claude already filled in)
     bands = load("bands.json", {})
     try:
         import importlib.util
@@ -320,7 +320,7 @@ def main():
         waiting.append(e)
         print(f"Planned episode {n}")
 
-    # 4. Find Don's uploaded DJ clips
+    # 4. Find Heavy's uploaded DJ clips
     try:
         uploads = channel_uploads()
     except Exception as e:

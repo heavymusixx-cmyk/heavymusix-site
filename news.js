@@ -202,9 +202,9 @@ function fmtDate(d){
 }
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));}
 
-/* Each story has its own page: article.html?p=<slug> */
+/* Each story has its own page: news/<slug>.html (built by scripts/build_pages.py) */
 function slugOf(n){return n.date+"-"+n.title.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,60);}
-function storyUrl(n){return "article.html?p="+encodeURIComponent(slugOf(n));}
+function storyUrl(n){return "news/"+slugOf(n)+".html";}
 function bodyHtml(n){return n.text.map(p=>/^Source:/i.test(p)?`<p class="src">${esc(p)}</p>`:`<p>${esc(p)}</p>`).join("");}
 
 /* Home page: latest 6 headlines, each opening our own story */
