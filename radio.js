@@ -168,10 +168,14 @@
     if (ready) fn(); else pending = fn;
   }
 
+  var PL_SIZE = 650;   // about how many songs are in the playlist (updated from show/catalog.json)
+  fetch('show/catalog.json', {cache: 'no-cache'}).then(function(r){ return r.json(); })
+    .then(function(c){ if (c && c.length) PL_SIZE = c.length; }).catch(function(){});
   function playRadio(){
     mode = {kind: 'radio'};
     withPlayer(function(){
-      player.loadPlaylist({list: PL, listType: 'playlist', index: 0});
+      // Start at a random spot so every visit sounds different (the playlist order itself keeps the artist rules).
+      player.loadPlaylist({list: PL, listType: 'playlist', index: Math.floor(Math.random() * Math.max(1, PL_SIZE - 5))});
       player.setLoop(true);
       setLabel(' · 24/7 playlist');
     });
@@ -267,24 +271,59 @@
     return true;
   }
 
+  /* Computers (mouse + big screen): music always plays in the pop-out window, so it keeps
+     going after the fan leaves heavymusix.com. Browsers only allow opening a window on a click,
+     so this happens on the fan's first play click. Phones keep the pinned player
+     (phone browsers pause background tabs anyway). */
+  var START = 'hmxStartCmd';
+  function wantsPopout(){
+    if (POPOUT || dock()) return false;
+    try { return window.matchMedia('(pointer: fine) and (min-width: 900px)').matches; } catch (x) { return false; }
+  }
+  function launchPopout(cmd){
+    try { localStorage.setItem(START, JSON.stringify(cmd)); } catch (x) {}
+    var w = window.open('player.html', 'hmxPlayer', 'popup,width=460,height=320');
+    if (!w){ try { localStorage.removeItem(START); } catch (x) {} return false; }   // pop-ups blocked: use the pinned player
+    try { localStorage.setItem(ALIVE, String(Date.now())); } catch (x) {}
+    var r = document.getElementById('radio');
+    if (r) r.innerHTML = '<button class="playcover" type="button" onclick="startRadio()">' +
+      '<span class="pc-kicker">Playing in its own window</span>' +
+      '<span class="pc-title">HeavyMusix <em>Radio</em></span>' +
+      '<span class="pc-cta">The radio opened in a small window. Browse anywhere on the web and it keeps rolling until you close it.</span></button>';
+    return true;
+  }
+  function runCmd(m){
+    if (m.cmd === 'song'){ mode = {kind: 'song', v: m.v, label: m.label}; withPlayer(function(){ player.setLoop(false); player.loadVideoById(m.v); setLabel(m.label ? ' \u00b7 ' + m.label : ''); checkStarted(); }); }
+    if (m.cmd === 'episode') window.hmxPlayEpisode(m.n);
+    if (m.cmd === 'radio') playRadio();
+    if (m.cmd === 'show'){ try { window.focus(); } catch (x) {} if (!mode) startDefault(); }
+  }
+
   window.startRadio = function(){
     if (tellPopout({cmd: 'show'})) return;
     if (dock() && mode){ dock().classList.remove('min'); return; }
+    if (wantsPopout() && launchPopout({cmd: 'show'})) return;
     startDefault();
   };
   window.hmxPlaySong = function(v, label){
     if (tellPopout({cmd: 'song', v: v, label: label})) return;
+    if (wantsPopout() && launchPopout({cmd: 'song', v: v, label: label})) return;
     mode = {kind: 'song', v: v, label: label};
     withPlayer(function(){ player.setLoop(false); player.loadVideoById(v); setLabel(label ? ' · ' + label : ''); });
   };
   window.hmxPlayEpisode = function(n){
     if (tellPopout({cmd: 'episode', n: n})) return;
+    if (wantsPopout() && launchPopout({cmd: 'episode', n: n})) return;
     loadEpisodes().then(function(eps){
       for (var i = 0; i < eps.length; i++) if (eps[i].n === n) return playEpisode(i);
       playRadio();
     });
   };
-  window.hmxPlayRadio = function(){ if (tellPopout({cmd: 'radio'})) return; playRadio(); };
+  window.hmxPlayRadio = function(){
+    if (tellPopout({cmd: 'radio'})) return;
+    if (wantsPopout() && launchPopout({cmd: 'radio'})) return;
+    playRadio();
+  };
 
   /* Keep the player alive: while it is playing, load other pages of the site in place. */
   function sameSite(a){
@@ -362,13 +401,11 @@
     var beat = function(){ try { localStorage.setItem(ALIVE, String(Date.now())); } catch (x) {} };
     beat(); setInterval(beat, 2000);
     window.addEventListener('pagehide', function(){ forget(); try { localStorage.removeItem(ALIVE); } catch (x) {} });   // closing the window stops the radio
-    if (chan) chan.onmessage = function(e){
-      var m = e.data || {};
-      if (m.cmd === 'song'){ mode = {kind: 'song', v: m.v, label: m.label}; withPlayer(function(){ player.setLoop(false); player.loadVideoById(m.v); setLabel(m.label ? ' \u00b7 ' + m.label : ''); checkStarted(); }); }
-      if (m.cmd === 'episode') window.hmxPlayEpisode(m.n);
-      if (m.cmd === 'radio') playRadio();
-      if (m.cmd === 'show'){ try { window.focus(); } catch (x) {} if (!mode) startDefault(); }
-    };
+    if (chan) chan.onmessage = function(e){ runCmd(e.data || {}); };
+    var first = null;
+    try { first = JSON.parse(localStorage.getItem(START) || 'null'); localStorage.removeItem(START); } catch (x) {}
+    if (first && first.cmd !== 'show'){ runCmd(first); return; }
+    if (first){ forget(); startDefault(); setTimeout(function(){ if (player) checkStarted(); }, 1500); return; }
     if (!resumeIfPlaying()){ startDefault(); setTimeout(function(){ if (player) checkStarted(); }, 1500); }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
