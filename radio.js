@@ -1,10 +1,35 @@
-/* HeavyMusix Radio: pinned player that keeps playing while you browse the site. */
+/* HeavyMusix Radio player.
+   - Pinned to the corner; keeps playing while you browse the site.
+   - Plays the Radio Show episodes in order and moves to the next one automatically.
+     When there is no newer episode it starts over at Episode 1.
+     With no episodes yet, it plays the HeavyMusix Radio playlist (24/7).
+   - Fans can play any single song; when it ends, the radio picks back up. */
 (function(){
   if (window.__hmxRadio) return;
   window.__hmxRadio = true;
   var PL = 'PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M';
+  var player = null, ready = false, pending = null;
+  var mode = null;          // {kind:'radio'} | {kind:'episode', i} | {kind:'song', v, label}
+  var episodes = null;      // live episodes, oldest first
 
   function dock(){ return document.getElementById('hmx-dock'); }
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+  function loadEpisodes(){
+    if (episodes) return Promise.resolve(episodes);
+    return fetch('show/episodes.json', {cache: 'no-cache'}).then(function(r){ return r.ok ? r.json() : {episodes: []}; })
+      .catch(function(){ return {episodes: []}; })
+      .then(function(d){
+        episodes = (d.episodes || []).filter(function(e){ return e.status === 'live' && e.play && e.play.length; });
+        return episodes;
+      });
+  }
+  window.hmxEpisodes = loadEpisodes;
+
+  function setLabel(t){
+    var el = document.querySelector('#hmx-dock .dock-now');
+    if (el) el.textContent = t;
+  }
 
   function markHome(){
     var r = document.getElementById('radio');
@@ -16,33 +41,115 @@
       '<span class="pc-cta">The player is pinned to the corner of your screen. Keep browsing and the music keeps going.</span></button>';
   }
 
-  window.startRadio = function(){
-    var d = dock();
-    if (d){ d.classList.remove('min'); return; }
-    d = document.createElement('aside');
+  function buildDock(){
+    var d = document.createElement('aside');
     d.id = 'hmx-dock';
     d.setAttribute('aria-label', 'HeavyMusix Radio player');
     d.innerHTML =
-      '<div class="dock-bar"><span class="dock-title">HeavyMusix Radio</span>' +
-      '<button type="button" class="dock-btn" data-act="min" aria-label="Shrink or expand the player">&#8211;</button>' +
-      '<button type="button" class="dock-btn" data-act="close" aria-label="Stop and close the player">&#215;</button></div>' +
-      '<div class="dock-video"><iframe src="https://www.youtube.com/embed/videoseries?list=' + PL + '&autoplay=1&loop=1" ' +
-      'title="HeavyMusix Radio playlist" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>';
+      '<div class="dock-bar"><span class="dock-title">HeavyMusix Radio<span class="dock-now"></span></span>' +
+      '<button type="button" class="dock-btn" data-act="radio" aria-label="Back to the radio" title="Back to the radio">&#9673;</button>' +
+      '<button type="button" class="dock-btn" data-act="min" aria-label="Shrink or expand the player" title="Shrink or expand">&#8211;</button>' +
+      '<button type="button" class="dock-btn" data-act="close" aria-label="Stop and close the player" title="Stop">&#215;</button></div>' +
+      '<div class="dock-video"><div id="hmx-yt"></div></div>';
     d.addEventListener('click', function(e){
       var b = e.target.closest('.dock-btn'); if (!b) return;
       if (b.dataset.act === 'min') d.classList.toggle('min');
+      if (b.dataset.act === 'radio') startDefault();
       if (b.dataset.act === 'close'){ d.remove(); location.reload(); }
     });
     document.body.appendChild(d);
     markHome();
+    var go = function(){
+      player = new YT.Player('hmx-yt', {
+        width: '100%', height: '100%',
+        playerVars: {autoplay: 1, playsinline: 1, rel: 0, modestbranding: 1},
+        events: {
+          onReady: function(){ ready = true; if (pending){ var p = pending; pending = null; p(); } },
+          onStateChange: onState,
+          onError: onError
+        }
+      });
+    };
+    if (window.YT && YT.Player) go();
+    else {
+      var prev = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = function(){ if (prev) prev(); go(); };
+      var s = document.createElement('script'); s.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(s);
+    }
+  }
+
+  function withPlayer(fn){
+    if (!dock()) buildDock();
+    else dock().classList.remove('min');
+    if (ready) fn(); else pending = fn;
+  }
+
+  function playRadio(){
+    mode = {kind: 'radio'};
+    withPlayer(function(){
+      player.loadPlaylist({list: PL, listType: 'playlist', index: 0});
+      player.setLoop(true);
+      setLabel(' · 24/7 playlist');
+    });
+  }
+
+  function playEpisode(i){
+    loadEpisodes().then(function(eps){
+      if (!eps.length){ playRadio(); return; }
+      i = ((i % eps.length) + eps.length) % eps.length;
+      mode = {kind: 'episode', i: i};
+      withPlayer(function(){
+        player.setLoop(false);
+        player.loadPlaylist(eps[i].play, 0);
+        setLabel(' · Show #' + eps[i].n);
+      });
+    });
+  }
+
+  function startDefault(){
+    loadEpisodes().then(function(eps){
+      if (eps.length) playEpisode(eps.length - 1);   // newest episode first
+      else playRadio();                                // no episodes yet: the playlist
+    });
+  }
+
+  function onState(e){
+    if (e.data !== 0 || !mode) return;               // 0 = ended
+    if (mode.kind === 'song'){ startDefault(); return; }
+    if (mode.kind === 'episode'){
+      var idx = player.getPlaylistIndex(), list = player.getPlaylist() || [];
+      if (idx >= list.length - 1){
+        var next = mode.i + 1;
+        playEpisode(next >= episodes.length ? 0 : next);   // next episode, or start over at #1
+      }
+    }
+  }
+
+  function onError(){
+    if (!mode) return;
+    if (mode.kind === 'song'){ startDefault(); return; }
+    try { player.nextVideo(); } catch (x) {}
+  }
+
+  window.startRadio = function(){ if (dock() && mode){ dock().classList.remove('min'); return; } startDefault(); };
+  window.hmxPlaySong = function(v, label){
+    mode = {kind: 'song', v: v};
+    withPlayer(function(){ player.setLoop(false); player.loadVideoById(v); setLabel(label ? ' · ' + label : ''); });
   };
+  window.hmxPlayEpisode = function(n){
+    loadEpisodes().then(function(eps){
+      for (var i = 0; i < eps.length; i++) if (eps[i].n === n) return playEpisode(i);
+      playRadio();
+    });
+  };
+  window.hmxPlayRadio = playRadio;
 
   /* Keep the player alive: while it is playing, load other pages of the site in place. */
   function sameSite(a){
     if (!a || !a.href || a.target === '_blank' || a.hasAttribute('download')) return false;
     var u = new URL(a.href, location.href);
     if (u.origin !== location.origin) return false;
-    if (u.pathname === location.pathname && u.hash) return false;
+    if (u.pathname === location.pathname && u.search === location.search && u.hash) return false;
     return /(\.html|\/)$/.test(u.pathname);
   }
 

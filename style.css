@@ -118,3 +118,29 @@ ul.wire .wtag{align-self:flex-start;background:var(--blood);color:#fff;font-size
 #hmx-dock .dock-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 #hmx-dock.min{width:220px}
 @media (max-width:600px){#hmx-dock{right:8px;left:8px;bottom:8px;width:auto;max-width:none}#hmx-dock.min{left:auto;width:200px}}
+
+/* Radio Show, Find a band, band pages */
+#hmx-dock .dock-now{font-family:"Archivo",sans-serif;font-size:13px;font-weight:700;margin-left:6px;opacity:.85}
+.playbtn{flex:none;border:2px solid currentColor;background:var(--blood);color:#fff;font:700 15px "Archivo",sans-serif;padding:6px 12px;cursor:pointer}
+.playbtn:hover,.playbtn:focus-visible{background:#fff;color:#000;outline:none}
+h2.sub{font-size:30px;margin:34px 0 14px}
+.finder label{display:block;font-weight:700;margin-bottom:8px}
+.finder input[type=search]{width:100%;font:500 19px "Archivo",sans-serif;padding:14px 16px;border:3px solid currentColor;background:#fff;color:#000}
+.finder input[type=search]:focus-visible{outline:3px solid var(--blood-hot);outline-offset:2px}
+.finder .filters{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:12px}
+.finder select{font:600 16px "Archivo",sans-serif;padding:8px 10px;border:2px solid currentColor;background:#fff;color:#000}
+.finder .chk{display:flex;gap:8px;align-items:center;margin:0;font-weight:600}
+ul.songs,ul.az,ol.tracks{list-style:none;margin:0;padding:0}
+ul.songs li{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px dashed currentColor}
+ul.songs .sinfo{display:flex;flex-direction:column;gap:2px}
+ul.songs .sinfo strong{font-size:18px}
+ul.songs a,ul.az a,ol.tracks a{color:inherit;font-weight:700}
+ul.songs a:hover,ul.az a:hover,ol.tracks a:hover{color:var(--blood-hot)}
+ul.az{columns:3 240px;column-gap:28px}
+ul.az li{break-inside:avoid;padding:6px 0;display:flex;flex-wrap:wrap;gap:6px;align-items:baseline}
+ul.az .wsrc,ul.songs .wsrc{font-size:14px;opacity:.7;width:100%}
+.badge{display:inline-block;background:var(--blood);color:#fff;font-size:12px;font-weight:700;padding:1px 7px;vertical-align:middle}
+.eplist{display:grid;gap:26px}
+ol.tracks{counter-reset:t;margin:10px 0 18px}
+ol.tracks li{counter-increment:t;padding:4px 0}
+ol.tracks li::before{content:counter(t) ". ";opacity:.6;font-weight:700}
