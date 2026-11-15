@@ -165,8 +165,8 @@ ul.morenews a:hover{color:var(--blood-hot)}
 
 /* Arizona: the desert at dusk */
 body.az{--copper:#c2410c;--sand:#e9cfa6}
-body.az section.hero.az-hero{position:relative;overflow:hidden;padding:90px 0 210px;background:#050203}
-.az-scene{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+body.az section.hero.az-hero{position:relative;overflow:hidden;padding:70px 0 420px;background:#050203}
+.az-scene{position:absolute;left:0;right:0;bottom:0;width:100%;height:440px;z-index:0}
 .az-hero .wrap{position:relative;z-index:1}
 .az-hero h1{text-shadow:4px 4px 0 var(--copper),0 0 34px rgba(255,90,31,.45)}
 .az-hero .kicker{color:#ff7a3d}
@@ -187,4 +187,4 @@ ul.shows .sinfo span{font-size:15px;opacity:.8}
 ul.az-list{list-style:none;margin:0 0 18px;padding:0}
 ul.az-list li{padding:10px 0;border-bottom:1px dashed currentColor;display:flex;flex-direction:column}
 ul.az-list a{color:inherit;font-weight:800;font-size:20px}
-@media (max-width:600px){body.az section.hero.az-hero{padding:60px 0 170px}}
+@media (max-width:600px){body.az section.hero.az-hero{padding:50px 0 330px}.az-scene{height:340px}}
