@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 <div class="wip">&#9888; Work in progress: HeavyMusix is being built in public. Episodes, merch and band features are on the way.</div>
@@ -55,6 +55,13 @@
 </div></section>
 
 <section><div class="wrap">
+  <p class="kicker">Metal wire</p>
+  <h2>Around the metal world</h2>
+  <div id="wire"></div>
+  <div class="btns"><a class="btn ghost" href="news.html">More headlines</a></div>
+</div></section>
+
+<section><div class="wrap">
   <p class="kicker">The animated series &middot; Coming soon</p>
   <h2>Band Survival Kit</h2>
   <p class="lead">Grave Budget is a broke Phoenix metal band learning to run like a business the hard way: finding members, splitting money, budgeting, contracts, and dodging the guy with the &ldquo;great opportunity.&rdquo; Laugh at their mistakes so your band doesn&rsquo;t make them.</p>
@@ -81,6 +88,6 @@
   <div>Bands: <a href="submit.html">submit@heavymusix.com</a><br>Everything else: <a href="mailto:info@heavymusix.com">info@heavymusix.com</a><br>
   <a href="https://www.youtube.com/@HeavyMusix">YouTube</a> &middot; <a href="https://www.instagram.com/heavymusixradio/">Instagram</a> &middot; <a href="https://www.threads.com/@heavymusixradio">Threads</a> &middot; <a href="https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M">YouTube Music</a></div>
 </div></footer>
-<script src="news.js"></script><script>renderLatest(document.getElementById("latest"))</script>
+<script src="news.js"></script><script>renderLatest(document.getElementById("latest"))</script><script src="wire.js"></script><script>renderWire(document.getElementById("wire"),6)</script>
 </body>
 </html>
