@@ -433,6 +433,38 @@ page("this-week-in-metal.html", f"This week in metal: {len(recent)} stories | He
      f"The biggest metal news of the week: {', '.join(n['title'] for n in recent[:3])}"[:158], body, nav="news.html", image="og/week.png")
 pages.append(("this-week-in-metal.html", TODAY.isoformat()))
 
+# ---------------------------------------------------------------- today in metal history (one page per day of the year)
+try:
+    HIST = js_data("history.js", "HISTORY")
+except Exception:
+    HIST = {}
+fresh_dir("history")
+for key, items in sorted(HIST.items()):
+    m, d = map(int, key.split("-"))
+    label = datetime.date(2000, m, d).strftime("%B %-d")
+    rows = "".join(
+        f'<li><strong>{h["year"]} &middot; {esc(h["type"])}</strong><span>{esc(h["text"])}'
+        + (f' <a href="bands/{esc(h["band"])}.html">Play them on HeavyMusix Radio</a>' if h.get("band") and os.path.exists(f"bands/{h['band']}.html") else "")
+        + f'</span><span class="wsrc">Source: {esc(h.get("source", ""))}</span></li>'
+        for h in sorted(items, key=lambda h: h["year"]))
+    prev_d = datetime.date(2000, m, d) - datetime.timedelta(days=1)
+    next_d = datetime.date(2000, m, d) + datetime.timedelta(days=1)
+    nav = "".join(f'<a class="btn ghost" href="history/{x.strftime("%m-%d")}.html">{x.strftime("%B %-d")}</a>'
+                  for x in (prev_d, next_d) if x.strftime("%m-%d") in HIST)
+    body = f"""<section class="hero"><div class="wrap">
+  <p class="kicker">Today in metal history</p>
+  <h1>{esc(label)} in metal history</h1>
+  <p class="lead">Albums, birthdays, band beginnings and big moments in metal on {esc(label)}, checked against two sources each.</p>
+  <ul class="morenews">{rows}</ul>
+  <div class="sharebar"><button type="button" class="sharebtn" data-share>Share {esc(label)} in metal</button></div>
+  <div class="btns">{nav}<a class="btn ghost" href="index.html">Today on HeavyMusix</a></div>
+</div></section>"""
+    first = sorted(items, key=lambda h: h["year"])[0]
+    share_picture(f"og/history-{key}.png", f"{label} in metal history", f"heavymusix.com  ·  {len(items)} moment{'s' if len(items) != 1 else ''} from {first['year']} on")
+    page(f"history/{key}.html", f"{label} in metal history: albums, birthdays and more | HeavyMusix",
+         f"What happened in metal on {label}: " + "; ".join(h["text"][:60] for h in items[:2]), body, nav="news.html", image=f"og/history-{key}.png")
+    pages.append((f"history/{key}.html", TODAY.isoformat()))
+
 # ---------------------------------------------------------------- sitemap
 MAIN = ["", "news.html", "show.html", "bands.html", "arizona.html", "series.html",
         "submit.html", "shop.html", "about.html", "checklist-ep1.html", "search.html", "ideas.html"]

@@ -52,6 +52,11 @@
 </div></section>
 
 <section><div class="wrap">
+  <p class="kicker">Today in metal history</p>
+  <div id="tihist"><p class="muted">Loading today in metal&hellip;</p></div>
+</div></section>
+
+<section><div class="wrap">
   <p class="kicker">Band of the day</p>
   <div id="botd"><p class="muted">Loading today's band&hellip;</p></div>
 </div></section>
@@ -98,6 +103,21 @@
   <a href="https://www.youtube.com/@HeavyMusix">YouTube</a> &middot; <a href="https://www.instagram.com/heavymusixradio/">Instagram</a> &middot; <a href="https://www.threads.com/@heavymusixradio">Threads</a> &middot; <a href="https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M">YouTube Music</a></div>
 </div></footer>
 <script src="news.js?v=13"></script><script src="shows.js?v=1"></script><script>renderShows(document.getElementById("azshows"),5)</script><script>renderLatest(document.getElementById("latest"))</script>
+<script src="history.js?v=1"></script>
+<script>
+(function(){
+  var el=document.getElementById('tihist'); if(!el||!window.HISTORY) return;
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  var az=new Date(Date.now()-7*3600e3), mm=('0'+(az.getUTCMonth()+1)).slice(-2), dd=('0'+az.getUTCDate()).slice(-2), key=mm+'-'+dd, yr=az.getUTCFullYear();
+  var label=az.toLocaleDateString('en-US',{month:'long',day:'numeric',timeZone:'UTC'});
+  var list=(HISTORY[key]||[]).slice().sort(function(a,b){return a.year-b.year;});
+  if(!list.length){ el.innerHTML='<h2>'+esc(label)+' in metal</h2><p class="muted">Today\'s history is being dug up. Check back after 5 AM Arizona time.</p>'; return; }
+  el.innerHTML='<h2>'+esc(label)+' in metal</h2><ul class="morenews">'+list.slice(0,6).map(function(h){
+    var ago=yr-h.year, who=h.band?' <a href="bands/'+esc(h.band)+'.html">Play them on HeavyMusix Radio</a>':'';
+    return '<li><strong>'+h.year+' &middot; '+esc(h.type)+(ago>0?' &middot; '+ago+' years ago':'')+'</strong><span>'+esc(h.text)+who+'</span></li>';
+  }).join('')+'</ul><div class="btns"><a class="btn ghost" href="history/'+key+'.html">More from '+esc(label)+'</a></div>';
+})();
+</script>
 <script src="hmx.js?v=4"></script>
 <script>
 (function(){
