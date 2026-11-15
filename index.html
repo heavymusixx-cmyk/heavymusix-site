@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HeavyMusix | Every band gets a turn</title>
+<meta name="description" content="Unsigned metal from around the world. HeavyMusix Radio, news, and the Band Survival Kit animated series.">
+<meta property="og:title" content="HeavyMusix | Every band gets a turn">
+<meta property="og:description" content="Unsigned metal from around the world. HeavyMusix Radio, news, and the Band Survival Kit animated series.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Oswald:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wip">&#9888; Work in progress: HeavyMusix is being built in public. Episodes, merch and band features are on the way.</div>
+<header class="site"><div class="wrap">
+  <a class="logo" href="index.html">Heavy<span>Musix</span></a>
+  <nav class="main"><a href="index.html" class="on">Listen</a><a href="news.html">News</a><a href="series.html">Survival Kit</a><a href="shop.html">Shop</a><a href="submit.html">Submit</a><a href="about.html">About</a></nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <p class="kicker">HeavyMusix Radio &middot; Underground + Heavy Hitters</p>
+  <h1>Every band gets <em>a turn.</em></h1>
+  <p class="lead">Unsigned metal from around the world, mixed with the heavy hitters you already love. The playlist reshuffles every day, so every band in it gets heard.</p>
+  <div class="player">
+    <div class="fallback">Loading HeavyMusix Radio&hellip;</div>
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M" title="HeavyMusix Radio playlist" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+  </div>
+  <div class="btns">
+    <a class="btn" href="https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M">Listen on YouTube Music</a>
+    <a class="btn ghost" href="submit.html">Submit your band</a>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="kicker">News</p>
+  <h2>Latest from HeavyMusix</h2>
+  <div class="grid" id="latest"></div>
+  <div class="btns"><a class="btn ghost" href="news.html">All news</a></div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="kicker">The animated series &middot; Coming soon</p>
+  <h2>Band Survival Kit</h2>
+  <p class="lead">Grave Budget is a broke Phoenix metal band learning to run like a business the hard way: finding members, splitting money, budgeting, contracts, and dodging the guy with the &ldquo;great opportunity.&rdquo; Laugh at their mistakes so your band doesn&rsquo;t make them.</p>
+  <div class="btns"><a class="btn" href="series.html">Meet the band</a><a class="btn ghost" href="checklist-ep1.html">Free checklist</a></div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="kicker">Shop &middot; Coming soon</p>
+  <h2>Merch and band tools</h2>
+  <p class="lead">HeavyMusix shirts, stickers and patches, plus do-it-yourself guides for unsigned bands. Follow us on Instagram to hear first when the shop opens.</p>
+  <div class="btns"><a class="btn ghost" href="shop.html">See what&rsquo;s coming</a></div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="kicker">Unsigned band?</p>
+  <h2>Get considered for HeavyMusix Radio</h2>
+  <p class="lead">Free, always. Send your music, bio, photos and contact info. Every submission is reviewed; not every band is selected.</p>
+  <p class="email">submit@heavymusix.com</p>
+  <div class="btns"><a class="btn" href="submit.html">How to submit</a></div>
+</div></section>
+
+<footer class="site"><div class="wrap">
+  <div><strong style="color:#fff">HeavyMusix</strong> &middot; Every band gets a turn.<br>Unsigned metal from around the world. Phoenix, Arizona.</div>
+  <div>Bands: <a href="submit.html">submit@heavymusix.com</a><br>Everything else: <a href="mailto:info@heavymusix.com">info@heavymusix.com</a><br>
+  <a href="https://www.youtube.com/@HeavyMusix">YouTube</a> &middot; <a href="https://www.instagram.com/heavymusixradio/">Instagram</a> &middot; <a href="https://www.threads.com/@heavymusixradio">Threads</a> &middot; <a href="https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M">YouTube Music</a></div>
+</div></footer>
+<script src="news.js"></script><script>renderLatest(document.getElementById("latest"))</script>
+</body>
+</html>

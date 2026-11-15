@@ -1,0 +1,88 @@
+:root{
+  --bg:#0a0a0a; --panel:#141414; --line:#262626; --text:#ededed; --muted:#9a9a9a;
+  --red:#d01f2a; --red-dark:#8f141c;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 "Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--text)}
+img{max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* work-in-progress banner */
+.wip{background:var(--red-dark);color:#fff;text-align:center;font-size:14px;padding:8px 16px;font-family:"Oswald",sans-serif;letter-spacing:.5px}
+
+/* header */
+header.site{position:sticky;top:0;z-index:10;background:rgba(10,10,10,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;flex-wrap:wrap}
+.logo{font-family:"Metal Mania",Impact,serif;font-size:32px;line-height:1;text-decoration:none;color:#fff;letter-spacing:1px}
+.logo span{color:var(--red)}
+nav.main{display:flex;gap:4px;flex-wrap:wrap}
+nav.main a{font-family:"Oswald",Impact,sans-serif;text-transform:uppercase;letter-spacing:1px;font-size:15px;text-decoration:none;padding:8px 12px;border-radius:4px;color:var(--muted)}
+nav.main a:hover,nav.main a.on{color:#fff;background:var(--panel)}
+
+/* type */
+h1,h2,h3{font-family:"Oswald",Impact,sans-serif;text-transform:uppercase;letter-spacing:1px;line-height:1.1;margin:0 0 12px}
+h1{font-size:clamp(40px,7vw,72px)}
+h2{font-size:clamp(28px,4vw,38px)}
+h3{font-size:22px}
+.kicker{font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:3px;color:var(--red);font-size:14px;margin:0 0 8px}
+.lead{font-size:20px;color:#cfcfcf;max-width:640px}
+.lead a{color:#fff}
+.muted{color:var(--muted)}
+
+/* sections */
+section{padding:64px 0;border-bottom:1px solid var(--line)}
+.hero{padding:72px 0 56px;background:radial-gradient(ellipse at 70% 0%,rgba(208,31,42,.28),transparent 60%)}
+.hero h1 em{font-style:normal;color:var(--red)}
+
+/* buttons */
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-block;font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:1px;font-size:16px;text-decoration:none;padding:12px 22px;border-radius:4px;border:2px solid var(--red);background:var(--red);color:#fff}
+.btn:hover{background:var(--red-dark);border-color:var(--red-dark)}
+.btn.ghost{background:transparent;color:#fff;border-color:#555}
+.btn.ghost:hover{border-color:#fff}
+
+/* player */
+.player{position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-top:28px}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.player .fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:var(--muted)}
+.player.placeholder{background:repeating-linear-gradient(135deg,#111 0 18px,#161616 18px 36px)}
+.soon{display:inline-block;font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:2px;font-size:clamp(22px,4vw,34px);color:#fff;margin-bottom:6px}
+
+/* cards */
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:28px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:22px}
+.card .date{font-size:14px;color:var(--muted);margin-bottom:6px}
+.card p{margin:0 0 10px}
+.tag{display:inline-block;font-size:12px;font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:1px;padding:2px 8px;border-radius:3px;background:#2a0b0d;color:#ff7a82;margin-bottom:10px}
+
+/* placeholder thumbnails (episodes, products) */
+.thumb{position:relative;aspect-ratio:16/9;border-radius:6px;margin:-6px -6px 16px;background:radial-gradient(ellipse at 50% 120%,rgba(208,31,42,.45),transparent 70%),repeating-linear-gradient(135deg,#0d0d0d 0 14px,#121212 14px 28px);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}
+.product .thumb{aspect-ratio:1/1}
+.thumb span{font-family:"Metal Mania",Impact,serif;font-size:40px;color:#fff;line-height:1;text-align:center;padding:0 10px}
+.thumb em{font-style:normal;margin-top:8px;font-family:"Oswald",sans-serif;text-transform:uppercase;letter-spacing:2px;font-size:12px;color:#fff;background:var(--red);padding:3px 10px;border-radius:3px}
+.card.ep h3,.card.product h3{color:#fff}
+.card a{color:#ff7a82}
+
+/* news article */
+article.post{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:28px;margin-bottom:20px}
+article.post h2{font-size:28px}
+
+/* cast */
+.cast{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:24px}
+.cast .card h3{color:#fff;margin-bottom:4px}
+.cast .role{color:var(--red);font-size:14px;text-transform:uppercase;letter-spacing:1px;font-family:"Oswald",sans-serif}
+
+/* lists */
+ul.check{list-style:none;padding:0}
+ul.check li{padding:8px 0 8px 32px;position:relative;border-bottom:1px solid var(--line)}
+ul.check li:before{content:"\2620";position:absolute;left:0;color:var(--red)}
+.callout{border-left:4px solid var(--red);background:var(--panel);padding:16px 20px;border-radius:0 6px 6px 0;margin:24px 0}
+.callout a{color:#ff7a82}
+.email{font-family:"Oswald",sans-serif;font-size:clamp(22px,4vw,34px);letter-spacing:1px;color:#fff;word-break:break-all}
+
+/* footer */
+footer.site{padding:40px 0;color:var(--muted);font-size:15px}
+footer.site .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer.site a{color:var(--muted)}
