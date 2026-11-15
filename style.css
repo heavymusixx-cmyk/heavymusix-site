@@ -106,3 +106,4 @@ ul.wire li a{font-family:"Archivo",sans-serif;font-weight:800;font-size:19px;lin
 ul.wire li a:hover,ul.wire li a:focus-visible{color:var(--blood-hot);text-decoration:underline}
 ul.wire .wsrc{font-size:14px;opacity:.7}
 .wupd{font-size:14px;opacity:.7;margin-top:12px}
+ul.wire .wtag{align-self:flex-start;background:var(--blood);color:#fff;font-size:13px;font-weight:700;padding:2px 8px;letter-spacing:.02em}
