@@ -208,7 +208,7 @@ for i, n in enumerate(news):
     </article>
     <h2 class="sub">More metal news</h2>
     <ul class="morenews">{''.join(f'<li><a href="news/{slug_of(m)}.html">{esc(m["title"])}</a><span class="wsrc">{fmt_date(m["date"])}</span></li>' for m in more)}</ul>
-    <div class="btns"><a class="btn ghost" href="news.html">All news</a> <a class="btn ghost" href="feed.xml">News feed (RSS)</a></div>
+    <div class="btns"><a class="btn ghost" href="news.html">All news</a> <a class="btn ghost" href="feed.xml" target="_blank" rel="noopener">News feed (RSS)</a></div>
 </div></section>"""
     desc = n["text"][0][:155]
     ld = {"@context": "https://schema.org", "@type": "NewsArticle", "headline": n["title"][:110],

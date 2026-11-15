@@ -391,6 +391,17 @@
     load(a.href, true);
   });
 
+  /* Search boxes: open the results in place too, so the music never stops. */
+  document.addEventListener('submit', function(e){
+    var f = e.target;
+    if (e.defaultPrevented || !dock() || (f.method || 'get').toLowerCase() !== 'get') return;
+    var u = new URL(f.getAttribute('action') || location.href, location.href);
+    if (u.origin !== location.origin || !/(\.html|\/)$/.test(u.pathname)) return;
+    e.preventDefault();
+    u.search = new URLSearchParams(new FormData(f)).toString();
+    load(u.href, true);
+  });
+
   window.addEventListener('popstate', function(){
     if (dock()) load(location.href, false);
   });
