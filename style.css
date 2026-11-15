@@ -200,3 +200,7 @@ ul.az-list a{color:inherit;font-weight:800;font-size:20px}
 .az-panel h1{margin:4px 0 12px}
 .az-panel .lead{color:#fff;margin:0;font-weight:500}
 @media (max-width:600px){.az-panel{padding:16px 18px}}
+
+/* Resume after refresh */
+#hmx-dock .dock-resume{position:absolute;inset:0;z-index:2;border:0;background:rgba(0,0,0,.78);color:#fff;font:700 22px var(--text);cursor:pointer}
+#hmx-dock .dock-resume:hover,#hmx-dock .dock-resume:focus-visible{background:rgba(163,18,27,.9);outline:none}

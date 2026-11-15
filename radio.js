@@ -55,7 +55,7 @@
       var b = e.target.closest('.dock-btn'); if (!b) return;
       if (b.dataset.act === 'min') d.classList.toggle('min');
       if (b.dataset.act === 'radio') startDefault();
-      if (b.dataset.act === 'close'){ d.remove(); location.reload(); }
+      if (b.dataset.act === 'close'){ forget(); d.remove(); location.reload(); }
     });
     document.body.appendChild(d);
     makeDraggable(d);
@@ -153,6 +153,7 @@
   }
 
   function onState(e){
+    if (e.data === 1){ var r = document.querySelector('#hmx-dock .dock-resume'); if (r) r.remove(); }
     if (e.data !== 0 || !mode) return;               // 0 = ended
     if (mode.kind === 'song'){ startDefault(); return; }
     if (mode.kind === 'episode'){
@@ -170,9 +171,58 @@
     try { player.nextVideo(); } catch (x) {}
   }
 
+
+  /* Remember where the music is, so a refresh picks it back up */
+  var KEY = 'hmxNowPlaying';
+  function remember(){
+    if (!player || !ready || !mode || !player.getCurrentTime) return;
+    try {
+      var st = {m: mode.kind, t: Math.floor(player.getCurrentTime() || 0), ts: Date.now()};
+      if (mode.kind === 'radio') st.idx = player.getPlaylistIndex();
+      if (mode.kind === 'episode'){ st.i = mode.i; st.idx = player.getPlaylistIndex(); }
+      if (mode.kind === 'song'){ var vd = player.getVideoData && player.getVideoData(); st.v = (vd && vd.video_id) || mode.v; st.label = mode.label || ''; }
+      sessionStorage.setItem(KEY, JSON.stringify(st));
+      localStorage.setItem(KEY, JSON.stringify(st));
+    } catch (x) {}
+  }
+  function forget(){ try { sessionStorage.removeItem(KEY); localStorage.removeItem(KEY); } catch (x) {} }
+  setInterval(remember, 4000);
+  window.addEventListener('pagehide', remember);
+  function showResume(){
+    var box = document.querySelector('#hmx-dock .dock-video'); if (!box || box.querySelector('.dock-resume')) return;
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'dock-resume'; b.innerHTML = '&#9654; Keep listening';
+    b.addEventListener('click', function(){ try { player.playVideo(); } catch (x) {} b.remove(); });
+    box.appendChild(b);
+  }
+  function checkStarted(){
+    setTimeout(function(){
+      try { if (player.getPlayerState() !== 1 && player.getPlayerState() !== 3) showResume(); } catch (x) {}
+    }, 2500);
+  }
+  function resumeIfPlaying(){
+    var st = null;
+    try { st = JSON.parse(sessionStorage.getItem(KEY) || localStorage.getItem(KEY) || 'null'); } catch (x) {}
+    if (!st || !st.ts || Date.now() - st.ts > 30 * 60 * 1000) return;
+    if (st.m === 'song' && st.v){
+      mode = {kind: 'song', v: st.v, label: st.label};
+      withPlayer(function(){ player.setLoop(false); player.loadVideoById({videoId: st.v, startSeconds: st.t || 0}); setLabel(st.label ? ' \u00b7 ' + st.label : ''); checkStarted(); });
+    } else if (st.m === 'episode'){
+      loadEpisodes().then(function(eps){
+        if (!eps.length) return;
+        var i = Math.min(st.i || 0, eps.length - 1);
+        mode = {kind: 'episode', i: i};
+        withPlayer(function(){ player.setLoop(false); player.loadPlaylist(eps[i].play, st.idx || 0, st.t || 0); setLabel(' \u00b7 Show #' + eps[i].n); checkStarted(); });
+      });
+    } else {
+      mode = {kind: 'radio'};
+      withPlayer(function(){ player.loadPlaylist({list: PL, listType: 'playlist', index: st.idx || 0, startSeconds: st.t || 0}); player.setLoop(true); setLabel(' \u00b7 24/7 playlist'); checkStarted(); });
+    }
+  }
+
   window.startRadio = function(){ if (dock() && mode){ dock().classList.remove('min'); return; } startDefault(); };
   window.hmxPlaySong = function(v, label){
-    mode = {kind: 'song', v: v};
+    mode = {kind: 'song', v: v, label: label};
     withPlayer(function(){ player.setLoop(false); player.loadVideoById(v); setLabel(label ? ' · ' + label : ''); });
   };
   window.hmxPlayEpisode = function(n){
@@ -252,4 +302,6 @@
   window.addEventListener('popstate', function(){
     if (dock()) load(location.href, false);
   });
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', resumeIfPlaying); else resumeIfPlaying();
 })();
