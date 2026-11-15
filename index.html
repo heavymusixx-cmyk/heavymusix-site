@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=18">
+<link rel="stylesheet" href="style.css?v=19">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "HeavyMusix", "url": "https://heavymusix.com/", "potentialAction": {"@type": "SearchAction", "target": "https://heavymusix.com/search.html?q={search_term_string}", "query-input": "required name=search_term_string"}}, {"@type": "Organization", "name": "HeavyMusix", "url": "https://heavymusix.com/", "logo": "https://heavymusix.com/og/default.png", "email": "info@heavymusix.com", "sameAs": ["https://www.youtube.com/@HeavyMusix", "https://www.instagram.com/heavymusixradio/", "https://www.threads.com/@heavymusixradio", "https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M"]}]}</script>
 <meta property="og:image" content="https://heavymusix.com/og/default.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -51,10 +51,15 @@
 </div></section>
 
 <section><div class="wrap">
+  <p class="kicker">Band of the day</p>
+  <div id="botd"><p class="muted">Loading today's band&hellip;</p></div>
+</div></section>
+
+<section><div class="wrap">
   <p class="kicker">News</p>
   <h2>Latest from HeavyMusix</h2>
   <div class="grid" id="latest"></div>
-  <div class="btns"><a class="btn ghost" href="news.html">All news</a></div>
+  <div class="btns"><a class="btn ghost" href="news.html">All news</a><a class="btn ghost" href="this-week-in-metal.html">This week in metal</a></div>
 </div></section>
 
 <section><div class="wrap">
@@ -92,6 +97,24 @@
   <a href="https://www.youtube.com/@HeavyMusix">YouTube</a> &middot; <a href="https://www.instagram.com/heavymusixradio/">Instagram</a> &middot; <a href="https://www.threads.com/@heavymusixradio">Threads</a> &middot; <a href="https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M">YouTube Music</a></div>
 </div></footer>
 <script src="news.js?v=13"></script><script src="shows.js?v=1"></script><script>renderShows(document.getElementById("azshows"),5)</script><script>renderLatest(document.getElementById("latest"))</script>
+<script src="hmx.js?v=3"></script>
+<script>
+(function(){
+  var el=document.getElementById('botd'); if(!el) return;
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  Promise.all([fetch('show/bands.json').then(function(r){return r.json();}),fetch('show/catalog.json').then(function(r){return r.json();})]).then(function(d){
+    var B=d[0], C=d[1], keys=Object.keys(B).filter(function(k){return B[k].songs>0;}).sort();
+    var unsigned=keys.filter(function(k){return B[k].unsigned;});
+    var day=Math.floor((Date.now()-7*3600e3)/864e5);           // changes at midnight Arizona time
+    var k=(unsigned.length && day%2===0)?unsigned[(day/2|0)%unsigned.length]:keys[day%keys.length], b=B[k];
+    var songs=C.filter(function(s){return s.b===k;}).slice(0,3);
+    var where=[b.city,b.region,b.country].filter(Boolean).join(', ');
+    el.innerHTML='<div class="card"><h2 style="margin:0">'+esc(b.name)+'</h2><p class="muted">'+esc([b.genre,where].filter(Boolean).join(' · '))+'</p>'+(b.bio?'<p>'+esc(b.bio)+'</p>':'')+
+      '<ul class="songs">'+songs.map(function(s){var l=b.name+' – '+s.t;return '<li><button type="button" class="playbtn" data-v="'+esc(s.v)+'" data-label="'+esc(l)+'" aria-label="Play '+esc(l)+'">&#9654; Play</button><span class="sinfo"><strong>'+esc(s.t)+'</strong></span></li>';}).join('')+'</ul>'+
+      '<div class="btns"><a class="btn ghost" href="bands/'+esc(k)+'.html">All '+b.songs+' songs by '+esc(b.name)+'</a><a class="btn ghost" href="genres/index.html">Browse by genre</a></div></div>';
+  }).catch(function(){el.innerHTML='<p><a href="bands.html">Find a band</a></p>';});
+})();
+</script>
 <script src="radio.js?v=15"></script>
 </body>
 </html>

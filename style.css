@@ -240,3 +240,6 @@ nav.main a.navsearch{color:var(--bone)}
 .ideaform label{display:grid;gap:6px;font:700 16px "Archivo",sans-serif}
 .ideaform input,.ideaform select,.ideaform textarea{font:500 17px "Archivo",sans-serif;padding:10px 12px;border:2px solid var(--bone);background:#000;color:var(--bone)}
 .ideaform .btn{justify-self:start}
+pre.snippet{white-space:pre-wrap;word-break:break-all;font:13px/1.4 ui-monospace,Consolas,monospace;background:#000;color:var(--bone);padding:10px;border:1px solid var(--steel)}
+details.followbox summary{cursor:pointer;font-weight:800}
+#botd .card{display:grid;gap:8px}
