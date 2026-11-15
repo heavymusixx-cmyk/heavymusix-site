@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=6">
+<link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 <div class="wip">&#9888; Work in progress: HeavyMusix is being built in public. Episodes, merch and band features are on the way.</div>
@@ -33,13 +33,6 @@
       <span class="pc-cta">Listen now</span>
     </button>
   </div>
-  <script>
-  function startRadio(){
-    var el=document.getElementById('radio');
-    el.classList.remove('cover');
-    el.innerHTML='<iframe src="https://www.youtube.com/embed/videoseries?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M&autoplay=1" title="HeavyMusix Radio playlist" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
-  }
-  </script>
 </div>
   <div class="btns">
     <a class="btn" href="https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M">Listen on YouTube Music</a>
@@ -89,5 +82,6 @@
   <a href="https://www.youtube.com/@HeavyMusix">YouTube</a> &middot; <a href="https://www.instagram.com/heavymusixradio/">Instagram</a> &middot; <a href="https://www.threads.com/@heavymusixradio">Threads</a> &middot; <a href="https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M">YouTube Music</a></div>
 </div></footer>
 <script src="news.js"></script><script>renderLatest(document.getElementById("latest"))</script><script src="wire.js"></script><script>renderWire(document.getElementById("wire"),6)</script>
+<script src="radio.js"></script>
 </body>
 </html>
