@@ -7,6 +7,61 @@
 var NEWS = [
   {
     date: "2026-11-15",
+    tag: "News",
+    title: "Iron Maiden finally enter the Rock and Roll Hall of Fame, and the stars line up to play The Trooper",
+    text: [
+      "It took more than 20 years of eligibility and three nominations, but Iron Maiden are officially in the Rock and Roll Hall of Fame. The 2026 ceremony took place Saturday night, November 14, at the Peacock Theater in Los Angeles, and this year it did not air live.",
+      "The induction came with a tribute fit for the band: members of Metallica, St. Vincent, Jack Black and more got together to honor Maiden, including a cover of \"The Trooper\". Musicians from Rage Against The Machine and Motley Crue were part of the salute too.",
+      "Bruce Dickinson spent years telling anyone who would listen that he did not care about the Hall, but the band's statement thanked the Rock Hall for including former members who were part of the story and said the honor fits their 50th anniversary run with the Run For Your Lives World Tour. Up the Irons!",
+      "Source: Blabbermouth, Metal Hammer"
+    ]
+  },
+  {
+    date: "2026-11-15",
+    tag: "Shows",
+    title: "Slayer bring Reign In Blood home to Los Angeles; Tom Araya stops the show over crowd safety",
+    text: [
+      "Slayer played their first Los Angeles shows in seven years this weekend, two sold-out nights at the Kia Forum on November 13 and 14 celebrating 40 years of \"Reign In Blood\", performed front to back. The first night sold out in presales, so a second was added.",
+      "Support came from Cannibal Corpse, Cavalera playing \"Chaos A.D.\", and Crowbar. The lineup is Tom Araya on bass and vocals, Kerry King and Gary Holt on guitars and Paul Bostaph on drums.",
+      "One of the LA nights was halted over safety concerns in the crowd, and video shows Araya scolding fans before the band carried on. Look out for each other in the pit, people.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-15",
+    tag: "Tours",
+    title: "Metal Church and Armored Saint roll down the West Coast, with a surprise from Duke Erickson",
+    text: [
+      "Metal Church and Armored Saint kicked off their co-headlining North American run in Bremerton, Washington on November 14, and the night had a special guest: original Metal Church bassist Duke Erickson joined the band on stage.",
+      "Erickson played on every Metal Church release from the 1982 \"Hitman\" demo through 1999's \"Masterpeace\", including the classics \"Metal Church\" and \"The Dark\".",
+      "Next up: Vancouver's Rickshaw Theater tonight (Nov 15), then San Francisco's Great American Music Hall (Nov 17), Roseville (Nov 18) and the Whisky A Go Go in Los Angeles (Nov 19).",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-15",
+    tag: "Releases",
+    title: "Kittie re-record their darkest album: \"Oracle XXV\" is out now",
+    text: [
+      "Canada's Kittie have released \"Oracle XXV\", a re-recorded 25th-anniversary take on songs from 2001's \"Oracle\". It came out Friday, November 13, almost exactly 25 years after the original dropped on November 12, 2001.",
+      "\"Oracle\" was the heavier, darker follow-up to \"Spit\". It debuted at No. 57 on the Billboard 200 and was the band's only album with bassist Talena Atfield. A new video for \"Mouthful Of Poison XXV\" is part of the rollout.",
+      "It follows last year's \"Spit XXV\" EP and the 2024 comeback album \"Fire\", which earned Kittie a Juno nomination.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-15",
+    tag: "Releases",
+    title: "Tony Iommi and Jorn Lande talk \"From The Dark\" in a new video interview",
+    text: [
+      "Black Sabbath's Tony Iommi and singer Jorn Lande have shared an official video interview about \"From The Dark\", Iommi's first solo album in 21 years, released October 23 on BMG.",
+      "Lande, the Norwegian singer known for Masterplan and Allen-Lande, co-wrote every song and wrote the lyrics. Iommi first worked with him at the 2010 High Voltage festival tribute to Ronnie James Dio. Becky Baldwin plays bass and Karl Brazil plays drums.",
+      "Iommi had hoped to get Geezer Butler on the record, but Geezer could not do it. The lead single is \"World Alone\". If you love down-tuned, doom-heavy riffs, this one is worth your time.",
+      "Source: Blabbermouth, Ultimate Classic Rock"
+    ]
+  },
+  {
+    date: "2026-11-15",
     tag: "World",
     title: "Jinjer's huge 2026: three tours, 50,000 fans in Europe and a stop in Tempe",
     text: [
