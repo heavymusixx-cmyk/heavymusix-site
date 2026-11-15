@@ -65,6 +65,15 @@ try:
 except Exception as e:
     problems.append(f"history.js could not be read ({e})")
 
+# 5. Today's social clips were made (the clip robot runs at 6:11 AM)
+try:
+    ci = json.load(open("clips/info.json", encoding="utf-8"))
+    if now.hour >= 8:
+        (problems if ci.get("date") != now.date().isoformat() or not ci.get("made") else notes).append(
+            f"Social clips last made {ci.get('date')} ({len(ci.get('made', []))} clip(s)).")
+except FileNotFoundError:
+    notes.append("Social clips: none made yet.")
+
 report = ["# HeavyMusix health check", f"Checked {now.strftime('%Y-%m-%d %H:%M')} Arizona time.", ""]
 report += ["## Problems"] + [f"- {p}" for p in problems] + [""] if problems else ["All good."]
 report += ["## Details"] + [f"- {n}" for n in notes]

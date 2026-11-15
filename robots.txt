@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /player.html
+Disallow: /clips/
 
 Sitemap: https://heavymusix.com/sitemap.xml

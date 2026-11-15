@@ -1,0 +1,42 @@
+name: Daily social clips
+
+# Every morning after the news lands: makes today's two vertical clips
+# (heavymusix.com/clips/news.mp4 and /clips/history.mp4) for Shorts, Reels, TikTok and Threads.
+on:
+  schedule:
+    - cron: "11 13 * * *"    # 6:11 AM Arizona
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: site-robots
+  cancel-in-progress: false
+
+jobs:
+  clips:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install tools
+        run: pip install --quiet pillow && sudo apt-get install -y -qq ffmpeg > /dev/null
+      - name: Make today's clips
+        run: python scripts/daily_clips.py
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "HeavyMusix Clip Bot"
+          git config user.email "clip-bot@users.noreply.github.com"
+          git add clips
+          if ! git diff --cached --quiet; then
+            git commit -m "Clips: $(date -u '+%F')"
+            git pull --rebase
+            git push
+            gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
+          fi
