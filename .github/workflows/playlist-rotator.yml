@@ -1,0 +1,50 @@
+name: Playlist reshuffle
+
+# Reshuffles the HeavyMusix Radio playlist on YouTube every morning
+# (every band once before any repeats; new songs up front).
+# Runs on GitHub's computers, so your laptop can stay off.
+on:
+  schedule:
+    - cron: "52 15 * * *"   # every day at 8:52 AM Arizona time
+  workflow_dispatch: {}      # run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: site-robots
+  cancel-in-progress: false
+
+jobs:
+  shuffle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install the YouTube tools
+        run: pip install --quiet google-api-python-client google-auth-oauthlib
+      - name: Sign in as HeavyMusix (from the YT_TOKEN secret)
+        env:
+          YT_TOKEN: ${{ secrets.YT_TOKEN }}
+        run: |
+          if [ -z "$YT_TOKEN" ]; then echo "The YT_TOKEN secret is missing. Add it under Settings > Secrets and variables > Actions."; exit 1; fi
+          printf '%s' "$YT_TOKEN" > rotator/token.json
+      - name: Reshuffle the playlist
+        run: python rotator/playlist_rotator.py --apply --scheduled
+      - name: Remove the sign-in file
+        if: always()
+        run: rm -f rotator/token.json rotator/client_secret.json
+      - name: Save which songs have had their turn
+        run: |
+          git config user.name "HeavyMusix Playlist Bot"
+          git config user.email "playlist-bot@users.noreply.github.com"
+          git add rotator/rotator_memory.json
+          if git diff --cached --quiet; then
+            echo "Nothing to save."
+          else
+            git commit -m "Playlist reshuffle $(date -u '+%F')"
+            git pull --rebase
+            git push
+          fi
