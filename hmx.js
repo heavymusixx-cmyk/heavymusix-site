@@ -36,8 +36,8 @@ var HMX = window.HMX || {};
       var coming = d.eps.filter(function(e){ return e.status !== 'live'; }).length;
       var h = '';
       if (!live.length){
-        h += '<div class="card"><h3>Episode 1 is in the works</h3><p>The first HeavyMusix Radio Show is being recorded now. Until it drops, HeavyMusix Radio plays the full playlist around the clock.</p>' +
-             '<div class="btns"><button type="button" class="btn" onclick="startRadio()">Listen now</button></div></div>';
+        h += '<div class="card"><h3>No episodes yet</h3><p>Show #1 of the HeavyMusix Radio Show is being recorded now. When it drops, it will be right here with its full track list.</p>' +
+             '<p class="muted">New here? Follow <a href="https://www.instagram.com/heavymusixradio/">@heavymusixradio</a> to hear the moment Show #1 is live.</p></div>';
       } else {
         h += '<div class="eplist">' + live.map(function(e){
           return '<article class="card ep"><p class="date"><a href="episodes/' + e.n + '.html">Show #' + e.n + '</a>' + (e.live ? ' &middot; ' + esc(e.live) : '') + '</p><h3>' + esc(e.title) + '</h3>' +
@@ -45,7 +45,7 @@ var HMX = window.HMX || {};
             '<button type="button" class="btn playep" data-n="' + e.n + '">&#9654; Play Show #' + e.n + '</button></article>';
         }).join('') + '</div>';
       }
-      if (coming) h += '<p class="wupd">' + coming + ' more episode' + (coming > 1 ? 's are' : ' is') + ' in the works.</p>';
+      if (coming && live.length) h += '<p class="wupd">' + coming + ' more episode' + (coming > 1 ? 's are' : ' is') + ' in the works.</p>';
       el.innerHTML = h;
     });
   };

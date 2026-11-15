@@ -92,7 +92,7 @@ def page(path, title, desc, body, nav=None, ld=None, extra_head="", image="og/de
 {body}
 
 {FOOTER}
-<script src="hmx.js?v=3"></script>
+<script src="hmx.js?v=4"></script>
 <script src="{RADIO}"></script>
 </body>
 </html>
