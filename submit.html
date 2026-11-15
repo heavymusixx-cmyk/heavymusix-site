@@ -33,6 +33,47 @@
 </div></section>
 
 <section><div class="wrap">
+  <p class="kicker">Why submit</p>
+  <h2>What selected bands get</h2>
+  <ul class="morenews">
+    <li><strong>Airplay on HeavyMusix Radio</strong><span>Your songs in rotation next to the heavy hitters, heard by metal fans worldwide.</span></li>
+    <li><strong>A spot on the Radio Show</strong><span>Heavy introduces your band on the weekly show, with your name, city and story.</span></li>
+    <li><strong>Your own band page</strong><span>Bio, hometown, every song with play buttons, your links, and news about you. Easy for fans and Google to find.</span></li>
+    <li><strong>Band of the Day</strong><span>Unsigned picks take turns in the spotlight on the home page.</span></li>
+    <li><strong>The HeavyMusix Radio badge</strong><span>A "Played on HeavyMusix Radio" badge for your website and link page.</span></li>
+    <li><strong>The Band Survival Kit</strong><span>Free guides on booking, merch, money and contracts, so you don't get ripped off.</span></li>
+  </ul>
+  <p class="wupd">Free, always. You keep every right to your music.</p>
+</div></section>
+
+<section><div class="wrap">
+  <p class="kicker">Submit in 5 minutes</p>
+  <h2>Fill it in, then press Send</h2>
+  <form id="bandform" class="ideaform" onsubmit="return sendBand(event)">
+    <label>Band name <input name="band" required></label>
+    <label>City and country <input name="where" required placeholder="Phoenix, USA"></label>
+    <label>Genre <input name="genre" required placeholder="Thrash, death, doom, deathcore..."></label>
+    <label>Music links (Bandcamp, Spotify, YouTube; at least 4 to 5 songs) <textarea name="music" rows="3" required></textarea></label>
+    <label>Short bio <textarea name="bio" rows="5" required placeholder="Who you are, when you started, what you sound like, what you've released"></textarea></label>
+    <label>Photos and logo (a shared link) <input name="photos" required></label>
+    <label>Contact name and email <input name="contact" required></label>
+    <label>Social and merch links (optional) <textarea name="social" rows="2"></textarea></label>
+    <label class="chk"><input type="checkbox" name="rights" required> We own this music, and if we're selected, HeavyMusix may play it on the radio, streams and clips and feature our band.</label>
+    <p class="muted">Pressing Send opens your email app with everything filled in, addressed to submit@heavymusix.com. We use it only to review your band and reply. See our <a href="privacy.html">privacy page</a>.</p>
+    <button type="submit" class="btn">Send my submission</button>
+  </form>
+</div></section>
+<script>
+function sendBand(e){
+  e.preventDefault();
+  var d=new FormData(document.getElementById('bandform'));
+  var body='Band: '+d.get('band')+'\nFrom: '+d.get('where')+'\nGenre: '+d.get('genre')+'\n\nMusic:\n'+d.get('music')+'\n\nBio:\n'+d.get('bio')+'\n\nPhotos and logo: '+d.get('photos')+'\nContact: '+d.get('contact')+'\nSocial and merch: '+(d.get('social')||'-')+'\n\nRights: We own this music, and if we are selected, HeavyMusix may play it on the radio, streams and clips and feature our band.';
+  location.href='mailto:submit@heavymusix.com?subject='+encodeURIComponent('Band submission: '+d.get('band')+' ('+d.get('where')+')')+'&body='+encodeURIComponent(body);
+  return false;
+}
+</script>
+
+<section><div class="wrap">
   <h2>What to send</h2>
   <p>Put it all in one email. Incomplete submissions can&rsquo;t be reviewed.</p>
   <ul class="check">
