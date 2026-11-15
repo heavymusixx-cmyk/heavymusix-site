@@ -1,0 +1,41 @@
+name: Site health check
+
+# Every 6 hours: is the site up, do all links work, are the robots keeping news and the show fresh?
+# If something is wrong, an issue titled "Site health problem" is opened (GitHub emails the owner).
+# When everything is fine again, the issue closes itself.
+on:
+  schedule:
+    - cron: "23 */6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check the site
+        id: check
+        continue-on-error: true
+        run: python scripts/health_check.py
+      - name: Open or update the alert
+        if: steps.check.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(gh issue list --state open --search "Site health problem in:title" --json number -q '.[0].number')
+          if [ -n "$n" ]; then gh issue comment "$n" --body-file health_report.md
+          else gh issue create --title "Site health problem" --body-file health_report.md; fi
+      - name: Close the alert when healthy
+        if: steps.check.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for n in $(gh issue list --state open --search "Site health problem in:title" --json number -q '.[].number'); do
+            gh issue close "$n" --comment "Fixed: the latest check passed."; done

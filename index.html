@@ -104,10 +104,13 @@
   var el=document.getElementById('botd'); if(!el) return;
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   Promise.all([fetch('show/bands.json').then(function(r){return r.json();}),fetch('show/catalog.json').then(function(r){return r.json();})]).then(function(d){
-    var B=d[0], C=d[1], keys=Object.keys(B).filter(function(k){return B[k].songs>0;}).sort();
-    var unsigned=keys.filter(function(k){return B[k].unsigned;});
+    var B=d[0], C=d[1], picks=Object.keys(B).filter(function(k){return B[k].unsigned && B[k].songs>0;}).sort();
+    if(!picks.length){   // Band of the Day is only for unsigned bands Heavy has selected
+      el.innerHTML='<div class="card"><h2 style="margin:0">Your band could be here</h2><p>Band of the Day spotlights the unsigned bands hand-picked for HeavyMusix Radio. The first picks are being chosen now.</p><div class="btns"><a class="btn" href="submit.html">Submit your band (free)</a><a class="btn ghost" href="genres/index.html">Browse by genre</a></div></div>';
+      return;
+    }
     var day=Math.floor((Date.now()-7*3600e3)/864e5);           // changes at midnight Arizona time
-    var k=(unsigned.length && day%2===0)?unsigned[(day/2|0)%unsigned.length]:keys[day%keys.length], b=B[k];
+    var k=picks[day%picks.length], b=B[k];
     var songs=C.filter(function(s){return s.b===k;}).slice(0,3);
     var where=[b.city,b.region,b.country].filter(Boolean).join(', ');
     el.innerHTML='<div class="card"><h2 style="margin:0">'+esc(b.name)+'</h2><p class="muted">'+esc([b.genre,where].filter(Boolean).join(' · '))+'</p>'+(b.bio?'<p>'+esc(b.bio)+'</p>':'')+
