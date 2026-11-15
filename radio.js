@@ -193,14 +193,17 @@
     }).catch(function(){ location.href = url; });
   }
 
+  /* Outside links (news stories, YouTube, Instagram...) always open in a new tab,
+     so HeavyMusix stays open and the music keeps playing. */
   document.addEventListener('click', function(e){
-    if (!dock() || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     var a = e.target.closest('a');
     if (a && /^https?:/.test(a.href) && new URL(a.href).origin !== location.origin){
       e.preventDefault();
       window.open(a.href, '_blank', 'noopener');
       return;
     }
+    if (!dock()) return;
     if (!sameSite(a)) return;
     e.preventDefault();
     load(a.href, true);
