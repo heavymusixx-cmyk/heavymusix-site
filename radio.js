@@ -7,6 +7,27 @@
 (function(){
   if (window.__hmxRadio) return;
   window.__hmxRadio = true;
+
+  /* Hamburger menu: the button opens and closes the menu on phones and tablets. */
+  document.addEventListener('click', function(e){
+    var t = e.target.closest && e.target.closest('.navtoggle');
+    var h = document.querySelector('header.site');
+    if (!h) return;
+    if (t){
+      var open = h.classList.toggle('open');
+      t.setAttribute('aria-expanded', open ? 'true' : 'false');
+      t.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      return;
+    }
+    if (h.classList.contains('open') && (e.target.closest('nav.main a') || !e.target.closest('header.site'))){
+      h.classList.remove('open');
+      var b = h.querySelector('.navtoggle'); if (b){ b.setAttribute('aria-expanded', 'false'); b.setAttribute('aria-label', 'Open menu'); }
+    }
+  });
+  document.addEventListener('keydown', function(e){
+    var h = document.querySelector('header.site');
+    if (e.key === 'Escape' && h && h.classList.contains('open')){ h.classList.remove('open'); var b = h.querySelector('.navtoggle'); if (b){ b.setAttribute('aria-expanded', 'false'); b.focus(); } }
+  });
   var PL = 'PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M';
   var player = null, ready = false, pending = null;
   var mode = null;          // {kind:'radio'} | {kind:'episode', i} | {kind:'song', v, label}

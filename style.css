@@ -337,3 +337,19 @@ nav.main a{font-size:18px}
 .card a,ul.morenews a,footer.site a{font-family:var(--ui);letter-spacing:.02em}
 .ideaform label.chk{display:flex;align-items:flex-start;gap:14px;font-size:17px;line-height:1.45;padding:14px;border:1px solid var(--edge);background:#0a090b;cursor:pointer}
 .ideaform label.chk input[type=checkbox]{flex:none;width:28px;height:28px;margin:2px 0 0;accent-color:var(--blood-hot);cursor:pointer}
+
+/* Hamburger menu (phones and tablets) */
+.navtoggle{display:none}
+@media (max-width:1000px){
+  header.site .wrap{flex-wrap:wrap;min-height:64px}
+  .navtoggle{display:inline-flex;flex-direction:column;justify-content:center;gap:6px;width:48px;height:48px;padding:0 11px;background:transparent;border:2px solid var(--edge,#333);cursor:pointer}
+  .navtoggle span{display:block;height:3px;background:var(--bone);border-radius:2px;transition:transform .2s,opacity .2s}
+  .navtoggle:hover,.navtoggle:focus-visible{border-color:var(--blood-hot);outline:none}
+  header.site.open .navtoggle span:nth-child(1){transform:translateY(9px) rotate(45deg)}
+  header.site.open .navtoggle span:nth-child(2){opacity:0}
+  header.site.open .navtoggle span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+  nav.main{display:none;width:100%;flex-direction:column;gap:0;padding:4px 0 12px}
+  header.site.open nav.main{display:flex}
+  nav.main a{padding:14px 6px !important;border-bottom:1px solid var(--edge,#222) !important;font-size:20px !important}
+  nav.main a.on{color:var(--blood-hot)}
+}
