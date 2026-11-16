@@ -42,7 +42,6 @@
       <span class="pc-cta">Listen now</span>
     </button>
   </div>
-</div>
   <div class="btns">
     <button type="button" class="btn" onclick="startRadio()">&#9654; Play HeavyMusix Radio</button>
     <a class="btn ghost" href="https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M" target="_blank" rel="noopener">Save it in YouTube Music</a>
@@ -115,7 +114,7 @@
   var az=new Date(Date.now()-7*3600e3), mm=('0'+(az.getUTCMonth()+1)).slice(-2), dd=('0'+az.getUTCDate()).slice(-2), key=mm+'-'+dd, yr=az.getUTCFullYear();
   var label=az.toLocaleDateString('en-US',{month:'long',day:'numeric',timeZone:'UTC'});
   var list=(HISTORY[key]||[]).slice().sort(function(a,b){return a.year-b.year;});
-  if(!list.length){ el.innerHTML='<h2>'+esc(label)+' in metal</h2><p class="muted">Today\'s history is being dug up. Check back after 5 AM Arizona time.</p>'; return; }
+  if(!list.length){ el.innerHTML='<h2>'+esc(label)+' in metal</h2><p class="muted">Today\'s history is being dug up. Check back after 3 AM Arizona time (5 AM Eastern).</p>'; return; }
   el.innerHTML='<h2>'+esc(label)+' in metal</h2><ul class="morenews">'+list.slice(0,6).map(function(h){
     var ago=yr-h.year, who=h.band?' <a href="bands/'+esc(h.band)+'.html">Listen on HeavyMusix Radio</a>':'';
     return '<li><strong>'+h.year+' &middot; '+esc(h.type)+(ago>0?' &middot; '+ago+' years ago':'')+'</strong><span>'+esc(h.text)+who+'</span></li>';
@@ -143,7 +142,7 @@
   }).catch(function(){el.innerHTML='<p><a href="bands.html">Find a band</a></p>';});
 })();
 </script>
-<script src="radio.js?v=18"></script>
+<script src="radio.js?v=19"></script>
 <script data-goatcounter="https://heavymusix.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

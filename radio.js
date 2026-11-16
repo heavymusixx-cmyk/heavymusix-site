@@ -26,7 +26,7 @@
   });
   document.addEventListener('keydown', function(e){
     var h = document.querySelector('header.site');
-    if (e.key === 'Escape' && h && h.classList.contains('open')){ h.classList.remove('open'); var b = h.querySelector('.navtoggle'); if (b){ b.setAttribute('aria-expanded', 'false'); b.focus(); } }
+    if (e.key === 'Escape' && h && h.classList.contains('open')){ h.classList.remove('open'); var b = h.querySelector('.navtoggle'); if (b){ b.setAttribute('aria-expanded', 'false'); b.setAttribute('aria-label', 'Open menu'); b.focus(); } }
   });
   var PL = 'PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M';
   var player = null, ready = false, pending = null;
