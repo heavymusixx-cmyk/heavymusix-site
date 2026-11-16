@@ -102,7 +102,19 @@ def page(path, title, desc, body, nav=None, ld=None, extra_head="", image="og/de
         f.write(doc)
 
 
-ORG = {"@type": "Organization", "name": "HeavyMusix", "url": SITE}
+ORG = {"@type": "Organization", "name": "HeavyMusix", "url": SITE,
+       "logo": {"@type": "ImageObject", "url": SITE + "og/default.png"},
+       "sameAs": ["https://www.instagram.com/heavymusixradio/", "https://www.threads.net/@heavymusixradio",
+                  "https://www.youtube.com/@HeavyMusix"]}
+HEAVY = {"@type": "Person", "name": "Heavy", "url": SITE + "about.html", "jobTitle": "Editor and DJ, HeavyMusix"}
+
+
+def crumbs(*items):
+    """Breadcrumb trail for Google: crumbs(("News", "news.html"), ("Story title", "news/x.html"))."""
+    trail = [("Home", "")] + list(items)
+    return {"@context": "https://schema.org", "@type": "BreadcrumbList",
+            "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": n, "item": SITE + u}
+                                for i, (n, u) in enumerate(trail)]}
 pages = []   # (path, lastmod) for the sitemap
 
 
@@ -200,7 +212,7 @@ for i, n in enumerate(news):
     body = f"""<section><div class="wrap">
     <article class="post story">
       <span class="tag">{esc(n['tag'])}</span>
-      <div class="date muted"><time datetime="{n['date']}">{fmt_date(n['date'])}</time> &middot; HeavyMusix</div>
+      <div class="date muted"><time datetime="{n['date']}">{fmt_date(n['date'])}</time> &middot; By <a href="about.html#heavy">Heavy</a> &middot; <a href="about.html#news-standards">How we write the news</a></div>
       <h1>{esc(n['title'])}</h1>
       {paras}
       <div class="sharebar"><button type="button" class="sharebtn" data-share>Share this story</button><a class="sharebtn" href="https://www.instagram.com/heavymusixradio/">Follow @heavymusixradio</a></div>
@@ -214,10 +226,11 @@ for i, n in enumerate(news):
     ld = {"@context": "https://schema.org", "@type": "NewsArticle", "headline": n["title"][:110],
           "datePublished": n["date"] + "T05:00:00-07:00", "dateModified": n["date"] + "T05:00:00-07:00",
           "articleSection": n["tag"], "description": desc,
-          "author": ORG, "publisher": ORG,
+          "author": HEAVY, "publisher": ORG, "isAccessibleForFree": True,
           "mainEntityOfPage": f"{SITE}news/{slug}.html"}
     ld["image"] = f"{SITE}og/{slug}.png"
-    page(f"news/{slug}.html", f"{n['title']} | HeavyMusix", desc, body, nav="news.html", ld=ld, image=f"og/{slug}.png")
+    page(f"news/{slug}.html", f"{n['title']} | HeavyMusix", desc, body, nav="news.html",
+         ld=[ld, crumbs(("News", "news.html"), (n["title"][:80], f"news/{slug}.html"))], image=f"og/{slug}.png")
     pages.append((f"news/{slug}.html", n["date"]))
 
 # ---------------------------------------------------------------- RSS feed
@@ -318,7 +331,7 @@ for key, b in bands.items():
     if genre: ld["genre"] = genre
     if loc: ld["foundingLocation"] = {"@type": "Place", "name": loc}
     page(f"bands/{key}.html", f"{b['name']} | {genre or 'Metal'}{' from ' + (b.get('city') or b.get('country')) if (b.get('city') or b.get('country')) else ''} | HeavyMusix",
-         desc[:160], body, nav="bands.html", ld=ld)
+         desc[:160], body, nav="bands.html", ld=[ld, crumbs(("Bands", "bands.html"), (b["name"], f"bands/{key}.html"))])
     pages.append((f"bands/{key}.html", TODAY.isoformat()))
 
 # ---------------------------------------------------------------- radio show episodes
@@ -376,7 +389,10 @@ events = [{"@context": "https://schema.org", "@type": "MusicEvent", "name": s["b
            "location": {"@type": "Place", "name": s["venue"],
                         "address": {"@type": "PostalAddress", "addressLocality": s["city"],
                                     "addressRegion": "AZ", "addressCountry": "US"}},
-           "performer": [{"@type": "MusicGroup", "name": p.strip()} for p in s["bands"].split(",") if p.strip()]}
+           "performer": [{"@type": "MusicGroup", "name": p.strip()} for p in s["bands"].split(",") if p.strip()],
+           "image": SITE + "og/default.png",
+           "description": f"{s['bands']} live at {s['venue']} in {s['city']}, Arizona.",
+           "organizer": {"@type": "Organization", "name": s["venue"]}}
           for s in shows[:40]]
 page("arizona-metal-shows.html", "Metal shows in Phoenix & Arizona this week | HeavyMusix",
      f"Metal concerts in Phoenix, Tempe, Mesa, Tucson and across Arizona this week and coming up. Updated daily. {len(shows)} shows listed.",
@@ -482,6 +498,17 @@ with open("sitemap.xml", "w", encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
     for p, d in urls:
         f.write(f"  <url><loc>{esc(SITE + quote(p))}</loc><lastmod>{d}</lastmod></url>\n")
+    f.write("</urlset>\n")
+
+recent = [n for n in news if (TODAY - datetime.date.fromisoformat(n["date"])).days <= 2]
+with open("news-sitemap.xml", "w", encoding="utf-8") as f:
+    f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+            'xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">\n')
+    for n in recent:
+        f.write(f"  <url><loc>{esc(SITE + 'news/' + quote(slug_of(n)) + '.html')}</loc><news:news>"
+                f"<news:publication><news:name>HeavyMusix</news:name><news:language>en</news:language></news:publication>"
+                f"<news:publication_date>{n['date']}T05:00:00-07:00</news:publication_date>"
+                f"<news:title>{esc(n['title'])}</news:title></news:news></url>\n")
     f.write("</urlset>\n")
 
 print(f"Built {len(news)} stories, {sum(1 for p, _ in pages if p.startswith('bands/'))} band pages, "

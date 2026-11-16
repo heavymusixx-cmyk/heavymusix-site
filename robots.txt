@@ -4,3 +4,4 @@ Disallow: /player.html
 Disallow: /clips/
 
 Sitemap: https://heavymusix.com/sitemap.xml
+Sitemap: https://heavymusix.com/news-sitemap.xml
