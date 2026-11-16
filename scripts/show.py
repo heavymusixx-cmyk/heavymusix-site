@@ -53,6 +53,10 @@ def clean_song(title, band):
     t = re.sub(r"\s*[\(\[](official|hd|lyric|music video|audio|visualizer)[^\)\]]*[\)\]]", "", t, flags=re.I)
     if band and t.lower().startswith(band.lower() + " - "):
         t = t[len(band) + 3:]
+    m = re.match(r'^' + re.escape(band or "") + r'\s+["\u201c](.+?)["\u201d]', t, flags=re.I) if band else None
+    if m:   # BAND "Song" 03 - LABEL Album Stream
+        t = m.group(1)
+    t = re.sub(r"\s*-\s*[^-]*\b(album stream|full album|official stream)\b.*$", "", t, flags=re.I)
     return t.strip() or title
 
 
