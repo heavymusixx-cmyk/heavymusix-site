@@ -37,8 +37,8 @@ section{padding:84px 0}
 /* buttons: cut steel plates */
 .btn,.hero .btn,body section:not(.hero) .btn{font-weight:800;font-stretch:62%;text-transform:uppercase;letter-spacing:.08em;font-size:16px;padding:16px 26px;background:var(--blood);color:var(--bone);border:0;box-shadow:none;clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px));transition:background .12s,box-shadow .12s}
 .btn:hover,.hero .btn:hover,body section:not(.hero) .btn:hover{background:var(--blood-hot);transform:none;box-shadow:none;filter:drop-shadow(0 0 12px rgba(227,18,30,.7))}
-.btn.ghost,.hero .btn.ghost,body section:not(.hero) .btn.ghost{background:transparent;color:var(--bone);box-shadow:inset 0 0 0 1px var(--bone-dim)}
-.btn.ghost:hover,.hero .btn.ghost:hover,body section:not(.hero) .btn.ghost:hover{background:var(--bone);color:#000;box-shadow:none}
+.btn.ghost,.hero .btn.ghost,body section:not(.hero) .btn.ghost{background:transparent;color:var(--bone);box-shadow:inset 0 0 0 1px var(--bone-dim) !important}
+.btn.ghost:hover,.hero .btn.ghost:hover,body section:not(.hero) .btn.ghost:hover{background:var(--bone) !important;color:#000 !important;box-shadow:none !important}
 
 /* cards: dark slabs with a notched corner, blood edge on hover */
 .card,body section:not(.hero):nth-of-type(even) .card,article.post,body section:not(.hero):nth-of-type(even) article.post{background:linear-gradient(160deg,var(--ash2),var(--ash));color:var(--bone);border:1px solid var(--edge);box-shadow:none;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,0 100%);transition:border-color .15s,box-shadow .15s}
@@ -75,7 +75,7 @@ section.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
 section.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#030303 0%,rgba(3,3,3,.92) 38%,rgba(3,3,3,.25) 70%,rgba(3,3,3,.55) 100%),linear-gradient(0deg,#030303 0%,transparent 35%),radial-gradient(ellipse 45% 60% at 75% 50%,rgba(227,18,30,.55),transparent 70%);mix-blend-mode:normal}
 .hero .emblem{display:none}
 .hero h1{font-size:clamp(64px,11vw,150px);max-width:9ch}
-@media (max-width:760px){section.hero::before{background-position:center top;background-size:cover;opacity:.55}section.hero::after{background:linear-gradient(0deg,#030303 10%,rgba(3,3,3,.75) 60%,rgba(3,3,3,.5))}}
+@media (max-width:760px){section.hero::before{background-position:center 12%;background-size:cover;filter:grayscale(1) contrast(1.5) brightness(.75)}section.hero::after{background:linear-gradient(0deg,#030303 8%,rgba(3,3,3,.55) 55%,rgba(3,3,3,.2)),radial-gradient(ellipse 80% 50% at 50% 30%,rgba(227,18,30,.45),transparent 70%)}}
 section.horns{isolation:isolate;overflow:hidden;padding:120px 0}
 section.horns::before{content:"" !important;position:absolute;inset:0 !important;height:auto !important;z-index:-2;-webkit-mask:none !important;mask:none !important;opacity:1 !important;background:url("https://images.unsplash.com/photo-1547525372-7acfcbcd8acc?w=1800&q=70&auto=format") center 30%/cover no-repeat !important;filter:grayscale(1) contrast(1.6) brightness(.5);transform:none !important;top:0 !important}
 section.horns::after{content:"" !important;position:absolute;inset:0 !important;height:auto !important;z-index:-1;-webkit-mask:none !important;mask:none !important;opacity:1 !important;background:linear-gradient(90deg,rgba(3,3,3,.95) 25%,rgba(90,4,10,.55) 75%,rgba(3,3,3,.7)) !important;transform:none !important;bottom:0 !important}
