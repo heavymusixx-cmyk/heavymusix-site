@@ -41,13 +41,27 @@
   try { chan = new BroadcastChannel('hmx-radio'); } catch (x) {}
   function popoutAlive(){
     if (POPOUT) return false;
-    try { return Date.now() - Number(localStorage.getItem(ALIVE) || 0) < 6000; } catch (x) { return false; }
+    // Background windows may slow their timers, so allow a long gap; the window clears this when it closes.
+    try { return Date.now() - Number(localStorage.getItem(ALIVE) || 0) < 90000; } catch (x) { return false; }
   }
-  function tellPopout(msg){
+  var waiting = {};
+  /* Send a request to the pop-out window. If it does not answer within 1.5 s (closed or crashed),
+     forget it and run the request here instead, so a click always plays something. */
+  function tellPopout(msg, fallback){
     if (!chan || !popoutAlive()) return false;
+    msg.id = String(Math.random()).slice(2);
+    waiting[msg.id] = setTimeout(function(){
+      delete waiting[msg.id];
+      try { localStorage.removeItem(ALIVE); } catch (x) {}
+      if (fallback) fallback();
+    }, 1500);
     chan.postMessage(msg);
     return true;
   }
+  if (chan && !POPOUT) chan.onmessage = function(e){
+    var m = e.data || {};
+    if (m.ack && waiting[m.ack]){ clearTimeout(waiting[m.ack]); delete waiting[m.ack]; }
+  };
   function openPopout(){
     remember();
     var w = window.open('player.html', 'hmxPlayer', 'popup,width=460,height=320');
@@ -64,6 +78,24 @@
   }
 
   function dock(){ return document.getElementById('hmx-dock'); }
+
+  /* Songs whose owners turned off playing on other sites, or that were removed (found weekly by the song check robot). */
+  var BAD = {};
+  fetch('show/unplayable.json', {cache: 'no-cache'}).then(function(r){ return r.ok ? r.json() : {songs: []}; })
+    .then(function(d){ (d.songs || []).forEach(function(s){ BAD[s.v] = 1; }); }).catch(function(){});
+  window.hmxUnplayable = function(v){ return !!BAD[v]; };
+
+  /* A short notice at the bottom of the screen, read out by screen readers. */
+  function notice(html){
+    var n = document.getElementById('hmx-notice');
+    if (!n){ n = document.createElement('div'); n.id = 'hmx-notice'; n.setAttribute('role', 'status'); document.body.appendChild(n); }
+    n.innerHTML = html; n.classList.add('show');
+    clearTimeout(n._t); n._t = setTimeout(function(){ n.classList.remove('show'); }, 8000);
+  }
+  function cantPlay(v, label){
+    notice((label ? esc(label) + ': ' : 'That song: ') + 'the owner only allows it on YouTube. ' +
+      '<a href="https://www.youtube.com/watch?v=' + encodeURIComponent(v) + '" target="_blank" rel="noopener">Play it on YouTube &#8599;</a>');
+  }
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
   function loadEpisodes(){
@@ -207,9 +239,10 @@
       if (!eps.length){ playRadio(); return; }
       i = ((i % eps.length) + eps.length) % eps.length;
       mode = {kind: 'episode', i: i};
+      var list = eps[i].play.filter(function(v){ return !BAD[v]; });
       withPlayer(function(){
         player.setLoop(false);
-        player.loadPlaylist(eps[i].play, 0);
+        player.loadPlaylist(list.length ? list : eps[i].play, 0);
         setLabel(' · Show #' + eps[i].n);
       });
     });
@@ -222,23 +255,34 @@
     });
   }
 
+  var errors = 0;
+  function nextEpisode(){
+    var next = mode.i + 1;
+    playEpisode(next >= episodes.length ? 0 : next);   // next episode, or start over at #1
+  }
+  function atEpisodeEnd(){
+    var idx = player.getPlaylistIndex(), list = player.getPlaylist() || [];
+    return idx >= list.length - 1;
+  }
   function onState(e){
-    if (e.data === 1){ var r = document.querySelector('#hmx-dock .dock-resume'); if (r) r.remove(); }
+    if (e.data === 1){ errors = 0; var r = document.querySelector('#hmx-dock .dock-resume'); if (r) r.remove(); }
     if (e.data !== 0 || !mode) return;               // 0 = ended
     if (mode.kind === 'song'){ startDefault(); return; }
-    if (mode.kind === 'episode'){
-      var idx = player.getPlaylistIndex(), list = player.getPlaylist() || [];
-      if (idx >= list.length - 1){
-        var next = mode.i + 1;
-        playEpisode(next >= episodes.length ? 0 : next);   // next episode, or start over at #1
-      }
-    }
+    if (mode.kind === 'episode' && atEpisodeEnd()) nextEpisode();
   }
 
+  /* A song that won't play (removed, private, or not allowed on other sites): skip to the next one. */
   function onError(){
     if (!mode) return;
-    if (mode.kind === 'song'){ startDefault(); return; }
-    try { player.nextVideo(); } catch (x) {}
+    errors++;
+    if (mode.kind === 'song'){
+      var v = mode.v; BAD[v] = 1; cantPlay(v, mode.label);
+      startDefault(); return;
+    }
+    if (errors > 10){ setLabel(' \u00b7 trouble loading, tap \u25c9 to try again'); errors = 0; return; }   // never skip forever
+    try { var vd = player.getVideoData && player.getVideoData(); if (vd && vd.video_id) BAD[vd.video_id] = 1; } catch (x) {}
+    if (mode.kind === 'episode' && atEpisodeEnd()){ nextEpisode(); return; }
+    setTimeout(function(){ try { player.nextVideo(); } catch (x) {} }, 400);
   }
 
 
@@ -321,19 +365,20 @@
   }
 
   window.startRadio = function(){
-    if (tellPopout({cmd: 'show'})) return;
+    if (tellPopout({cmd: 'show'}, window.startRadio)) return;
     if (dock() && mode){ dock().classList.remove('min'); return; }
     if (wantsPopout() && launchPopout({cmd: 'show'})) return;
     startDefault();
   };
   window.hmxPlaySong = function(v, label){
-    if (tellPopout({cmd: 'song', v: v, label: label})) return;
+    if (BAD[v]){ cantPlay(v, label); return; }
+    if (tellPopout({cmd: 'song', v: v, label: label}, function(){ window.hmxPlaySong(v, label); })) return;
     if (wantsPopout() && launchPopout({cmd: 'song', v: v, label: label})) return;
     mode = {kind: 'song', v: v, label: label};
     withPlayer(function(){ player.setLoop(false); player.loadVideoById(v); setLabel(label ? ' · ' + label : ''); });
   };
   window.hmxPlayEpisode = function(n){
-    if (tellPopout({cmd: 'episode', n: n})) return;
+    if (tellPopout({cmd: 'episode', n: n}, function(){ window.hmxPlayEpisode(n); })) return;
     if (wantsPopout() && launchPopout({cmd: 'episode', n: n})) return;
     loadEpisodes().then(function(eps){
       for (var i = 0; i < eps.length; i++) if (eps[i].n === n) return playEpisode(i);
@@ -341,7 +386,7 @@
     });
   };
   window.hmxPlayRadio = function(){
-    if (tellPopout({cmd: 'radio'})) return;
+    if (tellPopout({cmd: 'radio'}, window.hmxPlayRadio)) return;
     if (wantsPopout() && launchPopout({cmd: 'radio'})) return;
     playRadio();
   };
@@ -434,7 +479,7 @@
     var beat = function(){ try { localStorage.setItem(ALIVE, String(Date.now())); } catch (x) {} };
     beat(); setInterval(beat, 2000);
     window.addEventListener('pagehide', function(){ forget(); try { localStorage.removeItem(ALIVE); } catch (x) {} });   // closing the window stops the radio
-    if (chan) chan.onmessage = function(e){ runCmd(e.data || {}); };
+    if (chan) chan.onmessage = function(e){ var m = e.data || {}; if (!m.cmd) return; chan.postMessage({ack: m.id}); runCmd(m); };
     var first = null;
     try { first = JSON.parse(localStorage.getItem(START) || 'null'); localStorage.removeItem(START); } catch (x) {}
     if (first && first.cmd !== 'show'){ runCmd(first); return; }

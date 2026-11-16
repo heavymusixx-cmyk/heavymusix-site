@@ -234,7 +234,10 @@ nav.main a.navsearch{color:var(--bone)}
   .hero .lead{font-size:17px}
   .card p.muted{-webkit-line-clamp:2}
   .grid .card{transform:none!important}
-  #hmx-dock{left:auto;width:230px}
+  #hmx-dock{left:auto;width:250px}
+  #hmx-dock .dock-grip,#hmx-dock .dock-btn[data-act=pop]{display:none}   /* phones: pop-out would only open a new tab */
+  #hmx-dock .dock-title{font-size:18px}
+  #hmx-dock .dock-btn{width:34px;height:34px}
 }
 .ideaform{display:grid;gap:14px;max-width:640px;margin-top:20px}
 .ideaform label{display:grid;gap:6px;font:700 16px "Archivo",sans-serif}
@@ -363,3 +366,10 @@ main{display:block}
 footer.site .wrap>div{line-height:2}
 footer.site a{display:inline-block;padding-block:4px;line-height:1.25}
 .card>a:last-child,article.post>a:last-child{display:inline-block;padding-block:4px}
+
+/* Player notices (for example, a song that only plays on YouTube) */
+#hmx-notice{position:fixed;left:12px;right:12px;top:12px;margin:0 auto;transform:translateY(-160%);z-index:1500;max-width:min(560px,calc(100vw - 24px));background:#141414;color:var(--bone);border:1px solid var(--blood-hot);padding:12px 16px;font-size:15px;line-height:1.4;box-shadow:0 8px 24px rgba(0,0,0,.6);transition:transform .25s;pointer-events:none}
+#hmx-notice.show{transform:none;pointer-events:auto}
+#hmx-notice a{color:var(--blood-text);font-weight:700}
+@media (prefers-reduced-motion:reduce){#hmx-notice{transition:none}}
+.playbtn.yt{background:transparent;color:var(--bone);text-decoration:none;display:inline-block}

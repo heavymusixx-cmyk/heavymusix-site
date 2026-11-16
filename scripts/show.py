@@ -181,9 +181,12 @@ def clip_code(ep, k):
 
 
 def plan_episode(n, catalog, bands, state, rng):
+    # Skip songs that can't play on the site (found weekly by scripts/check_songs.py)
+    bad = {x["v"] for x in load("unplayable.json", {"songs": []}).get("songs", [])}
     by_band = {}
     for s in catalog:
-        by_band.setdefault(s["b"], []).append(s["v"])
+        if s["v"] not in bad:
+            by_band.setdefault(s["b"], []).append(s["v"])
     unsigned = sorted(b for b in by_band if bands.get(b, {}).get("unsigned"))
     picks = []
 

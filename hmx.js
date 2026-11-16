@@ -7,12 +7,18 @@ var HMX = window.HMX || {};
     if (HMX._d) return HMX._d;
     HMX._d = Promise.all([get('catalog.json').catch(function(){ return []; }),
                           get('bands.json').catch(function(){ return {}; }),
-                          get('episodes.json').catch(function(){ return {episodes: []}; })])
-      .then(function(r){ return {catalog: r[0], bands: r[1], eps: r[2].episodes || []}; });
+                          get('episodes.json').catch(function(){ return {episodes: []}; }),
+                          get('unplayable.json').catch(function(){ return {songs: []}; })])
+      .then(function(r){
+        HMX._bad = {}; (r[3].songs || []).forEach(function(x){ HMX._bad[x.v] = 1; });
+        return {catalog: r[0], bands: r[1], eps: r[2].episodes || []};
+      });
     return HMX._d;
   }
   function where(b){ return [b.city, b.region, b.country].filter(Boolean).join(', '); }
   function playBtn(v, label){
+    if (HMX._bad && HMX._bad[v])   // the owner only allows this video on YouTube (or it was removed)
+      return '<a class="playbtn yt" href="https://www.youtube.com/watch?v=' + esc(v) + '" target="_blank" rel="noopener" aria-label="' + esc(label) + ' (plays on YouTube, opens a new tab)">&#9654; YouTube &#8599;</a>';
     return '<button type="button" class="playbtn" data-v="' + esc(v) + '" data-label="' + esc(label) + '" aria-label="Play ' + esc(label) + '">&#9654; Play</button>';
   }
   if (!window.__hmxClicks) { window.__hmxClicks = true; document.addEventListener('click', function(e){

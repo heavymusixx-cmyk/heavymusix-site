@@ -92,7 +92,7 @@ def page(path, title, desc, body, nav=None, ld=None, extra_head="", image="og/de
 {body}
 </main>
 {FOOTER}
-<script src="hmx.js?v=4"></script>
+<script src="hmx.js?v=5"></script>
 <script src="{RADIO}"></script>
 </body>
 </html>
@@ -264,6 +264,16 @@ GENRES = [  # (slug, page name, words that put a band in it)
 ]
 
 catalog = load_json("show/catalog.json", [])
+UNPLAYABLE = {x["v"] for x in load_json("show/unplayable.json", {"songs": []}).get("songs", [])}
+
+
+def play_button(v, label):
+    """Play button, or a YouTube link for songs whose owners only allow them on YouTube."""
+    if v in UNPLAYABLE:
+        return (f'<a class="playbtn yt" href="https://www.youtube.com/watch?v={esc(v)}" target="_blank" rel="noopener" '
+                f'aria-label="{esc(label)} (plays on YouTube, opens a new tab)">&#9654; YouTube &#8599;</a>')
+    return (f'<button type="button" class="playbtn" data-v="{esc(v)}" data-label="{esc(label)}" '
+            f'aria-label="Play {esc(label)}">&#9654; Play</button>')
 eps = load_json("show/episodes.json", {}).get("episodes", [])
 live = [e for e in eps if e.get("status") == "live"]
 where = lambda b: ", ".join(x for x in (b.get("city"), b.get("region"), b.get("country")) if x)
@@ -282,8 +292,7 @@ for key, b in bands.items():
                         for k, v in links.items())
     on_eps = [e for e in live if any(s.get("b") == key for s in e.get("songs", []))]
     song_list = "".join(
-        f'<li><button type="button" class="playbtn" data-v="{esc(s["v"])}" data-label="{esc(b["name"] + " – " + s["t"])}" '
-        f'aria-label="Play {esc(b["name"] + " – " + s["t"])}">&#9654; Play</button>'
+        f'<li>{play_button(s["v"], b["name"] + " – " + s["t"])}'
         f'<span class="sinfo"><strong>{esc(s["t"])}</strong></span></li>' for s in songs)
     body = f"""<section class="hero"><div class="wrap">
   <p class="kicker">{'HeavyMusix unsigned pick' if b.get('unsigned') else 'On HeavyMusix Radio'}</p>
@@ -387,7 +396,7 @@ for gslug, gname, words in GENRES:
                    f'{" <span class=\"badge\">Unsigned</span>" if bands[k].get("unsigned") else ""}'
                    f'<span class="wsrc">{esc(where(bands[k]))} &middot; {bands[k]["songs"]} songs</span></li>' for k in members)
     picks = gsongs[::max(1, len(gsongs) // 12)][:12]
-    plist = "".join(f'<li><button type="button" class="playbtn" data-v="{esc(x["v"])}" data-label="{esc(x["n"] + " – " + x["t"])}" aria-label="Play {esc(x["n"] + " – " + x["t"])}">&#9654; Play</button>'
+    plist = "".join(f'<li>{play_button(x["v"], x["n"] + " – " + x["t"])}'
                     f'<span class="sinfo"><strong>{esc(x["t"])}</strong><a href="bands/{esc(x["b"])}.html">{esc(x["n"])}</a></span></li>' for x in picks)
     body = f"""<section class="hero"><div class="wrap">
   <p class="kicker">Genres on HeavyMusix Radio</p>
