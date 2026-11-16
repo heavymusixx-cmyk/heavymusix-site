@@ -75,6 +75,8 @@ function hmxSend(form,to,subject,body,replyTo){
   .then(function(r){return r.json();}).then(function(j){
     if(j && (j.success===true||j.success==='true')){
       form.reset(); btn.textContent='Sent'; note.innerHTML='<strong>Got it. Thank you!</strong> It landed in our inbox at '+to+'. We read every one.';
+    } else if (j && /activat/i.test(j.message||'')) {
+      btn.textContent='Sent'; note.innerHTML='<strong>Almost there.</strong> This form is being switched on. Check '+to+' for the activation email.';
     } else throw new Error('not sent');
   }).catch(function(){
     btn.disabled=false; btn.textContent='Try again';
