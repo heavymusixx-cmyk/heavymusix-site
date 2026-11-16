@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=19">
+<link rel="stylesheet" href="style.css?v=20">
 <meta property="og:image" content="https://heavymusix.com/og/default.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -33,7 +33,8 @@
     <label>Your idea <textarea name="idea" rows="6" required placeholder="What should HeavyMusix do, add or change? Why would it help?"></textarea></label>
     <label>Name (optional) <input name="name" autocomplete="name"></label>
     <label>Band or business (optional) <input name="org"></label>
-    <p class="muted">Pressing Send opens your email app with your idea filled in, addressed to info@heavymusix.com. We only use what you send to reply and to weigh the idea. We never sell or share it.</p>
+    <p class="muted">Pressing Send delivers your idea straight to info@heavymusix.com. No email app needed. We only use what you send to reply and to weigh the idea. We never sell or share it.</p>
+    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
     <button type="submit" class="btn">Send my idea</button>
   </form>
 </div></section>
@@ -44,14 +45,27 @@
   <a href="https://www.youtube.com/@HeavyMusix">YouTube</a> &middot; <a href="https://www.instagram.com/heavymusixradio/">Instagram</a> &middot; <a href="https://www.threads.com/@heavymusixradio">Threads</a> &middot; <a href="https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M">YouTube Music</a></div>
 </div></footer>
 <script>
+function hmxSend(form,to,subject,body,replyTo){
+  var btn=form.querySelector('button[type=submit]'), note=form.querySelector('.formnote');
+  if(!note){note=document.createElement('p');note.className='formnote';form.appendChild(note);}
+  btn.disabled=true; btn.textContent='Sending...'; note.textContent='';
+  var mail='mailto:'+to+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  fetch('https://formsubmit.co/ajax/'+to,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({_subject:subject,_template:'box',_captcha:'false',_replyto:replyTo||'',message:body,_honey:(form.querySelector('[name=_honey]')||{}).value||''})})
+  .then(function(r){return r.json();}).then(function(j){
+    if(j && (j.success===true||j.success==='true')){
+      form.reset(); btn.textContent='Sent'; note.innerHTML='<strong>Got it. Thank you!</strong> It landed in our inbox at '+to+'. We read every one.';
+    } else throw new Error('not sent');
+  }).catch(function(){
+    btn.disabled=false; btn.textContent='Try again';
+    note.innerHTML='Our form didn’t go through. <a href="'+mail.replace(/"/g,'&quot;')+'">Tap here to send it by email instead</a>, or email '+to+' directly.';
+  });
+}
 function sendIdea(e){
   e.preventDefault();
   var f=document.getElementById('ideaform'), d=new FormData(f);
-  var body='From: '+d.get('who')+(d.get('name')?' / '+d.get('name'):'')+(d.get('org')?' / '+d.get('org'):'')+'
-
-Idea:
-'+d.get('idea');
-  location.href='mailto:info@heavymusix.com?subject='+encodeURIComponent('Idea for HeavyMusix ('+d.get('who')+')')+'&body='+encodeURIComponent(body);
+  var body='From: '+d.get('who')+(d.get('name')?' / '+d.get('name'):'')+(d.get('org')?' / '+d.get('org'):'')+'\n\nIdea:\n'+d.get('idea');
+  hmxSend(f,'info@heavymusix.com','Idea for HeavyMusix ('+d.get('who')+')',body,'');
   return false;
 }
 </script>

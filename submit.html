@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=19">
+<link rel="stylesheet" href="style.css?v=20">
 <meta property="og:image" content="https://heavymusix.com/og/default.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -59,16 +59,34 @@
     <label>Contact name and email <input name="contact" required></label>
     <label>Social and merch links (optional) <textarea name="social" rows="2"></textarea></label>
     <label class="chk"><input type="checkbox" name="rights" required> We own this music, and if we're selected, HeavyMusix may play it on the radio, streams and clips and feature our band.</label>
-    <p class="muted">Pressing Send opens your email app with everything filled in, addressed to submit@heavymusix.com. We use it only to review your band and reply. See our <a href="privacy.html">privacy page</a>.</p>
+    <p class="muted">Pressing Send delivers your submission straight to submit@heavymusix.com. No email app needed. We use it only to review your band and reply. See our <a href="privacy.html">privacy page</a>.</p>
+    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
     <button type="submit" class="btn">Send my submission</button>
   </form>
 </div></section>
 <script>
+function hmxSend(form,to,subject,body,replyTo){
+  var btn=form.querySelector('button[type=submit]'), note=form.querySelector('.formnote');
+  if(!note){note=document.createElement('p');note.className='formnote';form.appendChild(note);}
+  btn.disabled=true; btn.textContent='Sending...'; note.textContent='';
+  var mail='mailto:'+to+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  fetch('https://formsubmit.co/ajax/'+to,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify({_subject:subject,_template:'box',_captcha:'false',_replyto:replyTo||'',message:body,_honey:(form.querySelector('[name=_honey]')||{}).value||''})})
+  .then(function(r){return r.json();}).then(function(j){
+    if(j && (j.success===true||j.success==='true')){
+      form.reset(); btn.textContent='Sent'; note.innerHTML='<strong>Got it. Thank you!</strong> It landed in our inbox at '+to+'. We read every one.';
+    } else throw new Error('not sent');
+  }).catch(function(){
+    btn.disabled=false; btn.textContent='Try again';
+    note.innerHTML='Our form didn’t go through. <a href="'+mail.replace(/"/g,'&quot;')+'">Tap here to send it by email instead</a>, or email '+to+' directly.';
+  });
+}
 function sendBand(e){
   e.preventDefault();
   var d=new FormData(document.getElementById('bandform'));
   var body='Band: '+d.get('band')+'\nFrom: '+d.get('where')+'\nGenre: '+d.get('genre')+'\n\nMusic:\n'+d.get('music')+'\n\nBio:\n'+d.get('bio')+'\n\nPhotos and logo: '+d.get('photos')+'\nContact: '+d.get('contact')+'\nSocial and merch: '+(d.get('social')||'-')+'\n\nRights: We own this music, and if we are selected, HeavyMusix may play it on the radio, streams and clips and feature our band.';
-  location.href='mailto:submit@heavymusix.com?subject='+encodeURIComponent('Band submission: '+d.get('band')+' ('+d.get('where')+')')+'&body='+encodeURIComponent(body);
+  var c=String(d.get('contact')||''), em=(c.match(/[^\s<>,;]+@[^\s<>,;]+\.[a-z]{2,}/i)||[''])[0];
+  hmxSend(document.getElementById('bandform'),'submit@heavymusix.com','Band submission: '+d.get('band')+' ('+d.get('where')+')',body,em);
   return false;
 }
 </script>
