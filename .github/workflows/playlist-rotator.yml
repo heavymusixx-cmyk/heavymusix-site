@@ -1,7 +1,7 @@
 name: Playlist reshuffle
 
 # Reshuffles the HeavyMusix Radio playlist on YouTube every morning
-# (every band once before any repeats; new songs up front).
+# Version 3: rolling reshuffle of the whole playlist, ~180 songs a day, bands spread evenly.
 # Runs on GitHub's computers, so your laptop can stay off.
 on:
   schedule:

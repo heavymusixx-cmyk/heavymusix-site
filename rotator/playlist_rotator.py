@@ -1,16 +1,23 @@
 #!/usr/bin/env python3
 """
-Playlist Rotator for YouTube Music  -  version 2 (fresh shuffle every run)
+Playlist Rotator for YouTube Music  -  version 3 (rolling reshuffle, even spread)
 
-Every run deals a brand-new random order onto the TOP of your playlist:
-  * every artist plays once before any artist plays again (rounds)
-  * an artist's songs don't repeat until all of that artist's songs have had a turn
-  * the same artist never plays twice in a row
-  * NEW songs go first: a new song is its artist's pick in the earliest round,
-    and artists with new songs lead that round.
+The playlist runs as a 24/7 stream, so the WHOLE playlist gets reshuffled, a
+section at a time. Each run picks up where the last one stopped and deals the
+next ~180 songs (YouTube allows about 200 moves a day). When it reaches the
+bottom, the next run starts a brand-new shuffle from the top. With ~700 songs
+that's a full fresh pass about every 4 days.
 
-YouTube allows about 200 moves a day, so each run re-deals the top 180 songs
-(roughly 12 hours of music). Start listening from the top of the playlist.
+The rules for each pass:
+  * every artist plays once at the start of each pass, before any artist repeats
+  * after that, each band's songs are spread EVENLY across the pass, so a band
+    with lots of songs shows up regularly all the way through instead of piling
+    up at the end
+  * a band waits up to 20 songs before playing again (bands with lots of songs
+    wait a little less so they still fit evenly), and never plays twice in a row
+  * a band's songs don't repeat until all of that band's songs have played
+    (each song plays once per pass; songs from late in the last pass go later)
+  * NEW songs go first in the next section that gets dealt.
 
 Usage:
   python playlist_rotator.py            preview only, changes nothing
@@ -75,50 +82,92 @@ def shuffled(xs):
     return xs
 
 
-def build_order(songs, is_new, had_turn):
-    """A fresh random order of every playable song that follows the rules.
-    Each artist's line-up: new songs first, then songs that haven't had a turn, then the rest."""
+GAP = 20   # a band waits up to this many songs before playing again
+
+
+def artist_queues(songs, is_new, later):
+    """Each band's line-up: new songs first, then songs that played early last pass,
+    then songs that played late last pass (so nothing comes straight back)."""
     groups = {}
     for s in songs:
         groups.setdefault(s.key, []).append(s)
     queues = {}
     for k, g in groups.items():
         new = shuffled([s for s in g if is_new(s)])
-        fresh = shuffled([s for s in g if not is_new(s) and s.id not in had_turn])
-        used = shuffled([s for s in g if not is_new(s) and s.id in had_turn])
-        queues[k] = new + fresh + used
-    out, prev = [], None
-    while any(queues.values()):
-        ks = [k for k, q in queues.items() if q]
-        lead = shuffled([k for k in ks if is_new(queues[k][0])])     # artists with a new song go first
+        early = shuffled([s for s in g if not is_new(s) and s.id not in later])
+        late = shuffled([s for s in g if not is_new(s) and s.id in later])
+        queues[k] = new + early + late
+    return queues
+
+
+def build_order(songs, is_new, later, recent=(), first_round=True):
+    """A fresh random order of these songs that follows the rules.
+    recent = artist keys of the songs just above this stretch (oldest first).
+    first_round = start with every artist once (used at the start of each pass)."""
+    queues = artist_queues(songs, is_new, later)
+    out = []
+    history = list(recent)
+
+    if first_round and queues:
+        ks = list(queues)
+        lead = shuffled([k for k in ks if is_new(queues[k][0])])   # bands with a new song go first
         rest = shuffled([k for k in ks if not is_new(queues[k][0])])
         order = lead + rest
-        if len(order) > 1 and order[0] == prev:                     # no artist twice in a row
+        if len(order) > 1 and history and order[0] == history[-1]:
             order[0], order[1] = order[1], order[0]
         for k in order:
             out.append(queues[k].pop(0))
-        prev = order[-1]
+            history.append(k)
+
+    # Even spread: each band's remaining songs get evenly spaced spots on a 0-1 line
+    # (random starting offset per band). New songs get spots before 0 so they come first.
+    spot = {}
+    for k, q in queues.items():
+        n, u = len(q), random.random()
+        for j, s in enumerate(q):
+            spot[s.id] = (-1.0 + j / 1000.0) if is_new(s) else (j + u) / max(n, 1)
+
+    # How long each band waits before playing again: up to GAP songs, but a band with
+    # lots of songs waits a bit less so its songs still fit evenly across the pass.
+    left = sum(len(q) for q in queues.values())
+    wait = {k: max(1, min(GAP, int(0.75 * left / len(q)))) for k, q in queues.items() if q}
+    while left:
+        active = [k for k, q in queues.items() if q]
+        cap = len(active) - 1
+        ok = [k for k in active
+              if k not in history[len(history) - min(wait[k], cap):]] if cap > 0 else []
+        ok = ok or [k for k in active if not history or k != history[-1]] or active
+        k = min(ok, key=lambda k: spot[queues[k][0].id])
+        out.append(queues[k].pop(0))
+        history.append(k)
+        left -= 1
     return out
 
 
-def check(order):
+def check(order, recent=(), first_round=True):
     """Returns a list of problems in this stretch of songs (empty means the rules hold)."""
-    left = {}
-    for s in order:
-        left[s.key] = left.get(s.key, 0) + 1
-    seen = set()
+    problems = []
+    if first_round:
+        n = len({s.key for s in order})
+        if len({s.key for s in order[:n]}) != n:
+            problems.append("not every band played once before the first repeat")
+    keys = list(recent) + [s.key for s in order]
+    for i in range(len(recent), len(keys)):
+        if i and keys[i] == keys[i - 1] and len(set(keys[i:])) > 1:
+            problems.append(f"{order[i - len(recent)].artist} plays twice in a row")
+            break
+    return problems
+
+
+def closest_repeat(order):
+    """Smallest number of songs between two plays of the same band."""
+    last, best = {}, None
     for i, s in enumerate(order):
-        others = [k for k, c in left.items() if c > 0 and k != s.key]
-        if s.key in seen:
-            waiting = [k for k in others if k not in seen]
-            if waiting:
-                return [f"{s.artist} came back before {len(waiting)} other artist(s) had a turn"]
-            seen = set()
-        if i and order[i - 1].key == s.key and others:
-            return [f"{s.artist} plays twice in a row"]
-        seen.add(s.key)
-        left[s.key] -= 1
-    return []
+        if s.key in last:
+            d = i - last[s.key] - 1
+            best = d if best is None else min(best, d)
+        last[s.key] = i
+    return best
 
 
 # ---------------------------------------------------------------- YouTube I/O
@@ -325,8 +374,15 @@ def main():
     all_mem = load_json(MEMORY, {})
     mem = None if a.reset else all_mem.get(playlist_id)
     first_run = mem is None
-    known = set(mem["known"]) if mem else set()
-    had_turn = set(mem["had_turn"]) if mem else set()
+    known = set(mem.get("known", [])) if mem else set()
+    now_ids = {s.id for s in playable}
+    if mem and mem.get("version") == 3:
+        dealt = [i for i in mem.get("dealt", []) if i in now_ids]     # this pass so far, top down
+        last_pass = mem.get("last_pass", [])
+        later = set(last_pass[len(last_pass) // 2:])                  # played late last pass
+    else:                                                             # first run, or memory from version 2
+        dealt, last_pass = [], []
+        later = set(mem.get("had_turn", [])) if mem else set()
 
     def is_new(s):
         return not first_run and s.id not in known
@@ -335,51 +391,69 @@ def main():
     if first_run:
         print("First run: all current songs count as already in the playlist.")
     else:
-        print(f"New songs since last run: {len(new)} (they go up front).")
+        print(f"New songs since last run: {len(new)} (they go first in today's section).")
 
-    target = build_order(playable, is_new, had_turn) + gone
-    top = target[:min(a.budget, len(playable))]
+    dealt_set = set(dealt)
+    if playable and all(s.id in dealt_set for s in playable):
+        print("The last pass reached the bottom of the playlist. Starting a fresh pass from the top.")
+        last_pass = dealt
+        later = set(last_pass[len(last_pass) // 2:])
+        dealt, dealt_set = [], set()
 
-    unsure = [s for s in top if not s.certain]
+    prefix = [s for s in current if s.playable and s.id in dealt_set]    # already done this pass
+    rest = [s for s in playable if s.id not in dealt_set]
+    fresh_pass = not prefix
+    recent = [s.key for s in prefix[-GAP:]]
+    section = build_order(rest, is_new, later, recent, first_round=fresh_pass)
+    target = prefix + section + gone
+    today = section[:a.budget]
+
+    if fresh_pass:
+        print("Today's section starts at the top of the playlist (new pass).")
+    else:
+        print(f"This pass has already reshuffled the top {len(prefix)} of {len(playable)} songs. "
+              f"Today's section starts at song {len(prefix) + 1}.")
+
+    unsure = [s for s in today if not s.certain]
     if unsure:
-        print(f"\n{len(unsure)} song(s) near the top have a guessed artist (from the channel name).")
+        print(f"\n{len(unsure)} song(s) in today's section have a guessed artist (from the channel name).")
         print('If one is wrong, add it to artists.json as  "VIDEO_ID": "Artist Name"')
         for s in unsure[:15]:
             print(f"   {s.video_id}  guessed '{s.artist}'  from  {s.title}")
 
-    problems = check(top)
+    problems = check(section, recent, first_round=fresh_pass)
+    gap = closest_repeat(prefix[-GAP:] + section)
     print("\nRule check:", "passed" if not problems else "PROBLEM: " + problems[0])
+    if gap is not None:
+        print(f"Closest repeat of any band in the rest of this pass: {gap} songs apart.")
 
     if a.apply:
         print("\nMoving songs on YouTube now. This takes a few minutes. Keep this window open.")
     used, done, stop = apply_moves(yt, playlist_id, current, target, raw_by_id, a.budget, a.apply)
 
     if a.apply:
-        dealt = [s for s in target[:done] if s.playable]
-        dealt_ids = {s.id for s in dealt}
-        now_ids = {s.id for s in playable}
-        known = (now_ids if first_run else (known & now_ids) | dealt_ids)
-        had_turn = (had_turn & now_ids) | dealt_ids
-        # once every song of an artist has had a turn, start that artist over
-        by_artist = {}
-        for s in playable:
-            by_artist.setdefault(s.key, []).append(s.id)
-        for ids in by_artist.values():
-            if all(i in had_turn for i in ids):
-                had_turn -= {i for i in ids if i not in dealt_ids}
-        all_mem[playlist_id] = {"known": sorted(known), "had_turn": sorted(had_turn)}
+        dealt = [s.id for s in target[:done] if s.playable]
+        dealt_ids = set(dealt)
+        known = now_ids if first_run else (known & now_ids) | dealt_ids
+        all_mem[playlist_id] = {"version": 3, "known": sorted(known),
+                                "dealt": dealt, "last_pass": last_pass}
         with open(MEMORY, "w", encoding="utf-8") as f:
             json.dump(all_mem, f)
-        print(f"\nMoved {used} song(s). The top {done} songs are a fresh shuffle. Start listening from the top.")
+        print(f"\nMoved {used} song(s). This pass has now reshuffled the top {len(dealt)} "
+              f"of {len(playable)} songs.")
+        if len(dealt) >= len(playable):
+            print("This pass is complete. The next run starts a fresh pass from the top.")
+        else:
+            runs = -(-(len(playable) - len(dealt)) // max(a.budget, 1))
+            print(f"About {runs} more run(s) to finish this pass.")
     else:
         print(f"\nPreview only: {used} move(s) would be made. Add --apply to do it.")
         print("(Each real run deals its own new shuffle, so it won't match this sample exactly.)")
 
-    print("\nFirst 25 in the new order:")
-    for i, s in enumerate(target[:25], 1):
+    print(f"\nFirst 25 songs of today's section (starting at song {len(prefix) + 1}):")
+    for i, s in enumerate(section[:25], len(prefix) + 1):
         flag = "  NEW" if is_new(s) else ""
         print(f"{i:3}. {s.artist} - {s.title}{flag}")
-
 
 if __name__ == "__main__":
     try:
