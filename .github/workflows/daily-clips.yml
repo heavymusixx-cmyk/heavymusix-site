@@ -4,7 +4,7 @@ name: Daily social clips
 # (heavymusix.com/clips/news.mp4 and /clips/history.mp4) for Shorts, Reels, TikTok and Threads.
 on:
   schedule:
-    - cron: "11 13 * * *"    # 6:11 AM Arizona
+    - cron: "11 10 * * *"    # 5:11 AM Eastern (Eastern Standard Time; use 9 in summer)
   workflow_dispatch: {}
 
 permissions:

@@ -24,3 +24,7 @@ Fixes and improvements toward this standard never need approval. New features, n
 - `radio.js` runs on every page. It is the player, the pop-out player, the hamburger menu and in-place page loading (so the music keeps playing). Bump its `?v=` number in every page when you change it, and do the same for `style.css`.
 - Visitors stay on the site: internal links load in place, and outside links open in a new tab.
 - Test before pushing: `node --check` on changed JS, run `python3 scripts/build_pages.py`, and render pages at 390px and 1280px wide.
+
+## Schedule: Eastern time
+
+The site updates by **5 AM Eastern** every day: stories (Claude task, 4:23 AM ET), headlines (4:51 AM ET, then every 4 hours), playlist reshuffle (5:05 AM ET), social clips (5:11 AM ET), Radio Show builder (5:20 AM ET). GitHub schedules are in UTC and set for Eastern Standard Time. **On the second Sunday of March, move each of those UTC hours 1 earlier, and on the first Sunday of November, move them back**, so they stay at the same Eastern time. Auto-post times and the nightly Arizona shows roll stay as they are.

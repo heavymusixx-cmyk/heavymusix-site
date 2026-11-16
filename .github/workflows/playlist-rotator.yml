@@ -5,7 +5,7 @@ name: Playlist reshuffle
 # Runs on GitHub's computers, so your laptop can stay off.
 on:
   schedule:
-    - cron: "52 15 * * *"   # every day at 8:52 AM Arizona time
+    - cron: "5 10 * * *"   # every day at 5:05 AM Eastern (Eastern Standard Time; use 9 in summer)
   workflow_dispatch: {}      # run it by hand from the Actions tab
 
 permissions:

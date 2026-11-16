@@ -2,7 +2,7 @@ name: Radio Show builder
 
 on:
   schedule:
-    - cron: "20 12 * * *"    # every day at 5:20 AM Arizona time (right after the 4:37 AM story and 5:15 AM headlines)
+    - cron: "20 10 * * *"    # 5:20 AM Eastern, right after the morning stories and headlines (Eastern Standard Time; use 9 in summer)
   workflow_dispatch: {}      # run it by hand from the Actions tab
 
 permissions:
