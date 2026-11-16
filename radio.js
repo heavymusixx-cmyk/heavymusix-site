@@ -363,11 +363,12 @@
       Array.prototype.slice.call(document.body.childNodes).forEach(function(n){ if (n !== d) n.remove(); });
       var scripts = [];
       Array.prototype.slice.call(doc.body.childNodes).forEach(function(n){
-        if (n.nodeName === 'SCRIPT'){ scripts.push(n); return; }
+        if (n.nodeName === 'SCRIPT'){ if (!/goatcounter/.test(n.outerHTML)) scripts.push(n); return; }
         if (n.querySelectorAll) n.querySelectorAll('script').forEach(function(s){ scripts.push(s); s.remove(); });
         document.body.insertBefore(document.importNode(n, true), d);
       });
       if (push) history.pushState({hmx: 1}, '', url);
+      try { if (window.goatcounter && goatcounter.count) goatcounter.count({path: location.pathname + location.search, title: document.title}); } catch(e){}
       var hash = new URL(url, location.href).hash;
       var target = hash && document.getElementById(hash.slice(1));
       if (target) target.scrollIntoView(); else window.scrollTo(0, 0);
