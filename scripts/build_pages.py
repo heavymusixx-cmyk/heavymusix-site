@@ -88,9 +88,9 @@ def page(path, title, desc, body, nav=None, ld=None, extra_head="", image="og/de
 <body>
 <!-- Built automatically by scripts/build_pages.py. Do not edit by hand. -->
 {head_nav}
-
+<main id="main">
 {body}
-
+</main>
 {FOOTER}
 <script src="hmx.js?v=4"></script>
 <script src="{RADIO}"></script>
