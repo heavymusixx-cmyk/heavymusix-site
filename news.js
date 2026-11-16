@@ -6,6 +6,159 @@
 */
 var NEWS = [
   {
+    date: "2026-11-16",
+    tag: "Releases",
+    title: "New releases this week: Angelus Apatrida's \"The Reckoning\" EP leads a loaded week, with Suicide Silence, Thy Catafalque and more",
+    text: [
+      "Spain's Angelus Apatrida open their Napalm Records chapter on Thursday, November 19 with \"The Reckoning\", a three-track EP. It carries the single \"Cycle Of Ruin\", a new song called \"Burn It Down\" and their take on Sepultura's \"Propaganda\". The Albacete thrashers produced it themselves, with Juanan López recording and Zeuss handling the mix and master.",
+      "Friday, November 20 keeps the pit open. Suicide Silence drop \"Graceless\" on Century Media, Hungary's Thy Catafalque bring \"XIII: Sárga erdő\" on Season of Mist, Polish blackened death crew Azarath unleash \"Scorn Eternal\" on Agonia, and Canada's Golgothan Remains return with \"Born From Darkness Absolute\" on Dark Descent.",
+      "That is on top of the Trivium, Down, Disfear and Wolf albums we told you about last week. Angelus Apatrida are one of the most-played bands on HeavyMusix Radio, so expect \"Cycle Of Ruin\" in rotation. What are you buying first?",
+      "Source: Blabbermouth, Napalm Records, Loudwire"
+    ]
+  },
+  {
+    date: "2026-11-16",
+    tag: "News",
+    title: "Sepultura plan a 40-song live album from their farewell tour, one song from each city",
+    text: [
+      "Sepultura recorded every stop of their farewell tour, and guitarist Andreas Kisser says the result will be a 40-song live album arriving next year. The idea: one song from each of 40 cities around the world, a giant collection of the band's wildest nights on stage.",
+      "The album focuses on the farewell-era lineup with drummer Greyson Nekrutman, who joined in early 2024. It is planned as an audio release with photos, booklets, vinyl and a box set. There is no DVD planned, although the final show at Suhai Music Hall in São Paulo will be filmed.",
+      "No title or date yet. We will post it the minute there is one.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-16",
+    tag: "Tours",
+    title: "Rock am Ring and Rock im Park 2027 add Skindred, After The Burial and ERRA; Jinjer already on the bill",
+    text: [
+      "Germany's twin festivals keep growing. Rock am Ring at the Nürburgring and Rock im Park on Nuremberg's Zeppelinfeld run June 4 to 6, 2027, and the latest round of names brings Skindred, After The Burial and ERRA into the lineup.",
+      "The heavy side of the bill already looks stacked: Jinjer, Killswitch Engage, Amon Amarth, Arch Enemy, Lorna Shore, Parkway Drive, Orbit Culture, Igorrr, Imminence, Motionless In White and The Devil Wears Prada, with Bring Me The Horizon and Blink-182 near the top.",
+      "Jinjer are the most-played band on HeavyMusix Radio, so if you are heading to Germany next June, tell us and send pictures.",
+      "Source: Lambgoat"
+    ]
+  },
+  {
+    date: "2026-11-16",
+    tag: "News",
+    title: "KISS will release all four 1977 Budokan shows in a \"Conquers Japan 1977\" box set",
+    text: [
+      "KISS fans, start saving. Universal Music's Jeff Fura revealed at a \"Future Of KISS\" panel on Sunday, November 15 that a \"Conquers Japan 1977\" live box set is coming in 2027, the 50th anniversary of the band's famous April 1977 run at Tokyo's Budokan.",
+      "For the first time, all four Budokan concerts will be released in full. The team found 18 multitrack tapes from the shows and soundchecks at Victor Studios in Tokyo, and longtime KISS engineer Eddie Kramer is mixing.",
+      "The vinyl and CD versions will carry all four shows plus soundcheck selections, and a Blu-ray will have the April 2 evening show plus newly found video of the afternoon show, both remastered in HD.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-16",
+    tag: "News",
+    title: "Metallica headed into the California Hall of Fame",
+    text: [
+      "One Hall of Fame weekend leads to another. Metallica will be inducted into the California Hall of Fame next month at the California Museum in Sacramento.",
+      "They will share the stage with an eclectic class that includes Huey Lewis, Joni Mitchell, Bonnie Raitt, Robin Williams and Barry Bonds. Not bad company for a band that started out playing Bay Area clubs.",
+      "Source: Lambgoat"
+    ]
+  },
+  {
+    date: "2026-11-16",
+    tag: "Arizona",
+    title: "Arizona metal this week: GWAR in Tempe, The Amity Affliction in Tucson, plus Eluveitie booked for March",
+    text: [
+      "Tuesday, November 17: GWAR bring Midnight and Mac Sabbath to the Marquee Theatre in Tempe. Wednesday, November 18 is a double: The Amity Affliction, Blessthefall, Orthodox and Buried in Spring at the Rialto Theatre in Tucson, and Static Dress with I Promised the World at the Nile Theater in Mesa.",
+      "Friday, November 20, Ladrones play The Rock in Tucson. Saturday, November 21 has Three Days Grace and I Prevail at Talking Stick Resort Amphitheatre in Phoenix, and Alter Bridge at Harrah's Ak-Chin in Maricopa.",
+      "New on our calendar: Boundaries, Spite, The Callous Daoboys and Your Spirit Dies at the Nile Theater on March 5, 2027, and Swiss folk metallers Eluveitie with Nini and Illumishade at the Nile the next night, March 6. The full list is always at heavymusix.com/az.",
+      "Source: MetalGigs.us"
+    ]
+  },
+  {
+    date: "2026-11-16",
+    tag: "Throwback",
+    title: "On this day in metal: Vader unleash \"The Ultimate Incantation\" (1992)",
+    text: [
+      "On November 16, 1992, Polish death metal pioneers Vader released their full-length debut, \"The Ultimate Incantation\", through Earache in Europe and the US. It put a band from Olsztyn, formed back in 1983, on the world death metal map.",
+      "Getting there was not easy. The album was first recorded at Sunlight Studio in Sweden, but neither the band nor the label liked the result, so they re-recorded it at Rhythm Studios in England with producer Paul Johnson. Dan Seagrave painted the cover, and \"Dark Age\" got a music video.",
+      "Vader are on HeavyMusix Radio. Which era of Vader is your favorite?",
+      "Source: Wikipedia, This Day In Metal"
+    ]
+  },
+  {
+    date: "2026-11-16",
+    tag: "Tours",
+    title: "Megadeth announce 2027 North American farewell tour with Anthrax and Kerry King, including Phoenix on May 15",
+    text: [
+      "Megadeth's goodbye keeps rolling. The band announced \"Outbreak: Vaccination Of The Nations\", a 2027 North American run with Anthrax and Kerry King as special guests, as part of their global farewell tour. It starts May 14 in Albuquerque and runs in three legs through May, June and September, ending September 30 in Spokane.",
+      "Arizona gets one night: Saturday, May 15, 2027 at Talking Stick Resort Amphitheatre in Phoenix. Other big stops include the Kia Forum in Los Angeles (May 19), Red Rocks (May 26), Toronto (June 10) and Madison Square Garden in New York (June 15).",
+      "The Cyber Army fan club presale starts Tuesday, November 17 at 10 a.m. local time, and general tickets go on sale Friday, November 20 at 10 a.m. local time. The tour backs \"Megadeth\", the January 2026 album billed as the band's final studio record, which gave them their first No. 1 on the Billboard 200.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-16",
+    tag: "News",
+    title: "Megadeth, Anthrax, Mastodon and Knocked Loose up for Best Metal Performance at the 2027 Grammys",
+    text: [
+      "The nominations for the 69th Grammy Awards were announced Monday morning, November 16, and the Best Metal Performance category is a heavy one: Anthrax for \"The Edge of Perfection\", Knocked Loose with Denzel Curry for \"Hive Mind\", Mastodon for \"Your Ghost Again\", Megadeth for \"Let There Be Shred\", and Poppy, Amy Lee and Courtney LaPlante for \"End of You\".",
+      "So two bands from the same 2027 tour package, Megadeth and Anthrax, go head to head. Music released between August 31, 2025 and August 28, 2026 was eligible, and Recording Academy voting runs December 10 to January 7.",
+      "The ceremony is Sunday, February 7, 2027 at Crypto.com Arena in Los Angeles, airing on ABC, Disney+ and Hulu at 7 p.m. Eastern (5 p.m. in Arizona). Who gets your vote?",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-16",
+    tag: "Tours",
+    title: "Underoath book a 23-date European tour for spring 2027 with Saosin and I Promised The World",
+    text: [
+      "Underoath are heading to Europe and the UK next spring with Saosin and I Promised The World as special guests. The run starts April 2, 2027 at Astra Kulturhaus in Berlin and ends May 1 at LAV in Lisbon.",
+      "In between: Hamburg, Prague, Budapest, Warsaw, Utrecht, Cologne, Munich, Milan, Glasgow, London's O2 Forum Kentish Town (April 23), Manchester, Birmingham, Paris, Barcelona and Madrid, among others.",
+      "The artist presale opens Tuesday, November 17 at 10 a.m. local time, with general sale on Friday, November 20. Right now the band is touring North America for the 20th anniversary of \"Define The Great Line\".",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-16",
+    tag: "Shows",
+    title: "DragonForce play \"Inhuman Rampage\" in full in Anaheim; self-titled album due March 19 on Napalm",
+    text: [
+      "A fan-filmed video of DragonForce's full Saturday, November 14 show at the House of Blues in Anaheim is now making the rounds. It was the second night of their biggest North American tour in more than 20 years, a 22-date run marking the 20th anniversary of \"Inhuman Rampage\".",
+      "The set ran from \"Storming The Burning Fields\" and \"Revolution Deathsquad\" all the way to \"Through The Fire And Flames\", with new songs \"Hunger Of The Beast\" and \"Neverending Nightmare\" mixed in.",
+      "Those two songs come from \"Dragonforce\", a self-titled album out March 19, 2027 on Napalm Records and produced by Jens Bogren. It is their first record with Alissa White-Gluz (ex-Arch Enemy) as a permanent singer, sharing vocals with Alessio Garavello.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-16",
+    tag: "World",
+    title: "Greek post-metal band Unverkalt share a live session of \"Penumbrian Lament\" from their Season of Mist debut",
+    text: [
+      "Greece's Unverkalt, a five-piece that started in 2017, have shared a live session video of \"Penumbrian Lament\", a song the band calls the heart of the downfall on their new album. It was directed and edited by Themis Ioannou at RAWBITE Studio.",
+      "The song comes from \"Héréditaire\", their third album and first for Season of Mist, which is out now on CD and double vinyl. It also features a guest spot from Rotting Christ's Sakis Tolis on \"I, The Deceit\".",
+      "The band also announced they have joined The Flaming Arts Agency. Their next shows are the Heavy Crisis Festival in Leipzig, Germany on December 11, and the Headache Inside Festival in Brandenburg in September 2027.",
+      "Source: Season of Mist"
+    ]
+  },
+  {
+    date: "2026-11-16",
+    tag: "Releases",
+    title: "Underground black metal to watch: Panzerfaust, Skagos, Necronautical, Limbes, Jöjjön and Nihilo",
+    text: [
+      "Canada leads this week's black metal picks. Panzerfaust release \"The Lucifer Principle (Redux)\" on Eisenwald on December 4, a remix and remaster of their 2016 EP with a new song, \"All Grounds Zeroed\". Fellow Canadians Skagos follow on December 21 with \"Stricken\", their fourth album, on Bindrune Recordings.",
+      "From the UK, Necronautical bring their fifth album \"The Second Death\" on Vendetta Records on December 4. France's Limbes, the solo project of former Blurr Thrower member Guillaume Galaup, has \"Litanies\" coming January 15 on Frozen Records.",
+      "Already out: Hungary's one-man project Jöjjön released its third album \"Szelet Vet\" on November 6, and Switzerland's Nihilo put out \"Abyss\" on Xtreem Music on November 3, with a guest vocal from Impiety's Shyaithan. Six countries, one very dark playlist.",
+      "Source: No Clean Singing"
+    ]
+  },
+  {
+    date: "2026-11-16",
+    tag: "Throwback",
+    title: "On this day in metal: Children Of Bodom release their debut \"Something Wild\" (1997)",
+    text: [
+      "On November 16, 1997, a young band from Espoo, Finland, put out their first album. Children Of Bodom's \"Something Wild\" came out on Spinefarm in Finland and reached the rest of the world through Nuclear Blast the next year.",
+      "Produced by Anssi Kippo with the band, it introduced the sound that made them famous: Alexi Laiho's shredding and screams trading lightning-fast leads with Janne Wirman's keyboards, backed by Alexander Kuoppala, Henkka Seppälä and Jaska Raatikainen.",
+      "It climbed as high as No. 20 on the Finnish album chart and even returned to the chart in 2021. Which Bodom album is your favorite?",
+      "Source: Wikipedia, This Day In Metal"
+    ]
+  },
+  {
     date: "2026-11-15",
     tag: "News",
     title: "Iron Maiden finally enter the Rock and Roll Hall of Fame, and the stars line up to play The Trooper",
