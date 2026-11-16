@@ -80,3 +80,12 @@ section.horns{isolation:isolate;overflow:hidden;padding:120px 0}
 section.horns::before{content:"" !important;position:absolute;inset:0 !important;height:auto !important;z-index:-2;-webkit-mask:none !important;mask:none !important;opacity:1 !important;background:url("https://images.unsplash.com/photo-1547525372-7acfcbcd8acc?w=1800&q=70&auto=format") center 30%/cover no-repeat !important;filter:grayscale(1) contrast(1.6) brightness(.5);transform:none !important;top:0 !important}
 section.horns::after{content:"" !important;position:absolute;inset:0 !important;height:auto !important;z-index:-1;-webkit-mask:none !important;mask:none !important;opacity:1 !important;background:linear-gradient(90deg,rgba(3,3,3,.95) 25%,rgba(90,4,10,.55) 75%,rgba(3,3,3,.7)) !important;transform:none !important;bottom:0 !important}
 section.horns h2{font-size:clamp(48px,7vw,92px);text-shadow:0 0 30px rgba(227,18,30,.6)}
+
+/* readable metal lettering for menus, buttons, labels and links */
+:root{--ui:"New Rocker","Metal Mania",Georgia,serif}
+nav.main a,.btn,.hero .btn,body section:not(.hero) .btn,.kicker,.tag,.pc-kicker,.pc-cta,.hsearch button,.wip,.card .date,ul.morenews li strong{font-family:var(--ui) !important;font-stretch:normal !important;font-weight:400 !important;letter-spacing:.03em !important;text-transform:none !important}
+nav.main a{font-size:18px}
+.btn,.hero .btn,body section:not(.hero) .btn{font-size:19px}
+.kicker{font-size:18px}
+.card h3,.card h2{font-family:var(--display)}
+.card a,ul.morenews a,footer.site a{font-family:var(--ui);letter-spacing:.02em}
