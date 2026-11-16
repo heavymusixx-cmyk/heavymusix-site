@@ -1,19 +1,19 @@
 /* HeavyMusix 2026: death metal skin. Loaded after style.css and overrides it. */
-:root{--pitch:#030303;--ash:#0d0c0e;--ash2:#141216;--edge:#2a262c;--bone:#ecebe6;--bone-dim:#a9a6a0;--steel:#7c7a80;--blood:#8f0a12;--blood-hot:#e3121e;--display:"Grenze Gotisch","Pirata One",Georgia,serif}
+:root{--pitch:#030303;--ash:#0d0c0e;--ash2:#141216;--edge:#2a262c;--bone:#ecebe6;--bone-dim:#a9a6a0;--steel:#7c7a80;--blood:#8f0a12;--blood-hot:#e3121e;--display:"Metal Mania","Pirata One",Georgia,serif}
 body{background:#030303}
 body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:49;opacity:.5;background:repeating-linear-gradient(97deg,transparent 0 46px,rgba(255,255,255,.018) 46px 47px,transparent 47px 131px),radial-gradient(ellipse at 50% -20%,rgba(143,10,18,.18),transparent 60%)}
 
 /* banner + header */
 .wip{background:#000;color:var(--bone-dim);border-bottom:1px solid var(--edge);font-weight:600;letter-spacing:.02em}
 header.site{background:rgba(3,3,3,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--edge);box-shadow:0 1px 0 var(--blood),0 6px 24px -8px rgba(227,18,30,.45)}
-.logo{font-family:var(--display);font-weight:900;font-size:44px;letter-spacing:-.01em;color:var(--bone);text-shadow:0 0 1px #000,0 3px 14px rgba(227,18,30,.55)}
+.logo{font-family:var(--display);font-weight:400;font-size:46px;letter-spacing:-.01em;color:var(--bone);text-shadow:0 0 1px #000,0 3px 14px rgba(227,18,30,.55)}
 .logo span{color:var(--blood-hot);text-shadow:0 0 18px rgba(227,18,30,.7)}
 nav.main a{font-weight:800;font-stretch:62%;text-transform:uppercase;letter-spacing:.06em;font-size:15px;color:var(--steel);border-bottom:2px solid transparent}
 nav.main a:hover{color:var(--bone);text-shadow:0 0 10px rgba(227,18,30,.6)}
 nav.main a.on{color:var(--bone);border-bottom-color:var(--blood-hot)}
 
 /* type */
-h1,h2,h3{font-family:var(--display);font-weight:900;letter-spacing:-.01em;line-height:.9}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-height:.95}
 h1{font-size:clamp(60px,11vw,140px)}
 h2{font-size:clamp(42px,6vw,72px)}
 .kicker{color:var(--blood-hot);font-weight:800;font-stretch:62%;text-transform:uppercase;letter-spacing:.14em;font-size:14px;display:flex;align-items:center;gap:10px}
@@ -68,3 +68,15 @@ footer.site{background:#000;border-top:1px solid var(--edge);box-shadow:0 -1px 0
 .iconstrip svg{fill:var(--blood);opacity:.8}
 ::selection{background:var(--blood-hot);color:#000}
 @media (prefers-reduced-motion:reduce){.emblem{animation:none}}
+
+/* horror-poster photo art (free Unsplash photos, hotlinked per Unsplash license) */
+section.hero{isolation:isolate;min-height:min(92vh,880px)}
+section.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("https://images.unsplash.com/photo-1606022875614-29303faea9fc?w=1600&q=70&auto=format") right 8% center/auto 115% no-repeat,#000;filter:grayscale(1) contrast(1.45) brightness(.62)}
+section.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#030303 0%,rgba(3,3,3,.92) 38%,rgba(3,3,3,.25) 70%,rgba(3,3,3,.55) 100%),linear-gradient(0deg,#030303 0%,transparent 35%),radial-gradient(ellipse 45% 60% at 75% 50%,rgba(227,18,30,.55),transparent 70%);mix-blend-mode:normal}
+.hero .emblem{display:none}
+.hero h1{font-size:clamp(64px,11vw,150px);max-width:9ch}
+@media (max-width:760px){section.hero::before{background-position:center top;background-size:cover;opacity:.55}section.hero::after{background:linear-gradient(0deg,#030303 10%,rgba(3,3,3,.75) 60%,rgba(3,3,3,.5))}}
+section.horns{isolation:isolate;overflow:hidden;padding:120px 0}
+section.horns::before{content:"" !important;position:absolute;inset:0 !important;height:auto !important;z-index:-2;-webkit-mask:none !important;mask:none !important;opacity:1 !important;background:url("https://images.unsplash.com/photo-1547525372-7acfcbcd8acc?w=1800&q=70&auto=format") center 30%/cover no-repeat !important;filter:grayscale(1) contrast(1.6) brightness(.5);transform:none !important;top:0 !important}
+section.horns::after{content:"" !important;position:absolute;inset:0 !important;height:auto !important;z-index:-1;-webkit-mask:none !important;mask:none !important;opacity:1 !important;background:linear-gradient(90deg,rgba(3,3,3,.95) 25%,rgba(90,4,10,.55) 75%,rgba(3,3,3,.7)) !important;transform:none !important;bottom:0 !important}
+section.horns h2{font-size:clamp(48px,7vw,92px);text-shadow:0 0 30px rgba(227,18,30,.6)}
