@@ -373,3 +373,7 @@ footer.site a{display:inline-block;padding-block:4px;line-height:1.25}
 #hmx-notice a{color:var(--blood-text);font-weight:700}
 @media (prefers-reduced-motion:reduce){#hmx-notice{transition:none}}
 .playbtn.yt{background:transparent;color:var(--bone);text-decoration:none;display:inline-block}
+
+/* Footer logo goes home */
+footer.site a.footlogo{color:#fff;text-decoration:none}
+footer.site a.footlogo:hover,footer.site a.footlogo:focus-visible{color:var(--blood-text);text-decoration:underline}
