@@ -1,0 +1,35 @@
+name: Song check
+
+# Weekly: which playlist songs can't play inside heavymusix.com (embedding turned off, removed or private)?
+# Writes show/unplayable.json; the player, band pages and Radio Show planner skip those songs.
+on:
+  schedule:
+    - cron: "37 9 * * 1"    # Mondays 4:37 AM Eastern (Eastern Standard Time; use 8 in summer)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: site-robots
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check every song
+        run: python scripts/check_songs.py
+      - name: Publish if changed
+        run: |
+          git config user.name "HeavyMusix Song Bot"
+          git config user.email "song-bot@users.noreply.github.com"
+          git add show/unplayable.json
+          if git diff --cached --quiet; then echo "No change."; else
+            git commit -m "Song check: $(date -u '+%F')"
+            git pull --rebase origin main && git push
+          fi
