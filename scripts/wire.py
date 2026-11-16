@@ -21,14 +21,14 @@ FEEDS = [
 LABEL_FEEDS = [
     ("Nuclear Blast", ["https://www.nuclearblast.com/blogs/news.atom"]),
     ("Season of Mist", ["https://www.season-of-mist.com/news/feed/"]),
-    ("Metal Blade", ["https://www.metalblade.com/feed/"]),
 ]
 # News searches (titles end with " - Outlet"). need_name: keep only titles that name it.
-# Napalm Records (Jinjer's label) and Century Media block feed readers, so their news comes from searches.
+# Napalm Records (Jinjer's label), Century Media and Metal Blade block feed readers, so their news comes from searches.
 BAND_SEARCHES = [
     ("Jinjer", "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US:en&q=%22Jinjer%22+band", True),
     ("Napalm Records", "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US:en&q=%22Napalm+Records%22+when:7d", False),
     ("Century Media", "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US:en&q=%22Century+Media%22+metal+when:7d", False),
+    ("Metal Blade", "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US:en&q=%22Metal+Blade%22+when:7d", False),
 ]
 PER_SOURCE = 5
 TOTAL = 24
