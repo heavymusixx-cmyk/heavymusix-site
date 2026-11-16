@@ -4,7 +4,7 @@ Never posts in groups or other people's spaces. Runs on GitHub twice a day.
 Morning slot (8:41 AM Arizona): today's lead story.   Evening slot (5:41 PM): today in metal history.
 Text comes from social/queue.json (written by the morning content task) when it has an entry for today and the slot;
 otherwise it is built from news.js / history.js. Each platform is skipped quietly until its secrets exist:
-  THREADS_USER_ID + THREADS_TOKEN          (Threads API)
+  THREADS_TOKEN (+ THREADS_USER_ID, optional) (Threads API)
   IG_USER_ID + META_PAGE_TOKEN             (Instagram professional account linked to the Facebook Page)
   FB_PAGE_ID + META_PAGE_TOKEN             (Facebook Page)
 Never posts the same thing twice: social/posted.json remembers what went out."""
@@ -88,11 +88,15 @@ img = item.get("image") if item.get("image") and image_ok(item["image"]) else No
 results = {}
 
 # ---------- Threads (500 characters max)
-if os.getenv("THREADS_TOKEN") and os.getenv("THREADS_USER_ID") and "threads" not in done:
+if os.getenv("THREADS_TOKEN") and "threads" not in done:
     text = clip(item["text"], 500 - len(item["link"]) - 4) + "\n\n" + item["link"]
-    base = f"https://graph.threads.net/v1.0/{os.environ['THREADS_USER_ID']}"
     tok = os.environ["THREADS_TOKEN"]
     try:
+        uid = os.getenv("THREADS_USER_ID")
+        if not uid:   # only the token was added: look up the account id from it
+            with urllib.request.urlopen(f"https://graph.threads.net/v1.0/me?fields=id,username&access_token={tok}", timeout=30) as r:
+                uid = json.loads(r.read())["id"]
+        base = f"https://graph.threads.net/v1.0/{uid}"
         c = call(f"{base}/threads", {"media_type": "IMAGE" if img else "TEXT", "text": text, **({"image_url": img} if img else {}), "access_token": tok})
         time.sleep(30)
         p = call(f"{base}/threads_publish", {"creation_id": c["id"], "access_token": tok})
