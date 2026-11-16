@@ -17,8 +17,23 @@ FEEDS = [
     ("Revolver", "https://www.revolvermag.com/feed"),
     ("Phoenix New Times", "https://www.phoenixnewtimes.com/music/feed"),
 ]
+# Record labels: each has a few possible feed addresses; the first one that works is used.
+LABEL_FEEDS = [
+    ("Napalm Records", ["https://napalmrecords.com/english/news/rss", "https://napalmrecords.com/english/feed", "https://napalmrecords.com/feed", "https://napalmrecords.com/english/blogs/news.atom"]),
+    ("Metal Blade", ["https://www.metalblade.com/us/feed/", "https://www.metalblade.com/us/news/feed/", "https://www.metalblade.com/feed/"]),
+    ("Nuclear Blast", ["https://www.nuclearblast.com/blogs/news.atom", "https://www.nuclearblast.com/feed/", "https://www.nuclearblast.de/en/news/rss"]),
+    ("Century Media", ["https://www.centurymedia.com/feed/", "https://www.centurymedia.com/news/feed/", "https://www.centurymedia.com/blogs/news.atom"]),
+    ("Season of Mist", ["https://www.season-of-mist.com/feed/", "https://www.season-of-mist.com/news/feed/"]),
+    ("Relapse", ["https://www.relapse.com/blogs/news.atom", "https://www.relapse.com/feed/"]),
+    ("Prosthetic", ["https://prostheticrecords.com/blogs/news.atom", "https://prostheticrecords.com/feed/"]),
+    ("Roadrunner", ["https://www.roadrunnerrecords.com/feed/", "https://www.roadrunnerrecords.com/blog/feed/"]),
+]
+# Favorite bands: always look for fresh news (titles end with " - Outlet").
+BAND_SEARCHES = [
+    ("Jinjer", "https://news.google.com/rss/search?q=%22Jinjer%22+band&hl=en-US&gl=US&ceid=US:en"),
+]
 PER_SOURCE = 5
-TOTAL = 18
+TOTAL = 24
 AZ_WORDS = re.compile(r"metal|metalcore|deathcore|thrash|doom|hardcore|punk|death|black|grind|sludge|heavy", re.I)
 
 def text(el, *names):
@@ -61,6 +76,14 @@ def parse_feed(source, xml_bytes):
         if not title or not link.startswith("http"):
             continue
         if source == "Phoenix New Times" and not AZ_WORDS.search(title):
+            continue
+        if source.startswith("search:"):   # news search: keep only titles naming the band, credit the outlet
+            band = source[7:]
+            m = re.match(r"(.+) - ([^-]{2,60})$", title)
+            if not m or band.lower() not in title.lower():
+                continue
+            title, src = m.group(1).strip(), m.group(2).strip()
+            out.append({"t": title, "u": link, "s": src, "d": when, "g": tag_for(title)})
             continue
         out.append({"t": title, "u": link, "s": source, "d": when, "g": tag_for(title)})
     return out[:PER_SOURCE]
@@ -127,6 +150,28 @@ def main():
             print(f"{source}: {len(got)} items")
         except Exception as e:
             print(f"{source}: skipped ({e})")
+    for source, urls in LABEL_FEEDS:
+        for url in urls:
+            try:
+                got = parse_feed(source, fetch(url))
+                if not got:
+                    raise ValueError("no items")
+                for i in got:
+                    i["g"] = "Label news" if i["g"] == "News" else i["g"]
+                collected += got
+                ok += 1
+                print(f"{source}: {len(got)} items from {url}")
+                break
+            except Exception as e:
+                print(f"{source}: {url} skipped ({e})")
+    for band, url in BAND_SEARCHES:
+        try:
+            got = parse_feed("search:" + band, fetch(url))
+            collected += got
+            ok += 1
+            print(f"{band} news search: {len(got)} items")
+        except Exception as e:
+            print(f"{band} news search: skipped ({e})")
     items = build(collected, now)
     if not items:
         print("No headlines found; keeping the old wire.js")
