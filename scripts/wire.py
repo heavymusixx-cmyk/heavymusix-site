@@ -19,18 +19,16 @@ FEEDS = [
 ]
 # Record labels: each has a few possible feed addresses; the first one that works is used.
 LABEL_FEEDS = [
-    ("Napalm Records", ["https://napalmrecords.com/english/news/rss", "https://napalmrecords.com/english/feed", "https://napalmrecords.com/feed", "https://napalmrecords.com/english/blogs/news.atom"]),
-    ("Metal Blade", ["https://www.metalblade.com/us/feed/", "https://www.metalblade.com/us/news/feed/", "https://www.metalblade.com/feed/"]),
-    ("Nuclear Blast", ["https://www.nuclearblast.com/blogs/news.atom", "https://www.nuclearblast.com/feed/", "https://www.nuclearblast.de/en/news/rss"]),
-    ("Century Media", ["https://www.centurymedia.com/feed/", "https://www.centurymedia.com/news/feed/", "https://www.centurymedia.com/blogs/news.atom"]),
-    ("Season of Mist", ["https://www.season-of-mist.com/feed/", "https://www.season-of-mist.com/news/feed/"]),
-    ("Relapse", ["https://www.relapse.com/blogs/news.atom", "https://www.relapse.com/feed/"]),
-    ("Prosthetic", ["https://prostheticrecords.com/blogs/news.atom", "https://prostheticrecords.com/feed/"]),
-    ("Roadrunner", ["https://www.roadrunnerrecords.com/feed/", "https://www.roadrunnerrecords.com/blog/feed/"]),
+    ("Nuclear Blast", ["https://www.nuclearblast.com/blogs/news.atom"]),
+    ("Season of Mist", ["https://www.season-of-mist.com/news/feed/"]),
+    ("Metal Blade", ["https://www.metalblade.com/feed/"]),
 ]
-# Favorite bands: always look for fresh news (titles end with " - Outlet").
+# News searches (titles end with " - Outlet"). need_name: keep only titles that name it.
+# Napalm Records (Jinjer's label) and Century Media block feed readers, so their news comes from searches.
 BAND_SEARCHES = [
-    ("Jinjer", "https://news.google.com/rss/search?q=%22Jinjer%22+band&hl=en-US&gl=US&ceid=US:en"),
+    ("Jinjer", "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US:en&q=%22Jinjer%22+band", True),
+    ("Napalm Records", "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US:en&q=%22Napalm+Records%22+when:7d", False),
+    ("Century Media", "https://news.google.com/rss/search?hl=en-US&gl=US&ceid=US:en&q=%22Century+Media%22+metal+when:7d", False),
 ]
 PER_SOURCE = 5
 TOTAL = 24
@@ -66,7 +64,12 @@ def clean(s):
     return re.sub(r"\s+", " ", s).strip()
 
 def parse_feed(source, xml_bytes):
-    root = ET.fromstring(xml_bytes)
+    try:
+        root = ET.fromstring(xml_bytes)
+    except ET.ParseError:   # some feeds carry stray control characters or bare ampersands
+        fixed = re.sub(rb"[\x00-\x08\x0b\x0c\x0e-\x1f]", b"", xml_bytes)
+        fixed = re.sub(rb"&(?!(?:[a-zA-Z]+|#[0-9]+|#x[0-9a-fA-F]+);)", b"&amp;", fixed)
+        root = ET.fromstring(fixed)
     items = [e for e in root.iter() if e.tag.split("}")[-1] in ("item", "entry")]
     out = []
     for it in items:
@@ -77,10 +80,10 @@ def parse_feed(source, xml_bytes):
             continue
         if source == "Phoenix New Times" and not AZ_WORDS.search(title):
             continue
-        if source.startswith("search:"):   # news search: keep only titles naming the band, credit the outlet
-            band = source[7:]
+        if source.startswith("search:"):   # news search: credit the real outlet
+            band = source[7:].rstrip("*")
             m = re.match(r"(.+) - ([^-]{2,60})$", title)
-            if not m or band.lower() not in title.lower():
+            if not m or (not source.endswith("*") and band.lower() not in title.lower()):
                 continue
             title, src = m.group(1).strip(), m.group(2).strip()
             out.append({"t": title, "u": link, "s": src, "d": when, "g": tag_for(title)})
@@ -164,9 +167,9 @@ def main():
                 break
             except Exception as e:
                 print(f"{source}: {url} skipped ({e})")
-    for band, url in BAND_SEARCHES:
+    for band, url, need_name in BAND_SEARCHES:
         try:
-            got = parse_feed("search:" + band, fetch(url))
+            got = parse_feed("search:" + band + ("" if need_name else "*"), fetch(url))[:3 if not need_name else PER_SOURCE]
             collected += got
             ok += 1
             print(f"{band} news search: {len(got)} items")
