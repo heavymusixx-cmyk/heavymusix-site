@@ -11,5 +11,17 @@ var HISTORY = {
   ],
   "11-16": [
     {year: 1999, type: "Album", text: "Korn release their fourth album, \"Issues\", which sells more than 500,000 copies in its first week.", band: "", source: "Loudwire, Metal Injection"}
+  ],
+  "11-17": [
+    {year: 1986, type: "Album", text: "Los Angeles thrashers Dark Angel release \"Darkness Descends\", a breakneck thrash classic.", band: "", source: "This Day in Metal, I Love Heavy Metal Radio"},
+    {year: 1995, type: "Album", text: "Swedish melodic black metal band Dissection release \"Storm of the Light's Bane\", now considered one of the genre's landmark albums.", band: "", source: "This Day in Metal, I Love Heavy Metal Radio"},
+    {year: 2014, type: "Album", text: "Swedish death metal supergroup Bloodbath release \"Grand Morbid Funeral\", their first album with Paradise Lost singer Nick Holmes.", band: "", source: "This Day in Metal, I Love Heavy Metal Radio"},
+    {year: 2017, type: "Album", text: "Cavalera Conspiracy, the band of Max and Iggor Cavalera, release their fourth album, \"Psychosis\".", band: "", source: "Loudwire, I Love Heavy Metal Radio"}
+  ],
+  "11-18": [
+    {year: 1988, type: "Album", text: "Manowar release \"Kings of Metal\", the album that gave the world \"Hail and Kill\" and \"Blood of the Kings\".", band: "", source: "This Day in Metal, I Love Heavy Metal Radio"},
+    {year: 1997, type: "Album", text: "Metallica release \"Reload\", the companion to 1996's \"Load\", featuring \"The Memory Remains\" and \"Fuel\".", band: "metallica", source: "Ultimate Classic Rock, This Day in Metal"},
+    {year: 2016, type: "Album", text: "Metallica release \"Hardwired... to Self-Destruct\", their first album in eight years, featuring \"Moth Into Flame\".", band: "metallica", source: "I Love Heavy Metal Radio, Metallica.com"},
+    {year: 1949, type: "Born", text: "Happy birthday to Herman Rarebell, longtime drummer of Scorpions through their 1970s and 1980s peak.", band: "", source: "I Love Heavy Metal Radio, Scorpions history"}
   ]
 };

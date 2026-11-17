@@ -35,7 +35,8 @@ var SHOWS = [
   {date:"2027-02-05", bands:"Wolves in the Throne Room, Stygian Bough, Spirit Possession", venue:"Nile Theater", city:"Mesa"},
   {date:"2027-02-14", bands:"Northlane, Allt, Aviana, Reliqa", venue:"Nile Theater", city:"Mesa"},
   {date:"2027-02-20", bands:"Beast in Black, Gloryhammer", venue:"Nile Theater", city:"Mesa"},
-  {date:"2027-02-22", bands:"Capstan, Fire From the Gods, Midwinter", venue:"Rosetta Room", city:"Mesa"}
+  {date:"2027-02-22", bands:"Capstan, Fire From the Gods, Midwinter", venue:"Rosetta Room", city:"Mesa"},
+  {date:"2027-03-07", bands:"Dying Fetus, Cryptopsy, Gorgasm", venue:"Rebel Lounge", city:"Phoenix"}
 ];
 
 function azToday(){

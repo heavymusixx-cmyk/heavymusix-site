@@ -6,6 +6,70 @@
 */
 var NEWS = [
   {
+    date: "2026-11-17",
+    tag: "Tours",
+    title: "Cryptopsy and Dying Fetus announce 2027 North American tour, with a Phoenix stop at Rebel Lounge on March 7",
+    text: [
+      "Two of extreme metal's most punishing live acts are teaming up for the start of 2027. Maryland death metal veterans Dying Fetus will headline a 24-date North American run with Montreal technical death metal legends Cryptopsy as special guests and brutal death metal band Gorgasm opening most of the dates.",
+      "The tour starts February 11 in Washington, D.C. and wraps March 16 in Durham, North Carolina. Arizona fans get their turn on Sunday, March 7, 2027, when the tour hits the Rebel Lounge in Phoenix. West Coast stops include Seattle, Portland, San Francisco and San Diego in the days before.",
+      "Cryptopsy say they will lean on songs from their 2026 album \"An Insatiable Violence\", which picked up a JUNO Award nomination, while still mixing in early classics after a year spent celebrating the 30th anniversary of \"None So Vile\".",
+      "Source: Season of Mist, Metal Injection"
+    ]
+  },
+  {
+    date: "2026-11-17",
+    tag: "Releases",
+    title: "Slayer's Kerry King unleashes \"My War\", first song from second solo album \"The End of All Gods\"",
+    text: [
+      "Kerry King is back. The Slayer guitarist released \"My War\" today, the first full song from his second solo album, \"The End of All Gods\", which lands February 12, 2027 through Reigning Phoenix Music.",
+      "King teased the track with a short clip last week, and producer Josh Wilbur is back behind the board after working on King's 2024 solo debut, \"From Hell I Rise\". King has said he wanted to avoid long gaps between records, and this one arrives less than three years after the first.",
+      "Fans in Arizona will get to hear the new material live soon: King is one of the guests on Megadeth's 2027 farewell tour, which plays Phoenix on May 15.",
+      "Source: Metal Injection, Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-17",
+    tag: "News",
+    title: "John Christ, original Danzig guitarist, dies at 61",
+    text: [
+      "John Christ, the guitarist on Danzig's first four albums, has died at 61, according to reports from Revolver and Metal Injection.",
+      "Born John Knoll in Baltimore, Maryland, Christ joined Samhain in 1987 as the band changed into Danzig, and his bluesy, pinch-harmonic-heavy playing became a big part of the band's sound through the late 1980s and early 1990s. He left Danzig in July 1995 and later released a solo album, \"Flesh Caffeine\", in 1999.",
+      "Our thoughts go out to his family, friends and fans. Rest in power.",
+      "Source: Revolver, Metal Injection"
+    ]
+  },
+  {
+    date: "2026-11-17",
+    tag: "News",
+    title: "Mastodon share \"Your Ghost Again\" performance video after Grammy nomination",
+    text: [
+      "Mastodon have released a performance video for \"Your Ghost Again\", fresh off the song's Grammy nomination.",
+      "The track carries a lot of weight for the Atlanta band. It is the first Mastodon music written and recorded after the death of co-founding guitarist Brent Hinds, and drummer and singer Brann Dailor has said it is about losing someone you spent most of your life with and still seeing them in the places you shared.",
+      "\"Your Ghost Again\" was the first single from Mastodon's ninth album, \"Marrow Deep\", and it is also the first Mastodon recording with new guitarist Nick Johnston.",
+      "Source: Metal Injection, Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-17",
+    tag: "Releases",
+    title: "Tanith announce new album \"Worldview\" for February 19, 2027 on Metal Blade",
+    text: [
+      "New York City hard rock cult act Tanith will release their new full-length album, \"Worldview\", on February 19, 2027 through Metal Blade Records.",
+      "Tanith are known for keeping the spirit and sound of 1970s hard rock and heavy metal alive. Guitarist Russ Tippins is also a member of NWOBHM legends Satan, and the band's last album, \"Voyage\", was recorded on analog tape.",
+      "Source: Metal Blade Records"
+    ]
+  },
+  {
+    date: "2026-11-17",
+    tag: "Throwback",
+    title: "On this day in metal: Dark Angel's \"Darkness Descends\" turns 40",
+    text: [
+      "Forty years ago today, on November 17, 1986, Los Angeles thrashers Dark Angel released \"Darkness Descends\", one of the fastest and most savage thrash albums of the decade.",
+      "The record is still a touchstone for thrash fans and extreme metal players alike, and it paved the way for the band's later classics. If you have never heard it, today is the day to crank it.",
+      "Source: This Day in Metal, I Love Heavy Metal Radio"
+    ]
+  },
+  {
     date: "2026-11-16",
     tag: "Releases",
     title: "New releases this week: Angelus Apatrida's \"The Reckoning\" EP leads a loaded week, with Suicide Silence, Thy Catafalque and more",
