@@ -398,7 +398,8 @@ var NEWS = [
     tag: "Bands",
     title: "Submissions are open",
     text: [
-      "Unsigned metal band, anywhere in the world? Send your music, bio, photos and contact info to submit@heavymusix.com.",
+      "Update: Band submissions are not open yet. We're finishing the legal setup first so every band is protected. They open soon, and we'll announce the date here. Please don't send anything until then.",
+      "Unsigned metal band, anywhere in the world? When submissions open, send your music, bio, photos and contact info to submit@heavymusix.com.",
       "Send a full album or EP, or at least 4 to 5 tracks. Every submission is reviewed, but not every band is selected, and reviews take time. Full details are on the Submit page. It's free, always."
     ]
   },

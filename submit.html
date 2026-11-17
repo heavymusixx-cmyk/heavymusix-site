@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <base href="/">
 <title>Submit your band | HeavyMusix</title>
-<meta name="description" content="Unsigned metal band? Submit your music to be considered for HeavyMusix Radio. Free, always.">
+<meta name="description" content="Unsigned metal band? Band submissions for HeavyMusix Radio open soon. Free, always.">
 <meta property="og:title" content="Submit your band | HeavyMusix">
-<meta property="og:description" content="Unsigned metal band? Submit your music to be considered for HeavyMusix Radio. Free, always.">
+<meta property="og:description" content="Unsigned metal band? Band submissions for HeavyMusix Radio open soon. Free, always.">
 <link rel="alternate" type="application/rss+xml" title="HeavyMusix metal news" href="https://heavymusix.com/feed.xml">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,7 +32,7 @@
   <h1>Submit your band</h1>
   <p class="lead">HeavyMusix Radio plays hand-picked unsigned metal from around the world next to the heavy hitters. Submitting is free, always.</p>
   <p class="email">submit@heavymusix.com</p>
-  <div class="callout"><strong>We&rsquo;re just getting started.</strong> Submissions are open now and our first review round is being set up. Reviews take time, so please be patient.</div>
+  <div class="callout" role="status"><strong>Submissions open soon.</strong> We&rsquo;re not taking band submissions just yet while we finish setting up the legal side, so every band and its music is protected. Get your music, bio and photos ready, follow <a href="https://www.instagram.com/heavymusixradio/" target="_blank" rel="noopener">@heavymusixradio</a>, and check back here. We&rsquo;ll announce the day submissions open.</div>
 </div></section>
 
 <section><div class="wrap">
@@ -50,9 +50,12 @@
 </div></section>
 
 <section><div class="wrap">
-  <p class="kicker">Submit in 5 minutes</p>
-  <h2>Fill it in, then press Send</h2>
-  <form id="bandform" class="ideaform" onsubmit="return sendBand(event)">
+  <p class="kicker">Opening soon</p>
+  <h2>Get ready: here&rsquo;s what we&rsquo;ll ask for</h2>
+  <p class="callout"><strong>The form is closed for now.</strong> Please don&rsquo;t send submissions by email yet either. Use this list to get everything ready so you can send it the day we open.</p>
+  <form id="bandform" class="ideaform" onsubmit="return sendBand(event)" aria-label="Band submission form (closed until submissions open)">
+  <fieldset disabled style="border:0;padding:0;margin:0;display:grid;gap:14px">
+  <legend class="muted">Closed until submissions open</legend>
     <label>Band name <input name="band" required></label>
     <label>City and country <input name="where" required placeholder="Phoenix, USA"></label>
     <label>Genre <input name="genre" required placeholder="Thrash, death, doom, deathcore..."></label>
@@ -62,9 +65,10 @@
     <label>Contact name and email <input name="contact" required></label>
     <label>Social and merch links (optional) <textarea name="social" rows="2"></textarea></label>
     <label class="chk"><input type="checkbox" name="rights" required> <strong>Required:</strong> We, the band members and songwriters, own this music. If our band is selected, HeavyMusix may play it on the radio, streams and clips and feature our band.</label>
-    <p class="muted">Pressing Send delivers your submission straight to submit@heavymusix.com. No email app needed. We use it only to review your band and reply. See our <a href="privacy.html">privacy page</a>.</p>
+    <p class="muted">Once submissions open, pressing Send will deliver your submission straight to submit@heavymusix.com. No email app needed. We use it only to review your band and reply. See our <a href="privacy.html">privacy page</a>.</p>
     <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <button type="submit" class="btn">Send my submission</button>
+    <button type="submit" class="btn">Submissions opening soon</button>
+  </fieldset>
   </form>
 </div></section>
 <script>
@@ -87,6 +91,7 @@ function hmxSend(form,to,subject,body,replyTo){
   });
 }
 function sendBand(e){
+  e.preventDefault(); return false; // submissions closed until legal setup is done; remove this line to reopen
   e.preventDefault();
   var d=new FormData(document.getElementById('bandform'));
   var body='Band: '+d.get('band')+'\nFrom: '+d.get('where')+'\nGenre: '+d.get('genre')+'\n\nMusic:\n'+d.get('music')+'\n\nBio:\n'+d.get('bio')+'\n\nPhotos and logo: '+d.get('photos')+'\nContact: '+d.get('contact')+'\nSocial and merch: '+(d.get('social')||'-')+'\n\nRights: We, the band members and songwriters, own this music. If our band is selected, HeavyMusix may play it on the radio, streams and clips and feature our band.';
