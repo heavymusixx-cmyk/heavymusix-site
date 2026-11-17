@@ -14,7 +14,7 @@ Keep improving the site. Every page must meet all of these:
   - Nothing relies on color alone.
   - Respect `prefers-reduced-motion`.
   - Touch targets are at least 24px, ideally 44px.
-- **Responsive and adaptive design.** Pages work on phones, tablets and desktops: fluid layouts, no sideways scrolling, text readable without zooming. The hamburger menu shows at 1000px and below. The radio player stays usable on small screens.
+- **Responsive and adaptive design.** Pages work on phones, tablets and desktops: fluid layouts, no sideways scrolling, text readable without zooming. The hamburger menu shows on every screen size (owner's choice); on computers it drops down as a panel at the right. The radio player stays usable on small screens.
 
 Fixes and improvements toward this standard never need approval. New features, new sections and anything involving money need the owner's approval first.
 
