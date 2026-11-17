@@ -37,7 +37,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No new headlines this run."
           else
-            git commit -m "Music News: headlines $(date -u '+%F %H:%M')"
+            git commit -m "Wire (headline list only, not stories): $(date -u '+%F %H:%M')"
             git pull --rebase
             git push
             gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
