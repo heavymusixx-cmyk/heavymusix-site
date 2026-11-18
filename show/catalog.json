@@ -1056,22 +1056,100 @@
   "b": "meshuggah"
  },
  {
-  "v": "1jpBdsEKxpo",
-  "t": "Shedding Skin",
+  "v": "Um07za_WNUM",
+  "t": "Rebirth",
+  "n": "Lazarus A.D.",
+  "b": "lazarus-a-d"
+ },
+ {
+  "v": "X6mJMsO_TXg",
+  "t": "All She Wrote",
+  "n": "Exhorder",
+  "b": "exhorder"
+ },
+ {
+  "v": "1w3rdHOM1VE",
+  "t": "Extreme Unction",
+  "n": "Necrophagist",
+  "b": "necrophagist"
+ },
+ {
+  "v": "S6HfZ4PJlwY",
+  "t": "Left Behind",
+  "n": "Slipknot",
+  "b": "slipknot"
+ },
+ {
+  "v": "9ecjvJk_aR8",
+  "t": "Kill The Music",
+  "n": "Every Time I Die",
+  "b": "every-time-i-die"
+ },
+ {
+  "v": "fONo-OLpquQ",
+  "t": "Dreadful Moments",
+  "n": "Jinjer",
+  "b": "jinjer"
+ },
+ {
+  "v": "WzRhYXDSJn4",
+  "t": "Unfurling A Darkened Gospel",
+  "n": "Job For A Cowboy",
+  "b": "job-for-a-cowboy"
+ },
+ {
+  "v": "1Lvc60X3hvA",
+  "t": "Four Lights",
+  "n": "Periphery",
+  "b": "periphery"
+ },
+ {
+  "v": "jvO8cIG3nHI",
+  "t": "Hourglass",
+  "n": "Lamb of God",
+  "b": "lamb-of-god"
+ },
+ {
+  "v": "2RTfZGysTZE",
+  "t": "Combustion",
+  "n": "Meshuggah",
+  "b": "meshuggah"
+ },
+ {
+  "v": "Ve_lslfE5to",
+  "t": "Falling Off the Edge of the World (2008 Remaster)",
+  "n": "Black Sabbath",
+  "b": "black-sabbath"
+ },
+ {
+  "v": "_Ebo0ngI4Qk",
+  "t": "Born For One Thing",
+  "n": "Gojira",
+  "b": "gojira"
+ },
+ {
+  "v": "kMLMFXEo44o",
+  "t": "Nocturnal",
+  "n": "The Black Dahlia Murder",
+  "b": "the-black-dahlia-murder"
+ },
+ {
+  "v": "191XPY1ekro",
+  "t": "The Misanthropist",
+  "n": "Angelus Apatrida",
+  "b": "angelus-apatrida"
+ },
+ {
+  "v": "xnS1Cbi9OSU",
+  "t": "13 Steps to Nowhere",
   "n": "Pantera",
   "b": "pantera"
  },
  {
-  "v": "7cVI37bf1V4",
-  "t": "Tyrants in Distress",
-  "n": "Watchtower",
-  "b": "watchtower"
- },
- {
-  "v": "ZcSoW_iLDo0",
-  "t": "Alison Hell",
-  "n": "Annihilator",
-  "b": "annihilator"
+  "v": "NDryr3zuv64",
+  "t": "Devout Atrocity",
+  "n": "Dying Fetus",
+  "b": "dying-fetus"
  },
  {
   "v": "X8aixHaubKs",
@@ -1080,16 +1158,964 @@
   "b": "ozzy-osbourne"
  },
  {
-  "v": "soq5DEdDZCY",
-  "t": "Break it up",
-  "n": "Up Front",
-  "b": "up-front"
+  "v": "5Masd5QqItM",
+  "t": "Hammer and Life",
+  "n": "Exodus",
+  "b": "exodus"
+ },
+ {
+  "v": "pTKqWmpNPiI",
+  "t": "I Speak Astronomy",
+  "n": "Jinjer",
+  "b": "jinjer"
+ },
+ {
+  "v": "spfiiRlu0JM",
+  "t": "God He Sees in Mirrors",
+  "n": "Meshuggah",
+  "b": "meshuggah"
+ },
+ {
+  "v": "7NtJKotSmMA",
+  "t": "New Gods, New Masters",
+  "n": "Revocation",
+  "b": "revocation"
+ },
+ {
+  "v": "RtynUskruts",
+  "t": "Fearmonger",
+  "n": "Job For A Cowboy",
+  "b": "job-for-a-cowboy"
+ },
+ {
+  "v": "UUAQXMf2hp4",
+  "t": "March Of The Martyrs",
+  "n": "Otep",
+  "b": "otep"
+ },
+ {
+  "v": "ieGmNnn_ytA",
+  "t": "Victim of Changes (Live)",
+  "n": "Judas Priest",
+  "b": "judas-priest"
+ },
+ {
+  "v": "tJ8Mq65qzhQ",
+  "t": "Pestilence",
+  "n": "The Faceless",
+  "b": "the-faceless"
+ },
+ {
+  "v": "eeJu_eQPKKI",
+  "t": "Die With Your Boots On (2015 Remaster)",
+  "n": "Iron Maiden",
+  "b": "iron-maiden"
+ },
+ {
+  "v": "rAfC0vmwbhk",
+  "t": "Bite the Pain",
+  "n": "Death",
+  "b": "death"
+ },
+ {
+  "v": "58duGFq6wEs",
+  "t": "We Are the Horde",
+  "n": "Vader",
+  "b": "vader"
+ },
+ {
+  "v": "b0Qn3xsiML0",
+  "t": "Waltz (Live)",
+  "n": "Jinjer",
+  "b": "jinjer"
+ },
+ {
+  "v": "xA-qx8ht2j0",
+  "t": "Straws Pulled at Random (Remastered 2006)",
+  "n": "Meshuggah",
+  "b": "meshuggah"
+ },
+ {
+  "v": "VHvmvR7MbAk",
+  "t": "Matriarch",
+  "n": "The Black Dahlia Murder",
+  "b": "the-black-dahlia-murder"
+ },
+ {
+  "v": "OTiQADZf3ss",
+  "t": "Violent Dawn",
+  "n": "Angelus Apatrida",
+  "b": "angelus-apatrida"
+ },
+ {
+  "v": "kt73lLGEOXE",
+  "t": "Slaugh",
+  "n": "Funeral Dancer",
+  "b": "funeral-dancer"
+ },
+ {
+  "v": "pbg7bIMxEcM",
+  "t": "Back Door Epoque",
+  "n": "Destrage",
+  "b": "destrage"
+ },
+ {
+  "v": "8se8bNe3FeU",
+  "t": "The Gods Must Be Crazy!",
+  "n": "Periphery",
+  "b": "periphery"
+ },
+ {
+  "v": "8JZonhoy7z4",
+  "t": "The Forever Rot",
+  "n": "Job For A Cowboy",
+  "b": "job-for-a-cowboy"
+ },
+ {
+  "v": "FjYLLZZ-xDI",
+  "t": "Shostakovich: String Quartet No. 8 in C Minor, Op. 110: II. Allegro molto (Live)",
+  "n": "Emerson String Quartet",
+  "b": "emerson-string-quartet"
+ },
+ {
+  "v": "IWXtbqElLLU",
+  "t": "The Undertow",
+  "n": "Lamb of God",
+  "b": "lamb-of-god"
+ },
+ {
+  "v": "zqOWV_pq9Zs",
+  "t": "Outlander",
+  "n": "Jinjer",
+  "b": "jinjer"
+ },
+ {
+  "v": "YdgHleDy-ik",
+  "t": "King of Rock and Roll",
+  "n": "DIO",
+  "b": "dio"
+ },
+ {
+  "v": "b4xrr81RNhQ",
+  "t": "Throwing Down",
+  "n": "Exodus",
+  "b": "exodus"
+ },
+ {
+  "v": "L8HhOMNrulE",
+  "t": "Tornado Of Souls",
+  "n": "Megadeth",
+  "b": "megadeth"
+ },
+ {
+  "v": "CLtP8GYdpoY",
+  "t": "The Evil Has Landed",
+  "n": "Testament",
+  "b": "testament"
+ },
+ {
+  "v": "jIuhjVPPxeg",
+  "t": "Statutory Ape",
+  "n": "The Black Dahlia Murder",
+  "b": "the-black-dahlia-murder"
+ },
+ {
+  "v": "2p2vnhR4EAw",
+  "t": "Day 69",
+  "n": "Decapitated",
+  "b": "decapitated"
+ },
+ {
+  "v": "2HROtSDJ4F4",
+  "t": "Imperium Wolves",
+  "n": "Job For A Cowboy",
+  "b": "job-for-a-cowboy"
+ },
+ {
+  "v": "_nr_QHgoXTA",
+  "t": "Fresh Pleasure",
+  "n": "Angelus Apatrida",
+  "b": "angelus-apatrida"
+ },
+ {
+  "v": "TnRZhLRv6eM",
+  "t": "Angel Of Death",
+  "n": "Slayer",
+  "b": "slayer"
+ },
+ {
+  "v": "1J5sSE7rcmY",
+  "t": "From Skin to Liquid",
+  "n": "Cannibal Corpse",
+  "b": "cannibal-corpse"
+ },
+ {
+  "v": "T3Nx2wSb9c8",
+  "t": "Dark Clouds",
+  "n": "Crypta",
+  "b": "crypta"
+ },
+ {
+  "v": "5CSx0o7qAHs",
+  "t": "Necrophagist - Extreme Unction (Live) [HQ]",
+  "n": "Ektonorth",
+  "b": "ektonorth"
+ },
+ {
+  "v": "F6t-hWJpnnQ",
+  "t": "Copycat",
+  "n": "Jinjer",
+  "b": "jinjer"
+ },
+ {
+  "v": "ve6be0D8J04",
+  "t": "Transfixion",
+  "n": "Meshuggah",
+  "b": "meshuggah"
+ },
+ {
+  "v": "cA7tB7TdJK8",
+  "t": "Feed The Ground",
+  "n": "Periphery",
+  "b": "periphery"
+ },
+ {
+  "v": "3ITzVRTKYqE",
+  "t": "Prison Born",
+  "n": "The Faceless",
+  "b": "the-faceless"
+ },
+ {
+  "v": "_vxJTaUrbME",
+  "t": "L'enfant sauvage",
+  "n": "Gojira",
+  "b": "gojira"
+ },
+ {
+  "v": "OD2OL9lknW4",
+  "t": "To Detonate And Exterminate",
+  "n": "Job For A Cowboy",
+  "b": "job-for-a-cowboy"
+ },
+ {
+  "v": "iW4lbxYLyRo",
+  "t": "The Reign of Unending Terror",
+  "n": "Protest The Hero",
+  "b": "protest-the-hero"
+ },
+ {
+  "v": "_XpjH8uH3dQ",
+  "t": "The New Black",
+  "n": "Every Time I Die",
+  "b": "every-time-i-die"
+ },
+ {
+  "v": "9SmsSdfQnHs",
+  "t": "Slipping Into Madness",
+  "n": "Exodus",
+  "b": "exodus"
+ },
+ {
+  "v": "PzRVVw7QjvY",
+  "t": "Green Serpent",
+  "n": "Jinjer",
+  "b": "jinjer"
+ },
+ {
+  "v": "VxYSFkVIQ7g",
+  "t": "Necropolis",
+  "n": "The Black Dahlia Murder",
+  "b": "the-black-dahlia-murder"
+ },
+ {
+  "v": "AP9412LFP0o",
+  "t": "Future Breed Machine",
+  "n": "Meshuggah",
+  "b": "meshuggah"
+ },
+ {
+  "v": "YrApyckJTJI",
+  "t": "Blood on the Snow",
+  "n": "Angelus Apatrida",
+  "b": "angelus-apatrida"
+ },
+ {
+  "v": "eFUd0_9F84k",
+  "t": "Wasted Years (2015 Remaster)",
+  "n": "Iron Maiden",
+  "b": "iron-maiden"
+ },
+ {
+  "v": "BMdhVpTfuAU",
+  "t": "Wishing Well (2008 Remaster)",
+  "n": "Black Sabbath",
+  "b": "black-sabbath"
+ },
+ {
+  "v": "VKXFVkcr8k0",
+  "t": "The Serpent and the King",
+  "n": "Judas Priest",
+  "b": "judas-priest"
+ },
+ {
+  "v": "_5RLq5RiQAE",
+  "t": "Of Unworldly Origin",
+  "n": "Revocation",
+  "b": "revocation"
+ },
+ {
+  "v": "dtB3xKDlcqw",
+  "t": "Retrospection",
+  "n": "Jinjer",
+  "b": "jinjer"
+ },
+ {
+  "v": "kGNHwLicV2g",
+  "t": "Cowboys from Hell",
+  "n": "Pantera",
+  "b": "pantera"
+ },
+ {
+  "v": "dxUZufXX4kw",
+  "t": "March To Global Enslavement",
+  "n": "Job For A Cowboy",
+  "b": "job-for-a-cowboy"
+ },
+ {
+  "v": "k-HE3EGrAu4",
+  "t": "The Ultimate Sacrifice",
+  "n": "Lazarus A.D.",
+  "b": "lazarus-a-d"
+ },
+ {
+  "v": "wmQp6H3j284",
+  "t": "At the Cost of Pleasure",
+  "n": "Destrage",
+  "b": "destrage"
+ },
+ {
+  "v": "sp-eWHnvXvU",
+  "t": "Dehumanization",
+  "n": "Meshuggah",
+  "b": "meshuggah"
+ },
+ {
+  "v": "Ysi445ws1t4",
+  "t": "Prayer Position",
+  "n": "Periphery",
+  "b": "periphery"
+ },
+ {
+  "v": "W7MLSaT2lvo",
+  "t": "Virally Yours",
+  "n": "The Black Dahlia Murder",
+  "b": "the-black-dahlia-murder"
+ },
+ {
+  "v": "yCxKf3H3PLU",
+  "t": "Eat Your Heart Out",
+  "n": "DIO",
+  "b": "dio"
+ },
+ {
+  "v": "gpkjOJ-cAHE",
+  "t": "One Side One War",
+  "n": "Angelus Apatrida",
+  "b": "angelus-apatrida"
+ },
+ {
+  "v": "7cVI37bf1V4",
+  "t": "Tyrants in Distress",
+  "n": "Watchtower",
+  "b": "watchtower"
+ },
+ {
+  "v": "Qtp33CLac4U",
+  "t": "Wallflower",
+  "n": "Jinjer",
+  "b": "jinjer"
+ },
+ {
+  "v": "_JkK0IlEDB4",
+  "t": "Without Judgement",
+  "n": "Death",
+  "b": "death"
+ },
+ {
+  "v": "jD_nlU1rbfk",
+  "t": "Necro Sapiens",
+  "n": "Baest",
+  "b": "baest"
+ },
+ {
+  "v": "fllQOlLgNMw",
+  "t": "Good Day To Die",
+  "n": "Exodus",
+  "b": "exodus"
+ },
+ {
+  "v": "u9NPfACzahM",
+  "t": "Encircled by Mirrors",
+  "n": "Job For A Cowboy",
+  "b": "job-for-a-cowboy"
+ },
+ {
+  "v": "pE5j3E2VfTM",
+  "t": "Yesterday's Bones",
+  "n": "Exhorder",
+  "b": "exhorder"
+ },
+ {
+  "v": "IifrLz2BlAE",
+  "t": "Warhead",
+  "n": "Otep",
+  "b": "otep"
+ },
+ {
+  "v": "ukip5nRrgNs",
+  "t": "Planetary Duality II: A Prophecies Fruition",
+  "n": "The Faceless",
+  "b": "the-faceless"
+ },
+ {
+  "v": "kQnBUnOZ1CE",
+  "t": "Violent Sleep of Reason",
+  "n": "Meshuggah",
+  "b": "meshuggah"
+ },
+ {
+  "v": "6a7FMwU-y5g",
+  "t": "Flayed The Swine",
+  "n": "Cryptopsy",
+  "b": "cryptopsy"
+ },
+ {
+  "v": "oIvj-uYq9So",
+  "t": "Brotherhood of the Snake",
+  "n": "Testament",
+  "b": "testament"
+ },
+ {
+  "v": "R0kDEEGXHQE",
+  "t": "Who is Gonna Be the One (Live from Atlas)",
+  "n": "Jinjer",
+  "b": "jinjer"
+ },
+ {
+  "v": "ATb-Ea9kZzQ",
+  "t": "Symbiotic In Theory",
+  "n": "Necrophagist",
+  "b": "necrophagist"
+ },
+ {
+  "v": "9i-rmjZ3wqA",
+  "t": "Everything Went Black",
+  "n": "The Black Dahlia Murder",
+  "b": "the-black-dahlia-murder"
+ },
+ {
+  "v": "OtyJNH3o6rI",
+  "t": "The Pit and the Poser",
+  "n": "F.K.Ü.",
+  "b": "f-k-ü"
+ },
+ {
+  "v": "iuYdmk_ifVU",
+  "t": "One Gun",
+  "n": "Lamb of God",
+  "b": "lamb-of-god"
+ },
+ {
+  "v": "SlhazpAyKYE",
+  "t": "The Stone Cross",
+  "n": "Job For A Cowboy",
+  "b": "job-for-a-cowboy"
+ },
+ {
+  "v": "k0lXE1sbwD4",
+  "t": "Repentless",
+  "n": "Slayer",
+  "b": "slayer"
+ },
+ {
+  "v": "RRLE-cq_coA",
+  "t": "Serpents on Parade",
+  "n": "Angelus Apatrida",
+  "b": "angelus-apatrida"
+ },
+ {
+  "v": "g96NLNM-jAs",
+  "t": "Ji",
+  "n": "Periphery",
+  "b": "periphery"
+ },
+ {
+  "v": "hVxyJrVVpG8",
+  "t": "Mouth of Kala",
+  "n": "Gojira",
+  "b": "gojira"
+ },
+ {
+  "v": "t7LKvIZHkQw",
+  "t": "22 Acacia Avenue (2015 Remaster)",
+  "n": "Iron Maiden",
+  "b": "iron-maiden"
+ },
+ {
+  "v": "Z3LRHlUDClk",
+  "t": "Master of Puppets",
+  "n": "Metallica",
+  "b": "metallica"
+ },
+ {
+  "v": "6IdEFbygYcQ",
+  "t": "Waltz",
+  "n": "Jinjer",
+  "b": "jinjer"
+ },
+ {
+  "v": "sm7SjWokC6I",
+  "t": "Dissident Aggressor",
+  "n": "Judas Priest",
+  "b": "judas-priest"
+ },
+ {
+  "v": "4PeNt_wzGrk",
+  "t": "The Years of Death and Dying",
+  "n": "Exodus",
+  "b": "exodus"
+ },
+ {
+  "v": "DIKHUSocg1Y",
+  "t": "Altered From Catechization",
+  "n": "Job For A Cowboy",
+  "b": "job-for-a-cowboy"
+ },
+ {
+  "v": "o1cD17A3H0k",
+  "t": "Devilizer",
+  "n": "Vader",
+  "b": "vader"
+ },
+ {
+  "v": "eN0jFOynzUY",
+  "t": "High Speed Dirt",
+  "n": "Megadeth",
+  "b": "megadeth"
+ },
+ {
+  "v": "TK81YePqfZE",
+  "t": "Circle With Me ft. Tatiana Shmayluk of Jinjer - Live from Louder Than Life 2024",
+  "n": "Spiritbox",
+  "b": "spiritbox"
+ },
+ {
+  "v": "v1hRXEoBk0Q",
+  "t": "Terminal Illusions",
+  "n": "Meshuggah",
+  "b": "meshuggah"
+ },
+ {
+  "v": "JNm6bucMPmY",
+  "t": "I Don't Know",
+  "n": "Ozzy Osbourne",
+  "b": "ozzy-osbourne"
+ },
+ {
+  "v": "rp692atsiXA",
+  "t": "That Which Erodes the Most Tender of Things",
+  "n": "The Black Dahlia Murder",
+  "b": "the-black-dahlia-murder"
+ },
+ {
+  "v": "lAy6Tc1u1rI",
+  "t": "Pit of Consciousness",
+  "n": "Jinjer",
+  "b": "jinjer"
+ },
+ {
+  "v": "6hMvRVsN0Hw",
+  "t": "Devil Take the Hindmost",
+  "n": "Angelus Apatrida",
+  "b": "angelus-apatrida"
+ },
+ {
+  "v": "AW61H9roTSs",
+  "t": "Apocalypse Now And Then",
+  "n": "Every Time I Die",
+  "b": "every-time-i-die"
+ },
+ {
+  "v": "jpA_qrqeRPQ",
+  "t": "Luciferous",
+  "n": "Revocation",
+  "b": "revocation"
+ },
+ {
+  "v": "aY1OJM6dHvo",
+  "t": "Accelerated Evolution",
+  "n": "The Faceless",
+  "b": "the-faceless"
+ },
+ {
+  "v": "cXGt_Dtil2c",
+  "t": "Evisceration Plague",
+  "n": "Cannibal Corpse",
+  "b": "cannibal-corpse"
+ },
+ {
+  "v": "raSPfWK_Hu8",
+  "t": "My Green Neighbour",
+  "n": "Destrage",
+  "b": "destrage"
+ },
+ {
+  "v": "dV1xF_It1qc",
+  "t": "Turn Up the Night (2021 Remaster)",
+  "n": "Black Sabbath",
+  "b": "black-sabbath"
+ },
+ {
+  "v": "gRBo1CttowE",
+  "t": "Stand Up and Shout (2022 Remaster)",
+  "n": "DIO",
+  "b": "dio"
+ },
+ {
+  "v": "h8YN7WVPiIQ",
+  "t": "Hell Below",
+  "n": "Periphery",
+  "b": "periphery"
+ },
+ {
+  "v": "MeoVwfeR5lk",
+  "t": "Worming Nightfall",
+  "n": "Job For A Cowboy",
+  "b": "job-for-a-cowboy"
+ },
+ {
+  "v": "EjuMLcjMuvU",
+  "t": "The Prophecy",
+  "n": "Jinjer",
+  "b": "jinjer"
+ },
+ {
+  "v": "VoQQfszPn9k",
+  "t": "No Amnesty",
+  "n": "Havok",
+  "b": "havok"
+ },
+ {
+  "v": "7ukEcQ_H774",
+  "t": "Laid to Rest",
+  "n": "Lamb of God",
+  "b": "lamb-of-god"
+ },
+ {
+  "v": "LY1opvOcS9Q",
+  "t": "Piranha",
+  "n": "Exodus",
+  "b": "exodus"
+ },
+ {
+  "v": "XQvrf1J6ZB8",
+  "t": "Verminous",
+  "n": "The Black Dahlia Murder",
+  "b": "the-black-dahlia-murder"
+ },
+ {
+  "v": "ebOa6m2OGBg",
+  "t": "Rats",
+  "n": "Angelus Apatrida",
+  "b": "angelus-apatrida"
+ },
+ {
+  "v": "P5a1IuH5QDo",
+  "t": "The Dissentience",
+  "n": "Protest The Hero",
+  "b": "protest-the-hero"
+ },
+ {
+  "v": "1jpBdsEKxpo",
+  "t": "Shedding Skin",
+  "n": "Pantera",
+  "b": "pantera"
+ },
+ {
+  "v": "7b-1RhR4b4A",
+  "t": "Buried Monuments",
+  "n": "Job For A Cowboy",
+  "b": "job-for-a-cowboy"
+ },
+ {
+  "v": "jPsAVDf6S4M",
+  "t": "Bad Water",
+  "n": "Jinjer",
+  "b": "jinjer"
+ },
+ {
+  "v": "OBgyiQnlKnU",
+  "t": "See Through Dreams",
+  "n": "Death",
+  "b": "death"
+ },
+ {
+  "v": "Z46G70ZbisA",
+  "t": "Subjected to a Beating",
+  "n": "Dying Fetus",
+  "b": "dying-fetus"
+ },
+ {
+  "v": "mW7XuIpYTtc",
+  "t": "Akróasis",
+  "n": "Obscura",
+  "b": "obscura"
+ },
+ {
+  "v": "y5L7dbYZ1gk",
+  "t": "Diminished To B",
+  "n": "Necrophagist",
+  "b": "necrophagist"
+ },
+ {
+  "v": "sedQNTpZ7A0",
+  "t": "Murders in the Rue Morgue (2015 Remaster)",
+  "n": "Iron Maiden",
+  "b": "iron-maiden"
+ },
+ {
+  "v": "R2dPFBRSLOU",
+  "t": "Native Blood",
+  "n": "Testament",
+  "b": "testament"
+ },
+ {
+  "v": "diNCLgEM1xM",
+  "t": "Casting Forward",
+  "n": "Lazarus A.D.",
+  "b": "lazarus-a-d"
+ },
+ {
+  "v": "y3QsTGT7ryo",
+  "t": "Froggin' bullﬁsh",
+  "n": "Periphery",
+  "b": "periphery"
+ },
+ {
+  "v": "Izcu1H4L_l8",
+  "t": "Earth Scar",
+  "n": "Decapitated",
+  "b": "decapitated"
+ },
+ {
+  "v": "j2XAox4yHdo",
+  "t": "Cloud Factory",
+  "n": "Jinjer",
+  "b": "jinjer"
+ },
+ {
+  "v": "p1lxV8dLpX4",
+  "t": "Zest of Scorn",
+  "n": "Fusion Bomb",
+  "b": "fusion-bomb"
+ },
+ {
+  "v": "ngJy7pAIfN0",
+  "t": "Threshold",
+  "n": "Slayer",
+  "b": "slayer"
+ },
+ {
+  "v": "zgychWIo6UA",
+  "t": "Stranded",
+  "n": "Gojira",
+  "b": "gojira"
+ },
+ {
+  "v": "JR33edRUERg",
+  "t": "Mammoth's Hand",
+  "n": "The Black Dahlia Murder",
+  "b": "the-black-dahlia-murder"
+ },
+ {
+  "v": "NL3lt71pD_0",
+  "t": "Fillthee",
+  "n": "Otep",
+  "b": "otep"
+ },
+ {
+  "v": "czwQINbLsrM",
+  "t": "Nourishment Through Bloodshed",
+  "n": "Job For A Cowboy",
+  "b": "job-for-a-cowboy"
+ },
+ {
+  "v": "K2wKFQbryP0",
+  "t": "The Faultless",
+  "n": "Meshuggah",
+  "b": "meshuggah"
+ },
+ {
+  "v": "esDkLrZm0jU",
+  "t": "Exciter (Live)",
+  "n": "Judas Priest",
+  "b": "judas-priest"
+ },
+ {
+  "v": "bfhNe15ishE",
+  "t": "Witching Hour",
+  "n": "Angelus Apatrida",
+  "b": "angelus-apatrida"
+ },
+ {
+  "v": "HknkjyT84bY",
+  "t": "The Eidolon Reality",
+  "n": "The Faceless",
+  "b": "the-faceless"
+ },
+ {
+  "v": "rUz_wTsJLDU",
+  "t": "Slanderous",
+  "n": "Machine Head",
+  "b": "machine-head"
+ },
+ {
+  "v": "wvD02gPgOQw",
+  "t": "Sealed with a Fist",
+  "n": "Exodus",
+  "b": "exodus"
+ },
+ {
+  "v": "_42L6KLFXhI",
+  "t": "Starborn",
+  "n": "Funeral Dancer",
+  "b": "funeral-dancer"
+ },
+ {
+  "v": "r-2473dJONg",
+  "t": "Blood Of The Scribe",
+  "n": "Lamb of God",
+  "b": "lamb-of-god"
+ },
+ {
+  "v": "n2TmAzVO3As",
+  "t": "Teacher, Teacher!",
+  "n": "Jinjer",
+  "b": "jinjer"
+ },
+ {
+  "v": "C_1c8jqxUic",
+  "t": "The Carbon Stampede",
+  "n": "Cattle Decapitation",
+  "b": "cattle-decapitation"
+ },
+ {
+  "v": "jpJHMILtOao",
+  "t": "Under The Weeping Moon",
+  "n": "SikTh",
+  "b": "sikth"
+ },
+ {
+  "v": "cSFJ7Dnp-KI",
+  "t": "Kaleidoscope",
+  "n": "Meshuggah",
+  "b": "meshuggah"
+ },
+ {
+  "v": "RYa1PpYM91Y",
+  "t": "Regurgitated Disinformation",
+  "n": "Job For A Cowboy",
+  "b": "job-for-a-cowboy"
+ },
+ {
+  "v": "ZcSoW_iLDo0",
+  "t": "Alison Hell",
+  "n": "Annihilator",
+  "b": "annihilator"
+ },
+ {
+  "v": "86HYHjTfhXE",
+  "t": "Can't Kill the Dead",
+  "n": "Dr. Living Dead",
+  "b": "dr-living-dead"
+ },
+ {
+  "v": "bjGtBqP5rvY",
+  "t": "Receipt",
+  "n": "The Black Dahlia Murder",
+  "b": "the-black-dahlia-murder"
+ },
+ {
+  "v": "KeukkCeBqA0",
+  "t": "A Commercial Break that Lasts Forever",
+  "n": "Destrage",
+  "b": "destrage"
+ },
+ {
+  "v": "YkaVO-eza3k",
+  "t": "The Hum",
+  "n": "Angelus Apatrida",
+  "b": "angelus-apatrida"
+ },
+ {
+  "v": "okjbuPE7OX8",
+  "t": "Insomnia",
+  "n": "Periphery",
+  "b": "periphery"
+ },
+ {
+  "v": "Z72riwP4930",
+  "t": "Nihilistic Violence",
+  "n": "Revocation",
+  "b": "revocation"
+ },
+ {
+  "v": "4eRYMSt1rg8",
+  "t": "A Plus or a Minus",
+  "n": "Jinjer",
+  "b": "jinjer"
+ },
+ {
+  "v": "ri-tbSMmIIo",
+  "t": "The Man That Never Was",
+  "n": "Exhorder",
+  "b": "exhorder"
+ },
+ {
+  "v": "tgptnrEOqt0",
+  "t": "INRIhab",
+  "n": "Every Time I Die",
+  "b": "every-time-i-die"
+ },
+ {
+  "v": "ESgBunzLJyI",
+  "t": "Broken Cog",
+  "n": "Meshuggah",
+  "b": "meshuggah"
+ },
+ {
+  "v": "Zi85k7_HfY8",
+  "t": "Martyrdom Unsealed",
+  "n": "Job For A Cowboy",
+  "b": "job-for-a-cowboy"
  },
  {
   "v": "rQqgjVAklHQ",
   "t": "The Saw Is the Law",
   "n": "Whitechapel",
   "b": "whitechapel"
+ },
+ {
+  "v": "OuFba4XhCNg",
+  "t": "Blacklist",
+  "n": "Exodus",
+  "b": "exodus"
+ },
+ {
+  "v": "soq5DEdDZCY",
+  "t": "Break it up",
+  "n": "Up Front",
+  "b": "up-front"
  },
  {
   "v": "EvHKhO0ZVro",
@@ -1114,18 +2140,6 @@
   "t": "Spheres of Madness",
   "n": "Decapitated",
   "b": "decapitated"
- },
- {
-  "v": "wmQp6H3j284",
-  "t": "At the Cost of Pleasure",
-  "n": "Destrage",
-  "b": "destrage"
- },
- {
-  "v": "X6mJMsO_TXg",
-  "t": "All She Wrote",
-  "n": "Exhorder",
-  "b": "exhorder"
  },
  {
   "v": "e9aC-_ik670",
@@ -1164,12 +2178,6 @@
   "b": "fusion-bomb"
  },
  {
-  "v": "kt73lLGEOXE",
-  "t": "Slaugh",
-  "n": "Funeral Dancer",
-  "b": "funeral-dancer"
- },
- {
   "v": "EN_fvQoZsrY",
   "t": "It's Not Safe To Swim Today",
   "n": "Veil of Maya",
@@ -1188,58 +2196,10 @@
   "b": "job-for-a-cowboy"
  },
  {
-  "v": "yCxKf3H3PLU",
-  "t": "Eat Your Heart Out",
-  "n": "DIO",
-  "b": "dio"
- },
- {
   "v": "7RrHzz2Tq10",
   "t": "How Many I Help You?",
   "n": "SikTh",
   "b": "sikth"
- },
- {
-  "v": "j2XAox4yHdo",
-  "t": "Cloud Factory",
-  "n": "Jinjer",
-  "b": "jinjer"
- },
- {
-  "v": "58duGFq6wEs",
-  "t": "We Are the Horde",
-  "n": "Vader",
-  "b": "vader"
- },
- {
-  "v": "kMLMFXEo44o",
-  "t": "Nocturnal",
-  "n": "The Black Dahlia Murder",
-  "b": "the-black-dahlia-murder"
- },
- {
-  "v": "86HYHjTfhXE",
-  "t": "Can't Kill the Dead",
-  "n": "Dr. Living Dead",
-  "b": "dr-living-dead"
- },
- {
-  "v": "C_1c8jqxUic",
-  "t": "The Carbon Stampede",
-  "n": "Cattle Decapitation",
-  "b": "cattle-decapitation"
- },
- {
-  "v": "Z46G70ZbisA",
-  "t": "Subjected to a Beating",
-  "n": "Dying Fetus",
-  "b": "dying-fetus"
- },
- {
-  "v": "cXGt_Dtil2c",
-  "t": "Evisceration Plague",
-  "n": "Cannibal Corpse",
-  "b": "cannibal-corpse"
  },
  {
   "v": "SprY9eL8ZPg",
@@ -1254,12 +2214,6 @@
   "b": "death"
  },
  {
-  "v": "191XPY1ekro",
-  "t": "The Misanthropist",
-  "n": "Angelus Apatrida",
-  "b": "angelus-apatrida"
- },
- {
   "v": "PisYLIqTT4Y",
   "t": "Intestinal Incubation",
   "n": "Necrophagist",
@@ -1270,24 +2224,6 @@
   "t": "Ragnarok",
   "n": "Periphery",
   "b": "periphery"
- },
- {
-  "v": "TK81YePqfZE",
-  "t": "Circle With Me ft. Tatiana Shmayluk of Jinjer - Live from Louder Than Life 2024",
-  "n": "Spiritbox",
-  "b": "spiritbox"
- },
- {
-  "v": "Z3LRHlUDClk",
-  "t": "Master of Puppets",
-  "n": "Metallica",
-  "b": "metallica"
- },
- {
-  "v": "jD_nlU1rbfk",
-  "t": "Necro Sapiens",
-  "n": "Baest",
-  "b": "baest"
  },
  {
   "v": "SYmf4DIC__A",
@@ -1318,18 +2254,6 @@
   "t": "COLD",
   "n": "Psycroptic",
   "b": "psycroptic"
- },
- {
-  "v": "FjYLLZZ-xDI",
-  "t": "Shostakovich: String Quartet No. 8 in C Minor, Op. 110: II. Allegro molto (Live)",
-  "n": "Emerson String Quartet",
-  "b": "emerson-string-quartet"
- },
- {
-  "v": "S6HfZ4PJlwY",
-  "t": "Left Behind",
-  "n": "Slipknot",
-  "b": "slipknot"
  },
  {
   "v": "bhrg62OPoMY",
@@ -1386,40 +2310,16 @@
   "b": "pantera"
  },
  {
-  "v": "Z72riwP4930",
-  "t": "Nihilistic Violence",
-  "n": "Revocation",
-  "b": "revocation"
- },
- {
-  "v": "UUAQXMf2hp4",
-  "t": "March Of The Martyrs",
-  "n": "Otep",
-  "b": "otep"
- },
- {
   "v": "zU6SzyzSfEk",
   "t": "In the Kingdom Where Everything Dies, the Sky Is Mortal",
   "n": "Cryptopsy",
   "b": "cryptopsy"
  },
  {
-  "v": "ieGmNnn_ytA",
-  "t": "Victim of Changes (Live)",
-  "n": "Judas Priest",
-  "b": "judas-priest"
- },
- {
   "v": "R0VUF4Sx1H4",
   "t": "Invictus",
   "n": "Lamb of God",
   "b": "lamb-of-god"
- },
- {
-  "v": "mW7XuIpYTtc",
-  "t": "Akróasis",
-  "n": "Obscura",
-  "b": "obscura"
  },
  {
   "v": "1WOW_J0wUk0",
@@ -1440,18 +2340,6 @@
   "b": "gojira"
  },
  {
-  "v": "EjuMLcjMuvU",
-  "t": "The Prophecy",
-  "n": "Jinjer",
-  "b": "jinjer"
- },
- {
-  "v": "_XpjH8uH3dQ",
-  "t": "The New Black",
-  "n": "Every Time I Die",
-  "b": "every-time-i-die"
- },
- {
   "v": "Cdru3Z_F_Sw",
   "t": "Through The Never",
   "n": "Metallica",
@@ -1470,28 +2358,10 @@
   "b": "cannibal-corpse"
  },
  {
-  "v": "VxYSFkVIQ7g",
-  "t": "Necropolis",
-  "n": "The Black Dahlia Murder",
-  "b": "the-black-dahlia-murder"
- },
- {
   "v": "TWDdcyyzG3o",
   "t": "Crumbling Imperium",
   "n": "Revocation",
   "b": "revocation"
- },
- {
-  "v": "sm7SjWokC6I",
-  "t": "Dissident Aggressor",
-  "n": "Judas Priest",
-  "b": "judas-priest"
- },
- {
-  "v": "eFUd0_9F84k",
-  "t": "Wasted Years (2015 Remaster)",
-  "n": "Iron Maiden",
-  "b": "iron-maiden"
  },
  {
   "v": "yWmPpa5pjMk",
@@ -1518,12 +2388,6 @@
   "b": "sepultura"
  },
  {
-  "v": "jpJHMILtOao",
-  "t": "Under The Weeping Moon",
-  "n": "SikTh",
-  "b": "sikth"
- },
- {
   "v": "eS7FnxrIAOI",
   "t": "Zero",
   "n": "Otep",
@@ -1548,18 +2412,6 @@
   "b": "ozzy-osbourne"
  },
  {
-  "v": "NDryr3zuv64",
-  "t": "Devout Atrocity",
-  "n": "Dying Fetus",
-  "b": "dying-fetus"
- },
- {
-  "v": "KeukkCeBqA0",
-  "t": "A Commercial Break that Lasts Forever",
-  "n": "Destrage",
-  "b": "destrage"
- },
- {
   "v": "B1czQ56luiU",
   "t": "I'm Broken (2014 Remaster)",
   "n": "Pantera",
@@ -1570,12 +2422,6 @@
   "t": "Incineration of the Gods",
   "n": "Vader",
   "b": "vader"
- },
- {
-  "v": "rUz_wTsJLDU",
-  "t": "Slanderous",
-  "n": "Machine Head",
-  "b": "machine-head"
  },
  {
   "v": "dRx2qP8yXuY",
@@ -1596,28 +2442,10 @@
   "b": "f-k-ü"
  },
  {
-  "v": "6a7FMwU-y5g",
-  "t": "Flayed The Swine",
-  "n": "Cryptopsy",
-  "b": "cryptopsy"
- },
- {
   "v": "B2lmOei7qfk",
   "t": "Duality",
   "n": "Slipknot",
   "b": "slipknot"
- },
- {
-  "v": "p1lxV8dLpX4",
-  "t": "Zest of Scorn",
-  "n": "Fusion Bomb",
-  "b": "fusion-bomb"
- },
- {
-  "v": "pE5j3E2VfTM",
-  "t": "Yesterday's Bones",
-  "n": "Exhorder",
-  "b": "exhorder"
  },
  {
   "v": "Cc39UwE2sBE",
@@ -1632,18 +2460,6 @@
   "b": "gojira"
  },
  {
-  "v": "VoQQfszPn9k",
-  "t": "No Amnesty",
-  "n": "Havok",
-  "b": "havok"
- },
- {
-  "v": "OuFba4XhCNg",
-  "t": "Blacklist",
-  "n": "Exodus",
-  "b": "exodus"
- },
- {
   "v": "4zK7AlL65c4",
   "t": "They Come For You",
   "n": "Funeral Dancer",
@@ -1656,28 +2472,10 @@
   "b": "cattle-decapitation"
  },
  {
-  "v": "iW4lbxYLyRo",
-  "t": "The Reign of Unending Terror",
-  "n": "Protest The Hero",
-  "b": "protest-the-hero"
- },
- {
-  "v": "g96NLNM-jAs",
-  "t": "Ji",
-  "n": "Periphery",
-  "b": "periphery"
- },
- {
   "v": "bexwj3gTiBg",
   "t": "We Rock",
   "n": "DIO",
   "b": "dio"
- },
- {
-  "v": "WzRhYXDSJn4",
-  "t": "Unfurling A Darkened Gospel",
-  "n": "Job For A Cowboy",
-  "b": "job-for-a-cowboy"
  },
  {
   "v": "FCPUoasIBzs",
@@ -1710,18 +2508,6 @@
   "b": "funeral-dancer"
  },
  {
-  "v": "NL3lt71pD_0",
-  "t": "Fillthee",
-  "n": "Otep",
-  "b": "otep"
- },
- {
-  "v": "kGNHwLicV2g",
-  "t": "Cowboys from Hell",
-  "n": "Pantera",
-  "b": "pantera"
- },
- {
   "v": "Ws3H0OOyJSA",
   "t": "Flying High Again",
   "n": "Ozzy Osbourne",
@@ -1750,12 +2536,6 @@
   "t": "Satan Is a Lawyer",
   "n": "Gojira",
   "b": "gojira"
- },
- {
-  "v": "L8HhOMNrulE",
-  "t": "Tornado Of Souls",
-  "n": "Megadeth",
-  "b": "megadeth"
  },
  {
   "v": "F7jqtnN1kqI",
@@ -1800,18 +2580,6 @@
   "b": "havok"
  },
  {
-  "v": "OBgyiQnlKnU",
-  "t": "See Through Dreams",
-  "n": "Death",
-  "b": "death"
- },
- {
-  "v": "OtyJNH3o6rI",
-  "t": "The Pit and the Poser",
-  "n": "F.K.Ü.",
-  "b": "f-k-ü"
- },
- {
   "v": "sxiklX-P77o",
   "t": "The Blood of Power",
   "n": "Dying Fetus",
@@ -1830,24 +2598,6 @@
   "b": "the-black-dahlia-murder"
  },
  {
-  "v": "AW61H9roTSs",
-  "t": "Apocalypse Now And Then",
-  "n": "Every Time I Die",
-  "b": "every-time-i-die"
- },
- {
-  "v": "esDkLrZm0jU",
-  "t": "Exciter (Live)",
-  "n": "Judas Priest",
-  "b": "judas-priest"
- },
- {
-  "v": "ngJy7pAIfN0",
-  "t": "Threshold",
-  "n": "Slayer",
-  "b": "slayer"
- },
- {
   "v": "4IgoitlgZOI",
   "t": "Powerslave (2015 Remaster)",
   "n": "Iron Maiden",
@@ -1860,28 +2610,10 @@
   "b": "vader"
  },
  {
-  "v": "Izcu1H4L_l8",
-  "t": "Earth Scar",
-  "n": "Decapitated",
-  "b": "decapitated"
- },
- {
   "v": "L4uuOeut4CU",
   "t": "The Bad Thing",
   "n": "Periphery",
   "b": "periphery"
- },
- {
-  "v": "ri-tbSMmIIo",
-  "t": "The Man That Never Was",
-  "n": "Exhorder",
-  "b": "exhorder"
- },
- {
-  "v": "T3Nx2wSb9c8",
-  "t": "Dark Clouds",
-  "n": "Crypta",
-  "b": "crypta"
  },
  {
   "v": "9i3ETtUmIC0",
@@ -1908,12 +2640,6 @@
   "b": "dio"
  },
  {
-  "v": "_42L6KLFXhI",
-  "t": "Starborn",
-  "n": "Funeral Dancer",
-  "b": "funeral-dancer"
- },
- {
   "v": "u1lJV0W83LQ",
   "t": "Neon Knights (2008 Remaster)",
   "n": "Black Sabbath",
@@ -1924,18 +2650,6 @@
   "t": "Crystal Mountain",
   "n": "Death",
   "b": "death"
- },
- {
-  "v": "t7LKvIZHkQw",
-  "t": "22 Acacia Avenue (2015 Remaster)",
-  "n": "Iron Maiden",
-  "b": "iron-maiden"
- },
- {
-  "v": "2p2vnhR4EAw",
-  "t": "Day 69",
-  "n": "Decapitated",
-  "b": "decapitated"
  },
  {
   "v": "b2gqFM2HZKU",
@@ -1966,12 +2680,6 @@
   "t": "Downfall",
   "n": "Exodus",
   "b": "exodus"
- },
- {
-  "v": "TnRZhLRv6eM",
-  "t": "Angel Of Death",
-  "n": "Slayer",
-  "b": "slayer"
  },
  {
   "v": "n4GdaMWCF8A",
@@ -2016,24 +2724,6 @@
   "b": "meshuggah"
  },
  {
-  "v": "R2dPFBRSLOU",
-  "t": "Native Blood",
-  "n": "Testament",
-  "b": "testament"
- },
- {
-  "v": "4eRYMSt1rg8",
-  "t": "A Plus or a Minus",
-  "n": "Jinjer",
-  "b": "jinjer"
- },
- {
-  "v": "JNm6bucMPmY",
-  "t": "I Don't Know",
-  "n": "Ozzy Osbourne",
-  "b": "ozzy-osbourne"
- },
- {
   "v": "g6AQu2R7-a4",
   "t": "The Other Side of Anger",
   "n": "Crypta",
@@ -2070,12 +2760,6 @@
   "b": "vader"
  },
  {
-  "v": "tJ8Mq65qzhQ",
-  "t": "Pestilence",
-  "n": "The Faceless",
-  "b": "the-faceless"
- },
- {
   "v": "zpOlgWZ2oSw",
   "t": "The Summer Jam",
   "n": "Periphery",
@@ -2100,22 +2784,10 @@
   "b": "jinjer"
  },
  {
-  "v": "gRBo1CttowE",
-  "t": "Stand Up and Shout (2022 Remaster)",
-  "n": "DIO",
-  "b": "dio"
- },
- {
   "v": "T6R4QASBJQQ",
   "t": "Emptiness",
   "n": "Vader",
   "b": "vader"
- },
- {
-  "v": "F6t-hWJpnnQ",
-  "t": "Copycat",
-  "n": "Jinjer",
-  "b": "jinjer"
  },
  {
   "v": "qIB_tQ3F_DU",
@@ -2142,22 +2814,10 @@
   "b": "the-faceless"
  },
  {
-  "v": "PzRVVw7QjvY",
-  "t": "Green Serpent",
-  "n": "Jinjer",
-  "b": "jinjer"
- },
- {
   "v": "ZwB8pkzGSoQ",
   "t": "A Global Shift",
   "n": "Job For A Cowboy",
   "b": "job-for-a-cowboy"
- },
- {
-  "v": "HknkjyT84bY",
-  "t": "The Eidolon Reality",
-  "n": "The Faceless",
-  "b": "the-faceless"
  },
  {
   "v": "uaFzmZrKKKw",
@@ -2172,18 +2832,6 @@
   "b": "the-black-dahlia-murder"
  },
  {
-  "v": "u9NPfACzahM",
-  "t": "Encircled by Mirrors",
-  "n": "Job For A Cowboy",
-  "b": "job-for-a-cowboy"
- },
- {
-  "v": "CLtP8GYdpoY",
-  "t": "The Evil Has Landed",
-  "n": "Testament",
-  "b": "testament"
- },
- {
   "v": "a_IQ9AldtjQ",
   "t": "Mediator",
   "n": "Jinjer",
@@ -2194,12 +2842,6 @@
   "t": "Tempo of the Damned",
   "n": "Exodus",
   "b": "exodus"
- },
- {
-  "v": "8JZonhoy7z4",
-  "t": "The Forever Rot",
-  "n": "Job For A Cowboy",
-  "b": "job-for-a-cowboy"
  },
  {
   "v": "6JTsS2QFDqM",
@@ -2244,12 +2886,6 @@
   "b": "the-black-dahlia-murder"
  },
  {
-  "v": "rp692atsiXA",
-  "t": "That Which Erodes the Most Tender of Things",
-  "n": "The Black Dahlia Murder",
-  "b": "the-black-dahlia-murder"
- },
- {
   "v": "uETlS67gJ68",
   "t": "Loathe",
   "n": "Cryptopsy",
@@ -2262,40 +2898,10 @@
   "b": "lamb-of-god"
  },
  {
-  "v": "ukip5nRrgNs",
-  "t": "Planetary Duality II: A Prophecies Fruition",
-  "n": "The Faceless",
-  "b": "the-faceless"
- },
- {
-  "v": "Zi85k7_HfY8",
-  "t": "Martyrdom Unsealed",
-  "n": "Job For A Cowboy",
-  "b": "job-for-a-cowboy"
- },
- {
-  "v": "VHvmvR7MbAk",
-  "t": "Matriarch",
-  "n": "The Black Dahlia Murder",
-  "b": "the-black-dahlia-murder"
- },
- {
-  "v": "7NtJKotSmMA",
-  "t": "New Gods, New Masters",
-  "n": "Revocation",
-  "b": "revocation"
- },
- {
   "v": "0VN0TAynWQQ",
   "t": "Black Discharge",
   "n": "Job For A Cowboy",
   "b": "job-for-a-cowboy"
- },
- {
-  "v": "2RTfZGysTZE",
-  "t": "Combustion",
-  "n": "Meshuggah",
-  "b": "meshuggah"
  },
  {
   "v": "wogFGbywzjM",
@@ -2328,12 +2934,6 @@
   "b": "meshuggah"
  },
  {
-  "v": "Um07za_WNUM",
-  "t": "Rebirth",
-  "n": "Lazarus A.D.",
-  "b": "lazarus-a-d"
- },
- {
   "v": "iaFHTNbFNGM",
   "t": "Only Ash Remains",
   "n": "Necrophagist",
@@ -2350,24 +2950,6 @@
   "t": "Sit Stay Roll Over",
   "n": "Jinjer",
   "b": "jinjer"
- },
- {
-  "v": "_vxJTaUrbME",
-  "t": "L'enfant sauvage",
-  "n": "Gojira",
-  "b": "gojira"
- },
- {
-  "v": "jpA_qrqeRPQ",
-  "t": "Luciferous",
-  "n": "Revocation",
-  "b": "revocation"
- },
- {
-  "v": "VKXFVkcr8k0",
-  "t": "The Serpent and the King",
-  "n": "Judas Priest",
-  "b": "judas-priest"
  },
  {
   "v": "ksoUWJXpEtA",
@@ -2400,58 +2982,16 @@
   "b": "lamb-of-god"
  },
  {
-  "v": "ve6be0D8J04",
-  "t": "Transfixion",
-  "n": "Meshuggah",
-  "b": "meshuggah"
- },
- {
   "v": "ALkpjGInZTA",
   "t": "Invisible",
   "n": "DIO",
   "b": "dio"
  },
  {
-  "v": "8se8bNe3FeU",
-  "t": "The Gods Must Be Crazy!",
-  "n": "Periphery",
-  "b": "periphery"
- },
- {
-  "v": "ATb-Ea9kZzQ",
-  "t": "Symbiotic In Theory",
-  "n": "Necrophagist",
-  "b": "necrophagist"
- },
- {
   "v": "8PF3rcDeMB0",
   "t": "Veins",
   "n": "Decapitated",
   "b": "decapitated"
- },
- {
-  "v": "cA7tB7TdJK8",
-  "t": "Feed The Ground",
-  "n": "Periphery",
-  "b": "periphery"
- },
- {
-  "v": "xA-qx8ht2j0",
-  "t": "Straws Pulled at Random (Remastered 2006)",
-  "n": "Meshuggah",
-  "b": "meshuggah"
- },
- {
-  "v": "5Masd5QqItM",
-  "t": "Hammer and Life",
-  "n": "Exodus",
-  "b": "exodus"
- },
- {
-  "v": "k-HE3EGrAu4",
-  "t": "The Ultimate Sacrifice",
-  "n": "Lazarus A.D.",
-  "b": "lazarus-a-d"
  },
  {
   "v": "ilWMxOA9bd8",
@@ -2482,12 +3022,6 @@
   "t": "Blood Eagle",
   "n": "Periphery",
   "b": "periphery"
- },
- {
-  "v": "lAy6Tc1u1rI",
-  "t": "Pit of Consciousness",
-  "n": "Jinjer",
-  "b": "jinjer"
  },
  {
   "v": "olhYrs_ym2Q",
@@ -2526,12 +3060,6 @@
   "b": "testament"
  },
  {
-  "v": "iuYdmk_ifVU",
-  "t": "One Gun",
-  "n": "Lamb of God",
-  "b": "lamb-of-god"
- },
- {
   "v": "4M__hML403U",
   "t": "Ebolarama",
   "n": "Every Time I Die",
@@ -2542,12 +3070,6 @@
   "t": "Reborn",
   "n": "Angelus Apatrida",
   "b": "angelus-apatrida"
- },
- {
-  "v": "czwQINbLsrM",
-  "t": "Nourishment Through Bloodshed",
-  "n": "Job For A Cowboy",
-  "b": "job-for-a-cowboy"
  },
  {
   "v": "v8iGBTfh8Z8",
@@ -2568,34 +3090,10 @@
   "b": "every-time-i-die"
  },
  {
-  "v": "YrApyckJTJI",
-  "t": "Blood on the Snow",
-  "n": "Angelus Apatrida",
-  "b": "angelus-apatrida"
- },
- {
   "v": "rPvLkfsES4Y",
   "t": "Without Prejudice",
   "n": "Protest The Hero",
   "b": "protest-the-hero"
- },
- {
-  "v": "v1hRXEoBk0Q",
-  "t": "Terminal Illusions",
-  "n": "Meshuggah",
-  "b": "meshuggah"
- },
- {
-  "v": "9i-rmjZ3wqA",
-  "t": "Everything Went Black",
-  "n": "The Black Dahlia Murder",
-  "b": "the-black-dahlia-murder"
- },
- {
-  "v": "tgptnrEOqt0",
-  "t": "INRIhab",
-  "n": "Every Time I Die",
-  "b": "every-time-i-die"
  },
  {
   "v": "6mtc9Inn-sQ",
@@ -2628,18 +3126,6 @@
   "b": "jinjer"
  },
  {
-  "v": "Ve_lslfE5to",
-  "t": "Falling Off the Edge of the World (2008 Remaster)",
-  "n": "Black Sabbath",
-  "b": "black-sabbath"
- },
- {
-  "v": "1Lvc60X3hvA",
-  "t": "Four Lights",
-  "n": "Periphery",
-  "b": "periphery"
- },
- {
   "v": "bG5qiZMWjL4",
   "t": "Dip a Sail",
   "n": "Jinjer",
@@ -2658,22 +3144,10 @@
   "b": "angelus-apatrida"
  },
  {
-  "v": "y5L7dbYZ1gk",
-  "t": "Diminished To B",
-  "n": "Necrophagist",
-  "b": "necrophagist"
- },
- {
   "v": "W5tEiM3XgzY",
   "t": "We Stand Alone",
   "n": "Angelus Apatrida",
   "b": "angelus-apatrida"
- },
- {
-  "v": "JR33edRUERg",
-  "t": "Mammoth's Hand",
-  "n": "The Black Dahlia Murder",
-  "b": "the-black-dahlia-murder"
  },
  {
   "v": "Gq0C7jqsH-4",
@@ -2682,22 +3156,10 @@
   "b": "necrophagist"
  },
  {
-  "v": "SlhazpAyKYE",
-  "t": "The Stone Cross",
-  "n": "Job For A Cowboy",
-  "b": "job-for-a-cowboy"
- },
- {
   "v": "hN8XncMtwAA",
   "t": "Scavenger of Human Sorrow",
   "n": "Death",
   "b": "death"
- },
- {
-  "v": "fONo-OLpquQ",
-  "t": "Dreadful Moments",
-  "n": "Jinjer",
-  "b": "jinjer"
  },
  {
   "v": "CBRmOIZuXNA",
@@ -2710,12 +3172,6 @@
   "t": "Make Total Destroy",
   "n": "Periphery",
   "b": "periphery"
- },
- {
-  "v": "_5RLq5RiQAE",
-  "t": "Of Unworldly Origin",
-  "n": "Revocation",
-  "b": "revocation"
  },
  {
   "v": "7E7xBMebANM",
@@ -2748,12 +3204,6 @@
   "b": "job-for-a-cowboy"
  },
  {
-  "v": "7b-1RhR4b4A",
-  "t": "Buried Monuments",
-  "n": "Job For A Cowboy",
-  "b": "job-for-a-cowboy"
- },
- {
   "v": "skVaKPQ72tA",
   "t": "Don't Talk to Strangers",
   "n": "DIO",
@@ -2764,18 +3214,6 @@
   "t": "Duél",
   "n": "Jinjer",
   "b": "jinjer"
- },
- {
-  "v": "P5a1IuH5QDo",
-  "t": "The Dissentience",
-  "n": "Protest The Hero",
-  "b": "protest-the-hero"
- },
- {
-  "v": "raSPfWK_Hu8",
-  "t": "My Green Neighbour",
-  "n": "Destrage",
-  "b": "destrage"
  },
  {
   "v": "xf5f7VkN4hw",
@@ -2808,28 +3246,10 @@
   "b": "lamb-of-god"
  },
  {
-  "v": "b4xrr81RNhQ",
-  "t": "Throwing Down",
-  "n": "Exodus",
-  "b": "exodus"
- },
- {
   "v": "RBtHRHDfSUg",
   "t": "Death in Vain",
   "n": "Exhorder",
   "b": "exhorder"
- },
- {
-  "v": "sedQNTpZ7A0",
-  "t": "Murders in the Rue Morgue (2015 Remaster)",
-  "n": "Iron Maiden",
-  "b": "iron-maiden"
- },
- {
-  "v": "XQvrf1J6ZB8",
-  "t": "Verminous",
-  "n": "The Black Dahlia Murder",
-  "b": "the-black-dahlia-murder"
  },
  {
   "v": "cZx2VXlkkTk",
@@ -2842,24 +3262,6 @@
   "t": "Phantoms",
   "n": "Meshuggah",
   "b": "meshuggah"
- },
- {
-  "v": "o1cD17A3H0k",
-  "t": "Devilizer",
-  "n": "Vader",
-  "b": "vader"
- },
- {
-  "v": "k0lXE1sbwD4",
-  "t": "Repentless",
-  "n": "Slayer",
-  "b": "slayer"
- },
- {
-  "v": "1w3rdHOM1VE",
-  "t": "Extreme Unction",
-  "n": "Necrophagist",
-  "b": "necrophagist"
  },
  {
   "v": "e9UHfq4Fi8c",
@@ -2928,12 +3330,6 @@
   "b": "death"
  },
  {
-  "v": "1J5sSE7rcmY",
-  "t": "From Skin to Liquid",
-  "n": "Cannibal Corpse",
-  "b": "cannibal-corpse"
- },
- {
   "v": "ADu6Va8y3QU",
   "t": "Holy Diver",
   "n": "DIO",
@@ -2944,18 +3340,6 @@
   "t": "Icarus Lives",
   "n": "Periphery",
   "b": "periphery"
- },
- {
-  "v": "zqOWV_pq9Zs",
-  "t": "Outlander",
-  "n": "Jinjer",
-  "b": "jinjer"
- },
- {
-  "v": "eeJu_eQPKKI",
-  "t": "Die With Your Boots On (2015 Remaster)",
-  "n": "Iron Maiden",
-  "b": "iron-maiden"
  },
  {
   "v": "aAydVbloBLc",
@@ -2976,12 +3360,6 @@
   "b": "iron-maiden"
  },
  {
-  "v": "BMdhVpTfuAU",
-  "t": "Wishing Well (2008 Remaster)",
-  "n": "Black Sabbath",
-  "b": "black-sabbath"
- },
- {
   "v": "yRxg8yVhbQY",
   "t": "Strength Beyond Strength",
   "n": "Pantera",
@@ -2998,24 +3376,6 @@
   "t": "War Ensemble (Album Version)",
   "n": "Slayer",
   "b": "slayer"
- },
- {
-  "v": "rAfC0vmwbhk",
-  "t": "Bite the Pain",
-  "n": "Death",
-  "b": "death"
- },
- {
-  "v": "YdgHleDy-ik",
-  "t": "King of Rock and Roll",
-  "n": "DIO",
-  "b": "dio"
- },
- {
-  "v": "jvO8cIG3nHI",
-  "t": "Hourglass",
-  "n": "Lamb of God",
-  "b": "lamb-of-god"
  },
  {
   "v": "7SWSaJzk58U",
@@ -3048,28 +3408,10 @@
   "b": "otep"
  },
  {
-  "v": "RYa1PpYM91Y",
-  "t": "Regurgitated Disinformation",
-  "n": "Job For A Cowboy",
-  "b": "job-for-a-cowboy"
- },
- {
   "v": "_7XHQ09C_6I",
   "t": "The Abysmal Eye",
   "n": "Meshuggah",
   "b": "meshuggah"
- },
- {
-  "v": "dV1xF_It1qc",
-  "t": "Turn Up the Night (2021 Remaster)",
-  "n": "Black Sabbath",
-  "b": "black-sabbath"
- },
- {
-  "v": "6IdEFbygYcQ",
-  "t": "Waltz",
-  "n": "Jinjer",
-  "b": "jinjer"
  },
  {
   "v": "fq1jMaYT2AI",
@@ -3162,12 +3504,6 @@
   "b": "job-for-a-cowboy"
  },
  {
-  "v": "5CSx0o7qAHs",
-  "t": "Necrophagist - Extreme Unction (Live) [HQ]",
-  "n": "Ektonorth",
-  "b": "ektonorth"
- },
- {
   "v": "ntvF-VZ-ppQ",
   "t": "Dissident Aggressor",
   "n": "Judas Priest",
@@ -3198,22 +3534,10 @@
   "b": "the-black-dahlia-murder"
  },
  {
-  "v": "kQnBUnOZ1CE",
-  "t": "Violent Sleep of Reason",
-  "n": "Meshuggah",
-  "b": "meshuggah"
- },
- {
   "v": "t04LQ1wl6hk",
   "t": "Beyond the Chemical Doorway",
   "n": "Job For A Cowboy",
   "b": "job-for-a-cowboy"
- },
- {
-  "v": "eN0jFOynzUY",
-  "t": "High Speed Dirt",
-  "n": "Megadeth",
-  "b": "megadeth"
  },
  {
   "v": "aBzKReiQIIE",
@@ -3226,12 +3550,6 @@
   "t": "Ghostflowers",
   "n": "Otep",
   "b": "otep"
- },
- {
-  "v": "DIKHUSocg1Y",
-  "t": "Altered From Catechization",
-  "n": "Job For A Cowboy",
-  "b": "job-for-a-cowboy"
  },
  {
   "v": "B-hAJHCMnWk",
@@ -3264,32 +3582,14 @@
   "b": "judas-priest"
  },
  {
-  "v": "ESgBunzLJyI",
-  "t": "Broken Cog",
-  "n": "Meshuggah",
-  "b": "meshuggah"
- },
- {
   "v": "WUs8hJzKcas",
   "t": "Into the Crystalline Crypts",
   "n": "Job For A Cowboy",
   "b": "job-for-a-cowboy"
  },
  {
-  "v": "Qtp33CLac4U",
-  "t": "Wallflower",
-  "n": "Jinjer",
-  "b": "jinjer"
- },
- {
   "v": "D08-i2UUXnQ",
   "t": "Marrow",
-  "n": "Meshuggah",
-  "b": "meshuggah"
- },
- {
-  "v": "cSFJ7Dnp-KI",
-  "t": "Kaleidoscope",
   "n": "Meshuggah",
   "b": "meshuggah"
  },
@@ -3300,40 +3600,16 @@
   "b": "job-for-a-cowboy"
  },
  {
-  "v": "pTKqWmpNPiI",
-  "t": "I Speak Astronomy",
-  "n": "Jinjer",
-  "b": "jinjer"
- },
- {
   "v": "uuLpCTsw8Bo",
   "t": "Soul Burn",
   "n": "Meshuggah",
   "b": "meshuggah"
  },
  {
-  "v": "MeoVwfeR5lk",
-  "t": "Worming Nightfall",
-  "n": "Job For A Cowboy",
-  "b": "job-for-a-cowboy"
- },
- {
-  "v": "dtB3xKDlcqw",
-  "t": "Retrospection",
-  "n": "Jinjer",
-  "b": "jinjer"
- },
- {
   "v": "hNaUw1huZeA",
   "t": "The Celestial Antidote",
   "n": "Job For A Cowboy",
   "b": "job-for-a-cowboy"
- },
- {
-  "v": "n2TmAzVO3As",
-  "t": "Teacher, Teacher!",
-  "n": "Jinjer",
-  "b": "jinjer"
  },
  {
   "v": "VLCMK01pzr8",
@@ -3366,12 +3642,6 @@
   "b": "the-black-dahlia-murder"
  },
  {
-  "v": "bjGtBqP5rvY",
-  "t": "Receipt",
-  "n": "The Black Dahlia Murder",
-  "b": "the-black-dahlia-murder"
- },
- {
   "v": "OfXEG0Y4jlc",
   "t": "Funeral Thirst",
   "n": "The Black Dahlia Murder",
@@ -3390,12 +3660,6 @@
   "b": "lamb-of-god"
  },
  {
-  "v": "9ecjvJk_aR8",
-  "t": "Kill The Music",
-  "n": "Every Time I Die",
-  "b": "every-time-i-die"
- },
- {
   "v": "Fm9fLq4SKZs",
   "t": "Home Back",
   "n": "Jinjer",
@@ -3406,24 +3670,6 @@
   "t": "Conspiring With the Damned",
   "n": "The Black Dahlia Murder",
   "b": "the-black-dahlia-murder"
- },
- {
-  "v": "zgychWIo6UA",
-  "t": "Stranded",
-  "n": "Gojira",
-  "b": "gojira"
- },
- {
-  "v": "r-2473dJONg",
-  "t": "Blood Of The Scribe",
-  "n": "Lamb of God",
-  "b": "lamb-of-god"
- },
- {
-  "v": "jPsAVDf6S4M",
-  "t": "Bad Water",
-  "n": "Jinjer",
-  "b": "jinjer"
  },
  {
   "v": "sDI6uBNbAkc",
@@ -3448,12 +3694,6 @@
   "t": "Garden In The Bones",
   "n": "Periphery",
   "b": "periphery"
- },
- {
-  "v": "AP9412LFP0o",
-  "t": "Future Breed Machine",
-  "n": "Meshuggah",
-  "b": "meshuggah"
  },
  {
   "v": "ba7Hcl_X5i8",
@@ -3486,12 +3726,6 @@
   "b": "the-black-dahlia-murder"
  },
  {
-  "v": "9SmsSdfQnHs",
-  "t": "Slipping Into Madness",
-  "n": "Exodus",
-  "b": "exodus"
- },
- {
   "v": "f9Q8RI6xycY",
   "t": "Luck As A Constant",
   "n": "Periphery",
@@ -3510,12 +3744,6 @@
   "b": "meshuggah"
  },
  {
-  "v": "y3QsTGT7ryo",
-  "t": "Froggin' bullﬁsh",
-  "n": "Periphery",
-  "b": "periphery"
- },
- {
   "v": "OxVLzV2h8lM",
   "t": "Wrapped in the Arms of Rage",
   "n": "Exodus",
@@ -3524,18 +3752,6 @@
  {
   "v": "fvPAfWLnXV0",
   "t": "Light the Shortening Fuse",
-  "n": "Meshuggah",
-  "b": "meshuggah"
- },
- {
-  "v": "wvD02gPgOQw",
-  "t": "Sealed with a Fist",
-  "n": "Exodus",
-  "b": "exodus"
- },
- {
-  "v": "spfiiRlu0JM",
-  "t": "God He Sees in Mirrors",
   "n": "Meshuggah",
   "b": "meshuggah"
  },
@@ -3552,34 +3768,10 @@
   "b": "meshuggah"
  },
  {
-  "v": "R0kDEEGXHQE",
-  "t": "Who is Gonna Be the One (Live from Atlas)",
-  "n": "Jinjer",
-  "b": "jinjer"
- },
- {
-  "v": "OTiQADZf3ss",
-  "t": "Violent Dawn",
-  "n": "Angelus Apatrida",
-  "b": "angelus-apatrida"
- },
- {
   "v": "jgzxQA7KD1k",
   "t": "My Last Nerve",
   "n": "Exodus",
   "b": "exodus"
- },
- {
-  "v": "K2wKFQbryP0",
-  "t": "The Faultless",
-  "n": "Meshuggah",
-  "b": "meshuggah"
- },
- {
-  "v": "h8YN7WVPiIQ",
-  "t": "Hell Below",
-  "n": "Periphery",
-  "b": "periphery"
  },
  {
   "v": "EL1LwG_WJxo",
@@ -3600,26 +3792,8 @@
   "b": "periphery"
  },
  {
-  "v": "_Ebo0ngI4Qk",
-  "t": "Born For One Thing",
-  "n": "Gojira",
-  "b": "gojira"
- },
- {
   "v": "iwOtTlPWE2I",
   "t": "Culling the Herd",
-  "n": "Exodus",
-  "b": "exodus"
- },
- {
-  "v": "jIuhjVPPxeg",
-  "t": "Statutory Ape",
-  "n": "The Black Dahlia Murder",
-  "b": "the-black-dahlia-murder"
- },
- {
-  "v": "fllQOlLgNMw",
-  "t": "Good Day To Die",
   "n": "Exodus",
   "b": "exodus"
  },
@@ -3628,24 +3802,6 @@
   "t": "Clockworks",
   "n": "Meshuggah",
   "b": "meshuggah"
- },
- {
-  "v": "W7MLSaT2lvo",
-  "t": "Virally Yours",
-  "n": "The Black Dahlia Murder",
-  "b": "the-black-dahlia-murder"
- },
- {
-  "v": "4PeNt_wzGrk",
-  "t": "The Years of Death and Dying",
-  "n": "Exodus",
-  "b": "exodus"
- },
- {
-  "v": "7ukEcQ_H774",
-  "t": "Laid to Rest",
-  "n": "Lamb of God",
-  "b": "lamb-of-god"
  },
  {
   "v": "XoApotV0ZOM",
@@ -3658,12 +3814,6 @@
   "t": "A Grave Robber's Work",
   "n": "The Black Dahlia Murder",
   "b": "the-black-dahlia-murder"
- },
- {
-  "v": "okjbuPE7OX8",
-  "t": "Insomnia",
-  "n": "Periphery",
-  "b": "periphery"
  },
  {
   "v": "qSUwEiltXc0",
@@ -3708,12 +3858,6 @@
   "b": "meshuggah"
  },
  {
-  "v": "IifrLz2BlAE",
-  "t": "Warhead",
-  "n": "Otep",
-  "b": "otep"
- },
- {
   "v": "GikWQjVGowQ",
   "t": "Fast Draw",
   "n": "Jinjer",
@@ -3726,20 +3870,8 @@
   "b": "slayer"
  },
  {
-  "v": "LY1opvOcS9Q",
-  "t": "Piranha",
-  "n": "Exodus",
-  "b": "exodus"
- },
- {
   "v": "mWp1hFPlliY",
   "t": "Rogue",
-  "n": "Jinjer",
-  "b": "jinjer"
- },
- {
-  "v": "b0Qn3xsiML0",
-  "t": "Waltz (Live)",
   "n": "Jinjer",
   "b": "jinjer"
  },
@@ -3748,24 +3880,6 @@
   "t": "Painkiller",
   "n": "Judas Priest",
   "b": "judas-priest"
- },
- {
-  "v": "sp-eWHnvXvU",
-  "t": "Dehumanization",
-  "n": "Meshuggah",
-  "b": "meshuggah"
- },
- {
-  "v": "hVxyJrVVpG8",
-  "t": "Mouth of Kala",
-  "n": "Gojira",
-  "b": "gojira"
- },
- {
-  "v": "pbg7bIMxEcM",
-  "t": "Back Door Epoque",
-  "n": "Destrage",
-  "b": "destrage"
  },
  {
   "v": "l-d96an1-Ek",
@@ -3778,18 +3892,6 @@
   "t": "Before, After and All Around",
   "n": "Destrage",
   "b": "destrage"
- },
- {
-  "v": "_JkK0IlEDB4",
-  "t": "Without Judgement",
-  "n": "Death",
-  "b": "death"
- },
- {
-  "v": "IWXtbqElLLU",
-  "t": "The Undertow",
-  "n": "Lamb of God",
-  "b": "lamb-of-god"
  },
  {
   "v": "WdoXZf-FZyA",
@@ -3816,38 +3918,8 @@
   "b": "angelus-apatrida"
  },
  {
-  "v": "6hMvRVsN0Hw",
-  "t": "Devil Take the Hindmost",
-  "n": "Angelus Apatrida",
-  "b": "angelus-apatrida"
- },
- {
   "v": "Bpo8VbR4xU8",
   "t": "Into the Storm",
-  "n": "Angelus Apatrida",
-  "b": "angelus-apatrida"
- },
- {
-  "v": "YkaVO-eza3k",
-  "t": "The Hum",
-  "n": "Angelus Apatrida",
-  "b": "angelus-apatrida"
- },
- {
-  "v": "_nr_QHgoXTA",
-  "t": "Fresh Pleasure",
-  "n": "Angelus Apatrida",
-  "b": "angelus-apatrida"
- },
- {
-  "v": "RRLE-cq_coA",
-  "t": "Serpents on Parade",
-  "n": "Angelus Apatrida",
-  "b": "angelus-apatrida"
- },
- {
-  "v": "ebOa6m2OGBg",
-  "t": "Rats",
   "n": "Angelus Apatrida",
   "b": "angelus-apatrida"
  },
@@ -3876,26 +3948,8 @@
   "b": "angelus-apatrida"
  },
  {
-  "v": "bfhNe15ishE",
-  "t": "Witching Hour",
-  "n": "Angelus Apatrida",
-  "b": "angelus-apatrida"
- },
- {
-  "v": "gpkjOJ-cAHE",
-  "t": "One Side One War",
-  "n": "Angelus Apatrida",
-  "b": "angelus-apatrida"
- },
- {
   "v": "4lZWoOy3sHk",
   "t": "The Strong Prevail",
-  "n": "Lazarus A.D.",
-  "b": "lazarus-a-d"
- },
- {
-  "v": "diNCLgEM1xM",
-  "t": "Casting Forward",
   "n": "Lazarus A.D.",
   "b": "lazarus-a-d"
  },
@@ -3904,18 +3958,6 @@
   "t": "Man Kills Mankind",
   "n": "Testament",
   "b": "testament"
- },
- {
-  "v": "oIvj-uYq9So",
-  "t": "Brotherhood of the Snake",
-  "n": "Testament",
-  "b": "testament"
- },
- {
-  "v": "aY1OJM6dHvo",
-  "t": "Accelerated Evolution",
-  "n": "The Faceless",
-  "b": "the-faceless"
  },
  {
   "v": "sONL6QUMR9E",
@@ -3948,22 +3990,10 @@
   "b": "the-faceless"
  },
  {
-  "v": "3ITzVRTKYqE",
-  "t": "Prison Born",
-  "n": "The Faceless",
-  "b": "the-faceless"
- },
- {
   "v": "-kkThQgtJ9o",
   "t": "Coldly Calculated Design",
   "n": "The Faceless",
   "b": "the-faceless"
- },
- {
-  "v": "Ysi445ws1t4",
-  "t": "Prayer Position",
-  "n": "Periphery",
-  "b": "periphery"
  },
  {
   "v": "7r6fadqo-HI",
@@ -3976,18 +4006,6 @@
   "t": "213",
   "n": "Slayer",
   "b": "slayer"
- },
- {
-  "v": "xnS1Cbi9OSU",
-  "t": "13 Steps to Nowhere",
-  "n": "Pantera",
-  "b": "pantera"
- },
- {
-  "v": "2HROtSDJ4F4",
-  "t": "Imperium Wolves",
-  "n": "Job For A Cowboy",
-  "b": "job-for-a-cowboy"
  },
  {
   "v": "1vsfIiypjSg",
@@ -4008,26 +4026,8 @@
   "b": "job-for-a-cowboy"
  },
  {
-  "v": "RtynUskruts",
-  "t": "Fearmonger",
-  "n": "Job For A Cowboy",
-  "b": "job-for-a-cowboy"
- },
- {
-  "v": "dxUZufXX4kw",
-  "t": "March To Global Enslavement",
-  "n": "Job For A Cowboy",
-  "b": "job-for-a-cowboy"
- },
- {
   "v": "DL1qdVDMJek",
   "t": "Psychological Immorality",
-  "n": "Job For A Cowboy",
-  "b": "job-for-a-cowboy"
- },
- {
-  "v": "OD2OL9lknW4",
-  "t": "To Detonate And Exterminate",
   "n": "Job For A Cowboy",
   "b": "job-for-a-cowboy"
  },
