@@ -22,6 +22,13 @@ var HISTORY = {
     {year: 1988, type: "Album", text: "Manowar release \"Kings of Metal\", the album that gave the world \"Hail and Kill\" and \"Blood of the Kings\".", band: "", source: "This Day in Metal, I Love Heavy Metal Radio"},
     {year: 1997, type: "Album", text: "Metallica release \"Reload\", the companion to 1996's \"Load\", featuring \"The Memory Remains\" and \"Fuel\".", band: "metallica", source: "Ultimate Classic Rock, This Day in Metal"},
     {year: 2016, type: "Album", text: "Metallica release \"Hardwired... to Self-Destruct\", their first album in eight years, featuring \"Moth Into Flame\".", band: "metallica", source: "I Love Heavy Metal Radio, Metallica.com"},
-    {year: 1949, type: "Born", text: "Happy birthday to Herman Rarebell, longtime drummer of Scorpions through their 1970s and 1980s peak.", band: "", source: "I Love Heavy Metal Radio, Scorpions history"}
+    {year: 1949, type: "Born", text: "Happy birthday to Herman Rarebell, longtime drummer of Scorpions through their 1970s and 1980s peak.", band: "", source: "I Love Heavy Metal Radio, Scorpions history"},
+    {year: 1985, type: "Album", text: "German power metal pioneers Helloween release their debut album, \"Walls of Jericho\", with Kai Hansen on vocals and guitar.", band: "", source: "This Day in Metal, I Love Heavy Metal Radio"}
+  ],
+  "11-19": [
+    {year: 2021, type: "Album", text: "Exodus release \"Persona Non Grata\", their first studio album since 2014 and their second since Steve \"Zetro\" Souza's return.", band: "exodus", source: "This Day in Metal, I Love Heavy Metal Radio"},
+    {year: 2021, type: "Album", text: "German tech-death band Obscura release \"A Valediction\" on Nuclear Blast, with guitarist Christian Münzer and fretless bassist Jeroen Paul Thesseling back in the lineup.", band: "", source: "This Day in Metal, Wikipedia"},
+    {year: 2021, type: "Album", text: "Denver doom band Khemmis release their fourth album, \"Deceiver\".", band: "", source: "This Day in Metal, Wikipedia"},
+    {year: 2013, type: "Album", text: "Chastain release \"Surrender To No One\", marking singer Leather Leone's return to the band 20 years after she left.", band: "", source: "This Day in Metal, I Love Heavy Metal Radio"}
   ]
 };

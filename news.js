@@ -6,6 +6,72 @@
 */
 var NEWS = [
   {
+    date: "2026-11-18",
+    tag: "Throwback",
+    title: "On this day in metal: Helloween release their debut album \"Walls of Jericho\" (1985)",
+    text: [
+      "Forty-one years ago today, on November 18, 1985, a young band from Hamburg, Germany put out their first full-length album through Noise Records. Helloween's \"Walls of Jericho\" mixed the speed of thrash with soaring melodies and big gang choruses, and it is now counted among the records that built European power metal.",
+      "Kai Hansen handled lead vocals as well as guitar, alongside Michael Weikath on guitar, Markus Grosskopf on bass and the late Ingo Schwichtenberg on drums. It is the only Helloween studio album with Hansen as lead singer until the band's 2021 self-titled reunion record. Songs like \"Ride the Sky\", \"Guardians\", \"Metal Invaders\" and \"Heavy Metal (Is the Law)\" are still fan favorites, and the pinball-inspired \"Gorgar\" borrows Grieg's \"In the Hall of the Mountain King\".",
+      "The anniversary party keeps going: Helloween are one of the headliners at Wacken Open Air 2027, where they will play a special 40th-anniversary set.",
+      "Source: This Day in Metal, I Love Heavy Metal Radio"
+    ]
+  },
+  {
+    date: "2026-11-18",
+    tag: "Tours",
+    title: "Avatar book 2027 North American headline run around Metallica stadium dates, with Tempe on May 15",
+    text: [
+      "Swedish theatrical metal band Avatar will spend late spring 2027 doing double duty. The \"Across The Underworld\" run has 30 dates from May 8 in Vancouver to June 19 in Salt Lake City, mixing support slots on Metallica's North American stadium tour with Avatar's own club and theater headline shows in between.",
+      "Arizona gets a headline date: Saturday, May 15, 2027 at the Marquee Theatre in Tempe, with The Barbarians of California opening. Gates to Hell support on the later East Coast and Midwest headline dates. Note that the same night, Megadeth's farewell tour with Anthrax and Kerry King is in Phoenix, so Valley metalheads have a choice to make.",
+      "The band is still touring last year's album \"Don't Go In The Forest\" and recently released a holiday single, \"Naughty List\", with Zakk Wylde. Tickets go on sale Friday, November 20 at 10 a.m. local time.",
+      "Source: Blabbermouth, Metal Injection"
+    ]
+  },
+  {
+    date: "2026-11-18",
+    tag: "Tours",
+    title: "Týr announce 2027 North American tour with Dynazty, Dominum and Edge of Paradise, including Mesa on March 30",
+    text: [
+      "Faroese Viking metal band Týr are coming back to North America with a 24-date tour from March 10, 2027 in Boston to April 11 in New York City. Swedish power metal band Dynazty, Dominum and Edge of Paradise round out the bill.",
+      "Arizona's stop is Tuesday, March 30, 2027 at the Nile Theater in Mesa, between Los Angeles and Denver.",
+      "The tour supports Týr's tenth studio album, simply titled \"Týr\", which comes out worldwide on November 24. It is the band's first album outside the usual label system, released on their own Runic Records after 2024's \"Battle Ballads\" came out on Metal Blade. The nine-track record includes a ten-minute epic, \"Two Paths to the Twilight Field\".",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-18",
+    tag: "Tours",
+    title: "Wacken Open Air 2027 adds Killswitch Engage playing \"Alive Or Just Breathing\" in full, plus Limp Bizkit and Slash",
+    text: [
+      "Europe's biggest metal festival keeps growing. Wacken Open Air, held July 28 to 31, 2027 in the village of Wacken in northern Germany, has added Killswitch Engage, who will play their 2002 breakthrough \"Alive Or Just Breathing\" in full for its 25th anniversary. It is their only European festival set of that album.",
+      "Also new to the bill: Limp Bizkit, Slash featuring Myles Kennedy and The Conspirators, and UK punk veterans Cockney Rejects. They join headliners Electric Callboy, Five Finger Death Punch and Helloween, plus Knocked Loose, Heaven Shall Burn, Cavalera Conspiracy and Dethklok.",
+      "Four-day tickets are on sale through the festival. The site holds about 85,000 fans.",
+      "Source: Metal Hammer"
+    ]
+  },
+  {
+    date: "2026-11-18",
+    tag: "World",
+    title: "Norwegian black metal band Nordjevel unveil title track \"Damnous\" ahead of their Season of Mist debut",
+    text: [
+      "Norway's Nordjevel have shared \"Damnous\", the title track and second single from their fourth album, with an official video. The album is out December 11 through Season of Mist's Underground Activists imprint, the band's first release with the label.",
+      "The song features guest vocals from Sanrabb of Gehenna and keys from Morfeus, formerly of Limbonic Art. Formed in 2015 in Askim around vocalist Doedsadmiral, the band recorded the nine-song album at Studio Nyhagen, and Fredrik Nordström mixed and mastered it at Studio Fredman. Lyrics switch between Norwegian and English.",
+      "Nordjevel will take the new songs across Europe on the Incantation Tour from March 24 to April 4, 2027, with Svarttjern, Malphas and Unviâr.",
+      "Source: Season of Mist"
+    ]
+  },
+  {
+    date: "2026-11-18",
+    tag: "Releases",
+    title: "Necrot share live-shot video for \"Drill the Skull\" from new album \"Lifeless Birth\"",
+    text: [
+      "Death metal power trio Necrot have a new video for \"Drill the Skull\", the fourth track on their album \"Lifeless Birth\", out now on Tankcrimes. The song swings between heavy grooves and full-speed blast beats.",
+      "The clip was filmed on this year's Decibel Magazine Tour, where Necrot played 30 dates with Cryptopsy, Spirit Adrift and Blood Monolith, and it is packed with crowd-surfing and pit footage. Guitarist Sonny Reinhardt said the band had a blast shooting it.",
+      "Next up, Necrot head south for shows in Chile, Brazil and Mexico from November 27 to December 6, including dates with My Dying Bride in Brazil.",
+      "Source: Decibel Magazine"
+    ]
+  },
+  {
     date: "2026-11-17",
     tag: "Tours",
     title: "Cryptopsy and Dying Fetus announce 2027 North American tour, with a Phoenix stop at Rebel Lounge on March 7",
