@@ -29,6 +29,14 @@ var HISTORY = {
     {year: 2021, type: "Album", text: "Exodus release \"Persona Non Grata\", their first studio album since 2014 and their second since Steve \"Zetro\" Souza's return.", band: "exodus", source: "This Day in Metal, I Love Heavy Metal Radio"},
     {year: 2021, type: "Album", text: "German tech-death band Obscura release \"A Valediction\" on Nuclear Blast, with guitarist Christian Münzer and fretless bassist Jeroen Paul Thesseling back in the lineup.", band: "", source: "This Day in Metal, Wikipedia"},
     {year: 2021, type: "Album", text: "Denver doom band Khemmis release their fourth album, \"Deceiver\".", band: "", source: "This Day in Metal, Wikipedia"},
-    {year: 2013, type: "Album", text: "Chastain release \"Surrender To No One\", marking singer Leather Leone's return to the band 20 years after she left.", band: "", source: "This Day in Metal, I Love Heavy Metal Radio"}
+    {year: 2013, type: "Album", text: "Chastain release \"Surrender To No One\", marking singer Leather Leone's return to the band 20 years after she left.", band: "", source: "This Day in Metal, I Love Heavy Metal Radio"},
+    {year: 2007, type: "Album", text: "German power metal band Gamma Ray release \"Land of the Free II\", their ninth studio album, recorded at Kai Hansen's High Gain Studio in Hamburg.", band: "", source: "This Day in Metal, Wikipedia"}
+  ],
+  "11-20": [
+    {year: 1973, type: "Album", text: "Alice Cooper release \"Muscle of Love\", the original band's seventh and last studio album together for decades.", band: "", source: "This Day in Metal, Wikipedia"},
+    {year: 1989, type: "Album", text: "German thrash band Paradox release their second album, \"Heresy\", a concept record about the Albigensian Crusade, on Roadrunner.", band: "", source: "This Day in Metal, Wikipedia"},
+    {year: 1990, type: "Album", text: "Cinderella release their third album, \"Heartbreak Station\", featuring \"Shelter Me\" and the title track.", band: "", source: "This Day in Metal, Wikipedia"},
+    {year: 2007, type: "Album", text: "Former Skid Row singer Sebastian Bach releases his solo album \"Angel Down\".", band: "", source: "This Day in Metal, Blabbermouth"},
+    {year: 2020, type: "Album", text: "Swedish melodic death metal veterans Dark Tranquillity release \"Moment\" on Century Media.", band: "", source: "This Day in Metal, Wikipedia"}
   ]
 };

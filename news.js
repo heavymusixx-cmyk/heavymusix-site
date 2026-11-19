@@ -6,6 +6,71 @@
 */
 var NEWS = [
   {
+    date: "2026-11-19",
+    tag: "Releases",
+    title: "Bruce Dickinson announces new solo album \"PsychoGod\" for March 12, shares first single \"Speaking In Tongues\"",
+    text: [
+      "Iron Maiden singer Bruce Dickinson has confirmed his next solo album. \"PsychoGod\" arrives March 12, 2027 through BMG, and the first single and video, \"Speaking In Tongues\", is out now.",
+      "The 13-song record was cut live in the studio early this year at Studio 606 in Los Angeles, with Brendan Duffy producing and mixing. Dickinson's solo band is back: guitarists Chris Declercq and Philip Näslund, bassist Tanya O'Callaghan, keyboard player Mistheria and drummer Dave Moreno. Devin Townsend is set to guest, and members of Sepultura are reported to appear too.",
+      "A long European and UK solo tour follows in 2027, split around Iron Maiden's own spring run in North America, which includes Phoenix's Talking Stick Resort Amphitheatre on April 26.",
+      "Source: Louder"
+    ]
+  },
+  {
+    date: "2026-11-19",
+    tag: "World",
+    title: "Within Temptation release \"Through Fire & Ashes\" with Dutch singer S10, title track of a spring 2027 album",
+    text: [
+      "Dutch symphonic metal band Within Temptation are back with \"Through Fire & Ashes\", a duet between Sharon den Adel and Dutch singer S10 that opens as an acoustic ballad and grows into a big choral finish.",
+      "It is also the title track of the band's ninth studio album, due in spring 2027 and following 2023's \"Bleed Out\". The band say the album is not finished yet and has a different sound, and no tour has been decided.",
+      "Fans can add their own artwork to a project on the band's site, which will be completed on the album's release day.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-19",
+    tag: "World",
+    title: "Austria's Serenity announce ninth album \"Melancholia\" for February 12 on Napalm Records",
+    text: [
+      "Austrian symphonic power metal band Serenity mark 20 years with \"Melancholia\", their ninth album, out February 12, 2027 on Napalm Records. The title track is out now.",
+      "The record is built around Albrecht Dürer and the Renaissance: the title song draws on Dürer's 1514 engraving \"Melencolia I\", and the closer, \"School of Athens\", honors Raphael. Sascha Paeth produced again, and Visions of Atlantis singer Clémentine Delauney guests on \"Mirror Mirror\".",
+      "The \"Melancholia - 20 Years of Serenity\" tour runs February 11 to March 13 across Germany, the Netherlands, Czechia, Austria, Hungary, Switzerland and the UK, with Secret Sphere and Secret Rule.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-19",
+    tag: "Tours",
+    title: "Sevendust will play their 1997 debut in full on a 30th anniversary U.S. tour in March and April",
+    text: [
+      "Atlanta's Sevendust are celebrating 30 years of their self-titled debut with the \"30 Years Of Dust\" tour, playing the whole album every night. SOIL and Drift Mothership support.",
+      "The 25-date run starts March 12 in Tulsa and ends April 15 in Charleston, South Carolina, with West stops in Albuquerque, San Diego, Santa Ana, Berkeley, Reno and Denver. There is no Arizona date. Tickets go on sale Friday, November 20, at 10 a.m. local time.",
+      "The band are still touring this year's album \"One\", their 15th, on Napalm Records.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-19",
+    tag: "Arizona",
+    title: "Arizona metal calendar for 2027: Iron Maiden in Phoenix April 26, plus Megadeth, Avatar, Týr and Cryptopsy",
+    text: [
+      "Iron Maiden's spring 2027 North American run includes Phoenix's Talking Stick Resort Amphitheatre on Sunday, April 26, between Southern California and Dallas.",
+      "It joins a busy early 2027 for Arizona: Dying Fetus and Cryptopsy at Rebel Lounge on March 7, Týr at the Nile Theater in Mesa on March 30, and a double hit on May 15 with Megadeth's farewell tour in Phoenix and Avatar at the Marquee Theatre in Tempe.",
+      "Every date is on the HeavyMusix Arizona shows list at heavymusix.com/az.",
+      "Source: Louder"
+    ]
+  },
+  {
+    date: "2026-11-19",
+    tag: "Throwback",
+    title: "On this day in metal: Gamma Ray release \"Land of the Free II\" (2007)",
+    text: [
+      "On November 19, 2007, Gamma Ray released \"Land of the Free II\" in Europe, the ninth studio album from Kai Hansen's power metal band.",
+      "Hansen, guitarist Henjo Richter, bassist Dirk Schlächter and drummer Dan Zimmermann recorded it at Hansen's High Gain Studio in Hamburg. The band took it on the road on the Hellish Rock Tour with Helloween. North America got the album in January 2008.",
+      "Source: Wikipedia, Gamma Ray official site"
+    ]
+  },
+  {
     date: "2026-11-18",
     tag: "Throwback",
     title: "On this day in metal: Helloween release their debut album \"Walls of Jericho\" (1985)",
