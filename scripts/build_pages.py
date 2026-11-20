@@ -376,7 +376,7 @@ body = f"""<section class="hero"><div class="wrap">
   <p class="kicker">Arizona metal</p>
   <h1>Metal shows in Phoenix and Arizona this week</h1>
   <p class="lead">Every heavy show we know about in Phoenix, Tempe, Mesa, Tucson and around Arizona. Updated every day. Week of {TODAY.strftime('%B %-d, %Y')}.</p>
-  <h2 class="sub">This week</h2>
+  <h2 class="sub">This week: {TODAY.strftime('%a, %b %-d')} to {(TODAY + datetime.timedelta(days=6)).strftime('%a, %b %-d')}</h2>
   {show_rows(this_week)}
   <h2 class="sub">Coming up</h2>
   {show_rows(later)}
@@ -397,7 +397,7 @@ events = [{"@context": "https://schema.org", "@type": "MusicEvent", "name": s["b
           for s in shows[:40]]
 page("arizona-metal-shows.html", "Metal shows in Phoenix & Arizona this week | HeavyMusix",
      f"Metal concerts in Phoenix, Tempe, Mesa, Tucson and across Arizona this week and coming up. Updated daily. {len(shows)} shows listed.",
-     body, nav="arizona.html", ld=events or None)
+     body, nav="arizona-metal-shows.html", ld=events or None)
 pages.append(("arizona-metal-shows.html", TODAY.isoformat()))
 
 # ---------------------------------------------------------------- genre pages
