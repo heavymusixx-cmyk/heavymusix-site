@@ -374,7 +374,7 @@ def show_rows(lst):
 cities = sorted({s["city"] for s in shows})
 body = f"""<section class="hero"><div class="wrap">
   <p class="kicker">Arizona metal</p>
-  <h1>Metal shows in Phoenix and Arizona this week</h1>
+  <h1 class="compact">Metal shows in Phoenix and Arizona this week</h1>
   <p class="lead">Every heavy show we know about in Phoenix, Tempe, Mesa, Tucson and around Arizona. Updated every day. Week of {TODAY.strftime('%B %-d, %Y')}.</p>
   <h2 class="sub">This week: {TODAY.strftime('%a, %b %-d')} to {(TODAY + datetime.timedelta(days=6)).strftime('%a, %b %-d')}</h2>
   {show_rows(this_week)}
