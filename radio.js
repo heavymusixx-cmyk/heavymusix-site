@@ -137,7 +137,15 @@
     d.setAttribute('aria-label', 'HeavyMusix Radio video');
     d.innerHTML =
       (POPOUT ? '' : '<div class="dock-bar dock-grip" title="Drag to move the video"><span aria-hidden="true">&#8942;&#8942;&#8942;</span></div>') +
-      '<div class="dock-video"><div id="hmx-yt"></div></div>';
+      '<div class="dock-video"><div id="hmx-yt"></div></div>' +
+      '<div class="dock-ctl">' +
+      '<button type="button" class="now-btn" data-act="prev" aria-label="Back" title="Back">&#9198;&#xFE0E;</button>' +
+      '<button type="button" class="now-btn now-main" data-act="toggle" aria-label="Stop" title="Stop">&#9632;&#xFE0E;</button>' +
+      '<button type="button" class="now-btn" data-act="next" aria-label="Forward" title="Forward">&#9197;&#xFE0E;</button>' +
+      (POPOUT ? '' : '<button type="button" class="now-btn" data-act="size" aria-label="Full size video" title="Full">&#10530;&#xFE0E;</button>') +
+      '<button type="button" class="now-btn now-off" data-act="off" aria-label="Turn the radio off" title="Off">&#10005;&#xFE0E;</button>' +
+      '</div>';
+    d.addEventListener('click', function(e){ var t = e.target.closest('.now-btn'); if (t) act(t.dataset.act); });
     document.body.appendChild(d);
     if (!POPOUT){ makeDraggable(d); markHome(); }
     syncControls();
@@ -250,16 +258,15 @@
   }
   window.hmxAct = act;
   function syncControls(){
-    var bar = document.getElementById('hmx-now'); if (!bar) return;
-    var on = !!(player && mode) || (!POPOUT && popoutAlive());
+    var d = dock(); if (!d) return;
     var st = -1; try { st = player.getPlayerState(); } catch (x) {}
-    var playing = (player && mode) ? (st === 1 || st === 3 || st === -1) : on;
-    bar.classList.toggle('idle', !on);
-    var p = bar.querySelector('[data-act="toggle"]');
+    var playing = st === 1 || st === 3 || st === -1;
+    var p = d.querySelector('[data-act="toggle"]');
     if (p){ p.innerHTML = playing ? '&#9632;&#xFE0E;' : '&#9654;&#xFE0E;'; p.setAttribute('aria-label', playing ? 'Stop' : 'Play'); p.title = playing ? 'Stop' : 'Play'; }
-    var z = bar.querySelector('[data-act="size"]'), big = !!(dock() && dock().classList.contains('big'));
-    if (z){ z.innerHTML = big ? '&#10529;&#xFE0E;' : '&#10530;&#xFE0E;'; z.setAttribute('aria-label', big ? 'Small video' : 'Full size video'); z.title = big ? 'Small' : 'Full'; z.hidden = POPOUT || !(player && mode); }
+    var z = d.querySelector('[data-act="size"]'), big = d.classList.contains('big');
+    if (z){ z.innerHTML = big ? '&#10529;&#xFE0E;' : '&#10530;&#xFE0E;'; z.setAttribute('aria-label', big ? 'Small video' : 'Full size video'); z.title = big ? 'Small' : 'Full'; }
   }
+
 
   function withPlayer(fn){
     if (!dock()) buildDock();
@@ -325,9 +332,11 @@
     if (full === lastTick) return;
     lastTick = full;
     var parts = tk.querySelectorAll('.tick-text');
-    parts[0].textContent = '\u266a ' + full; parts[1].textContent = '\u266a ' + full;
+    var htmlLine = '\u266a <span class="tick-label">' + esc(label) + ':</span> ' + esc(text);
+    parts[0].innerHTML = htmlLine; parts[1].innerHTML = htmlLine;
+    tk.classList.toggle('idle', !live);
+    tk.setAttribute('aria-label', live ? full + '. Press to pause or resume the scrolling.' : full + '. Press to listen.');
     tk.hidden = false;
-    tk.setAttribute('aria-label', full + '. Press to pause or resume the scrolling.');
     var liveEl = document.querySelector('.hmx-live'); if (liveEl && live) liveEl.textContent = full;
     tk.classList.remove('scroll');
     requestAnimationFrame(function(){
@@ -341,24 +350,21 @@
     b.id = 'hmx-now';
     b.setAttribute('role', 'region');
     b.setAttribute('aria-label', 'HeavyMusix Radio: now playing');
-    b.innerHTML =
-      '<button type="button" class="now-btn" data-act="prev" aria-label="Back" title="Back">&#9198;&#xFE0E;</button>' +
-      '<button type="button" class="now-btn now-main" data-act="toggle" aria-label="Play" title="Play">&#9654;&#xFE0E;</button>' +
-      '<button type="button" class="now-btn" data-act="next" aria-label="Forward" title="Forward">&#9197;&#xFE0E;</button>' +
-      TICK_HTML('now-tick') +
-      '<button type="button" class="now-btn" data-act="size" aria-label="Full size video" title="Full" hidden>&#10530;&#xFE0E;</button>' +
-      '<button type="button" class="now-btn now-off" data-act="off" aria-label="Turn the radio off" title="Off">&#10005;&#xFE0E;</button>' +
-      '<span class="hmx-sr hmx-live" aria-live="polite"></span>';
+    b.innerHTML = TICK_HTML('now-tick') + '<span class="hmx-sr hmx-live" aria-live="polite"></span>';
     document.body.appendChild(b);
     document.body.classList.add('has-now');
-    b.addEventListener('click', function(e){ var t = e.target.closest('.now-btn'); if (t) act(t.dataset.act); });
     window.addEventListener('storage', function(e){ if (e.key === NOWKEY || e.key === ALIVE) refreshNow(); });
     setInterval(function(){ if (!mode){ refreshNow(); syncControls(); } }, 15000);   // pop-out closed or song changed there
     refreshNow(); syncControls();
   }
   document.addEventListener('click', function(e){
     var tk = e.target.closest && e.target.closest('.hmx-tick');
-    if (tk){ var p = tk.classList.toggle('paused'); tk.setAttribute('aria-pressed', p ? 'true' : 'false'); }
+    if (!tk) return;
+    if (tk.classList.contains('now-tick') && !mode){   // nothing playing on this page: the bar starts (or shows) the radio
+      if (!POPOUT && popoutAlive()) tellPopout({cmd: 'show'}); else window.startRadio();
+      return;
+    }
+    var p = tk.classList.toggle('paused'); tk.setAttribute('aria-pressed', p ? 'true' : 'false');
   });
 
   function goodSongs(){ return (catalog || []).filter(function(v){ return !BAD[v]; }); }

@@ -402,12 +402,11 @@ footer.site a.footlogo:hover,footer.site a.footlogo:focus-visible{color:var(--bl
 #hmx-dock.big{left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%);width:min(1100px,94vw)}
 #hmx-dock.big .dock-video{height:auto;aspect-ratio:16/9;max-height:calc(100vh - 140px);margin:0 auto}
 #hmx-now{position:fixed;left:0;right:0;bottom:0;z-index:998;display:flex;align-items:stretch;height:44px;background:#0b0a0a;border-top:3px solid var(--blood);box-shadow:0 -4px 0 #000}
-#hmx-now .now-btn{flex:none;width:44px;padding:0;border:0;border-right:1px solid #2a2324;background:#0b0a0a;color:var(--bone);font-size:18px;line-height:1;cursor:pointer}
-#hmx-now .now-btn[hidden]{display:none}
-#hmx-now .now-main{background:var(--blood);color:#fff}
-#hmx-now .now-off{border-right:0;border-left:1px solid #2a2324}
-#hmx-now .now-btn:hover,#hmx-now .now-btn:focus-visible{background:#fff;color:#000;outline:none}
-#hmx-now.idle [data-act="prev"],#hmx-now.idle [data-act="next"],#hmx-now.idle .now-off{display:none}
+#hmx-dock .now-btn{flex:none;width:44px;padding:0;border:0;border-right:1px solid #2a2324;background:#0b0a0a;color:var(--bone);font-size:18px;line-height:1;cursor:pointer}
+#hmx-dock .now-btn[hidden]{display:none}
+#hmx-dock .now-main{background:var(--blood);color:#fff}
+#hmx-dock .now-off{border-right:0;border-left:1px solid #2a2324}
+#hmx-dock .now-btn:hover,#hmx-dock .now-btn:focus-visible{background:#fff;color:#000;outline:none}
 #hmx-now .hmx-tick{flex:1;min-width:0;min-height:0;height:100%;border-top:0;padding:0 12px;font-size:15px}
 body.has-now{padding-bottom:47px}
 body.has-now #hmx-dock{bottom:58px}
@@ -424,3 +423,10 @@ html[data-skin="slasher"]{--blood:#8a0f0f;--blood-hot:#e23b3b;--blood-text:#ff5a
 html[data-skin="slasher"] .logo{font-family:"Nosifer","Pirata One",serif;font-size:30px}
 html[data-skin="crypt"] h1,html[data-skin="krampus"] h1{letter-spacing:.01em}
 html[data-skin="halloween"] h1,html[data-skin="halloween"] h2{letter-spacing:.03em}
+#hmx-dock .dock-ctl{display:flex;justify-content:space-between;border-top:2px solid var(--blood);background:#0b0a0a}
+#hmx-dock .dock-ctl .now-btn{height:40px;flex:1;width:auto;border-right:1px solid #2a2324}
+#hmx-dock .dock-ctl .now-off{border-right:0}
+.hmx-tick .tick-label{color:var(--blood-text);font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+#hmx-now .hmx-tick.idle{cursor:pointer}
+body.popout #hmx-dock{display:flex;flex-direction:column}
+body.popout #hmx-dock .dock-video{flex:1}
