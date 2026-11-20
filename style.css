@@ -381,15 +381,40 @@ footer.site a.footlogo{color:#fff;text-decoration:none}
 footer.site a.footlogo:hover,footer.site a.footlogo:focus-visible{color:var(--blood-text);text-decoration:underline}
 
 /* Scrolling now-playing line in the radio player (song, band, album, year). Click or press to pause; still for reduced motion. */
-#hmx-dock .dock-ticker{display:block;width:100%;min-height:34px;margin:0;padding:7px 10px;overflow:hidden;white-space:nowrap;text-align:left;background:#0b0a0a;color:var(--bone);border:0;border-top:2px solid var(--blood);font:700 14px/1.4 var(--text);cursor:pointer}
-#hmx-dock .dock-ticker[hidden]{display:none}
-#hmx-dock .dock-ticker:focus-visible{outline:3px solid #fff;outline-offset:-3px}
-#hmx-dock .tick-move{display:inline-block}
-#hmx-dock .tick-text{display:inline-block;padding-right:3em}
-#hmx-dock .tick-text + .tick-text{display:none}
-#hmx-dock .dock-ticker.scroll .tick-text + .tick-text{display:inline-block}
-#hmx-dock .dock-ticker.scroll .tick-move{animation:hmx-tick var(--dur,20s) linear infinite}
-#hmx-dock .dock-ticker.paused .tick-move,#hmx-dock .dock-ticker:hover .tick-move,#hmx-dock .dock-ticker:focus-visible .tick-move{animation-play-state:paused}
+.hmx-tick{display:block;width:100%;min-height:34px;margin:0;padding:7px 10px;overflow:hidden;white-space:nowrap;text-align:left;background:#0b0a0a;color:var(--bone);border:0;border-top:2px solid var(--blood);font:700 14px/1.4 var(--text);cursor:pointer}
+.hmx-tick[hidden]{display:none}
+.hmx-tick:focus-visible{outline:3px solid #fff;outline-offset:-3px}
+.hmx-tick .tick-move{display:inline-block}
+.hmx-tick .tick-text{display:inline-block;padding-right:3em}
+.hmx-tick .tick-text + .tick-text{display:none}
+.hmx-tick.scroll .tick-text + .tick-text{display:inline-block}
+.hmx-tick.scroll .tick-move{animation:hmx-tick var(--dur,20s) linear infinite}
+.hmx-tick.paused .tick-move,.hmx-tick:hover .tick-move,.hmx-tick:focus-visible .tick-move{animation-play-state:paused}
 @keyframes hmx-tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .hmx-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
-@media (prefers-reduced-motion:reduce){#hmx-dock .dock-ticker{white-space:normal}#hmx-dock .dock-ticker.scroll .tick-text + .tick-text{display:none}#hmx-dock .dock-ticker .tick-move{animation:none!important}}
+@media (prefers-reduced-motion:reduce){.hmx-tick{white-space:normal}.hmx-tick.scroll .tick-text + .tick-text{display:none}.hmx-tick .tick-move{animation:none!important}}
+/* Player controls row, big screen, mini, phone app link */
+#hmx-dock .dock-ctl{display:flex;align-items:center;gap:6px;padding:6px 8px;background:#050404;border-top:2px solid var(--blood)}
+#hmx-dock .dock-ctl .dock-btn{font-size:16px}
+#hmx-dock .dock-vol{flex:1;min-width:60px;height:28px;accent-color:var(--blood-hot);cursor:pointer}
+#hmx-dock .dock-vol:focus-visible{outline:3px solid #fff;outline-offset:2px}
+#hmx-dock .dock-ytm{display:none;min-height:44px;padding:11px 12px;background:var(--blood);color:#fff;font:700 14px/1.4 var(--text);text-align:center;text-decoration:none;border-top:2px solid #000}
+#hmx-dock .dock-ytm:hover,#hmx-dock .dock-ytm:focus-visible{background:#fff;color:#000;outline:none}
+@media (pointer:coarse){#hmx-dock .dock-ytm{display:block}}
+#hmx-dock.min{width:220px}
+#hmx-dock.min .dock-video{aspect-ratio:auto;height:200px}
+#hmx-dock.min .dock-vol,#hmx-dock.min .dock-ytm,#hmx-dock.min [data-act="full"]{display:none}
+#hmx-dim{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.85)}
+#hmx-dock.big{left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%);width:min(1100px,94vw);max-width:none}
+#hmx-dock.big .dock-video{max-height:calc(100vh - 190px);margin:0 auto}
+#hmx-dock.big .dock-bar{cursor:default}
+body.popout #hmx-dock [data-act="big"]{display:none}
+@media (max-width:600px){#hmx-dock.min{left:auto;width:200px}#hmx-dock.big{width:100vw;border-width:2px}}
+/* Pinned now-playing bar on every page (stays when the player is closed) */
+#hmx-now{position:fixed;left:0;right:0;bottom:0;z-index:998;display:flex;align-items:stretch;height:44px;background:#0b0a0a;border-top:3px solid var(--blood);box-shadow:0 -4px 0 #000}
+#hmx-now .now-listen{flex:none;min-width:96px;padding:0 14px;border:0;border-right:2px solid var(--blood);background:var(--blood);color:#fff;font:700 15px/1 var(--text);cursor:pointer}
+#hmx-now .now-listen:hover,#hmx-now .now-listen:focus-visible{background:#fff;color:#000;outline:none}
+#hmx-now .hmx-tick{flex:1;min-width:0;min-height:0;height:100%;border-top:0;padding:0 12px;font-size:15px}
+body.has-now{padding-bottom:47px}
+body.has-now #hmx-dock{bottom:62px}
+@media (max-width:600px){body.has-now #hmx-dock{bottom:54px}#hmx-now .hmx-tick{font-size:14px}}

@@ -140,18 +140,29 @@
       (POPOUT ? '' : '<span class="dock-grip" aria-hidden="true">&#8942;&#8942;</span>') +
       '<span class="dock-title">HeavyMusix Radio<span class="dock-now"></span></span>' +
       '<button type="button" class="dock-btn" data-act="radio" aria-label="Back to the radio" title="Back to the radio">&#9673;</button>' +
+      '<button type="button" class="dock-btn" data-act="big" aria-pressed="false" aria-label="Big screen: watch the video large" title="Big screen">&#10530;&#xFE0E;</button>' +
       (POPOUT ? '' :
       '<button type="button" class="dock-btn" data-act="pop" aria-label="Pop out the player so it keeps playing when you leave the site" title="Pop out: keeps playing when you leave the site">&#10697;</button>' +
       '<button type="button" class="dock-btn" data-act="min" aria-label="Shrink or expand the player" title="Shrink or expand">&#8211;</button>') +
       '<button type="button" class="dock-btn" data-act="close" aria-label="Stop and close the player" title="Stop">&#215;</button></div>' +
-      '<button type="button" class="dock-ticker" hidden aria-label="Now playing"><span class="tick-move"><span class="tick-text"></span><span class="tick-text" aria-hidden="true"></span></span></button>' +
-      '<span class="hmx-sr dock-live" aria-live="polite"></span>' +
-      '<div class="dock-video"><div id="hmx-yt"></div></div>';
+      (POPOUT ? TICK_HTML('dock-ticker') + '<span class="hmx-sr hmx-live" aria-live="polite"></span>' : '') +
+      '<div class="dock-video"><div id="hmx-yt"></div></div>' +
+      '<div class="dock-ctl">' +
+      '<button type="button" class="dock-btn" data-act="play" aria-label="Pause" title="Pause">&#10074;&#10074;</button>' +
+      '<button type="button" class="dock-btn" data-act="skip" aria-label="Skip to the next song" title="Skip">&#9197;&#xFE0E;</button>' +
+      '<button type="button" class="dock-btn" data-act="mute" aria-pressed="false" aria-label="Mute" title="Mute">&#128266;&#xFE0E;</button>' +
+      '<input type="range" class="dock-vol" min="0" max="100" step="5" value="80" aria-label="Volume">' +
+      '<button type="button" class="dock-btn" data-act="full" aria-label="Full screen video" title="Full screen">&#9974;&#xFE0E;</button>' +
+      '</div>' +
+      '<a class="dock-ytm" href="https://music.youtube.com/playlist?list=' + PL + '" target="_blank" rel="noopener">Open in YouTube Music (keeps playing with the screen off)</a>';
     d.addEventListener('click', function(e){
-      var tk = e.target.closest('.dock-ticker');
-      if (tk){ var p = tk.classList.toggle('paused'); tk.setAttribute('aria-pressed', p ? 'true' : 'false'); return; }
       var b = e.target.closest('.dock-btn'); if (!b) return;
-      if (b.dataset.act === 'min') d.classList.toggle('min');
+      if (b.dataset.act === 'min'){ setBig(false); d.classList.toggle('min'); }
+      if (b.dataset.act === 'big') setBig(!d.classList.contains('big'));
+      if (b.dataset.act === 'play') togglePlay();
+      if (b.dataset.act === 'skip') skip();
+      if (b.dataset.act === 'mute') toggleMute();
+      if (b.dataset.act === 'full') fullScreen();
       if (b.dataset.act === 'radio') startDefault();
       if (b.dataset.act === 'pop') openPopout();
       if (b.dataset.act === 'close'){
@@ -160,6 +171,12 @@
         d.remove(); location.reload();
       }
     });
+    d.querySelector('.dock-vol').addEventListener('input', function(){
+      try { player.setVolume(+this.value); if (+this.value > 0 && player.isMuted()) player.unMute(); } catch (x) {}
+      try { localStorage.setItem('hmxVol', this.value); } catch (x) {}
+      syncControls();
+    });
+    try { var vol = localStorage.getItem('hmxVol'); if (vol !== null) d.querySelector('.dock-vol').value = vol; } catch (x) {}
     document.body.appendChild(d);
     if (!POPOUT){ makeDraggable(d); markHome(); }
     var go = function(){
@@ -167,7 +184,7 @@
         width: '100%', height: '100%',
         playerVars: {autoplay: 1, playsinline: 1, rel: 0, modestbranding: 1},
         events: {
-          onReady: function(){ ready = true; if (pending){ var p = pending; pending = null; p(); } },
+          onReady: function(){ ready = true; try { player.setVolume(+document.querySelector('#hmx-dock .dock-vol').value); } catch (x) {} if (pending){ var p = pending; pending = null; p(); } },
           onStateChange: onState,
           onError: onError
         }
@@ -219,6 +236,45 @@
     });
   }
 
+  /* Player controls: big screen, pause/play, skip, mute, volume, full screen. */
+  function setBig(on){
+    var d = dock(); if (!d) return;
+    d.classList.toggle('big', on); document.body.classList.toggle('hmx-big', on);
+    var dim = document.getElementById('hmx-dim');
+    if (on && !dim){ dim = document.createElement('div'); dim.id = 'hmx-dim'; dim.addEventListener('click', function(){ setBig(false); }); document.body.insertBefore(dim, d); }
+    if (!on && dim) dim.remove();
+    var b = d.querySelector('[data-act="big"]');
+    if (b){ b.setAttribute('aria-pressed', on ? 'true' : 'false'); b.setAttribute('aria-label', on ? 'Back to the small player' : 'Big screen: watch the video large'); b.title = on ? 'Back to small' : 'Big screen'; }
+    if (on){ d.classList.remove('min'); if (b) b.focus(); }
+  }
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && document.body.classList.contains('hmx-big')) setBig(false); });
+  function togglePlay(){
+    try { if (player.getPlayerState() === 1) player.pauseVideo(); else player.playVideo(); } catch (x) {}
+  }
+  function skip(){
+    if (!player || !mode) return;
+    try {
+      if (mode.kind === 'song'){ startDefault(); return; }
+      if (atEpisodeEnd()){ if (mode.kind === 'radio') nextChunk(); else nextEpisode(); return; }
+      player.nextVideo();
+    } catch (x) {}
+  }
+  function toggleMute(){
+    try { if (player.isMuted()) player.unMute(); else player.mute(); } catch (x) {}
+    setTimeout(syncControls, 150);
+  }
+  function fullScreen(){
+    try { var f = player.getIframe(); (f.requestFullscreen || f.webkitRequestFullscreen || function(){}).call(f); } catch (x) {}
+  }
+  function syncControls(){
+    var d = dock(); if (!d || !player) return;
+    var st = -1, muted = false;
+    try { st = player.getPlayerState(); muted = player.isMuted(); } catch (x) {}
+    var p = d.querySelector('[data-act="play"]'), m = d.querySelector('[data-act="mute"]');
+    if (p){ var playing = st === 1 || st === 3; p.innerHTML = playing ? '&#10074;&#10074;' : '&#9654;&#xFE0E;'; p.setAttribute('aria-label', playing ? 'Pause' : 'Play'); p.title = playing ? 'Pause' : 'Play'; }
+    if (m){ m.innerHTML = muted ? '&#128263;&#xFE0E;' : '&#128266;&#xFE0E;'; m.setAttribute('aria-pressed', muted ? 'true' : 'false'); m.setAttribute('aria-label', muted ? 'Unmute' : 'Mute'); m.title = muted ? 'Unmute' : 'Mute'; }
+  }
+
   function withPlayer(fn){
     if (!dock()) buildDock();
     else dock().classList.remove('min');
@@ -231,43 +287,93 @@
      song again and never got past song 200). Each fan's place is saved, so the next visit
      continues where they left off and nothing repeats until the whole list has played. */
   var CHUNK = 50, POS = 'hmxRadioPos';
-  var catalog = null, chunkStart = 0;
+  var catalog = null, CAT = null, chunkStart = 0;
   var catalogReady = fetch('show/catalog.json', {cache: 'no-cache'}).then(function(r){ return r.json(); })
-    .then(function(c){ catalog = (c || []).map(function(x){ return x.v; }).filter(Boolean); return catalog; })
+    .then(function(c){ CAT = c || []; catalog = CAT.map(function(x){ return x.v; }).filter(Boolean); return catalog; })
     .catch(function(){ catalog = []; return catalog; });
-  /* Scrolling "now playing" line: song, band, album and year.
+  /* Pinned "now playing" bar along the bottom of every page: song, band, album and year.
+     Stays when the player is closed, showing what's up next with a Listen button.
      Album and year come from show/songinfo.json (the Song info robot, MusicBrainz). */
-  var SONGS = {}, INFO = {}, lastTick = '';
-  catalogReady.then(function(){
-    return fetch('show/catalog.json', {cache: 'force-cache'}).then(function(r){ return r.json(); })
-      .then(function(c){ (c || []).forEach(function(x){ if (x.v) SONGS[x.v] = x; }); if (lastTick){ lastTick = ''; nowPlaying(); } });
-  }).catch(function(){});
+  function TICK_HTML(cls){
+    return '<button type="button" class="hmx-tick ' + cls + '" hidden aria-pressed="false" aria-label="Now playing">' +
+      '<span class="tick-move"><span class="tick-text"></span><span class="tick-text" aria-hidden="true"></span></span></button>';
+  }
+  var SONGS = {}, INFO = {}, lastTick = '', NOWKEY = 'hmxNowText';
+  catalogReady.then(function(){ (CAT || []).forEach(function(x){ if (x.v) SONGS[x.v] = x; }); refreshNow(); });
   fetch('show/songinfo.json', {cache: 'no-cache'}).then(function(r){ return r.ok ? r.json() : {}; })
-    .then(function(d){ INFO = d || {}; if (lastTick) { lastTick = ''; nowPlaying(); } }).catch(function(){});
+    .then(function(d){ INFO = d || {}; refreshNow(); }).catch(function(){});
+  function songLine(id, fallback){
+    var s = SONGS[id], i = INFO[id] || {};
+    var text = s ? s.t + ' \u2014 ' + s.n : (fallback || '');
+    if (!text) return '';
+    if (i.al) text += ' \u00b7 ' + i.al + (i.y ? ' (' + i.y + ')' : '');
+    else if (i.y) text += ' (' + i.y + ')';
+    return text;
+  }
+  function playingHere(){ try { var st = player.getPlayerState(); return st === 1 || st === 3 || st === 2; } catch (x) { return false; } }
   function nowPlaying(){
     var vd = null; try { vd = player.getVideoData && player.getVideoData(); } catch (x) {}
     var id = vd && vd.video_id; if (!id) return;
-    var s = SONGS[id], i = INFO[id] || {};
-    var text = s ? s.t + ' \u2014 ' + s.n : (vd.title || '');
+    var text = songLine(id, vd.title);
     if (!text) return;
-    if (i.al) text += ' \u00b7 ' + i.al + (i.y ? ' (' + i.y + ')' : '');
-    else if (i.y) text += ' (' + i.y + ')';
-    setTicker(text);
+    setTicker('Now playing', text, true);
+    if (POPOUT){ try { localStorage.setItem(NOWKEY, JSON.stringify({text: text, ts: Date.now()})); } catch (x) {} }
   }
-  function setTicker(text){
-    var tk = document.querySelector('#hmx-dock .dock-ticker'); if (!tk || text === lastTick) return;
-    lastTick = text;
+  function refreshNow(){
+    lastTick = '';
+    if (player && mode && playingHere()){ nowPlaying(); return; }
+    if (!POPOUT && popoutAlive()){
+      var n = null; try { n = JSON.parse(localStorage.getItem(NOWKEY) || 'null'); } catch (x) {}
+      if (n && n.text){ setTicker('Now playing', n.text, true); return; }
+    }
+    if (POPOUT) return;
+    var list = goodSongs(); if (!list.length) return;
+    var p = savedPos();
+    if (p === null){ p = Math.floor(Math.random() * list.length) - 1; savePos(p); }   // new listener: pick their starting song now, so Listen plays exactly this one
+    var id = list[((p + 1) % list.length + list.length) % list.length];
+    setTicker('Up next on HeavyMusix Radio', songLine(id), false);
+  }
+  function setTicker(label, text, live){
+    var tk = POPOUT ? document.querySelector('#hmx-dock .hmx-tick') : document.querySelector('#hmx-now .hmx-tick');
+    if (!tk || !text) return;
+    var full = label + ': ' + text;
+    var btn = document.querySelector('#hmx-now .now-listen');
+    if (btn){ btn.innerHTML = live ? 'Player' : '&#9654;&#xFE0E; Listen'; btn.setAttribute('aria-label', live ? 'Show the radio player' : 'Listen to HeavyMusix Radio'); }
+    if (full === lastTick) return;
+    lastTick = full;
     var parts = tk.querySelectorAll('.tick-text');
-    parts[0].textContent = '\u266a ' + text; parts[1].textContent = '\u266a ' + text;
+    parts[0].textContent = '\u266a ' + full; parts[1].textContent = '\u266a ' + full;
     tk.hidden = false;
-    tk.setAttribute('aria-label', 'Now playing: ' + text + '. Press to pause or resume the scrolling.');
-    var live = document.querySelector('#hmx-dock .dock-live'); if (live) live.textContent = 'Now playing: ' + text;
+    tk.setAttribute('aria-label', full + '. Press to pause or resume the scrolling.');
+    var liveEl = document.querySelector('.hmx-live'); if (liveEl && live) liveEl.textContent = full;
     tk.classList.remove('scroll');
     requestAnimationFrame(function(){
       var w = parts[0].offsetWidth;
-      if (w > tk.clientWidth - 16){ tk.style.setProperty('--dur', Math.max(8, Math.round(w / 45)) + 's'); tk.classList.add('scroll'); }
+      if (w > tk.clientWidth - 16){ tk.style.setProperty('--dur', Math.max(10, Math.round(w / 45)) + 's'); tk.classList.add('scroll'); }
     });
   }
+  function buildNowBar(){
+    if (POPOUT || document.getElementById('hmx-now')) return;
+    var b = document.createElement('div');
+    b.id = 'hmx-now';
+    b.setAttribute('role', 'region');
+    b.setAttribute('aria-label', 'HeavyMusix Radio: now playing');
+    b.innerHTML = '<button type="button" class="now-listen" aria-label="Listen to HeavyMusix Radio">&#9654;&#xFE0E; Listen</button>' +
+      TICK_HTML('now-tick') + '<span class="hmx-sr hmx-live" aria-live="polite"></span>';
+    document.body.appendChild(b);
+    document.body.classList.add('has-now');
+    b.querySelector('.now-listen').addEventListener('click', function(){
+      if (dock() && mode){ dock().classList.remove('min'); var f = dock().querySelector('.dock-btn'); if (f) f.focus(); return; }
+      window.startRadio();
+    });
+    window.addEventListener('storage', function(e){ if (e.key === NOWKEY || e.key === ALIVE) refreshNow(); });
+    setInterval(function(){ if (!mode) refreshNow(); }, 15000);   // pop-out closed or song changed there
+    refreshNow();
+  }
+  document.addEventListener('click', function(e){
+    var tk = e.target.closest && e.target.closest('.hmx-tick');
+    if (tk){ var p = tk.classList.toggle('paused'); tk.setAttribute('aria-pressed', p ? 'true' : 'false'); }
+  });
 
   function goodSongs(){ return (catalog || []).filter(function(v){ return !BAD[v]; }); }
   function savedPos(){ try { var p = JSON.parse(localStorage.getItem(POS) || 'null'); return p && typeof p.i === 'number' ? p.i : null; } catch (x) { return null; } }
@@ -332,6 +438,7 @@
   function onState(e){
     if (e.data === 1 && mode && mode.kind === 'radio') savePos(radioIndex());
     if (e.data === 1) nowPlaying();
+    syncControls();
     if (e.data === 1){ errors = 0; var r = document.querySelector('#hmx-dock .dock-resume'); if (r) r.remove(); }
     if (e.data !== 0 || !mode) return;               // 0 = ended
     if (mode.kind === 'song'){ startDefault(); return; }
@@ -486,6 +593,7 @@
     return chain;
   }
 
+  function nb0(){ return !!document.getElementById('hmx-now'); }
   function load(url, push){
     return fetch(url, {credentials: 'same-origin'}).then(function(r){
       if (!r.ok) throw new Error(r.status);
@@ -494,13 +602,14 @@
       var doc = new DOMParser().parseFromString(html, 'text/html');
       var d = dock();
       document.title = doc.title;
-      document.body.className = doc.body.className;
-      Array.prototype.slice.call(document.body.childNodes).forEach(function(n){ if (n !== d) n.remove(); });
+      document.body.className = doc.body.className + (nb0() ? ' has-now' : '');
+      var nb = document.getElementById('hmx-now');
+      Array.prototype.slice.call(document.body.childNodes).forEach(function(n){ if (n !== d && n !== nb) n.remove(); });
       var scripts = [];
       Array.prototype.slice.call(doc.body.childNodes).forEach(function(n){
         if (n.nodeName === 'SCRIPT'){ if (!/goatcounter/.test(n.outerHTML)) scripts.push(n); return; }
         if (n.querySelectorAll) n.querySelectorAll('script').forEach(function(s){ scripts.push(s); s.remove(); });
-        document.body.insertBefore(document.importNode(n, true), d);
+        document.body.insertBefore(document.importNode(n, true), d || nb);
       });
       if (push) history.pushState({hmx: 1}, '', url);
       try { if (window.goatcounter && goatcounter.count) goatcounter.count({path: location.pathname + location.search, title: document.title}); } catch(e){}
@@ -543,7 +652,7 @@
   });
 
   function boot(){
-    if (!POPOUT){ resumeIfPlaying(); markHome(); return; }
+    if (!POPOUT){ buildNowBar(); resumeIfPlaying(); markHome(); return; }
     /* Pop-out window: say it is alive, take requests from the site's pages, start the music. */
     var beat = function(){ try { localStorage.setItem(ALIVE, String(Date.now())); } catch (x) {} };
     beat(); setInterval(beat, 2000);
