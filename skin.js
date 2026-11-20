@@ -9,7 +9,7 @@
      Christmas         Dec 1-26     skull ornaments
      New Year's        Dec 27-Jan 2 gold firework skull
    Preview any skin with ?skin=crypt (or blood, toxic, frost, valentine, stpatrick, july4, halloween,
-   thanksgiving, christmas, newyear; ?skin=auto to reset). */
+   thanksgiving, christmas, newyear). A preview never sticks: open heavymusix.com normally to see the scheduled skin. */
 (function(){
   var d = new Date(), m = d.getMonth() + 1, day = d.getDate(), skin;
   var y = d.getFullYear(), nov1 = new Date(y, 10, 1).getDay();
@@ -27,11 +27,11 @@
     skin = ['blood', 'crypt', 'toxic', 'frost'][((weeks % 4) + 4) % 4];
   }
   try {
+    // A ?skin= preview only lasts while you browse in that tab (pages load in place, so the look stays);
+    // a fresh visit always follows the schedule. Old saved previews are cleared.
+    sessionStorage.removeItem('hmxSkin');
     var q = /[?&]skin=([a-z0-9]+)/.exec(location.search);
-    if (q && !/^(blood|crypt|toxic|frost|valentine|stpatrick|july4|halloween|thanksgiving|christmas|newyear|auto)$/.test(q[1])) q = null;
-    if (q) { if (q[1] === 'auto') sessionStorage.removeItem('hmxSkin'); else sessionStorage.setItem('hmxSkin', q[1]); }
-    var keep = sessionStorage.getItem('hmxSkin');
-    if (keep && /^(blood|crypt|toxic|frost|valentine|stpatrick|july4|halloween|thanksgiving|christmas|newyear)$/.test(keep)) skin = keep;
+    if (q && /^(blood|crypt|toxic|frost|valentine|stpatrick|july4|halloween|thanksgiving|christmas|newyear)$/.test(q[1])) skin = q[1];
   } catch (e) {}
   document.documentElement.setAttribute('data-skin', skin);
 })();
