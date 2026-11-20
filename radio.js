@@ -143,6 +143,7 @@
       '<button type="button" class="now-btn now-main" data-act="toggle" aria-label="Stop" title="Stop">&#9632;&#xFE0E;</button>' +
       '<button type="button" class="now-btn" data-act="next" aria-label="Forward" title="Forward">&#9197;&#xFE0E;</button>' +
       (POPOUT ? '' : '<button type="button" class="now-btn" data-act="size" aria-label="Full size video" title="Full">&#10530;&#xFE0E;</button>') +
+      '<a class="now-btn now-ytm" href="https://music.youtube.com/playlist?list=' + PL + '" target="_blank" rel="noopener" aria-label="Open the HeavyMusix Radio playlist in the YouTube Music app (opens a new tab)" title="YouTube Music app">&#9835;&#8599;&#xFE0E;</a>' +
       '<button type="button" class="now-btn now-off" data-act="off" aria-label="Turn the radio off" title="Off">&#10005;&#xFE0E;</button>' +
       '</div>';
     d.addEventListener('click', function(e){ var t = e.target.closest('.now-btn'); if (t) act(t.dataset.act); });

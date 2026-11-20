@@ -432,3 +432,5 @@ html[data-skin="halloween"] h1,html[data-skin="halloween"] h2{letter-spacing:.03
 #hmx-now .hmx-tick.idle{cursor:pointer}
 body.popout #hmx-dock{display:flex;flex-direction:column}
 body.popout #hmx-dock .dock-video{flex:1}
+#hmx-dock .now-ytm{display:none;align-items:center;justify-content:center;text-decoration:none;font-size:16px}
+@media (pointer:coarse){#hmx-dock .now-ytm{display:flex}}
