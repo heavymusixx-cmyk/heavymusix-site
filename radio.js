@@ -144,8 +144,12 @@
       '<button type="button" class="dock-btn" data-act="pop" aria-label="Pop out the player so it keeps playing when you leave the site" title="Pop out: keeps playing when you leave the site">&#10697;</button>' +
       '<button type="button" class="dock-btn" data-act="min" aria-label="Shrink or expand the player" title="Shrink or expand">&#8211;</button>') +
       '<button type="button" class="dock-btn" data-act="close" aria-label="Stop and close the player" title="Stop">&#215;</button></div>' +
+      '<button type="button" class="dock-ticker" hidden aria-label="Now playing"><span class="tick-move"><span class="tick-text"></span><span class="tick-text" aria-hidden="true"></span></span></button>' +
+      '<span class="hmx-sr dock-live" aria-live="polite"></span>' +
       '<div class="dock-video"><div id="hmx-yt"></div></div>';
     d.addEventListener('click', function(e){
+      var tk = e.target.closest('.dock-ticker');
+      if (tk){ var p = tk.classList.toggle('paused'); tk.setAttribute('aria-pressed', p ? 'true' : 'false'); return; }
       var b = e.target.closest('.dock-btn'); if (!b) return;
       if (b.dataset.act === 'min') d.classList.toggle('min');
       if (b.dataset.act === 'radio') startDefault();
@@ -231,6 +235,40 @@
   var catalogReady = fetch('show/catalog.json', {cache: 'no-cache'}).then(function(r){ return r.json(); })
     .then(function(c){ catalog = (c || []).map(function(x){ return x.v; }).filter(Boolean); return catalog; })
     .catch(function(){ catalog = []; return catalog; });
+  /* Scrolling "now playing" line: song, band, album and year.
+     Album and year come from show/songinfo.json (the Song info robot, MusicBrainz). */
+  var SONGS = {}, INFO = {}, lastTick = '';
+  catalogReady.then(function(){
+    return fetch('show/catalog.json', {cache: 'force-cache'}).then(function(r){ return r.json(); })
+      .then(function(c){ (c || []).forEach(function(x){ if (x.v) SONGS[x.v] = x; }); if (lastTick){ lastTick = ''; nowPlaying(); } });
+  }).catch(function(){});
+  fetch('show/songinfo.json', {cache: 'no-cache'}).then(function(r){ return r.ok ? r.json() : {}; })
+    .then(function(d){ INFO = d || {}; if (lastTick) { lastTick = ''; nowPlaying(); } }).catch(function(){});
+  function nowPlaying(){
+    var vd = null; try { vd = player.getVideoData && player.getVideoData(); } catch (x) {}
+    var id = vd && vd.video_id; if (!id) return;
+    var s = SONGS[id], i = INFO[id] || {};
+    var text = s ? s.t + ' \u2014 ' + s.n : (vd.title || '');
+    if (!text) return;
+    if (i.al) text += ' \u00b7 ' + i.al + (i.y ? ' (' + i.y + ')' : '');
+    else if (i.y) text += ' (' + i.y + ')';
+    setTicker(text);
+  }
+  function setTicker(text){
+    var tk = document.querySelector('#hmx-dock .dock-ticker'); if (!tk || text === lastTick) return;
+    lastTick = text;
+    var parts = tk.querySelectorAll('.tick-text');
+    parts[0].textContent = '\u266a ' + text; parts[1].textContent = '\u266a ' + text;
+    tk.hidden = false;
+    tk.setAttribute('aria-label', 'Now playing: ' + text + '. Press to pause or resume the scrolling.');
+    var live = document.querySelector('#hmx-dock .dock-live'); if (live) live.textContent = 'Now playing: ' + text;
+    tk.classList.remove('scroll');
+    requestAnimationFrame(function(){
+      var w = parts[0].offsetWidth;
+      if (w > tk.clientWidth - 16){ tk.style.setProperty('--dur', Math.max(8, Math.round(w / 45)) + 's'); tk.classList.add('scroll'); }
+    });
+  }
+
   function goodSongs(){ return (catalog || []).filter(function(v){ return !BAD[v]; }); }
   function savedPos(){ try { var p = JSON.parse(localStorage.getItem(POS) || 'null'); return p && typeof p.i === 'number' ? p.i : null; } catch (x) { return null; } }
   function savePos(i){ try { localStorage.setItem(POS, JSON.stringify({i: i, ts: Date.now()})); } catch (x) {} }
@@ -293,6 +331,7 @@
   }
   function onState(e){
     if (e.data === 1 && mode && mode.kind === 'radio') savePos(radioIndex());
+    if (e.data === 1) nowPlaying();
     if (e.data === 1){ errors = 0; var r = document.querySelector('#hmx-dock .dock-resume'); if (r) r.remove(); }
     if (e.data !== 0 || !mode) return;               // 0 = ended
     if (mode.kind === 'song'){ startDefault(); return; }

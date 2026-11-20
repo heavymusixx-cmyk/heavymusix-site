@@ -379,3 +379,17 @@ footer.site a{display:inline-block;padding-block:4px;line-height:1.25}
 /* Footer logo goes home */
 footer.site a.footlogo{color:#fff;text-decoration:none}
 footer.site a.footlogo:hover,footer.site a.footlogo:focus-visible{color:var(--blood-text);text-decoration:underline}
+
+/* Scrolling now-playing line in the radio player (song, band, album, year). Click or press to pause; still for reduced motion. */
+#hmx-dock .dock-ticker{display:block;width:100%;min-height:34px;margin:0;padding:7px 10px;overflow:hidden;white-space:nowrap;text-align:left;background:#0b0a0a;color:var(--bone);border:0;border-top:2px solid var(--blood);font:700 14px/1.4 var(--text);cursor:pointer}
+#hmx-dock .dock-ticker[hidden]{display:none}
+#hmx-dock .dock-ticker:focus-visible{outline:3px solid #fff;outline-offset:-3px}
+#hmx-dock .tick-move{display:inline-block}
+#hmx-dock .tick-text{display:inline-block;padding-right:3em}
+#hmx-dock .tick-text + .tick-text{display:none}
+#hmx-dock .dock-ticker.scroll .tick-text + .tick-text{display:inline-block}
+#hmx-dock .dock-ticker.scroll .tick-move{animation:hmx-tick var(--dur,20s) linear infinite}
+#hmx-dock .dock-ticker.paused .tick-move,#hmx-dock .dock-ticker:hover .tick-move,#hmx-dock .dock-ticker:focus-visible .tick-move{animation-play-state:paused}
+@keyframes hmx-tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.hmx-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media (prefers-reduced-motion:reduce){#hmx-dock .dock-ticker{white-space:normal}#hmx-dock .dock-ticker.scroll .tick-text + .tick-text{display:none}#hmx-dock .dock-ticker .tick-move{animation:none!important}}
