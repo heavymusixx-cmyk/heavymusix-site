@@ -7,6 +7,28 @@
 var NEWS = [
   {
     date: "2026-11-19",
+    tag: "Tours",
+    title: "Meshuggah bring Testament and Blood Incantation on their 40th-anniversary \"Forty-Year Anomaly\" tour, with Phoenix on April 27",
+    text: [
+      "Swedish polyrhythm machine Meshuggah turn 40 in 2027, and they are celebrating with \"The Forty-Year Anomaly\", a 35-date North American run. Bay Area thrash legends Testament and Denver's cosmic death metal crew Blood Incantation are the special guests on the headline shows.",
+      "The first leg runs February 12 in Toronto to March 6 in Boston. The second starts April 15 in Vancouver, takes in Meshuggah's first-ever Red Rocks show on April 21, and wraps with festival sets at Welcome to Rockville, Sonic Temple and Milwaukee Metal Fest in mid-May.",
+      "Arizona's date is Tuesday, April 27, 2027 at Arizona Financial Theatre in Phoenix. A 20-date European leg follows in the fall with Periphery and Vildhjarta, closing October 30 at London's Wembley arena. Tickets are on sale now through the band's official site.",
+      "Source: Blabbermouth, Loudwire, TicketNews"
+    ]
+  },
+  {
+    date: "2026-11-19",
+    tag: "News",
+    title: "Testament's Chuck Billy tells his life story in new memoir \"Holding My Breath\"",
+    text: [
+      "Testament frontman Chuck Billy's memoir, \"Holding My Breath: The Two Testaments of Chuck Billy\", is out now through Permuted Press. He wrote it with Dave Erickson, and it comes with a foreword from Judas Priest's Rob Halford and an afterword from Lamb of God's Randy Blythe.",
+      "The book is split in two. The \"Old Testament\" covers his childhood in a Native American and Mexican-American family, the birth of Bay Area thrash and Testament's rise. The \"New Testament\" follows his cancer diagnosis at 38 in 2001, his recovery through chemotherapy and traditional Native American healing, and the band's comeback.",
+      "Billy has been cancer-free for more than two decades. He will be on the road again in 2027 with Testament, supporting Meshuggah in North America and Megadeth in Europe.",
+      "Source: Blabbermouth, Loudwire, Knotfest"
+    ]
+  },
+  {
+    date: "2026-11-19",
     tag: "Releases",
     title: "Bruce Dickinson announces new solo album \"PsychoGod\" for March 12, shares first single \"Speaking In Tongues\"",
     text: [
