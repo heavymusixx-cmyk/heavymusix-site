@@ -28,3 +28,10 @@ Fixes and improvements toward this standard never need approval. New features, n
 ## Schedule: Eastern time
 
 The site updates by **5 AM Eastern** every day: stories (Claude task, 4:23 AM ET), headlines (4:51 AM ET, then every 4 hours), playlist reshuffle (5:05 AM ET), social clips (5:11 AM ET), Radio Show builder (5:20 AM ET), song info (album and year, 5:40 AM ET). GitHub schedules are in UTC and set for Eastern Standard Time. **On the second Sunday of March, move each of those UTC hours 1 earlier, and on the first Sunday of November, move them back**, so they stay at the same Eastern time. Auto-post times and the nightly Arizona shows roll stay as they are.
+
+## Skins (owner-approved, automatic)
+
+`skin.js` (in every page's head) picks the look by date; `style.css` holds the colors and art. Every skin stays dark, evil and metal, with metal lettering, and must pass AA contrast.
+- Weekly rotation every Monday: Blood, Crypt, Toxic, Frost (counted from Mon Nov 16, 2026).
+- Holidays override the week: Valentine's (Feb 7-14), St. Patrick's (Mar 14-17), 4th of July (Jun 28-Jul 5), Halloween (Oct 15-31), Thanksgiving (Mon-Sun of the 4th-Thursday week), Christmas (Dec 1-26), New Year's (Dec 27-Jan 2). Holiday skins use the holiday's colors across the whole page, a skull in a holiday hat, and a garland under the banner. Art lives in `images/skins/`.
+- Preview with `?skin=<name>`, reset with `?skin=auto`. The owner will fine-tune the looks later.
