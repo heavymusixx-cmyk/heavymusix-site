@@ -422,11 +422,7 @@ html[data-skin="crypt"]{--blood:#6b4f12;--blood-hot:#c9a14a;--blood-text:#d4a94e
 html[data-skin="toxic"]{--blood:#2f6b0f;--blood-hot:#7fd61a;--blood-text:#9ef01a;--rust:#3d2a12;--bone:#e4eadb;--ash:#0f120c;--glow:127,214,26;--glow-deep:61,90,18;--display:"Metal Mania","Pirata One",Georgia,serif}
 html[data-skin="frost"]{--blood:#1d4f91;--blood-hot:#5aa0f0;--blood-text:#9cc9ff;--rust:#0f1f3a;--bone:#e3ebf4;--ash:#0b0f17;--glow:90,160,240;--glow-deep:20,50,110;--display:"New Rocker","Pirata One",Georgia,serif}
 html[data-skin="halloween"]{--blood:#9a4300;--blood-hot:#ff8a1f;--blood-text:#ff8a1f;--rust:#5a1d00;--bone:#f1e3cf;--ash:#140b06;--glow:255,138,31;--glow-deep:120,40,0;--display:"Creepster","Pirata One",Georgia,serif}
-html[data-skin="krampus"]{--blood:#7a0a12;--blood-hot:#e0262f;--blood-text:#ff5c5c;--rust:#3b0408;--bone:#f0e2e2;--ash:#120607;--glow:224,38,47;--glow-deep:110,6,14;--display:"UnifrakturCook","Pirata One",Georgia,serif}
-html[data-skin="slasher"]{--blood:#8a0f0f;--blood-hot:#e23b3b;--blood-text:#ff5a5a;--rust:#2a0808;--bone:#ece9e4;--ash:#0d0d0d;--glow:226,59,59;--glow-deep:100,10,10;--display:"Metal Mania","Pirata One",Georgia,serif}
-html[data-skin="slasher"] .logo{font-family:"Nosifer","Pirata One",serif;font-size:30px}
-html[data-skin="crypt"] h1,html[data-skin="krampus"] h1{letter-spacing:.01em}
-html[data-skin="halloween"] h1,html[data-skin="halloween"] h2{letter-spacing:.03em}
+html[data-skin="crypt"] h1,html[data-skin="halloween"] h1,html[data-skin="halloween"] h2{letter-spacing:.03em}
 #hmx-dock .dock-ctl{display:flex;justify-content:space-between;border-top:2px solid var(--blood);background:#0b0a0a}
 #hmx-dock .dock-ctl .now-btn{height:40px;flex:1;width:auto;border-right:1px solid #2a2324}
 #hmx-dock .dock-ctl .now-off{border-right:0}
@@ -453,3 +449,8 @@ body.popout #hmx-dock .dock-top{height:40px}body.popout #hmx-dock .dock-top .now
 #hmx-now .hmx-tick:hover .tick-move{animation-play-state:paused}
 #hmx-now .hmx-tick[hidden]{display:none}
 #hmx-now .tick-move{flex:none}
+/* Halloween skin: evil jack-o'-lanterns (decorative only) */
+html[data-skin="halloween"] .logo::before{content:"";display:inline-block;width:1.05em;height:.95em;margin-right:.18em;vertical-align:-.12em;background:url("images/skins/evil-pumpkin.svg") no-repeat center/contain;filter:drop-shadow(0 0 6px rgba(255,138,31,.7))}
+html[data-skin="halloween"] footer.site{background-image:url("images/skins/evil-pumpkin.svg");background-repeat:repeat-x;background-size:58px auto;background-position:left 12px top 10px;padding-top:80px}
+@media (max-width:600px){html[data-skin="halloween"] .logo{font-size:36px}html[data-skin="halloween"] .logo::before{width:.85em;height:.8em;margin-right:.1em}}
+@media (min-width:900px){html[data-skin="halloween"] body:not(.az) section.hero .wrap{position:relative}html[data-skin="halloween"] body:not(.az) section.hero .wrap::after{content:"";position:absolute;right:0;bottom:-70px;width:260px;height:160px;pointer-events:none;background:url("images/skins/evil-pumpkin.svg") no-repeat right bottom/150px,url("images/skins/evil-pumpkin.svg") no-repeat left 10px bottom/95px;filter:drop-shadow(0 0 18px rgba(255,138,31,.45))}}

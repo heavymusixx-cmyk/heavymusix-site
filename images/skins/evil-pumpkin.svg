@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 200">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="55%" r="55%">
+      <stop offset="0" stop-color="#fff3a0"/><stop offset=".45" stop-color="#ffc21f"/><stop offset="1" stop-color="#ff6a00"/>
+    </radialGradient>
+    <radialGradient id="skin" cx="45%" cy="40%" r="65%">
+      <stop offset="0" stop-color="#f07a12"/><stop offset=".7" stop-color="#c24d04"/><stop offset="1" stop-color="#6e2400"/>
+    </radialGradient>
+  </defs>
+  <path d="M104 40c-2-14 4-28 18-34l6 8c-10 5-13 14-12 26z" fill="#2b2a12" stroke="#0d0700" stroke-width="3"/>
+  <g stroke="#1a0800" stroke-width="4">
+    <ellipse cx="62" cy="116" rx="50" ry="70" fill="url(#skin)"/>
+    <ellipse cx="158" cy="116" rx="50" ry="70" fill="url(#skin)"/>
+    <ellipse cx="88" cy="114" rx="40" ry="76" fill="url(#skin)"/>
+    <ellipse cx="132" cy="114" rx="40" ry="76" fill="url(#skin)"/>
+    <ellipse cx="110" cy="112" rx="34" ry="78" fill="url(#skin)"/>
+  </g>
+  <g fill="url(#glow)" stroke="#1a0800" stroke-width="3" stroke-linejoin="round">
+    <path d="M44 84l50 18-8 22-44-14z"/>
+    <path d="M176 84l-50 18 8 22 44-14z"/>
+    <path d="M110 118l-11 20h22z"/>
+    <path d="M38 140c18 10 40 16 72 16s54-6 72-16c-4 20-14 34-28 42l-8-14-8 18-12-10-6 16-10-16-6 16-12-10-8 14-8-16-6 14c-16-10-28-26-32-50z"/>
+  </g>
+  <path d="M60 148l8 14 8-12M150 152l8 12 8-14" fill="none" stroke="#1a0800" stroke-width="3"/>
+</svg>
