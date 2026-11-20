@@ -403,7 +403,8 @@ body.popout #hmx-dock .dock-video{width:auto}
 #hmx-dim{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.85)}
 #hmx-dock.big{left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%);width:min(1100px,94vw)}
 #hmx-dock.big .dock-video{height:auto;aspect-ratio:16/9;max-height:calc(100vh - 140px);margin:0 auto}
-#hmx-now{position:fixed;left:0;right:0;bottom:0;z-index:998;display:flex;align-items:stretch;height:44px;background:#0b0a0a;border-top:3px solid var(--blood);box-shadow:0 -4px 0 #000}
+#hmx-now{position:relative;display:flex;align-items:stretch;height:38px;background:#0b0a0a;border-top:1px solid var(--blood)}
+body.has-now #hmx-now{position:fixed;left:0;right:0;bottom:0;z-index:998;height:44px;border-top:3px solid var(--blood)}
 #hmx-dock .now-btn{flex:none;width:44px;padding:0;border:0;border-right:1px solid #2a2324;background:#0b0a0a;color:var(--bone);font-size:18px;line-height:1;cursor:pointer}
 #hmx-dock .now-btn[hidden]{display:none}
 #hmx-dock .now-main{background:var(--blood);color:#fff}
@@ -412,9 +413,10 @@ body.popout #hmx-dock .dock-video{width:auto}
 #hmx-now .hmx-tick{flex:1;min-width:0;min-height:0;height:100%;border-top:0;padding:0 12px;font-size:15px}
 body.has-now{padding-bottom:47px}
 body.has-now #hmx-dock{bottom:58px}
+#hmx-dock{bottom:16px}
 body.popout #hmx-dock{bottom:47px!important;border:0;box-shadow:none;width:auto}
 body.popout #hmx-dock .dock-video{height:auto}
-@media (max-width:600px){#hmx-dock,#hmx-dock.min{left:auto;right:8px;width:204px}body.has-now #hmx-dock{bottom:54px}#hmx-now .hmx-tick{font-size:14px;padding:0 8px}#hmx-dock.big{width:100vw;border-width:0}}
+@media (max-width:600px){#hmx-dock,#hmx-dock.min{left:auto;right:8px;bottom:8px;width:204px}body.has-now #hmx-dock{bottom:54px}#hmx-now .hmx-tick{font-size:14px;padding:0 8px}#hmx-dock.big{width:100vw;border-width:0}}
 /* Skins (skin.js picks one): every skin keeps the dark evil look and passes WCAG AA contrast */
 html[data-skin="crypt"]{--blood:#6b4f12;--blood-hot:#c9a14a;--blood-text:#d4a94e;--rust:#2a2530;--bone:#e3dbc6;--ash:#121014;--glow:201,161,74;--glow-deep:90,60,20;--display:"UnifrakturCook","Pirata One",Georgia,serif}
 html[data-skin="toxic"]{--blood:#2f6b0f;--blood-hot:#7fd61a;--blood-text:#9ef01a;--rust:#3d2a12;--bone:#e4eadb;--ash:#0f120c;--glow:127,214,26;--glow-deep:61,90,18;--display:"Metal Mania","Pirata One",Georgia,serif}
@@ -434,3 +436,9 @@ body.popout #hmx-dock{display:flex;flex-direction:column}
 body.popout #hmx-dock .dock-video{flex:1}
 #hmx-dock .now-ytm{display:none;align-items:center;justify-content:center;text-decoration:none;font-size:16px}
 @media (pointer:coarse){#hmx-dock .now-ytm{display:flex}}
+/* Compact player: one 30px strip (drag handle + buttons) on top of the 200x200 video */
+#hmx-dock .dock-top{display:flex;align-items:stretch;height:30px;padding:0;gap:0;background:#0b0a0a;border-bottom:2px solid var(--blood);color:var(--bone)}
+#hmx-dock .dock-top .dock-grip{flex:none;width:24px;display:flex;align-items:center;justify-content:center;height:auto;background:#141112;color:var(--bone-dim);font-size:13px;letter-spacing:-3px;cursor:grab;touch-action:none}
+#hmx-dock .dock-top .now-btn{flex:1;width:auto;min-width:26px;height:30px;font-size:14px;border-right:1px solid #2a2324}
+#hmx-dock .dock-top .now-off{border-right:0;border-left:0}
+body.popout #hmx-dock .dock-top{height:40px}body.popout #hmx-dock .dock-top .now-btn{height:40px;font-size:18px}

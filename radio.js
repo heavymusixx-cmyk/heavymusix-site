@@ -136,16 +136,16 @@
     d.id = 'hmx-dock';
     d.setAttribute('aria-label', 'HeavyMusix Radio video');
     d.innerHTML =
-      (POPOUT ? '' : '<div class="dock-bar dock-grip" title="Drag to move the video"><span aria-hidden="true">&#8942;&#8942;&#8942;</span></div>') +
-      '<div class="dock-video"><div id="hmx-yt"></div></div>' +
-      '<div class="dock-ctl">' +
+      '<div class="dock-bar dock-top">' +
+      (POPOUT ? '' : '<span class="dock-grip" title="Drag to move the video" aria-hidden="true">&#8942;&#8942;</span>') +
       '<button type="button" class="now-btn" data-act="prev" aria-label="Back" title="Back">&#9198;&#xFE0E;</button>' +
       '<button type="button" class="now-btn now-main" data-act="toggle" aria-label="Stop" title="Stop">&#9632;&#xFE0E;</button>' +
       '<button type="button" class="now-btn" data-act="next" aria-label="Forward" title="Forward">&#9197;&#xFE0E;</button>' +
       (POPOUT ? '' : '<button type="button" class="now-btn" data-act="size" aria-label="Full size video" title="Full">&#10530;&#xFE0E;</button>') +
       '<a class="now-btn now-ytm" href="https://music.youtube.com/playlist?list=' + PL + '" target="_blank" rel="noopener" aria-label="Open the HeavyMusix Radio playlist in the YouTube Music app (opens a new tab)" title="YouTube Music app">&#9835;&#8599;&#xFE0E;</a>' +
       '<button type="button" class="now-btn now-off" data-act="off" aria-label="Turn the radio off" title="Off">&#10005;&#xFE0E;</button>' +
-      '</div>';
+      '</div>' +
+      '<div class="dock-video"><div id="hmx-yt"></div></div>';
     d.addEventListener('click', function(e){ var t = e.target.closest('.now-btn'); if (t) act(t.dataset.act); });
     document.body.appendChild(d);
     if (!POPOUT){ makeDraggable(d); markHome(); }
@@ -174,16 +174,17 @@
   function place(d, x, y){
     var w = d.offsetWidth, h = d.offsetHeight;
     x = Math.max(4, Math.min(x, window.innerWidth - w - 4));
-    y = Math.max(4, Math.min(y, window.innerHeight - h - 4));
+    var floor = (POPOUT && document.getElementById('hmx-now')) ? 51 : 4;   // pop-out: never cover the bar at the bottom
+    y = Math.max(4, Math.min(y, window.innerHeight - h - floor));
     d.style.left = x + 'px'; d.style.top = y + 'px';
     d.style.right = 'auto'; d.style.bottom = 'auto';
     return [x, y];
   }
   function makeDraggable(d){
     var bar = d.querySelector('.dock-bar'), start = null;
-    try { var saved = JSON.parse(localStorage.getItem('hmxDockPos') || 'null'); if (saved && saved[1] > 130 && window.innerWidth > 600) place(d, saved[0], saved[1]); } catch (x) {}   // never cover the menu; phones keep the corner
+    try { var saved = JSON.parse(localStorage.getItem('hmxDockPos') || 'null'); if (saved && saved[1] > 60) place(d, saved[0], saved[1]); } catch (x) {}   // phones and computers remember where the fan put it
     bar.addEventListener('pointerdown', function(e){
-      if (e.target.closest('.dock-btn')) return;
+      if (e.target.closest('.dock-btn, .now-btn')) return;
       var r = d.getBoundingClientRect();
       start = {dx: e.clientX - r.left, dy: e.clientY - r.top};
       d.classList.add('dragging');
@@ -345,6 +346,11 @@
       if (w > tk.clientWidth - 16){ tk.style.setProperty('--dur', Math.max(10, Math.round(w / 45)) + 's'); tk.classList.add('scroll'); }
     });
   }
+  function attachBar(b){
+    var h = document.querySelector('header.site');
+    if (h && !POPOUT){ h.appendChild(b); document.body.classList.remove('has-now'); }   // right under the HeavyMusix banner, sticks with it
+    else { document.body.appendChild(b); document.body.classList.add('has-now'); }      // pop-out window: along the bottom
+  }
   function buildNowBar(){
     if (document.getElementById('hmx-now')) return;
     var b = document.createElement('div');
@@ -352,8 +358,7 @@
     b.setAttribute('role', 'region');
     b.setAttribute('aria-label', 'HeavyMusix Radio: now playing');
     b.innerHTML = TICK_HTML('now-tick') + '<span class="hmx-sr hmx-live" aria-live="polite"></span>';
-    document.body.appendChild(b);
-    document.body.classList.add('has-now');
+    attachBar(b);
     window.addEventListener('storage', function(e){ if (e.key === NOWKEY || e.key === ALIVE) refreshNow(); });
     setInterval(function(){ if (!mode){ refreshNow(); syncControls(); } }, 15000);   // pop-out closed or song changed there
     refreshNow(); syncControls();
@@ -587,7 +592,6 @@
     return chain;
   }
 
-  function nb0(){ return !!document.getElementById('hmx-now'); }
   function load(url, push){
     return fetch(url, {credentials: 'same-origin'}).then(function(r){
       if (!r.ok) throw new Error(r.status);
@@ -596,15 +600,16 @@
       var doc = new DOMParser().parseFromString(html, 'text/html');
       var d = dock();
       document.title = doc.title;
-      document.body.className = doc.body.className + (nb0() ? ' has-now' : '');
-      var nb = document.getElementById('hmx-now');
+      document.body.className = doc.body.className;
+      var nb = document.getElementById('hmx-now'); if (nb) nb.remove();
       Array.prototype.slice.call(document.body.childNodes).forEach(function(n){ if (n !== d && n !== nb) n.remove(); });
       var scripts = [];
       Array.prototype.slice.call(doc.body.childNodes).forEach(function(n){
         if (n.nodeName === 'SCRIPT'){ if (!/goatcounter/.test(n.outerHTML)) scripts.push(n); return; }
         if (n.querySelectorAll) n.querySelectorAll('script').forEach(function(s){ scripts.push(s); s.remove(); });
-        document.body.insertBefore(document.importNode(n, true), d || nb);
+        document.body.insertBefore(document.importNode(n, true), d);
       });
+      if (nb) attachBar(nb);
       if (push) history.pushState({hmx: 1}, '', url);
       try { if (window.goatcounter && goatcounter.count) goatcounter.count({path: location.pathname + location.search, title: document.title}); } catch(e){}
       var hash = new URL(url, location.href).hash;
