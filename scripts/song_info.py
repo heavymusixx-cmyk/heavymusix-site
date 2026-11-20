@@ -20,7 +20,7 @@ import urllib.request
 CATALOG = "show/catalog.json"
 OUT = "show/songinfo.json"
 UA = "HeavyMusix/1.0 ( info@heavymusix.com )"
-MAX_LOOKUPS = 750
+MAX_LOOKUPS = 350   # about 9 minutes; the next daily runs finish the rest
 RETRY_DAYS = 30
 
 
