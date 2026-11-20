@@ -38,5 +38,11 @@ var HISTORY = {
     {year: 1990, type: "Album", text: "Cinderella release their third album, \"Heartbreak Station\", featuring \"Shelter Me\" and the title track.", band: "", source: "This Day in Metal, Wikipedia"},
     {year: 2007, type: "Album", text: "Former Skid Row singer Sebastian Bach releases his solo album \"Angel Down\".", band: "", source: "This Day in Metal, Blabbermouth"},
     {year: 2020, type: "Album", text: "Swedish melodic death metal veterans Dark Tranquillity release \"Moment\" on Century Media.", band: "", source: "This Day in Metal, Wikipedia"}
+  ],
+  "11-21": [
+    {year: 1981, type: "Album", text: "Japanese heavy metal band Loudness release their debut album, \"The Birthday Eve\", in Japan only on Nippon Columbia, with Minoru Niihara on vocals and Akira Takasaki on guitar.", band: "", source: "This Day in Metal, Wikipedia"},
+    {year: 1991, type: "Album", text: "Chicago death metal band Broken Hope release their debut album, \"Swamped in Gore\", on Grind Core Records.", band: "", source: "This Day in Metal, Metal Kingdom"},
+    {year: 2003, type: "Album", text: "Korn release \"Take a Look in the Mirror\", the last album by the original five-piece lineup; it reached No. 9 on the Billboard 200.", band: "", source: "This Day in Metal, Wikipedia"},
+    {year: 2006, type: "Album", text: "Killswitch Engage release \"As Daylight Dies\" on Roadrunner, featuring \"My Curse\" and their cover of Dio's \"Holy Diver\"; it later went platinum.", band: "", source: "This Day in Metal, Wikipedia"}
   ]
 };

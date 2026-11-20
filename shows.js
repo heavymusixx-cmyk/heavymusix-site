@@ -40,7 +40,9 @@ var SHOWS = [
   {date:"2027-03-30", bands:"Týr, Dynazty, Dominum, Edge of Paradise", venue:"Nile Theater", city:"Mesa"},
   {date:"2027-04-26", bands:"Iron Maiden", venue:"Talking Stick Resort Amphitheatre", city:"Phoenix"},
   {date:"2027-04-27", bands:"Meshuggah, Testament, Blood Incantation", venue:"Arizona Financial Theatre", city:"Phoenix"},
-  {date:"2027-05-15", bands:"Avatar, The Barbarians of California", venue:"Marquee Theatre", city:"Tempe"}
+  {date:"2027-05-12", bands:"Deftones, Knocked Loose, Julie", venue:"Talking Stick Resort Amphitheatre", city:"Phoenix"},
+  {date:"2027-05-15", bands:"Avatar, The Barbarians of California", venue:"Marquee Theatre", city:"Tempe"},
+  {date:"2027-08-18", bands:"Slipknot, Bring Me The Horizon, Motionless In White", venue:"Chase Field", city:"Phoenix"}
 ];
 
 function azToday(){

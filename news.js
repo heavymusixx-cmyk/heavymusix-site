@@ -6,6 +6,82 @@
 */
 var NEWS = [
   {
+    date: "2026-11-20",
+    tag: "Releases",
+    title: "Angelus Apatrida drop \"Burn It Down\" video as their Napalm Records debut EP \"The Reckoning\" lands",
+    text: [
+      "Spanish thrash crew Angelus Apatrida have released a music video for \"Burn It Down\", the opening track of their new EP \"The Reckoning\". The three-song release came out November 19 and is the band's first for Napalm Records, following their 2023 album \"Aftermath\".",
+      "The EP runs about eleven minutes: \"Burn It Down\", \"Cycle of Ruin\" and a cover of Sepultura's \"Propaganda\". Singer and guitarist Guillermo Izquierdo produced it, with Zeuss handling the mix and master. The new song's lyrics are about getting back up after hitting bottom. It is out digitally, on CD and on black and translucent green vinyl.",
+      "The band play four shows in Spain in December, starting December 4 in Murcia and moving on to Granada, Guadalajara and Valls, then sail on the 70000 Tons of Metal cruise out of Miami in January.",
+      "Source: Stormblast Magazine, Napalm Records"
+    ]
+  },
+  {
+    date: "2026-11-20",
+    tag: "Releases",
+    title: "Trivium's eleventh album \"Crown In The Grave\" is out today on Roadrunner",
+    text: [
+      "Trivium's eleventh studio album, \"Crown In The Grave\", is out today through Roadrunner Records. Josh Wilbur produced the 12-song record and Jacob Hansen mixed it. The band tracked it at The Hangar, their creative base in Orlando.",
+      "It is the first album with drummer Alex Rüdinger as an official member, alongside Matt Heafy, Corey Beaulieu and Paolo Gregoletto. The title track's video, directed by Pavel Trebukhin, has a Japanese Noh-theater look, set in a smoky dojo after the end of the world.",
+      "The band are on the road now with In Flames, Orbit Culture, Fit For An Autopsy and Frozen Soul. The run comes to Arizona Financial Theatre in Phoenix on December 2 and wraps December 19 in Charlotte.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-20",
+    tag: "Tours",
+    title: "Deftones book 23-date 2027 North American tour with Knocked Loose and Julie, including Phoenix on May 12",
+    text: [
+      "Deftones will play 23 amphitheaters and big outdoor venues across North America next spring, with Knocked Loose and Julie opening every night. The run starts May 5 in Dallas and ends June 20 in Toronto.",
+      "Arizona gets a date on Wednesday, May 12, at Talking Stick Resort Amphitheatre in Phoenix. Other stops include the Hollywood Bowl on May 18, Kilby Block Party in Salt Lake City on May 14 and Forest Hills Stadium in Queens on June 17.",
+      "Presales started November 17 and the general sale followed. Their latest album is \"Private Music\", released in 2025 on Reprise.",
+      "Source: Blabbermouth, Metal Hammer"
+    ]
+  },
+  {
+    date: "2026-11-20",
+    tag: "Tours",
+    title: "Milwaukee Metal Fest 2027 adds Shadows Fall and Fear Factory to a bill led by Meshuggah",
+    text: [
+      "Milwaukee Metal Fest keeps growing for its May 14 to 16, 2027 edition at The Rave/Eagles Club. Massachusetts metalcore veterans Shadows Fall are the newest name, booked for opening day on Friday, May 14, and Fear Factory are confirmed to play \"Obsolete\" among other songs.",
+      "They join a bill already led by Meshuggah, who are celebrating 40 years, plus Testament, Crowbar, YOB, Pig Destroyer and Repulsion. A pre-party runs May 13, and organizers say more bands are on the way.",
+      "Source: ThePRP, Lambgoat"
+    ]
+  },
+  {
+    date: "2026-11-20",
+    tag: "Tours",
+    title: "Graspop Metal Meeting 2027 adds 102 bands for its 30th edition, with Jinjer, Kreator, Arch Enemy and Dimmu Borgir",
+    text: [
+      "Belgium's Graspop Metal Meeting turns 30 next year, and it marked the occasion by announcing 102 new acts at once. The festival runs June 17 to 20, 2027 at Festivalpark Stenehei in Dessel. Tickets went on general sale November 14.",
+      "The heavy end of the new names is stacked: Jinjer, Kreator, Arch Enemy, Dimmu Borgir, Amon Amarth, Watain, Lorna Shore, Cryptopsy, Converge, Paradise Lost, Killswitch Engage, Overkill, Down, Nailbomb, Therion and GWAR are all in. Bruce Dickinson, Body Count, Static-X, Igorrr and Eluveitie are on the list too.",
+      "The headliners are Parkway Drive, Helloween, Evanescence, Faith No More, blink-182, Marilyn Manson, Mötley Crüe and Slash with Myles Kennedy and The Conspirators. 38 of the new acts are playing the festival for the first time.",
+      "Source: Festivalinfo, RouteNote"
+    ]
+  },
+  {
+    date: "2026-11-20",
+    tag: "Arizona",
+    title: "Slipknot's 2027 stadium tour hits Phoenix's Chase Field on August 18",
+    text: [
+      "Arizona has a stadium date on Slipknot's 2027 world run. The band play Chase Field in Phoenix on Wednesday, August 18, one of 19 stadium and park shows on the tour.",
+      "Openers change from city to city. Across the tour they include Bring Me The Horizon, Lorna Shore, Lamb of God, Acid Bath, Polyphia and Motionless In White, with Marilyn Manson and Hatebreed on some dates. The Phoenix listing shows Bring Me The Horizon and Motionless In White.",
+      "The tour opens July 3 at London's Wembley Stadium, crosses North America from Washington, DC to Phoenix, and ends in September with shows in Brazil, Argentina, Chile, Peru and Colombia.",
+      "Source: Metal Hammer"
+    ]
+  },
+  {
+    date: "2026-11-20",
+    tag: "Throwback",
+    title: "On this day in metal: Dark Tranquillity release \"Moment\" (2020)",
+    text: [
+      "Six years ago today, on November 20, 2020, Swedish melodic death metal band Dark Tranquillity released their twelfth album, \"Moment\", on Century Media.",
+      "It was the first album without founding guitarist Niklas Sundin. Two new guitarists came in, Johan Reinholdz and former Arch Enemy player Christopher Amott, making the band a six-piece on record for the first time since 2010. Martin Brändström produced it and Jens Bogren mixed it.",
+      "It came out in the middle of the pandemic, and the band said they hoped it would give fans a break from hard times. It made the top 10 in Finland and charted across Europe.",
+      "Source: This Day in Metal, Blabbermouth"
+    ]
+  },
+  {
     date: "2026-11-19",
     tag: "Tours",
     title: "Meshuggah bring Testament and Blood Incantation on their 40th-anniversary \"Forty-Year Anomaly\" tour, with Phoenix on April 27",
