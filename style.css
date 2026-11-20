@@ -393,32 +393,27 @@ footer.site a.footlogo:hover,footer.site a.footlogo:focus-visible{color:var(--bl
 @keyframes hmx-tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .hmx-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 @media (prefers-reduced-motion:reduce){.hmx-tick{white-space:normal}.hmx-tick.scroll .tick-text + .tick-text{display:none}.hmx-tick .tick-move{animation:none!important}}
-/* Player controls row, big screen, mini, phone app link */
-#hmx-dock .dock-ctl{display:flex;align-items:center;gap:6px;padding:6px 8px;background:#050404;border-top:2px solid var(--blood)}
-#hmx-dock .dock-ctl .dock-btn{font-size:16px}
-#hmx-dock .dock-vol{flex:1;min-width:60px;height:28px;accent-color:var(--blood-hot);cursor:pointer}
-#hmx-dock .dock-vol:focus-visible{outline:3px solid #fff;outline-offset:2px}
-#hmx-dock .dock-ytm{display:none;min-height:44px;padding:11px 12px;background:var(--blood);color:#fff;font:700 14px/1.4 var(--text);text-align:center;text-decoration:none;border-top:2px solid #000}
-#hmx-dock .dock-ytm:hover,#hmx-dock .dock-ytm:focus-visible{background:#fff;color:#000;outline:none}
-@media (pointer:coarse){#hmx-dock .dock-ytm{display:block}}
-#hmx-dock.min{width:220px}
-#hmx-dock.min .dock-video{aspect-ratio:auto;height:200px}
-#hmx-dock.min .dock-vol,#hmx-dock.min .dock-ytm,#hmx-dock.min [data-act="full"]{display:none}
+/* Simple player: a small video (no title bar) plus the pinned bar with Back, Play/Stop, Forward, Full, Off.
+   The video never goes below 200x200px (YouTube's minimum for embedded players). */
+#hmx-dock{width:228px;max-width:none;border:2px solid var(--bone);box-shadow:4px 4px 0 var(--blood);background:#000}
+#hmx-dock .dock-grip{display:block;height:18px;padding:0;background:#141112;color:var(--bone-dim);font-size:12px;line-height:18px;text-align:center;letter-spacing:-2px}
+#hmx-dock .dock-video{aspect-ratio:auto;height:200px}
 #hmx-dim{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.85)}
-#hmx-dock.big{left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%);width:min(1100px,94vw);max-width:none}
-#hmx-dock.big .dock-video{max-height:calc(100vh - 190px);margin:0 auto}
-#hmx-dock.big .dock-bar{cursor:default}
-body.popout #hmx-dock [data-act="big"]{display:none}
-@media (max-width:600px){#hmx-dock.min{left:auto;width:200px}#hmx-dock.big{width:100vw;border-width:2px}}
-/* Pinned now-playing bar on every page (stays when the player is closed) */
+#hmx-dock.big{left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%);width:min(1100px,94vw)}
+#hmx-dock.big .dock-video{height:auto;aspect-ratio:16/9;max-height:calc(100vh - 140px);margin:0 auto}
 #hmx-now{position:fixed;left:0;right:0;bottom:0;z-index:998;display:flex;align-items:stretch;height:44px;background:#0b0a0a;border-top:3px solid var(--blood);box-shadow:0 -4px 0 #000}
-#hmx-now .now-listen{flex:none;min-width:96px;padding:0 14px;border:0;border-right:2px solid var(--blood);background:var(--blood);color:#fff;font:700 15px/1 var(--text);cursor:pointer}
-#hmx-now .now-listen:hover,#hmx-now .now-listen:focus-visible{background:#fff;color:#000;outline:none}
+#hmx-now .now-btn{flex:none;width:44px;padding:0;border:0;border-right:1px solid #2a2324;background:#0b0a0a;color:var(--bone);font-size:18px;line-height:1;cursor:pointer}
+#hmx-now .now-btn[hidden]{display:none}
+#hmx-now .now-main{background:var(--blood);color:#fff}
+#hmx-now .now-off{border-right:0;border-left:1px solid #2a2324}
+#hmx-now .now-btn:hover,#hmx-now .now-btn:focus-visible{background:#fff;color:#000;outline:none}
+#hmx-now.idle [data-act="prev"],#hmx-now.idle [data-act="next"],#hmx-now.idle .now-off{display:none}
 #hmx-now .hmx-tick{flex:1;min-width:0;min-height:0;height:100%;border-top:0;padding:0 12px;font-size:15px}
 body.has-now{padding-bottom:47px}
-body.has-now #hmx-dock{bottom:62px}
-@media (max-width:600px){body.has-now #hmx-dock{bottom:54px}#hmx-now .hmx-tick{font-size:14px}}
-
+body.has-now #hmx-dock{bottom:58px}
+body.popout #hmx-dock{bottom:47px!important;border:0;box-shadow:none;width:auto}
+body.popout #hmx-dock .dock-video{height:auto}
+@media (max-width:600px){#hmx-dock,#hmx-dock.min{left:auto;right:8px;width:220px}body.has-now #hmx-dock{bottom:54px}#hmx-now .hmx-tick{font-size:14px;padding:0 8px}#hmx-dock.big{width:100vw;border-width:0}}
 /* Skins (skin.js picks one): every skin keeps the dark evil look and passes WCAG AA contrast */
 html[data-skin="crypt"]{--blood:#6b4f12;--blood-hot:#c9a14a;--blood-text:#d4a94e;--rust:#2a2530;--bone:#e3dbc6;--ash:#121014;--glow:201,161,74;--glow-deep:90,60,20;--display:"UnifrakturCook","Pirata One",Georgia,serif}
 html[data-skin="toxic"]{--blood:#2f6b0f;--blood-hot:#7fd61a;--blood-text:#9ef01a;--rust:#3d2a12;--bone:#e4eadb;--ash:#0f120c;--glow:127,214,26;--glow-deep:61,90,18;--display:"Metal Mania","Pirata One",Georgia,serif}

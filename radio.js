@@ -134,57 +134,19 @@
   function buildDock(){
     var d = document.createElement('aside');
     d.id = 'hmx-dock';
-    d.setAttribute('aria-label', 'HeavyMusix Radio player');
+    d.setAttribute('aria-label', 'HeavyMusix Radio video');
     d.innerHTML =
-      '<div class="dock-bar"' + (POPOUT ? '' : ' title="Drag to move the player"') + '>' +
-      (POPOUT ? '' : '<span class="dock-grip" aria-hidden="true">&#8942;&#8942;</span>') +
-      '<span class="dock-title">HeavyMusix Radio<span class="dock-now"></span></span>' +
-      '<button type="button" class="dock-btn" data-act="radio" aria-label="Back to the radio" title="Back to the radio">&#9673;</button>' +
-      '<button type="button" class="dock-btn" data-act="big" aria-pressed="false" aria-label="Big screen: watch the video large" title="Big screen">&#10530;&#xFE0E;</button>' +
-      (POPOUT ? '' :
-      '<button type="button" class="dock-btn" data-act="pop" aria-label="Pop out the player so it keeps playing when you leave the site" title="Pop out: keeps playing when you leave the site">&#10697;</button>' +
-      '<button type="button" class="dock-btn" data-act="min" aria-label="Shrink or expand the player" title="Shrink or expand">&#8211;</button>') +
-      '<button type="button" class="dock-btn" data-act="close" aria-label="Stop and close the player" title="Stop">&#215;</button></div>' +
-      (POPOUT ? TICK_HTML('dock-ticker') + '<span class="hmx-sr hmx-live" aria-live="polite"></span>' : '') +
-      '<div class="dock-video"><div id="hmx-yt"></div></div>' +
-      '<div class="dock-ctl">' +
-      '<button type="button" class="dock-btn" data-act="play" aria-label="Pause" title="Pause">&#10074;&#10074;</button>' +
-      '<button type="button" class="dock-btn" data-act="skip" aria-label="Skip to the next song" title="Skip">&#9197;&#xFE0E;</button>' +
-      '<button type="button" class="dock-btn" data-act="mute" aria-pressed="false" aria-label="Mute" title="Mute">&#128266;&#xFE0E;</button>' +
-      '<input type="range" class="dock-vol" min="0" max="100" step="5" value="80" aria-label="Volume">' +
-      '<button type="button" class="dock-btn" data-act="full" aria-label="Full screen video" title="Full screen">&#9974;&#xFE0E;</button>' +
-      '</div>' +
-      '<a class="dock-ytm" href="https://music.youtube.com/playlist?list=' + PL + '" target="_blank" rel="noopener">Open in YouTube Music (keeps playing with the screen off)</a>';
-    d.addEventListener('click', function(e){
-      var b = e.target.closest('.dock-btn'); if (!b) return;
-      if (b.dataset.act === 'min'){ setBig(false); d.classList.toggle('min'); }
-      if (b.dataset.act === 'big') setBig(!d.classList.contains('big'));
-      if (b.dataset.act === 'play') togglePlay();
-      if (b.dataset.act === 'skip') skip();
-      if (b.dataset.act === 'mute') toggleMute();
-      if (b.dataset.act === 'full') fullScreen();
-      if (b.dataset.act === 'radio') startDefault();
-      if (b.dataset.act === 'pop') openPopout();
-      if (b.dataset.act === 'close'){
-        forget();
-        if (POPOUT){ try { localStorage.removeItem(ALIVE); } catch (x) {} window.close(); return; }
-        d.remove(); location.reload();
-      }
-    });
-    d.querySelector('.dock-vol').addEventListener('input', function(){
-      try { player.setVolume(+this.value); if (+this.value > 0 && player.isMuted()) player.unMute(); } catch (x) {}
-      try { localStorage.setItem('hmxVol', this.value); } catch (x) {}
-      syncControls();
-    });
-    try { var vol = localStorage.getItem('hmxVol'); if (vol !== null) d.querySelector('.dock-vol').value = vol; } catch (x) {}
+      (POPOUT ? '' : '<div class="dock-bar dock-grip" title="Drag to move the video"><span aria-hidden="true">&#8942;&#8942;&#8942;</span></div>') +
+      '<div class="dock-video"><div id="hmx-yt"></div></div>';
     document.body.appendChild(d);
     if (!POPOUT){ makeDraggable(d); markHome(); }
+    syncControls();
     var go = function(){
       player = new YT.Player('hmx-yt', {
         width: '100%', height: '100%',
         playerVars: {autoplay: 1, playsinline: 1, rel: 0, modestbranding: 1},
         events: {
-          onReady: function(){ ready = true; try { player.setVolume(+document.querySelector('#hmx-dock .dock-vol').value); } catch (x) {} if (pending){ var p = pending; pending = null; p(); } },
+          onReady: function(){ ready = true; if (pending){ var p = pending; pending = null; p(); } },
           onStateChange: onState,
           onError: onError
         }
@@ -236,48 +198,71 @@
     });
   }
 
-  /* Player controls: big screen, pause/play, skip, mute, volume, full screen. */
+  /* Player controls live on the pinned bar: Back, Play/Stop, Forward, Full/Small, Off.
+     When the music is in the pop-out window, the bar on the site's pages remote-controls it. */
   function setBig(on){
     var d = dock(); if (!d) return;
     d.classList.toggle('big', on); document.body.classList.toggle('hmx-big', on);
     var dim = document.getElementById('hmx-dim');
     if (on && !dim){ dim = document.createElement('div'); dim.id = 'hmx-dim'; dim.addEventListener('click', function(){ setBig(false); }); document.body.insertBefore(dim, d); }
     if (!on && dim) dim.remove();
-    var b = d.querySelector('[data-act="big"]');
-    if (b){ b.setAttribute('aria-pressed', on ? 'true' : 'false'); b.setAttribute('aria-label', on ? 'Back to the small player' : 'Big screen: watch the video large'); b.title = on ? 'Back to small' : 'Big screen'; }
-    if (on){ d.classList.remove('min'); if (b) b.focus(); }
+    syncControls();
   }
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && document.body.classList.contains('hmx-big')) setBig(false); });
   function togglePlay(){
-    try { if (player.getPlayerState() === 1) player.pauseVideo(); else player.playVideo(); } catch (x) {}
+    if (!mode || !player){ window.startRadio(); return; }
+    try { if (player.getPlayerState() === 1 || player.getPlayerState() === 3) player.pauseVideo(); else player.playVideo(); } catch (x) {}
   }
   function skip(){
-    if (!player || !mode) return;
+    if (!player || !mode){ window.startRadio(); return; }
     try {
       if (mode.kind === 'song'){ startDefault(); return; }
       if (atEpisodeEnd()){ if (mode.kind === 'radio') nextChunk(); else nextEpisode(); return; }
       player.nextVideo();
     } catch (x) {}
   }
-  function toggleMute(){
-    try { if (player.isMuted()) player.unMute(); else player.mute(); } catch (x) {}
-    setTimeout(syncControls, 150);
+  function back(){
+    if (!player || !mode){ window.startRadio(); return; }
+    try {
+      if (player.getCurrentTime && player.getCurrentTime() > 8){ player.seekTo(0, true); return; }   // like a CD player: first press restarts the song
+      var idx = player.getPlaylistIndex();
+      if (idx > 0){ player.previousVideo(); return; }
+      if (mode.kind === 'radio'){ loadChunk(chunkStart - 1); return; }
+      player.seekTo(0, true);
+    } catch (x) {}
   }
-  function fullScreen(){
-    try { var f = player.getIframe(); (f.requestFullscreen || f.webkitRequestFullscreen || function(){}).call(f); } catch (x) {}
+  function turnOff(){
+    forget();
+    if (POPOUT){ try { localStorage.removeItem(ALIVE); localStorage.removeItem(NOWKEY); } catch (x) {} window.close(); return; }
+    try { player.stopVideo(); player.destroy(); } catch (x) {}
+    player = null; ready = false; pending = null; mode = null;
+    setBig(false);
+    var d = dock(); if (d) d.remove();
+    markHome(); refreshNow(); syncControls();
   }
+  function act(cmd){
+    if (!POPOUT && !mode && popoutAlive() && tellPopout({cmd: cmd}, function(){ act(cmd); })) return;
+    if (cmd === 'toggle') togglePlay();
+    if (cmd === 'next') skip();
+    if (cmd === 'prev') back();
+    if (cmd === 'size') setBig(!(dock() && dock().classList.contains('big')));
+    if (cmd === 'off') turnOff();
+  }
+  window.hmxAct = act;
   function syncControls(){
-    var d = dock(); if (!d || !player) return;
-    var st = -1, muted = false;
-    try { st = player.getPlayerState(); muted = player.isMuted(); } catch (x) {}
-    var p = d.querySelector('[data-act="play"]'), m = d.querySelector('[data-act="mute"]');
-    if (p){ var playing = st === 1 || st === 3; p.innerHTML = playing ? '&#10074;&#10074;' : '&#9654;&#xFE0E;'; p.setAttribute('aria-label', playing ? 'Pause' : 'Play'); p.title = playing ? 'Pause' : 'Play'; }
-    if (m){ m.innerHTML = muted ? '&#128263;&#xFE0E;' : '&#128266;&#xFE0E;'; m.setAttribute('aria-pressed', muted ? 'true' : 'false'); m.setAttribute('aria-label', muted ? 'Unmute' : 'Mute'); m.title = muted ? 'Unmute' : 'Mute'; }
+    var bar = document.getElementById('hmx-now'); if (!bar) return;
+    var on = !!(player && mode) || (!POPOUT && popoutAlive());
+    var st = -1; try { st = player.getPlayerState(); } catch (x) {}
+    var playing = (player && mode) ? (st === 1 || st === 3 || st === -1) : on;
+    bar.classList.toggle('idle', !on);
+    var p = bar.querySelector('[data-act="toggle"]');
+    if (p){ p.innerHTML = playing ? '&#9632;&#xFE0E;' : '&#9654;&#xFE0E;'; p.setAttribute('aria-label', playing ? 'Stop' : 'Play'); p.title = playing ? 'Stop' : 'Play'; }
+    var z = bar.querySelector('[data-act="size"]'), big = !!(dock() && dock().classList.contains('big'));
+    if (z){ z.innerHTML = big ? '&#10529;&#xFE0E;' : '&#10530;&#xFE0E;'; z.setAttribute('aria-label', big ? 'Small video' : 'Full size video'); z.title = big ? 'Small' : 'Full'; z.hidden = POPOUT || !(player && mode); }
   }
 
   function withPlayer(fn){
     if (!dock()) buildDock();
-    else dock().classList.remove('min');
     if (ready) fn(); else pending = fn;
   }
 
@@ -316,7 +301,7 @@
     var id = vd && vd.video_id; if (!id) return;
     var text = songLine(id, vd.title);
     if (!text) return;
-    setTicker('Now playing', text, true);
+    setTicker('Now Playing', text, true);
     if (POPOUT){ try { localStorage.setItem(NOWKEY, JSON.stringify({text: text, ts: Date.now()})); } catch (x) {} }
   }
   function refreshNow(){
@@ -324,21 +309,19 @@
     if (player && mode && playingHere()){ nowPlaying(); return; }
     if (!POPOUT && popoutAlive()){
       var n = null; try { n = JSON.parse(localStorage.getItem(NOWKEY) || 'null'); } catch (x) {}
-      if (n && n.text){ setTicker('Now playing', n.text, true); return; }
+      if (n && n.text){ setTicker('Now Playing', n.text, true); return; }
     }
     if (POPOUT) return;
     var list = goodSongs(); if (!list.length) return;
     var p = savedPos();
     if (p === null){ p = Math.floor(Math.random() * list.length) - 1; savePos(p); }   // new listener: pick their starting song now, so Listen plays exactly this one
     var id = list[((p + 1) % list.length + list.length) % list.length];
-    setTicker('Up next on HeavyMusix Radio', songLine(id), false);
+    setTicker('Up Next on HeavyMusix Radio', songLine(id), false);
   }
   function setTicker(label, text, live){
-    var tk = POPOUT ? document.querySelector('#hmx-dock .hmx-tick') : document.querySelector('#hmx-now .hmx-tick');
+    var tk = document.querySelector('#hmx-now .hmx-tick');
     if (!tk || !text) return;
     var full = label + ': ' + text;
-    var btn = document.querySelector('#hmx-now .now-listen');
-    if (btn){ btn.innerHTML = live ? 'Player' : '&#9654;&#xFE0E; Listen'; btn.setAttribute('aria-label', live ? 'Show the radio player' : 'Listen to HeavyMusix Radio'); }
     if (full === lastTick) return;
     lastTick = full;
     var parts = tk.querySelectorAll('.tick-text');
@@ -353,22 +336,25 @@
     });
   }
   function buildNowBar(){
-    if (POPOUT || document.getElementById('hmx-now')) return;
+    if (document.getElementById('hmx-now')) return;
     var b = document.createElement('div');
     b.id = 'hmx-now';
     b.setAttribute('role', 'region');
     b.setAttribute('aria-label', 'HeavyMusix Radio: now playing');
-    b.innerHTML = '<button type="button" class="now-listen" aria-label="Listen to HeavyMusix Radio">&#9654;&#xFE0E; Listen</button>' +
-      TICK_HTML('now-tick') + '<span class="hmx-sr hmx-live" aria-live="polite"></span>';
+    b.innerHTML =
+      '<button type="button" class="now-btn" data-act="prev" aria-label="Back" title="Back">&#9198;&#xFE0E;</button>' +
+      '<button type="button" class="now-btn now-main" data-act="toggle" aria-label="Play" title="Play">&#9654;&#xFE0E;</button>' +
+      '<button type="button" class="now-btn" data-act="next" aria-label="Forward" title="Forward">&#9197;&#xFE0E;</button>' +
+      TICK_HTML('now-tick') +
+      '<button type="button" class="now-btn" data-act="size" aria-label="Full size video" title="Full" hidden>&#10530;&#xFE0E;</button>' +
+      '<button type="button" class="now-btn now-off" data-act="off" aria-label="Turn the radio off" title="Off">&#10005;&#xFE0E;</button>' +
+      '<span class="hmx-sr hmx-live" aria-live="polite"></span>';
     document.body.appendChild(b);
     document.body.classList.add('has-now');
-    b.querySelector('.now-listen').addEventListener('click', function(){
-      if (dock() && mode){ dock().classList.remove('min'); var f = dock().querySelector('.dock-btn'); if (f) f.focus(); return; }
-      window.startRadio();
-    });
+    b.addEventListener('click', function(e){ var t = e.target.closest('.now-btn'); if (t) act(t.dataset.act); });
     window.addEventListener('storage', function(e){ if (e.key === NOWKEY || e.key === ALIVE) refreshNow(); });
-    setInterval(function(){ if (!mode) refreshNow(); }, 15000);   // pop-out closed or song changed there
-    refreshNow();
+    setInterval(function(){ if (!mode){ refreshNow(); syncControls(); } }, 15000);   // pop-out closed or song changed there
+    refreshNow(); syncControls();
   }
   document.addEventListener('click', function(e){
     var tk = e.target.closest && e.target.closest('.hmx-tick');
@@ -537,6 +523,7 @@
     if (m.cmd === 'song'){ mode = {kind: 'song', v: m.v, label: m.label}; withPlayer(function(){ player.setLoop(false); player.loadVideoById(m.v); setLabel(m.label ? ' \u00b7 ' + m.label : ''); checkStarted(); }); }
     if (m.cmd === 'episode') window.hmxPlayEpisode(m.n);
     if (m.cmd === 'radio') playRadio();
+    if (m.cmd === 'toggle' || m.cmd === 'next' || m.cmd === 'prev' || m.cmd === 'size' || m.cmd === 'off') act(m.cmd);
     if (m.cmd === 'show'){ try { window.focus(); } catch (x) {} if (!mode) startDefault(); }
   }
 
@@ -654,6 +641,7 @@
   function boot(){
     if (!POPOUT){ buildNowBar(); resumeIfPlaying(); markHome(); return; }
     /* Pop-out window: say it is alive, take requests from the site's pages, start the music. */
+    buildNowBar();
     var beat = function(){ try { localStorage.setItem(ALIVE, String(Date.now())); } catch (x) {} };
     beat(); setInterval(beat, 2000);
     window.addEventListener('pagehide', function(){ forget(); try { localStorage.removeItem(ALIVE); } catch (x) {} });   // closing the window stops the radio
