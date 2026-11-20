@@ -395,9 +395,11 @@ footer.site a.footlogo:hover,footer.site a.footlogo:focus-visible{color:var(--bl
 @media (prefers-reduced-motion:reduce){.hmx-tick{white-space:normal}.hmx-tick.scroll .tick-text + .tick-text{display:none}.hmx-tick .tick-move{animation:none!important}}
 /* Simple player: a small video (no title bar) plus the pinned bar with Back, Play/Stop, Forward, Full, Off.
    The video never goes below 200x200px (YouTube's minimum for embedded players). */
-#hmx-dock{width:228px;max-width:none;border:2px solid var(--bone);box-shadow:4px 4px 0 var(--blood);background:#000}
+#hmx-dock{width:204px;max-width:none;border:2px solid var(--bone);box-shadow:4px 4px 0 var(--blood);background:#000}
 #hmx-dock .dock-grip{display:block;height:18px;padding:0;background:#141112;color:var(--bone-dim);font-size:12px;line-height:18px;text-align:center;letter-spacing:-2px}
-#hmx-dock .dock-video{aspect-ratio:auto;height:200px}
+#hmx-dock .dock-video{aspect-ratio:auto;width:200px;height:200px}
+#hmx-dock.big .dock-video{width:auto}
+body.popout #hmx-dock .dock-video{width:auto}
 #hmx-dim{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.85)}
 #hmx-dock.big{left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%);width:min(1100px,94vw)}
 #hmx-dock.big .dock-video{height:auto;aspect-ratio:16/9;max-height:calc(100vh - 140px);margin:0 auto}
@@ -412,7 +414,7 @@ body.has-now{padding-bottom:47px}
 body.has-now #hmx-dock{bottom:58px}
 body.popout #hmx-dock{bottom:47px!important;border:0;box-shadow:none;width:auto}
 body.popout #hmx-dock .dock-video{height:auto}
-@media (max-width:600px){#hmx-dock,#hmx-dock.min{left:auto;right:8px;width:220px}body.has-now #hmx-dock{bottom:54px}#hmx-now .hmx-tick{font-size:14px;padding:0 8px}#hmx-dock.big{width:100vw;border-width:0}}
+@media (max-width:600px){#hmx-dock,#hmx-dock.min{left:auto;right:8px;width:204px}body.has-now #hmx-dock{bottom:54px}#hmx-now .hmx-tick{font-size:14px;padding:0 8px}#hmx-dock.big{width:100vw;border-width:0}}
 /* Skins (skin.js picks one): every skin keeps the dark evil look and passes WCAG AA contrast */
 html[data-skin="crypt"]{--blood:#6b4f12;--blood-hot:#c9a14a;--blood-text:#d4a94e;--rust:#2a2530;--bone:#e3dbc6;--ash:#121014;--glow:201,161,74;--glow-deep:90,60,20;--display:"UnifrakturCook","Pirata One",Georgia,serif}
 html[data-skin="toxic"]{--blood:#2f6b0f;--blood-hot:#7fd61a;--blood-text:#9ef01a;--rust:#3d2a12;--bone:#e4eadb;--ash:#0f120c;--glow:127,214,26;--glow-deep:61,90,18;--display:"Metal Mania","Pirata One",Georgia,serif}
