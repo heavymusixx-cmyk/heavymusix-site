@@ -289,63 +289,78 @@
      Stays when the player is closed, showing what's up next with a Listen button.
      Album and year come from show/songinfo.json (the Song info robot, MusicBrainz). */
   function TICK_HTML(cls){
-    return '<button type="button" class="hmx-tick ' + cls + '" hidden aria-pressed="false" aria-label="Now playing">' +
-      '<span class="tick-move"><span class="tick-text"></span><span class="tick-text" aria-hidden="true"></span></span></button>';
+    return '<div class="hmx-tick ' + cls + '" hidden><div class="tick-move"><span class="tick-text"></span><span class="tick-text" aria-hidden="true"></span></div></div>';
   }
+
   var SONGS = {}, INFO = {}, lastTick = '', NOWKEY = 'hmxNowText';
   catalogReady.then(function(){ (CAT || []).forEach(function(x){ if (x.v) SONGS[x.v] = x; }); refreshNow(); });
   fetch('show/songinfo.json', {cache: 'no-cache'}).then(function(r){ return r.ok ? r.json() : {}; })
     .then(function(d){ INFO = d || {}; refreshNow(); }).catch(function(){});
-  function songLine(id, fallback){
+  function songLine(id, fallback){   // Band - Song - Album (Year)
     var s = SONGS[id], i = INFO[id] || {};
-    var text = s ? s.t + ' \u2014 ' + s.n : (fallback || '');
+    var text = s ? s.n + ' \u2014 ' + s.t : (fallback || '');
     if (!text) return '';
     if (i.al) text += ' \u00b7 ' + i.al + (i.y ? ' (' + i.y + ')' : '');
     else if (i.y) text += ' (' + i.y + ')';
     return text;
   }
+  function bandOf(id){ var s = SONGS[id]; return s ? s.n : ''; }
+  function nextId(){   // the song after the one playing (24/7 radio only)
+    if (!mode || mode.kind !== 'radio') return '';
+    var list = goodSongs(); if (!list.length) return '';
+    return list[(radioIndex() + 1) % list.length];
+  }
+
   function playingHere(){ try { var st = player.getPlayerState(); return st === 1 || st === 3 || st === 2; } catch (x) { return false; } }
   function nowPlaying(){
     var vd = null; try { vd = player.getVideoData && player.getVideoData(); } catch (x) {}
     var id = vd && vd.video_id; if (!id) return;
     var text = songLine(id, vd.title);
     if (!text) return;
-    setTicker('Now Playing', text, true);
-    if (POPOUT){ try { localStorage.setItem(NOWKEY, JSON.stringify({text: text, ts: Date.now()})); } catch (x) {} }
+    var next = bandOf(nextId());
+    setTicker(text, next, true);
+    if (POPOUT){ try { localStorage.setItem(NOWKEY, JSON.stringify({text: text, next: next, ts: Date.now()})); } catch (x) {} }
   }
+
   function refreshNow(){
     lastTick = '';
     if (player && mode && playingHere()){ nowPlaying(); return; }
     if (!POPOUT && popoutAlive()){
       var n = null; try { n = JSON.parse(localStorage.getItem(NOWKEY) || 'null'); } catch (x) {}
-      if (n && n.text){ setTicker('Now Playing', n.text, true); return; }
+      if (n && n.text){ setTicker(n.text, n.next || '', true); return; }
     }
     if (POPOUT) return;
     var list = goodSongs(); if (!list.length) return;
     var p = savedPos();
-    if (p === null){ p = Math.floor(Math.random() * list.length) - 1; savePos(p); }   // new listener: pick their starting song now, so Listen plays exactly this one
-    var id = list[((p + 1) % list.length + list.length) % list.length];
-    setTicker('Up Next on HeavyMusix Radio', songLine(id), false);
+    if (p === null){ p = Math.floor(Math.random() * list.length) - 1; savePos(p); }   // new listener: pick their starting song now, so tapping plays exactly this one
+    var L = list.length, id = list[((p + 1) % L + L) % L], nx = list[((p + 2) % L + L) % L];
+    setTicker(songLine(id), bandOf(nx), false);
   }
-  function setTicker(label, text, live){
+
+  function setTicker(text, next, live){
     var tk = document.querySelector('#hmx-now .hmx-tick');
     if (!tk || !text) return;
-    var full = label + ': ' + text;
-    if (full === lastTick) return;
-    lastTick = full;
+    var key = text + '|' + next + '|' + live;
+    if (key === lastTick) return;
+    lastTick = key;
     var parts = tk.querySelectorAll('.tick-text');
-    var htmlLine = '\u266a <span class="tick-label">' + esc(label) + ':</span> ' + esc(text);
-    parts[0].innerHTML = htmlLine; parts[1].innerHTML = htmlLine;
-    tk.classList.toggle('idle', !live);
-    tk.setAttribute('aria-label', live ? full + '. Press to pause or resume the scrolling.' : full + '. Press to listen.');
+    var hint = live ? 'Live now on HeavyMusix Radio: ' + text + '. Show the player.' : 'Live now on HeavyMusix Radio: ' + text + '. Play it.';
+    var line = function(copy){
+      return '<button type="button" class="tick-live"' + (copy ? ' tabindex="-1"' : '') + ' aria-label="' + esc(hint) + '">' +
+        '<span class="tick-label">LIVE NOW:</span> ' + esc(text) + '</button>' +
+        (next ? '<span class="tick-next"><span class="tick-label">NEXT:</span> ' + esc(next) + '</span>' : '');
+    };
+    parts[0].innerHTML = line(false); parts[1].innerHTML = line(true);
     tk.hidden = false;
-    var liveEl = document.querySelector('.hmx-live'); if (liveEl && live) liveEl.textContent = full;
+    var liveEl = document.querySelector('.hmx-live');
+    if (liveEl && live) liveEl.textContent = 'Live now: ' + text + (next ? '. Next: ' + next : '');
     tk.classList.remove('scroll');
     requestAnimationFrame(function(){
       var w = parts[0].offsetWidth;
-      if (w > tk.clientWidth - 16){ tk.style.setProperty('--dur', Math.max(10, Math.round(w / 45)) + 's'); tk.classList.add('scroll'); }
+      if (w > tk.clientWidth - 16){ tk.style.setProperty('--dur', Math.max(12, Math.round(w / 45)) + 's'); tk.classList.add('scroll'); }
     });
   }
+
   function attachBar(b){
     var h = document.querySelector('header.site');
     if (h && !POPOUT){ h.appendChild(b); document.body.classList.remove('has-now'); }   // right under the HeavyMusix banner, sticks with it
@@ -364,14 +379,18 @@
     refreshNow(); syncControls();
   }
   document.addEventListener('click', function(e){
-    var tk = e.target.closest && e.target.closest('.hmx-tick');
-    if (!tk) return;
-    if (tk.classList.contains('now-tick') && !mode){   // nothing playing on this page: the bar starts (or shows) the radio
-      if (!POPOUT && popoutAlive()) tellPopout({cmd: 'show'}); else window.startRadio();
+    if (!e.target.closest) return;
+    var lv = e.target.closest('#hmx-now .hmx-tick');   // a tap anywhere on the scroll plays the radio (or shows the player)
+    if (lv){
+      if (mode && player){   // already playing here: bring the player back to normal size and make sure it plays
+        try { if (player.getPlayerState() !== 1) player.playVideo(); } catch (x) {}
+        var d = dock(); if (d){ d.classList.remove('min'); var f = d.querySelector('.now-btn'); if (f) f.focus(); }
+      } else if (!POPOUT && popoutAlive()) tellPopout({cmd: 'show'}, function(){ window.hmxPlayRadio(); });
+      else window.hmxPlayRadio();
       return;
     }
-    var p = tk.classList.toggle('paused'); tk.setAttribute('aria-pressed', p ? 'true' : 'false');
   });
+
 
   function goodSongs(){ return (catalog || []).filter(function(v){ return !BAD[v]; }); }
   function savedPos(){ try { var p = JSON.parse(localStorage.getItem(POS) || 'null'); return p && typeof p.i === 'number' ? p.i : null; } catch (x) { return null; } }

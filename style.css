@@ -442,3 +442,14 @@ body.popout #hmx-dock .dock-video{flex:1}
 #hmx-dock .dock-top .now-btn{flex:1;width:auto;min-width:26px;height:30px;font-size:14px;border-right:1px solid #2a2324}
 #hmx-dock .dock-top .now-off{border-right:0;border-left:0}
 body.popout #hmx-dock .dock-top{height:40px}body.popout #hmx-dock .dock-top .now-btn{height:40px;font-size:18px}
+/* LIVE NOW / NEXT ticker */
+.hmx-tick .tick-text{white-space:nowrap}
+.hmx-tick .tick-live{display:inline;min-height:24px;margin:0;padding:4px 2px;border:0;background:none;color:var(--bone);font:inherit;cursor:pointer;text-align:left}
+.hmx-tick .tick-live:hover,.hmx-tick .tick-live:focus-visible{text-decoration:underline;outline:2px solid #fff;outline-offset:1px}
+.hmx-tick .tick-next{margin-left:2.5em;color:var(--bone-dim)}
+.hmx-tick .tick-label{color:var(--blood-text);font-weight:800;letter-spacing:.04em}
+.hmx-tick:focus-within .tick-move{animation-play-state:paused}
+#hmx-now .hmx-tick{display:flex;align-items:center;cursor:pointer}
+#hmx-now .hmx-tick:hover .tick-move{animation-play-state:paused}
+#hmx-now .hmx-tick[hidden]{display:none}
+#hmx-now .tick-move{flex:none}
