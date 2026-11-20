@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220">
+  <g stroke-linecap="round" stroke-width="6">
+    <g stroke="#e0262f"><line x1="110" y1="110" x2="110" y2="10"/><line x1="110" y1="110" x2="195" y2="60"/><line x1="110" y1="110" x2="25" y2="60"/><line x1="110" y1="110" x2="170" y2="200"/><line x1="110" y1="110" x2="50" y2="200"/></g>
+    <g stroke="#f4f1ea" stroke-width="5"><line x1="110" y1="110" x2="165" y2="20"/><line x1="110" y1="110" x2="210" y2="120"/><line x1="110" y1="110" x2="10" y2="120"/><line x1="110" y1="110" x2="55" y2="20"/><line x1="110" y1="110" x2="110" y2="212"/></g>
+    <g stroke="#5b8cff" stroke-width="5"><line x1="110" y1="110" x2="200" y2="90"/><line x1="110" y1="110" x2="20" y2="90"/><line x1="110" y1="110" x2="140" y2="206"/><line x1="110" y1="110" x2="80" y2="206"/></g>
+  </g>
+  <circle cx="110" cy="112" r="54" fill="#05060c"/>
+  <path d="M110 70c-24 0-37 16-37 37 0 12 6 20 13 26v10c0 4 3 6 6 6h36c3 0 6-2 6-6v-10c7-6 13-14 13-26 0-21-13-37-37-37z" fill="#efe6d2" stroke="#000" stroke-width="3"/>
+  <path d="M110 76l4 8 9 1-7 6 2 9-8-5-8 5 2-9-7-6 9-1z" fill="#1d3f8f"/>
+  <ellipse cx="96" cy="110" rx="10" ry="11" fill="#05060c"/><ellipse cx="124" cy="110" rx="10" ry="11" fill="#05060c"/>
+  <circle cx="97" cy="112" r="3" fill="#e0262f"/><circle cx="125" cy="112" r="3" fill="#e0262f"/>
+  <path d="M110 122l-5 10h10z" fill="#05060c"/>
+  <g stroke="#05060c" stroke-width="2.5"><line x1="98" y1="140" x2="98" y2="150"/><line x1="104" y1="140" x2="104" y2="150"/><line x1="110" y1="140" x2="110" y2="150"/><line x1="116" y1="140" x2="116" y2="150"/><line x1="122" y1="140" x2="122" y2="150"/></g>
+</svg>
