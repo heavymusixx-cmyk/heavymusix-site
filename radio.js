@@ -293,12 +293,13 @@
   }
 
   var SONGS = {}, INFO = {}, lastTick = '', NOWKEY = 'hmxNowText';
-  catalogReady.then(function(){ (CAT || []).forEach(function(x){ if (x.v) SONGS[x.v] = x; }); refreshNow(); });
+  catalogReady.then(function(){ (CAT || []).forEach(function(x){ if (x.v) SONGS[x.v] = x; }); orderCache = null; refreshNow(); });
   fetch('show/songinfo.json', {cache: 'no-cache'}).then(function(r){ return r.ok ? r.json() : {}; })
     .then(function(d){ INFO = d || {}; refreshNow(); }).catch(function(){});
   function songLine(id, fallback){   // Band - Song - Album (Year)
     var s = SONGS[id], i = INFO[id] || {};
-    var text = s ? s.n + ' \u2014 ' + s.t : (fallback || '');
+    var title = s ? s.t.replace(/\s*[\(\[][^\)\]]*(remaster|official|video|audio|lyric|visuali[sz]er|\bhd\b|4k|explicit)[^\)\]]*[\)\]]/gi, '').trim() : '';
+    var text = s ? s.n + ' \u2014 ' + (title || s.t) : (fallback || '');
     if (!text) return '';
     if (i.al) text += ' \u00b7 ' + i.al + (i.y ? ' (' + i.y + ')' : '');
     else if (i.y) text += ' (' + i.y + ')';
@@ -392,7 +393,48 @@
   });
 
 
-  function goodSongs(){ return (catalog || []).filter(function(v){ return !BAD[v]; }); }
+  /* Our own playlist: every listener gets a personal shuffle of the WHOLE song list (all songs, any size),
+     with bands spread out (no band again until several others have played). Nothing repeats until every
+     song has played; then it reshuffles. New songs added to the playlist slot in after the current song. */
+  var ORDER = 'hmxOrder';
+  function bandSpread(ids){
+    var by = {}, bands = [];
+    ids.forEach(function(v){ var b = ((SONGS[v] || {}).n || v).toLowerCase(); if (!by[b]){ by[b] = []; bands.push(b); } by[b].push(v); });
+    bands.forEach(function(b){ var a = by[b]; for (var i = a.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } });
+    var out = [], recent = [], gap = Math.min(8, Math.max(0, bands.length - 1));
+    while (out.length < ids.length){
+      var pool = bands.filter(function(b){ return by[b].length && recent.indexOf(b) < 0; });
+      if (!pool.length) pool = bands.filter(function(b){ return by[b].length; });
+      var total = 0; pool.forEach(function(b){ total += by[b].length; });
+      var r = Math.random() * total, pick = pool[0];
+      for (var k = 0; k < pool.length; k++){ r -= by[pool[k]].length; if (r < 0){ pick = pool[k]; break; } }
+      out.push(by[pick].shift()); recent.push(pick); if (recent.length > gap) recent.shift();
+    }
+    return out;
+  }
+  function personalOrder(){
+    var all = (catalog || []).filter(function(v){ return !BAD[v]; });
+    if (!all.length) return [];
+    var o = null; try { o = JSON.parse(localStorage.getItem(ORDER) || 'null'); } catch (x) {}
+    var ids = o && o.ids ? o.ids : null;
+    if (!ids){ ids = bandSpread(all); }
+    else {
+      var have = {}; all.forEach(function(v){ have[v] = 1; });
+      ids = ids.filter(function(v){ return have[v]; });                       // drop songs removed from the playlist
+      var inList = {}; ids.forEach(function(v){ inList[v] = 1; });
+      var fresh = all.filter(function(v){ return !inList[v]; });              // new songs: slot them in after the listener's spot
+      if (fresh.length){
+        var p = savedPos(); p = p === null ? 0 : Math.max(0, p + 1);
+        fresh = bandSpread(fresh);
+        fresh.forEach(function(v, i){ var at = Math.min(ids.length, p + 1 + Math.floor(Math.random() * Math.max(1, ids.length - p))); ids.splice(at, 0, v); });
+      }
+    }
+    try { localStorage.setItem(ORDER, JSON.stringify({ids: ids, made: (o && o.made) || Date.now()})); } catch (x) {}
+    return ids;
+  }
+  function reshuffle(){ try { localStorage.removeItem(ORDER); } catch (x) {} return personalOrder(); }
+  var orderCache = null;
+  function goodSongs(){ if (!orderCache) orderCache = personalOrder(); return orderCache; }
   function savedPos(){ try { var p = JSON.parse(localStorage.getItem(POS) || 'null'); return p && typeof p.i === 'number' ? p.i : null; } catch (x) { return null; } }
   function savePos(i){ try { localStorage.setItem(POS, JSON.stringify({i: i, ts: Date.now()})); } catch (x) {} }
   function radioIndex(){ try { return chunkStart + Math.max(0, player.getPlaylistIndex()); } catch (x) { return chunkStart; } }
@@ -402,6 +444,7 @@
       player.loadPlaylist({list: PL, listType: 'playlist', index: 0});
       player.setLoop(true); return;
     }
+    if (from >= list.length){ orderCache = reshuffle(); list = orderCache; from = 0; savePos(-1); }   // heard every song: new full shuffle
     from = ((from % list.length) + list.length) % list.length;
     chunkStart = from;
     var ids = list.slice(from, from + CHUNK);
