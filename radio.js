@@ -221,16 +221,43 @@
     if (ready) fn(); else pending = fn;
   }
 
-  var PL_SIZE = 650;   // about how many songs are in the playlist (updated from show/catalog.json)
-  fetch('show/catalog.json', {cache: 'no-cache'}).then(function(r){ return r.json(); })
-    .then(function(c){ if (c && c.length) PL_SIZE = c.length; }).catch(function(){});
+  /* The 24/7 radio walks the WHOLE playlist (show/catalog.json, already in the rotator's
+     artist-spread order) in chunks, because YouTube's embed only loads the first 200 songs
+     of a playlist (a start spot past 200 fell back to song 1, so fans heard the same first
+     song again and never got past song 200). Each fan's place is saved, so the next visit
+     continues where they left off and nothing repeats until the whole list has played. */
+  var CHUNK = 50, POS = 'hmxRadioPos';
+  var catalog = null, chunkStart = 0;
+  var catalogReady = fetch('show/catalog.json', {cache: 'no-cache'}).then(function(r){ return r.json(); })
+    .then(function(c){ catalog = (c || []).map(function(x){ return x.v; }).filter(Boolean); return catalog; })
+    .catch(function(){ catalog = []; return catalog; });
+  function goodSongs(){ return (catalog || []).filter(function(v){ return !BAD[v]; }); }
+  function savedPos(){ try { var p = JSON.parse(localStorage.getItem(POS) || 'null'); return p && typeof p.i === 'number' ? p.i : null; } catch (x) { return null; } }
+  function savePos(i){ try { localStorage.setItem(POS, JSON.stringify({i: i, ts: Date.now()})); } catch (x) {} }
+  function radioIndex(){ try { return chunkStart + Math.max(0, player.getPlaylistIndex()); } catch (x) { return chunkStart; } }
+  function loadChunk(from, startSeconds){
+    var list = goodSongs();
+    if (!list.length){   // no catalog: fall back to the playlist itself (first 200 only)
+      player.loadPlaylist({list: PL, listType: 'playlist', index: 0});
+      player.setLoop(true); return;
+    }
+    from = ((from % list.length) + list.length) % list.length;
+    chunkStart = from;
+    var ids = list.slice(from, from + CHUNK);
+    player.setLoop(false);
+    player.loadPlaylist(ids, 0, startSeconds || 0);
+    savePos(from);
+  }
+  function nextChunk(){ loadChunk(chunkStart + ((player.getPlaylist() || []).length || CHUNK)); }
   function playRadio(){
     mode = {kind: 'radio'};
-    withPlayer(function(){
-      // Start at a random spot so every visit sounds different (the playlist order itself keeps the artist rules).
-      player.loadPlaylist({list: PL, listType: 'playlist', index: Math.floor(Math.random() * Math.max(1, PL_SIZE - 5))});
-      player.setLoop(true);
-      setLabel(' · 24/7 playlist');
+    catalogReady.then(function(){
+      withPlayer(function(){
+        var p = savedPos();
+        // New listener: start at a random spot. Returning listener: carry on from their place.
+        loadChunk(p !== null ? p + 1 : Math.floor(Math.random() * Math.max(1, goodSongs().length)));
+        setLabel(' · 24/7 playlist');
+      });
     });
   }
 
@@ -265,10 +292,12 @@
     return idx >= list.length - 1;
   }
   function onState(e){
+    if (e.data === 1 && mode && mode.kind === 'radio') savePos(radioIndex());
     if (e.data === 1){ errors = 0; var r = document.querySelector('#hmx-dock .dock-resume'); if (r) r.remove(); }
     if (e.data !== 0 || !mode) return;               // 0 = ended
     if (mode.kind === 'song'){ startDefault(); return; }
     if (mode.kind === 'episode' && atEpisodeEnd()) nextEpisode();
+    if (mode.kind === 'radio' && atEpisodeEnd()) nextChunk();
   }
 
   /* A song that won't play (removed, private, or not allowed on other sites): skip to the next one. */
@@ -282,6 +311,7 @@
     if (errors > 10){ setLabel(' \u00b7 trouble loading, tap \u25c9 to try again'); errors = 0; return; }   // never skip forever
     try { var vd = player.getVideoData && player.getVideoData(); if (vd && vd.video_id) BAD[vd.video_id] = 1; } catch (x) {}
     if (mode.kind === 'episode' && atEpisodeEnd()){ nextEpisode(); return; }
+    if (mode.kind === 'radio' && atEpisodeEnd()){ nextChunk(); return; }
     setTimeout(function(){ try { player.nextVideo(); } catch (x) {} }, 400);
   }
 
@@ -292,7 +322,7 @@
     if (!player || !ready || !mode || !player.getCurrentTime) return;
     try {
       var st = {m: mode.kind, t: Math.floor(player.getCurrentTime() || 0), ts: Date.now()};
-      if (mode.kind === 'radio') st.idx = player.getPlaylistIndex();
+      if (mode.kind === 'radio') st.idx = radioIndex();
       if (mode.kind === 'episode'){ st.i = mode.i; st.idx = player.getPlaylistIndex(); }
       if (mode.kind === 'song'){ var vd = player.getVideoData && player.getVideoData(); st.v = (vd && vd.video_id) || mode.v; st.label = mode.label || ''; }
       sessionStorage.setItem(KEY, JSON.stringify(st));
@@ -331,7 +361,7 @@
       });
     } else {
       mode = {kind: 'radio'};
-      withPlayer(function(){ player.loadPlaylist({list: PL, listType: 'playlist', index: st.idx || 0, startSeconds: st.t || 0}); player.setLoop(true); setLabel(' \u00b7 24/7 playlist'); checkStarted(); });
+      catalogReady.then(function(){ withPlayer(function(){ loadChunk(st.idx || 0, st.t || 0); setLabel(' \u00b7 24/7 playlist'); checkStarted(); }); });
     }
     return true;
   }
