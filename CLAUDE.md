@@ -27,6 +27,7 @@ Fixes and improvements toward this standard never need approval.
 - Hand-made pages (`index.html`, `news.html` and so on) share the header and footer. **Change the header or footer in every hand-made page AND in `article.html`.** `scripts/build_pages.py` copies its header and footer from `article.html` into every generated story, band, genre, history and episode page, and wraps each page body in `<main id="main">`.
 - `radio.js` runs on every page. It is the player, the pop-out player, the hamburger menu and in-place page loading (so the music keeps playing). Bump its `?v=` number in every page when you change it, and do the same for `style.css`.
 - Visitors stay on the site: internal links load in place, and outside links open in a new tab.
+- Fan email: when you make a change fans would notice (a new button, page or feature), add one plain, friendly line to `social/updates.json` (date, text, link; newest first, keep about 20). The weekly fan email shows the last 7 days under "New on HeavyMusix". Big moments (launch day, submissions open, merch) get a one-off email: write `social/announcement.json` (id, subject, title, text, link, button), show it to the owner, and only after he approves run the "Weekly fan email" workflow with "announce" on.
 - Test before pushing: `node --check` on changed JS, run `python3 scripts/build_pages.py`, and render pages at 390px and 1280px wide.
 
 ## Schedule: Eastern time

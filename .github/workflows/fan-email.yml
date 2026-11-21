@@ -3,10 +3,15 @@ name: Weekly fan email
 on:
   schedule:
     - cron: "13 15 * * 5"    # Fridays 8:13 AM Arizona time
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      announce:
+        description: "Send the approved one-off announcement in social/announcement.json instead of the weekly email"
+        type: boolean
+        default: false
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   send:
@@ -20,4 +25,11 @@ jobs:
       - name: Send "This week in metal" to the HeavyMusix Fans list (Brevo)
         env:
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
-        run: python scripts/fan_email.py
+        run: python scripts/fan_email.py ${{ inputs.announce && '--announce' || '' }}
+      - name: Remember which announcement went out (so it is never sent twice)
+        if: ${{ inputs.announce }}
+        run: |
+          if [ -n "$(git status --porcelain social/announced.json)" ]; then
+            git config user.name "HeavyMusix"; git config user.email "heavymusixx-cmyk@users.noreply.github.com"
+            git add social/announced.json && git commit -m "Announcement sent" && git push
+          fi
