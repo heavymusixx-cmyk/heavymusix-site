@@ -767,16 +767,25 @@ function renderAll(el){
     '<form class="finder newsfind" onsubmit="return false" role="search">' +
     '<label for="nq">Search the news</label>' +
     '<input id="nq" type="search" placeholder="Try Jinjer, Trivium, tour, Arizona, new album" autocomplete="off">' +
-    '<div class="tagbtns">' + tags.map(function(t,i){return '<button type="button" class="tagbtn' + (i===0?' on':'') + '" data-t="' + esc(t) + '">' + esc(t) + '</button>';}).join("") + '</div></form>' +
-    '<div id="newslist" aria-live="polite"></div>';
-  var q = el.querySelector("#nq"), out = el.querySelector("#newslist"), tag = "All";
-  function draw(){
+    '<div class="tagbtns">' + tags.map(function(t,i){return '<button type="button" class="tagbtn' + (i===0?' on':'') + '" aria-pressed="' + (i===0) + '" data-t="' + esc(t) + '">' + esc(t) + '</button>';}).join("") + '</div></form>' +
+    '<p id="newscount" class="muted" aria-live="polite"></p><div id="newslist"></div>' +
+    '<div class="btns"><button type="button" class="btn ghost" id="newsmore" hidden>Show more stories</button></div>';
+  var q = el.querySelector("#nq"), out = el.querySelector("#newslist"), tag = "All", PAGE = 12, shown = PAGE;
+  var more = el.querySelector("#newsmore"), count = el.querySelector("#newscount");
+  more.addEventListener("click", function(){
+    var first = shown; shown += PAGE; draw(true);
+    var next = out.querySelectorAll("article")[first]; if (next){ var a = next.querySelector("a.hl"); if (a) a.focus(); }
+  });
+  function draw(keep){
+    if (!keep) shown = PAGE;
     var term = q.value.trim().toLowerCase();
     var list = NEWS.filter(function(n){
       if (tag !== "All" && n.tag !== tag) return false;
       return !term || (n.title + " " + n.tag + " " + n.text.join(" ")).toLowerCase().indexOf(term) > -1;
     });
-    out.innerHTML = list.length ? list.map(function(n){return `
+    count.textContent = list.length ? "Showing " + Math.min(shown, list.length) + " of " + list.length + " stories" : "";
+    more.hidden = list.length <= shown;
+    out.innerHTML = list.length ? list.slice(0, shown).map(function(n){return `
     <article class="post">
       <span class="tag">${esc(n.tag)}</span>
       <div class="date muted">${fmtDate(n.date)}</div>
@@ -787,7 +796,7 @@ function renderAll(el){
   }
   q.addEventListener("input", draw);
   el.querySelectorAll(".tagbtn").forEach(function(b){ b.addEventListener("click", function(){
-    tag = b.dataset.t; el.querySelectorAll(".tagbtn").forEach(function(x){ x.classList.toggle("on", x === b); }); draw();
+    tag = b.dataset.t; el.querySelectorAll(".tagbtn").forEach(function(x){ x.classList.toggle("on", x === b); x.setAttribute("aria-pressed", x === b); }); draw();
   }); });
   var pre = new URLSearchParams(location.search).get("q"); if (pre) q.value = pre;
   draw();

@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Metal+Mania&family=New+Rocker&family=Nosifer&family=Pirata+One&family=UnifrakturCook:wght@700&family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=50">
+<link rel="stylesheet" href="style.css?v=51">
 <script src="skin.js?v=5"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "HeavyMusix", "url": "https://heavymusix.com/", "potentialAction": {"@type": "SearchAction", "target": "https://heavymusix.com/search.html?q={search_term_string}", "query-input": "required name=search_term_string"}}, {"@type": "Organization", "name": "HeavyMusix", "url": "https://heavymusix.com/", "logo": "https://heavymusix.com/og/default.png", "email": "info@heavymusix.com", "sameAs": ["https://www.youtube.com/@HeavyMusix", "https://www.instagram.com/heavymusixradio/", "https://www.threads.com/@heavymusixradio", "https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M"]}]}</script>
 <meta property="og:image" content="https://heavymusix.com/og/default.png">
@@ -46,57 +46,46 @@
   <div class="btns">
     <button type="button" class="btn" onclick="startRadio()">&#9654; Play HeavyMusix Radio</button>
     <a class="btn ghost" href="https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M" target="_blank" rel="noopener">Save it in YouTube Music</a>
-    <a class="btn ghost" href="submit.html">Band submissions: opening soon</a>
   </div>
   <form class="hsearch" action="search.html" role="search">
     <input type="search" name="q" placeholder="Find a band, song, city or story" aria-label="Search HeavyMusix">
     <button type="submit">Search</button>
   </form>
+  <nav class="jump" aria-label="On this page"><a href="#news">Latest news</a><a href="#history">Today in metal</a><a href="#az">Arizona shows</a><a href="#botd-sec">Band of the day</a><a href="#soon">Coming soon</a></nav>
 </div></section>
 
-<section><div class="wrap">
-  <p class="kicker">Today in metal history</p>
-  <div id="tihist"><p class="muted">Loading today in metal&hellip;</p></div>
-</div></section>
-
-<section><div class="wrap">
-  <p class="kicker">Band of the day</p>
-  <div id="botd"><p class="muted">Loading today's band&hellip;</p></div>
-</div></section>
-
-<section><div class="wrap">
+<section id="news"><div class="wrap">
   <p class="kicker">News</p>
   <h2>Latest from HeavyMusix</h2>
   <div class="grid" id="latest"></div>
   <div class="btns"><a class="btn ghost" href="news.html">All news</a><a class="btn ghost" href="this-week-in-metal.html">This week in metal</a></div>
 </div></section>
 
-<section><div class="wrap">
+<section id="history"><div class="wrap">
+  <p class="kicker">Today in metal history</p>
+  <div id="tihist"><p class="muted">Loading today in metal&hellip;</p></div>
+</div></section>
+
+<section id="az"><div class="wrap">
   <p class="kicker">Arizona metal</p>
   <h2>Coming up in the desert</h2>
   <div id="azshows"></div>
   <div class="btns"><a class="btn ghost" href="arizona.html">All Arizona shows and news</a></div>
 </div></section>
 
-<section><div class="wrap">
-  <p class="kicker">The animated series &middot; Coming soon</p>
-  <h2>Band Survival Kit</h2>
-  <p class="lead">Grave Budget is a broke Phoenix metal band learning to run like a business the hard way: finding members, splitting money, budgeting, contracts, and dodging the guy with the &ldquo;great opportunity.&rdquo; Laugh at their mistakes so your band doesn&rsquo;t make them.</p>
-  <div class="btns"><a class="btn" href="series.html">Meet the band</a><a class="btn ghost" href="checklist-ep1.html">Free checklist</a></div>
+<section id="botd-sec"><div class="wrap">
+  <p class="kicker">Band of the day</p>
+  <div id="botd"><p class="muted">Loading today's band&hellip;</p></div>
 </div></section>
 
-<section><div class="wrap">
-  <p class="kicker">Shop &middot; Coming soon</p>
-  <h2>Merch and band tools</h2>
-  <p class="lead">HeavyMusix shirts, stickers and patches, plus do-it-yourself guides for unsigned bands. Follow us on Instagram to hear first when the shop opens.</p>
-  <div class="btns"><a class="btn ghost" href="shop.html">See what&rsquo;s coming</a></div>
-</div></section>
-
-<section><div class="wrap">
-  <p class="kicker">Unsigned band?</p>
-  <h2>Get considered for HeavyMusix Radio</h2>
-  <p class="lead">Band submissions are opening soon. Free, always. Every submission will be reviewed by hand; not every band is selected. Please don&rsquo;t send anything until we announce the date.</p>
-  <div class="btns"><a class="btn" href="submit.html">How it will work</a></div>
+<section id="soon"><div class="wrap">
+  <p class="kicker">On the way</p>
+  <h2>Coming soon to HeavyMusix</h2>
+  <div class="grid soongrid">
+    <div class="card"><h3>Band Survival Kit</h3><p>An animated series: Grave Budget is a broke Phoenix metal band learning to run like a business the hard way, from splitting money to dodging the guy with the &ldquo;great opportunity.&rdquo; Laugh at their mistakes so your band doesn&rsquo;t make them.</p><p><a href="series.html">Meet the band</a> &middot; <a href="checklist-ep1.html">Free checklist</a></p></div>
+    <div class="card"><h3>Merch and band tools</h3><p>HeavyMusix shirts, stickers and patches, plus do-it-yourself guides for unsigned bands. Follow us on Instagram to hear first when the shop opens.</p><p><a href="shop.html">See what&rsquo;s coming</a></p></div>
+    <div class="card"><h3>Band submissions</h3><p>Band submissions open soon. Free, always. Every submission will be reviewed by hand; not every band is selected. Please don&rsquo;t send anything until we announce the date.</p><p><a href="submit.html">How it will work</a></p></div>
+  </div>
 </div></section>
 
 </main>
@@ -105,7 +94,7 @@
   <div>Bands: <a href="submit.html">Band submissions open soon</a><br>Everything else: <a href="mailto:info@heavymusix.com">info@heavymusix.com</a> &middot; <a href="ideas.html">Share an idea</a> &middot; <a href="privacy.html">Privacy</a><br>
   <a href="https://www.youtube.com/@HeavyMusix">YouTube</a> &middot; <a href="https://www.instagram.com/heavymusixradio/">Instagram</a> &middot; <a href="https://www.threads.com/@heavymusixradio">Threads</a> &middot; <a href="https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M">YouTube Music</a></div>
 </div></footer>
-<script src="news.js?v=13"></script><script src="shows.js?v=1"></script><script>renderShows(document.getElementById("azshows"),5)</script><script>renderLatest(document.getElementById("latest"))</script>
+<script src="news.js?v=14"></script><script src="shows.js?v=1"></script><script>renderShows(document.getElementById("azshows"),5)</script><script>renderLatest(document.getElementById("latest"))</script>
 <script src="history.js?v=1"></script>
 <script>
 (function(){
