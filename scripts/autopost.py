@@ -126,6 +126,65 @@ if os.getenv("META_PAGE_TOKEN") and os.getenv("FB_PAGE_ID") and "facebook" not i
     except Exception as e:
         results["facebook_error"] = str(e)[:300]
 
+def call_json(url, data, headers=None, raw=None, ctype="application/json"):
+    body = raw if raw is not None else json.dumps(data).encode()
+    req = urllib.request.Request(url, data=body, method="POST",
+                                 headers={"Content-Type": ctype, "User-Agent": "HeavyMusix-autopost", **(headers or {})})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        txt = r.read()
+        return json.loads(txt) if txt else {}
+
+
+title = item["text"].split("\n")[0]
+blurb = item["text"].split("\n\n", 1)[1] if "\n\n" in item["text"] else ""
+
+# ---------- Bluesky (300 characters max; link card with the share picture)
+if os.getenv("BLUESKY_HANDLE") and os.getenv("BLUESKY_APP_PASSWORD") and "bluesky" not in done:
+    try:
+        api = "https://bsky.social/xrpc/"
+        ses = call_json(api + "com.atproto.server.createSession",
+                        {"identifier": os.environ["BLUESKY_HANDLE"], "password": os.environ["BLUESKY_APP_PASSWORD"]})
+        auth = {"Authorization": "Bearer " + ses["accessJwt"]}
+        tags = " ".join(t for t in item.get("tags", "").split() if t.startswith("#"))[:60]
+        text = clip(item["text"], 300 - len(tags) - 2) + ("\n\n" + tags if tags else "")
+        card = {"uri": item["link"], "title": clip(title, 300), "description": clip(blurb, 300)}
+        if img:
+            try:
+                with urllib.request.urlopen(img, timeout=30) as r:
+                    data = r.read()
+                if len(data) < 950000:
+                    card["thumb"] = call_json(api + "com.atproto.repo.uploadBlob", None, auth, raw=data, ctype="image/png")["blob"]
+            except Exception:
+                pass
+        facets, b = [], text.encode("utf-8")
+        for t in tags.split():   # make the hashtags real tags
+            i = b.find(t.encode("utf-8"))
+            if i >= 0:
+                facets.append({"index": {"byteStart": i, "byteEnd": i + len(t.encode("utf-8"))},
+                               "features": [{"$type": "app.bsky.richtext.facet#tag", "tag": t[1:]}]})
+        rec = {"$type": "app.bsky.feed.post", "text": text, "createdAt": now.astimezone(datetime.timezone.utc).isoformat().replace("+00:00", "Z"),
+               "embed": {"$type": "app.bsky.embed.external", "external": card}, "langs": ["en"]}
+        if facets:
+            rec["facets"] = facets
+        r = call_json(api + "com.atproto.repo.createRecord", {"repo": ses["did"], "collection": "app.bsky.feed.post", "record": rec}, auth)
+        results["bluesky"] = f"https://bsky.app/profile/{ses.get('handle', os.environ['BLUESKY_HANDLE'])}/post/{r['uri'].rsplit('/', 1)[-1]}"
+    except Exception as e:
+        results["bluesky_error"] = str(e)[:300]
+
+# ---------- Discord (HeavyMusix's own server, through a channel webhook)
+if os.getenv("DISCORD_WEBHOOK_URL") and "discord" not in done:
+    try:
+        emb = {"title": clip(title, 250), "url": item["link"], "description": clip(blurb, 1000), "color": 0xA3121B,
+               "footer": {"text": "HeavyMusix Radio: every band gets a turn"}}
+        if img:
+            emb["image"] = {"url": img}
+        m = call_json(os.environ["DISCORD_WEBHOOK_URL"] + "?wait=true",
+                      {"username": "HeavyMusix", "content": "", "embeds": [emb], "allowed_mentions": {"parse": []}})
+        gid = os.getenv("DISCORD_SERVER_ID", "")
+        results["discord"] = f"https://discord.com/channels/{gid}/{m['channel_id']}/{m['id']}" if gid else f"message {m.get('id', 'ok')}"
+    except Exception as e:
+        results["discord_error"] = str(e)[:300]
+
 if not results:
     print("No accounts connected yet (or already posted). Nothing to do."); sys.exit(0)
 done.update({k: v for k, v in results.items() if not k.endswith("_error")})
