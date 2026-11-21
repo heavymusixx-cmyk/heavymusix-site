@@ -89,11 +89,14 @@ def page(path, title, desc, body, nav=None, ld=None, extra_head="", image="og/de
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="HeavyMusix metal news" href="{SITE}feed.xml">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="images/app/apple-touch-icon.png">
+<meta name="theme-color" content="#0a0a0a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Metal+Mania&family=New+Rocker&family=Nosifer&family=Pirata+One&family=UnifrakturCook:wght@700&family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{STYLE}">
-<script src="skin.js?v=1"></script>
+<script src="skin.js?v=5"></script>
 {extra_head}{ld_tag}</head>
 <body>
 <!-- Built automatically by scripts/build_pages.py. Do not edit by hand. -->

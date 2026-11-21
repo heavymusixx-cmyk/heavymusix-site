@@ -728,3 +728,57 @@
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
 })();
+
+/* Get the app: fans can put HeavyMusix Radio on their phone's home screen or their computer
+   (it opens straight to the site and the radio). Any button with data-install opens it. */
+(function(){
+  if (window.hmxAppReady) return; window.hmxAppReady = true;
+  var deferred = null;
+  var standalone = function(){ try { return matchMedia('(display-mode: standalone)').matches || navigator.standalone === true; } catch (x) { return false; } };
+  if ('serviceWorker' in navigator && location.protocol === 'https:') {
+    window.addEventListener('load', function(){ navigator.serviceWorker.register('/sw.js').catch(function(){}); });
+  }
+  window.addEventListener('beforeinstallprompt', function(e){ e.preventDefault(); deferred = e; });
+  window.addEventListener('appinstalled', function(){ deferred = null; hideButtons(); });
+  function hideButtons(){ if (standalone()) document.querySelectorAll('[data-install]').forEach(function(b){ b.hidden = true; }); }
+  function steps(){
+    var ua = navigator.userAgent, ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    var android = /Android/.test(ua), mac = /Macintosh/.test(ua) && !ios, safari = /Safari/.test(ua) && !/Chrome|CriOS|FxiOS|Edg|OPR/.test(ua);
+    var firefox = /Firefox|FxiOS/.test(ua);
+    if (ios) return '<li>Tap the <strong>Share</strong> button (the square with an arrow).</li><li>Scroll and tap <strong>Add to Home Screen</strong>, then <strong>Add</strong>.</li><li>Tap the HeavyMusix skull on your home screen any time to open the radio.</li>';
+    if (android) return '<li>Tap your browser&rsquo;s menu (&#8942;).</li><li>Tap <strong>Install app</strong> or <strong>Add to Home screen</strong>.</li><li>Tap the HeavyMusix skull on your home screen any time to open the radio.</li>';
+    if (mac && safari) return '<li>In the Safari menu bar, choose <strong>File &gt; Add to Dock</strong>.</li><li>Click the HeavyMusix skull in your Dock any time to open the radio.</li>';
+    if (firefox) return '<li>Press <strong>Ctrl+D</strong> (or <strong>Cmd+D</strong> on a Mac) to bookmark HeavyMusix.</li><li>Or make it your home page: <strong>Settings &gt; Home &gt; Homepage</strong>, then enter heavymusix.com/radio.</li>';
+    return '<li>Click the <strong>install</strong> icon at the right end of the address bar, or open the browser menu (&#8942;) and choose <strong>Install HeavyMusix</strong> (in Edge: <strong>Apps &gt; Install this site as an app</strong>).</li><li>HeavyMusix gets its own icon on your desktop and taskbar.</li>';
+  }
+  function showHelp(opener){
+    var d = document.getElementById('hmx-app');
+    if (!d){
+      d = document.createElement('dialog'); d.id = 'hmx-app'; d.setAttribute('aria-labelledby', 'hmx-app-h');
+      document.body.appendChild(d);
+      d.addEventListener('click', function(e){ if (e.target === d || e.target.closest('.app-close')) d.close(); });
+      d.addEventListener('close', function(){ if (d._opener) try { d._opener.focus(); } catch (x) {} });
+    }
+    d.innerHTML = '<h2 id="hmx-app-h">Put HeavyMusix Radio on your phone or computer</h2>' +
+      '<ol>' + steps() + '</ol>' +
+      '<p class="muted">Want it to open every time you start your browser? Set your browser&rsquo;s start page or home page to <strong>heavymusix.com/radio</strong> (Settings &gt; On startup, or Settings &gt; Home page).</p>' +
+      '<button type="button" class="btn app-close">Got it</button>';
+    d._opener = opener;
+    try { d.showModal(); } catch (x) { d.setAttribute('open', ''); }
+    var c = d.querySelector('.app-close'); if (c) c.focus();
+  }
+  document.addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('[data-install]');
+    if (!b) return;
+    e.preventDefault();
+    if (deferred){
+      var p = deferred; deferred = null;
+      p.prompt();
+      p.userChoice.then(function(r){ if (r.outcome !== 'accepted') deferred = p; }).catch(function(){});
+      return;
+    }
+    showHelp(b);
+  });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', hideButtons); else hideButtons();
+  if (standalone()) new MutationObserver(hideButtons).observe(document.body, {childList: true});   // pages load in place: keep the buttons hidden inside the app
+})();
