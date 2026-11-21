@@ -16,6 +16,8 @@ Keep improving the site. Every page must meet all of these:
   - Touch targets are at least 24px, ideally 44px.
 - **Responsive and adaptive design.** Pages work on phones, tablets and desktops: fluid layouts, no sideways scrolling, text readable without zooming. The hamburger menu shows on every screen size (owner's choice); on computers it drops down as a panel at the right. The radio player stays usable on small screens.
 
+- **Polished, organized and easy to use (owner's request, Nov 21, 2026).** Pages look attractive and finished, the most useful things come first, related things are grouped, long lists show a sensible amount at a time ("Show more"), and nothing feels cluttered or repeated. Every Saturday review looks for one or two concrete ways to make the site easier and more inviting, and makes them.
+
 Fixes and improvements toward this standard never need approval. New features, new sections and anything involving money need the owner's approval first.
 
 ## How the site is built
