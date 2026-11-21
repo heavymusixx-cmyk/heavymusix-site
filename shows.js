@@ -37,10 +37,12 @@ var SHOWS = [
   {date:"2027-02-20", bands:"Beast in Black, Gloryhammer", venue:"Nile Theater", city:"Mesa"},
   {date:"2027-02-22", bands:"Capstan, Fire From the Gods, Midwinter", venue:"Rosetta Room", city:"Mesa"},
   {date:"2027-03-07", bands:"Dying Fetus, Cryptopsy, Gorgasm", venue:"Rebel Lounge", city:"Phoenix"},
+  {date:"2027-03-07", bands:"Firewind, Powerglove", venue:"Rosetta Room", city:"Mesa"},
   {date:"2027-03-30", bands:"Týr, Dynazty, Dominum, Edge of Paradise", venue:"Nile Theater", city:"Mesa"},
   {date:"2027-04-26", bands:"Iron Maiden", venue:"Talking Stick Resort Amphitheatre", city:"Phoenix"},
   {date:"2027-04-27", bands:"Meshuggah, Testament, Blood Incantation", venue:"Arizona Financial Theatre", city:"Phoenix"},
   {date:"2027-05-12", bands:"Deftones, Knocked Loose, Julie", venue:"Talking Stick Resort Amphitheatre", city:"Phoenix"},
+  {date:"2027-05-15", bands:"Megadeth, Anthrax, Kerry King", venue:"Talking Stick Resort Amphitheatre", city:"Phoenix"},
   {date:"2027-05-15", bands:"Avatar, The Barbarians of California", venue:"Marquee Theatre", city:"Tempe"},
   {date:"2027-08-18", bands:"Slipknot, Bring Me The Horizon, Motionless In White", venue:"Chase Field", city:"Phoenix"}
 ];

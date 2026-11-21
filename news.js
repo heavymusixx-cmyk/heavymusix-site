@@ -6,6 +6,101 @@
 */
 var NEWS = [
   {
+    date: "2026-11-21",
+    tag: "Tips",
+    title: "Band business tip: register every song so the royalties actually reach you",
+    text: [
+      "Releasing music is only half the job. If your songs are not registered in the right places, money from streams, radio and live plays can sit unclaimed. A royalty checklist published by Hypebot breaks it into a few simple layers, and every band can work through it in an afternoon.",
+      "Songwriting first: join a performing rights organization where you live (ASCAP or BMI in the US, PRS in the UK, GEMA in Germany) and register each song with every writer and their split. If you publish yourself, sign up as both writer and publisher. In the US, also register with The MLC to collect streaming mechanicals. Then the recordings: SoundExchange in the US, PPL in the UK or GVL in Germany pay out for the master, and if you are both the band and the label, register as both.",
+      "Keep the details identical everywhere. Each recording needs its own ISRC code and each song an ISWC, and the names and splits should match at your distributor, your PRO and The MLC. Claim your artist profiles on Spotify, Apple Music and YouTube, check your credits about two weeks after every release, and look at unclaimed-royalty portals every few months. One more date for the calendar: the last Bandcamp Friday of 2026 is December 4, when Bandcamp waives its share of sales.",
+      "Source: Hypebot, Bandcamp"
+    ]
+  },
+  {
+    date: "2026-11-21",
+    tag: "Tours",
+    title: "Firewind and Powerglove team up for the \"Firepower USA Tour 2027\", ending in Mesa on March 7",
+    text: [
+      "Greek power metal band Firewind are coming to the US with video-game metal crew Powerglove as co-headliners. The 11-date run starts February 23 in Austin and stops in Dallas, Kansas City, Iowa City, Chicago, Milwaukee, Denver, Salt Lake City, San Francisco and Los Angeles.",
+      "Arizona gets the final night: Sunday, March 7, 2027 at the Rosetta Room in Mesa.",
+      "The tour backs Firewind's new album \"Gods, Myths & Titans\", a Greek mythology concept record out February 19 on BLKIIBLK. Henning Basse is back on vocals, and the songs \"Firegod\" and \"The Legend Of Achilles\" are the first highlights.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-21",
+    tag: "Tours",
+    title: "Bloodstock 2027 adds Khemmis, Crisix, The Zenith Passage and 14 more; day tickets go on sale November 27",
+    text: [
+      "The UK's Bloodstock Open Air has added 17 bands to its 2027 festival, held August 5 to 8 at Catton Park in Derbyshire. Mercyful Fate, Electric Callboy and Motionless In White headline the main Ronnie James Dio Stage.",
+      "New on the main stage are Pintglass on Friday and Brat and Pest Control on Sunday. The Sophie Lancaster Stage picks up Denver doom band Khemmis, Spanish thrashers Crisix, tech-death band The Zenith Passage, Viscera, Soldiers Of Rage, Only Pain, De Profundis, Devora, VCTMS, Redeemon, Muddibrooke, Endeavour, Pryma and The Five Hundred.",
+      "Day tickets go on sale Friday, November 27, and the festival is offering a three-payment plan for the first time. Bloodstock is also premiering clips from Sepultura's last UK festival set on its YouTube channel on November 23, 25 and 27.",
+      "Source: This Day In Metal, MetalTalk"
+    ]
+  },
+  {
+    date: "2026-11-21",
+    tag: "Tours",
+    title: "Judas Priest add Welcome to Rockville and seven European dates to their 2027 tour",
+    text: [
+      "Judas Priest keep growing their 2027 schedule. New shows include Welcome to Rockville in Daytona Beach, Florida on May 7, then Groningen in the Netherlands on June 22, Gothenburg on June 30, Uppsala on July 1, Riga on July 6, Gliwice in Poland on July 8, Burg Clam in Austria on July 10 and Istanbul on July 17.",
+      "They join festival slots already on the books, including Boardwalk Rock in Ocean City, Maryland, Tons of Rock in Oslo, Copenhell, Tuska in Helsinki, Masters of Rock in Czechia and Release Festival in Athens. There is no Arizona date so far.",
+      "Source: Ultimate Classic Rock"
+    ]
+  },
+  {
+    date: "2026-11-21",
+    tag: "Tours",
+    title: "As I Lay Dying book a 16-date European tour for spring 2027",
+    text: [
+      "Metalcore band As I Lay Dying will tour Europe from April 20 to May 16, 2027. The run opens at Matrix in Bochum, Germany and heads through Leipzig, Ostrava, Vienna, Bucharest, Sofia, Athens, Thessaloniki, Belgrade, Zagreb, Venice, Milan and Paris before closing at De Helling in Utrecht.",
+      "No support acts have been named yet. Tickets are on general sale now.",
+      "Source: Lambgoat"
+    ]
+  },
+  {
+    date: "2026-11-21",
+    tag: "Releases",
+    title: "Gates To Hell unveil new singer JP Kaine on crushing single \"Rotting Heart\"",
+    text: [
+      "Louisville, Kentucky metallic hardcore band Gates To Hell have a new voice. The Nuclear Blast band parted ways with singer Ryan Storey and brought in JP Kaine, who also fronts Surfaced. \"Rotting Heart\" is the first song with him, and it comes with a video directed by Errick Easterday.",
+      "The track was recorded, mixed and mastered this summer by Randy LeBoeuf in New Jersey. No album has been announced yet.",
+      "The band are on the road supporting Guilt Trip from November 27 to December 16, and they are booked to support Avatar in June 2027.",
+      "Source: Nuclear Blast, Lambgoat"
+    ]
+  },
+  {
+    date: "2026-11-21",
+    tag: "Releases",
+    title: "U.D.O. share \"The Sky Is The Limit\" video from 20th album \"Voodoo Ranger\"",
+    text: [
+      "German heavy metal veterans U.D.O. have released a video for \"The Sky Is The Limit\", the second track on \"Voodoo Ranger\". The 12-song album, the band's 20th, arrives January 8, 2027 on Reigning Phoenix Music, following the earlier single \"I'll Die Trying\".",
+      "Drummer Sven Dirkschneider says the song is about having the courage to follow your own path. The lineup is Udo Dirkschneider, Sven Dirkschneider, Fabian \"Dee\" Dammers, Peter Baltes and Alen Brentini.",
+      "Udo also has an autobiography due the same month, and a \"Triple Anniversary Tour 2027\" across Europe marks 40 years of U.D.O. as a live band.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-21",
+    tag: "News",
+    title: "Lamb of God earn their first US platinum single with \"Redneck\"",
+    text: [
+      "Lamb of God's \"Redneck\", from the 2006 album \"Sacrament\", has been certified gold and platinum in the United States. It is the Richmond, Virginia band's first platinum single.",
+      "\"Laid To Rest\", from 2004's \"Ashes of the Wake\", has also gone gold. Two decades on, both songs are still staples of the band's live sets.",
+      "Source: ThePRP"
+    ]
+  },
+  {
+    date: "2026-11-21",
+    tag: "Throwback",
+    title: "On this day in metal: Anvil release \"Plugged in Permanent\" (1996)",
+    text: [
+      "On November 21, 1996, Canadian heavy metal band Anvil released their seventh studio album, \"Plugged in Permanent\". It came out on Hypnotic in Canada, Metal Blade in the US and Massacre in Europe, the band's first release with that label.",
+      "Steve \"Lips\" Kudlow and drummer Robb Reiner were joined by new guitarist Ivan Hurd, and Mike Duncan played bass in the studio. The band produced the record themselves, and the title is a jab at the MTV Unplugged craze of the time.",
+      "Source: This Day In Metal, Wikipedia"
+    ]
+  },
+  {
     date: "2026-11-20",
     tag: "Releases",
     title: "Angelus Apatrida drop \"Burn It Down\" video as their Napalm Records debut EP \"The Reckoning\" lands",

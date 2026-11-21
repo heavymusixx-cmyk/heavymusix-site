@@ -44,5 +44,13 @@ var HISTORY = {
     {year: 1991, type: "Album", text: "Chicago death metal band Broken Hope release their debut album, \"Swamped in Gore\", on Grind Core Records.", band: "", source: "This Day in Metal, Metal Kingdom"},
     {year: 2003, type: "Album", text: "Korn release \"Take a Look in the Mirror\", the last album by the original five-piece lineup; it reached No. 9 on the Billboard 200.", band: "", source: "This Day in Metal, Wikipedia"},
     {year: 2006, type: "Album", text: "Killswitch Engage release \"As Daylight Dies\" on Roadrunner, featuring \"My Curse\" and their cover of Dio's \"Holy Diver\"; it later went platinum.", band: "", source: "This Day in Metal, Wikipedia"}
+  ],
+  "11-22": [
+    {year: 1962, type: "Born", text: "Jim Matheos is born in Westfield, Massachusetts. He is the main songwriter of progressive metal band Fates Warning and the only member who has been there the whole time.", band: "", source: "Wikipedia, I Love Heavy Metal Radio"},
+    {year: 1985, type: "Album", text: "Dokken release \"Under Lock and Key\" on Elektra; it reached No. 32 on the Billboard 200 and later went platinum.", band: "", source: "Wikipedia, I Love Heavy Metal Radio"},
+    {year: 1999, type: "Album", text: "Finnish power metal band Sonata Arctica release their debut album, \"Ecliptica\", on Spinefarm; it went gold in Finland.", band: "", source: "Wikipedia, I Love Heavy Metal Radio"},
+    {year: 2004, type: "Album", text: "Swedish black metal band Marduk release \"Plague Angel\" on Regain Records, their first album with vocalist Mortuus.", band: "", source: "Wikipedia, Blabbermouth"},
+    {year: 2011, type: "Album", text: "US heavy metal band Riot release \"Immortal Soul\" in North America on SPV/Steamhammer.", band: "", source: "Wikipedia, I Love Heavy Metal Radio"},
+    {year: 2013, type: "Album", text: "Italian symphonic power metal band Rhapsody of Fire release \"Dark Wings of Steel\" in Europe on AFM Records.", band: "", source: "Wikipedia, Blabbermouth"}
   ]
 };
