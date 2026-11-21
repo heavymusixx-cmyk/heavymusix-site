@@ -14,6 +14,15 @@ import datetime, html, json, os, re, shutil, subprocess
 from email.utils import format_datetime
 from urllib.parse import quote
 
+def cut(s, n):
+    """Shorten to n chars at a word boundary, with an ellipsis (no cut-off words)."""
+    s = " ".join(str(s).split())
+    if len(s) <= n:
+        return s
+    s = s[:n - 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
+    return s + "…"
+
+
 SITE = "https://heavymusix.com/"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
@@ -223,8 +232,8 @@ for i, n in enumerate(news):
     <ul class="morenews">{''.join(f'<li><a href="news/{slug_of(m)}.html">{esc(m["title"])}</a><span class="wsrc">{fmt_date(m["date"])}</span></li>' for m in more)}</ul>
     <div class="btns"><a class="btn ghost" href="news.html">All news</a> <a class="btn ghost" href="feed.xml" target="_blank" rel="noopener">News feed (RSS)</a></div>
 </div></section>"""
-    desc = n["text"][0][:155]
-    ld = {"@context": "https://schema.org", "@type": "NewsArticle", "headline": n["title"][:110],
+    desc = cut(n["text"][0], 155)
+    ld = {"@context": "https://schema.org", "@type": "NewsArticle", "headline": cut(n["title"], 110),
           "datePublished": n["date"] + "T05:00:00-07:00", "dateModified": n["date"] + "T05:00:00-07:00",
           "articleSection": n["tag"], "description": desc,
           "author": HEAVY, "publisher": ORG, "isAccessibleForFree": True,
@@ -332,7 +341,7 @@ for key, b in bands.items():
     if genre: ld["genre"] = genre
     if loc: ld["foundingLocation"] = {"@type": "Place", "name": loc}
     page(f"bands/{key}.html", f"{b['name']} | {genre or 'Metal'}{' from ' + (b.get('city') or b.get('country')) if (b.get('city') or b.get('country')) else ''} | HeavyMusix",
-         desc[:160], body, nav="bands.html", ld=[ld, crumbs(("Bands", "bands.html"), (b["name"], f"bands/{key}.html"))])
+         cut(desc, 160), body, nav="bands.html", ld=[ld, crumbs(("Bands", "bands.html"), (b["name"], f"bands/{key}.html"))])
     pages.append((f"bands/{key}.html", TODAY.isoformat()))
 
 # ---------------------------------------------------------------- radio show episodes
@@ -351,7 +360,7 @@ for e in live:
 </div></section>"""
     names = ", ".join(dict.fromkeys(s["band"] for s in e.get("songs", [])))
     page(f"episodes/{e['n']}.html", f"{e['title']} | HeavyMusix Radio",
-         f"{e['title']}: {names}"[:160], body, nav="show.html")
+         cut(f"{e['title']}: {names}", 160), body, nav="show.html")
     pages.append((f"episodes/{e['n']}.html", (e.get("live") or TODAY.isoformat())[:10]))
 
 # ---------------------------------------------------------------- Arizona shows this week
@@ -456,7 +465,7 @@ body = f"""<section class="hero"><div class="wrap">
 </div></section>"""
 share_picture("og/week.png", "This week in metal", f"heavymusix.com  ·  {len(recent)} stories  ·  week of {TODAY.strftime('%B %-d, %Y')}", force=True)
 page("this-week-in-metal.html", f"This week in metal: {len(recent)} stories | HeavyMusix",
-     f"The biggest metal news of the week: {', '.join(n['title'] for n in recent[:3])}"[:158], body, nav="news.html", image="og/week.png")
+     cut(f"The biggest metal news of the week: {', '.join(n['title'] for n in recent[:3])}", 158), body, nav="news.html", image="og/week.png")
 pages.append(("this-week-in-metal.html", TODAY.isoformat()))
 
 # ---------------------------------------------------------------- today in metal history (one page per day of the year)

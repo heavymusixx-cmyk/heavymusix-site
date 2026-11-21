@@ -74,6 +74,33 @@ try:
 except FileNotFoundError:
     notes.append("Social clips: none made yet.")
 
+# 6. Content rules: nothing invites band submissions while they are closed, and share titles match page titles
+closed = "Closed until submissions open" in open("submit.html", encoding="utf-8").read()
+if closed:
+    bad = re.compile(r"submissions (are|now) open\b|send (it|your music|us your music)[^.]{0,40}submit@|"
+                     r"email (us )?your (music|band)|submit your music now", re.I)
+    hits = set()
+    for f in ["news.js", "shows.js", "wire.js"] + glob.glob("*.html") + glob.glob("*/*.html"):
+        try:
+            txt = open(f, encoding="utf-8").read()
+        except FileNotFoundError:
+            continue
+        for m in bad.finditer(txt):
+            hits.add(f"{f}: \"{m.group(0)[:60]}\"")
+    if hits:
+        problems.append("Site says band submissions are open, but they are closed: " + "; ".join(sorted(hits)[:10]))
+    else:
+        notes.append("No page invites band submissions early.")
+mism = []
+for f in glob.glob("*.html"):
+    txt = open(f, encoding="utf-8").read()
+    t = re.search(r"<title>([^<]*)</title>", txt)
+    o = re.search(r'property="og:title" content="([^"]*)"', txt)
+    if t and o and t.group(1).strip() != o.group(1).strip():
+        mism.append(f"{f} (title \"{t.group(1)}\", share title \"{o.group(1)}\")")
+(problems if mism else notes).append("Share titles that don't match the page: " + "; ".join(mism) if mism
+                                     else "Every hand-made page's share title matches its page title.")
+
 report = ["# HeavyMusix health check", f"Checked {now.strftime('%Y-%m-%d %H:%M')} Arizona time.", ""]
 report += ["## Problems"] + [f"- {p}" for p in problems] + [""] if problems else ["All good."]
 report += ["## Details"] + [f"- {n}" for n in notes]

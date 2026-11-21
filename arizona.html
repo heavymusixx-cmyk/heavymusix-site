@@ -6,7 +6,7 @@
 <base href="/">
 <title>Arizona Metal | HeavyMusix</title>
 <meta name="description" content="Arizona metal: upcoming Phoenix and Arizona metal shows, local news and Arizona bands.">
-<meta property="og:title" content="News | HeavyMusix">
+<meta property="og:title" content="Arizona Metal | HeavyMusix">
 <meta property="og:description" content="Arizona metal: upcoming Phoenix and Arizona metal shows, local news and Arizona bands.">
 <link rel="alternate" type="application/rss+xml" title="HeavyMusix metal news" href="https://heavymusix.com/feed.xml">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -90,7 +90,7 @@
 <section><div class="wrap">
   <h2>Bands from Arizona</h2>
   <div id="azbands"></div>
-  <p class="lead">Arizona band? Submitting is free: <a href="submit.html">see how to send your music</a>.</p>
+  <p class="lead">Arizona band? Submissions open soon and are always free: <a href="submit.html">see how it will work</a>.</p>
 </div></section>
 
 </main>
@@ -107,8 +107,8 @@ renderShows(document.getElementById("azshows"));
   document.getElementById("aznews").innerHTML=list.length?list.map(function(n){return '<div class="card"><span class="tag">'+esc(n.tag)+'</span><div class="date">'+fmtDate(n.date)+'</div><h3><a class="hl" href="'+storyUrl(n)+'">'+esc(n.title)+'</a></h3><p class="muted">'+esc(n.text[0])+'</p><a href="'+storyUrl(n)+'">Read the story</a></div>';}).join(""):'<p class="lead">Arizona stories land here as they happen.</p>';
   fetch("show/bands.json",{cache:"no-cache"}).then(function(r){return r.json();}).then(function(b){
     var keys=Object.keys(b).filter(function(k){return /arizona/i.test(b[k].region||"")&&b[k].songs;});
-    document.getElementById("azbands").innerHTML=keys.length?'<ul class="az-list">'+keys.map(function(k){return '<li><a href="band.html?b='+k+'">'+esc(b[k].name)+'</a><span class="wsrc">'+esc([b[k].city,b[k].genre].filter(Boolean).join(" · "))+'</span></li>';}).join("")+'</ul>':'';
-  }).catch(function(){});
+    document.getElementById("azbands").innerHTML=keys.length?'<ul class="az-list">'+keys.map(function(k){return '<li><a href="band.html?b='+k+'">'+esc(b[k].name)+'</a><span class="wsrc">'+esc([b[k].city,b[k].genre].filter(Boolean).join(" · "))+'</span></li>';}).join("")+'</ul>':'<p class="muted">Arizona bands on the radio show up here.</p>';
+  }).catch(function(){document.getElementById("azbands").innerHTML='<p class="muted">Arizona bands on the radio show up here.</p>';});
 })();
 </script>
 <script src="radio.js?v=31"></script>

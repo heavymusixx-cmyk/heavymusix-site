@@ -498,9 +498,9 @@ var NEWS = [
   {
     date: "2026-11-15",
     tag: "Releases",
-    title: "Tony Iommi and Jorn Lande talk \"From The Dark\" in a new video interview",
+    title: "Tony Iommi and Jørn Lande talk \"From The Dark\" in a new video interview",
     text: [
-      "Black Sabbath's Tony Iommi and singer Jorn Lande have shared an official video interview about \"From The Dark\", Iommi's first solo album in 21 years, released October 23 on BMG.",
+      "Black Sabbath's Tony Iommi and singer Jørn Lande have shared an official video interview about \"From The Dark\", Iommi's first solo album in 21 years, released October 23 on BMG.",
       "Lande, the Norwegian singer known for Masterplan and Allen-Lande, co-wrote every song and wrote the lyrics. Iommi first worked with him at the 2010 High Voltage festival tribute to Ronnie James Dio. Becky Baldwin plays bass and Karl Brazil plays drums.",
       "Iommi had hoped to get Geezer Butler on the record, but Geezer could not do it. The lead single is \"World Alone\". If you love down-tuned, doom-heavy riffs, this one is worth your time.",
       "Source: Blabbermouth, Ultimate Classic Rock"
@@ -589,7 +589,7 @@ var NEWS = [
     text: [
       "Power metal takes over The Van Buren tonight: DragonForce, with Ensiferum and Rhapsody of Fire, Sunday Nov 15 at 7:30 PM.",
       "Coming up: Imminence with Dying Wish at The Van Buren on Nov 27, and Trivium at Arizona Financial Theatre on Dec 2.",
-      "Heading out? Tag @heavymusixradio in your show pics. And if your band is opening a local bill, send it to submit@heavymusix.com."
+      "Heading out? Tag @heavymusixradio in your show pics. Band submissions open soon. Follow @heavymusixradio for the date."
     ]
   },
   {
@@ -625,11 +625,11 @@ var NEWS = [
   {
     date: "2026-11-14",
     tag: "Bands",
-    title: "Submissions are open",
+    title: "Band submissions are opening soon",
     text: [
-      "Update: Band submissions are not open yet. We're finishing the legal setup first so every band is protected. They open soon, and we'll announce the date here. Please don't send anything until then.",
-      "Unsigned metal band, anywhere in the world? When submissions open, send your music, bio, photos and contact info to submit@heavymusix.com.",
-      "Send a full album or EP, or at least 4 to 5 tracks. Every submission is reviewed, but not every band is selected, and reviews take time. Full details are on the Submit page. It's free, always."
+      "Band submissions aren't open yet. We're finishing the legal setup first so every band is protected. When they open, we'll announce the date here and on @heavymusixradio. Please don't send anything until then.",
+      "Unsigned metal band, anywhere in the world? When submissions open, you'll send a full album or EP, or at least 4 tracks, plus a bio, photos and contact info. Full details are on the Submit page.",
+      "Every submission will be reviewed by hand, but not every band is selected, and reviews take time. It's free, always."
     ]
   },
   {
