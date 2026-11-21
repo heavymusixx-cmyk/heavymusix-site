@@ -18,7 +18,9 @@ Keep improving the site. Every page must meet all of these:
 
 - **Polished, organized and easy to use (owner's request, Nov 21, 2026).** Pages look attractive and finished, the most useful things come first, related things are grouped, long lists show a sensible amount at a time ("Show more"), and nothing feels cluttered or repeated. Every Saturday review looks for one or two concrete ways to make the site easier and more inviting, and makes them.
 
-Fixes and improvements toward this standard never need approval. New features, new sections and anything involving money need the owner's approval first.
+Fixes and improvements toward this standard never need approval.
+
+**Standing permission (owner, Nov 21, 2026: "No more asking me permission to do what needs to be done").** Always review, analyze, fix and change the site to make it efficient, attention-getting, organized and polished, without asking: design, layout, page organization, navigation, how content is presented, interactive touches, speed. This overrides any older "new features need approval" wording for site work. Just do it, test it, and log it in the playbook's Work log. Still ask the owner first for: new accounts, anything that brings in money (store, ads, sponsors, prices), anything with legal effect (opening band submissions, terms, collecting personal data), and big new services or whole new sections (a gig board, a store, band sign-ups).
 
 ## How the site is built
 
