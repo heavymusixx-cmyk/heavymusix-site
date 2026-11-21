@@ -457,7 +457,7 @@ var NEWS = [
     title: "Iron Maiden finally enter the Rock and Roll Hall of Fame, and the stars line up to play The Trooper",
     text: [
       "It took more than 20 years of eligibility and three nominations, but Iron Maiden are officially in the Rock and Roll Hall of Fame. The 2026 ceremony took place Saturday night, November 14, at the Peacock Theater in Los Angeles, and this year it did not air live.",
-      "The induction came with a tribute fit for the band: members of Metallica, St. Vincent, Jack Black and more got together to honor Maiden, including a cover of \"The Trooper\". Musicians from Rage Against The Machine and Motley Crue were part of the salute too.",
+      "The induction came with a tribute fit for the band: members of Metallica, St. Vincent, Jack Black and more got together to honor Maiden, including a cover of \"The Trooper\". Musicians from Rage Against The Machine and Mötley Crüe were part of the salute too.",
       "Bruce Dickinson spent years telling anyone who would listen that he did not care about the Hall, but the band's statement thanked the Rock Hall for including former members who were part of the story and said the honor fits their 50th anniversary run with the Run For Your Lives World Tour. Up the Irons!",
       "Source: Blabbermouth, Metal Hammer"
     ]

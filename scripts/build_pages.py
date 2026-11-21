@@ -497,7 +497,7 @@ for key, items in sorted(HIST.items()):
     first = sorted(items, key=lambda h: h["year"])[0]
     share_picture(f"og/history-{key}.png", f"{label} in metal history", f"heavymusix.com  ·  {len(items)} moment{'s' if len(items) != 1 else ''} from {first['year']} on")
     page(f"history/{key}.html", f"{label} in metal history: albums, birthdays and more | HeavyMusix",
-         f"What happened in metal on {label}: " + "; ".join(h["text"][:60] for h in items[:2]), body, nav="news.html", image=f"og/history-{key}.png")
+         cut(f"What happened in metal on {label}: " + "; ".join(h["text"].rstrip(".") for h in items[:2]) + ".", 155), body, nav="news.html", image=f"og/history-{key}.png")
     pages.append((f"history/{key}.html", TODAY.isoformat()))
 
 # ---------------------------------------------------------------- sitemap

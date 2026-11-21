@@ -1,6 +1,7 @@
 name: Site health check
 
-# Every 6 hours: is the site up, do all links work, are the robots keeping news and the show fresh?
+# Every 6 hours: is the site up, do all links work, are the robots keeping news and the show fresh,
+# do all scripts and data files load, did any robot fail, and is the wording right?
 # If something is wrong, an issue titled "Site health problem" is opened (GitHub emails the owner).
 # When everything is fine again, the issue closes itself.
 on:
@@ -11,6 +12,7 @@ on:
 permissions:
   contents: read
   issues: write
+  actions: read
 
 jobs:
   check:
@@ -23,6 +25,8 @@ jobs:
       - name: Check the site
         id: check
         continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: python scripts/health_check.py
       - name: Open or update the alert
         if: steps.check.outcome == 'failure'

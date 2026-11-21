@@ -101,6 +101,73 @@ for f in glob.glob("*.html"):
 (problems if mism else notes).append("Share titles that don't match the page: " + "; ".join(mism) if mism
                                      else "Every hand-made page's share title matches its page title.")
 
+# 7. Code and data files still load (a broken file breaks the site for every visitor)
+def node(args):
+    try:
+        r = subprocess.run(["node"] + args, capture_output=True, text=True, timeout=60)
+        return r.returncode, (r.stderr or r.stdout).strip().splitlines()[-1:] or [""]
+    except FileNotFoundError:
+        return None, ["node not installed"]
+bad_code = []
+for js in ["radio.js", "skin.js", "hmx.js"]:
+    if os.path.exists(js):
+        rc, err = node(["--check", js])
+        if rc:
+            bad_code.append(f"{js}: {err[0]}")
+for js, var in [("news.js", "NEWS"), ("shows.js", "SHOWS"), ("history.js", "HISTORY"), ("wire.js", "WIRE")]:
+    if os.path.exists(js):
+        rc, err = node(["-e", "var window=globalThis;" + f"eval(require('fs').readFileSync('{js}','utf8'));" + f"if(typeof {var}==='undefined')throw Error('{var} missing')"])
+        if rc:
+            bad_code.append(f"{js}: {err[0]}")
+for jf in glob.glob("show/*.json") + glob.glob("clips/*.json") + glob.glob("social/*.json"):
+    try:
+        json.load(open(jf, encoding="utf-8"))
+    except Exception as e:
+        bad_code.append(f"{jf}: {e}")
+if bad_code:
+    problems.append("Files that won't load: " + "; ".join(bad_code))
+else:
+    notes.append("All scripts and data files load.")
+
+# 8. Wording checks on every page: misspelled band names, and search summaries cut off mid-word
+misspell = {r"\bJorn Lande\b": "Jørn Lande", r"\bMotley Crue\b": "Mötley Crüe", r"\bMotorhead\b": "Motörhead",
+            r"\bBlue Oyster Cult\b": "Blue Öyster Cult", r"\bQueensryche\b": "Queensrÿche"}
+spell = set()
+for f in ["news.js", "history.js"] + glob.glob("*.html"):
+    txt = open(f, encoding="utf-8").read()
+    for pat, right in misspell.items():
+        if re.search(pat, txt):
+            spell.add(f"{f}: should be {right}")
+if spell:
+    problems.append("Misspelled names: " + "; ".join(sorted(spell)[:10]))
+cut = []
+for f in glob.glob("*.html") + glob.glob("*/*.html"):
+    m = re.search(r'name="description" content="([^"]*)"', open(f, encoding="utf-8").read())
+    if m and len(m.group(1)) >= 150 and not re.search(r'[.!?…)"\']$|&quot;$', m.group(1).strip()):
+        cut.append(f)
+if cut:
+    problems.append(f"{len(cut)} search summary(ies) cut off mid-word: " + ", ".join(cut[:8]))
+
+# 9. Did any robot fail in the last 24 hours? (needs the gh tool, which GitHub provides)
+try:
+    out = subprocess.run(["gh", "run", "list", "-L", "60", "--json", "name,conclusion,createdAt,url"],
+                         capture_output=True, text=True, timeout=60)
+    if out.returncode == 0:
+        since = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=24)
+        fails = {}
+        for r in json.loads(out.stdout):
+            when = datetime.datetime.fromisoformat(r["createdAt"].replace("Z", "+00:00"))
+            if when > since and r.get("conclusion") == "failure" and r["name"] != "Site health check":
+                fails.setdefault(r["name"], r["url"])
+        if fails:
+            problems.append("Robots that failed in the last 24 hours: " + "; ".join(f"{n} ({u})" for n, u in fails.items()))
+        else:
+            notes.append("No robot failed in the last 24 hours.")
+    else:
+        notes.append("Robot run list not available here.")
+except FileNotFoundError:
+    notes.append("Robot run list not available here (no gh).")
+
 report = ["# HeavyMusix health check", f"Checked {now.strftime('%Y-%m-%d %H:%M')} Arizona time.", ""]
 report += ["## Problems"] + [f"- {p}" for p in problems] + [""] if problems else ["All good."]
 report += ["## Details"] + [f"- {n}" for n in notes]
