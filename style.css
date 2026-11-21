@@ -515,3 +515,20 @@ section[id]{scroll-margin-top:150px}
 #hmx-app .btn{margin-top:6px}
 .linkbtn{background:none;border:0;padding:0;margin:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer;min-height:24px}
 .linkbtn:focus-visible{outline:3px solid var(--blood-text);outline-offset:2px}
+
+/* Menu, organized into groups (Nov 2026): email sign-up on top, then Listen, Metal news, Bands, Arizona, HeavyMusix, Search */
+nav.main .navgrp{display:flex;flex-direction:column}
+nav.main .navh{margin:16px 0 2px;padding:0 6px;font:700 13px/1.2 var(--ui,var(--text));letter-spacing:.12em;text-transform:uppercase;color:var(--blood-text)}
+nav.main a.navjoin{margin:10px 0 4px;background:var(--blood);color:#fff !important;border:2px solid var(--bone) !important;text-align:center;padding:14px 10px !important}
+nav.main a.navjoin:hover,nav.main a.navjoin:focus-visible{background:var(--blood-hot);text-shadow:none}
+nav.main .navbtn{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--edge,#222);padding:14px 6px;font:400 20px/1 var(--ui,var(--text));letter-spacing:.03em;color:var(--steel);cursor:pointer}
+nav.main .navbtn:hover{color:var(--bone)}
+nav.main a:focus-visible,nav.main .navbtn:focus-visible{outline:3px solid var(--blood-text);outline-offset:-3px}
+nav.main a.navsearch{margin-top:8px}
+@media (min-width:1001px){
+  nav.main{width:min(600px,calc(100vw - 44px))}
+  header.site.open nav.main{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;align-items:start}
+  nav.main a.navjoin,nav.main a.navsearch{grid-column:1 / -1}
+  nav.main a,nav.main .navbtn{padding:11px 6px !important;font-size:18px !important}
+  nav.main .navh{margin-top:12px}
+}

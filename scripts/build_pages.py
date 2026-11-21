@@ -64,9 +64,9 @@ RADIO = re.search(r'<script src="(radio\.js[^"]*)"', TEMPLATE).group(1)
 
 
 def page(path, title, desc, body, nav=None, ld=None, extra_head="", image="og/default.png"):
-    head_nav = HEADER.replace(' class="on"', "")
+    head_nav = HEADER.replace(' class="on" aria-current="page"', "").replace(' class="on"', "")
     if nav:
-        head_nav = head_nav.replace(f'<a href="{nav}">', f'<a href="{nav}" class="on">', 1)
+        head_nav = head_nav.replace(f'<a href="{nav}">', f'<a href="{nav}" class="on" aria-current="page">', 1)
     ld_tag = (f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>\n'
               if ld else "")
     doc = f"""<!DOCTYPE html>
@@ -439,7 +439,7 @@ for gslug, gname, words in GENRES:
 </div></section>"""
     page(f"genres/{gslug}.html", f"{gname} bands and songs | HeavyMusix Radio",
          f"{len(members)} {gname.lower()} bands and {len(gsongs)} songs to play free on HeavyMusix Radio: underground and heavy hitters.",
-         body, nav="bands.html")
+         body, nav="genres/index.html")
     pages.append((f"genres/{gslug}.html", TODAY.isoformat()))
     genre_links.append((gslug, gname, len(members)))
 body = """<section class="hero"><div class="wrap">
@@ -447,7 +447,7 @@ body = """<section class="hero"><div class="wrap">
   <h1>Find your kind of heavy</h1>
   <ul class="bandchips">""" + "".join(f'<li><a href="genres/{g}.html">{esc(n)} ({c})</a></li>' for g, n, c in genre_links) + """</ul>
 </div></section>"""
-page("genres/index.html", "Metal genres | HeavyMusix Radio", "Thrash, death, deathcore, metalcore, prog, groove and more: every genre on HeavyMusix Radio.", body, nav="bands.html")
+page("genres/index.html", "Metal genres | HeavyMusix Radio", "Thrash, death, deathcore, metalcore, prog, groove and more: every genre on HeavyMusix Radio.", body, nav="genres/index.html")
 pages.append(("genres/index.html", TODAY.isoformat()))
 
 # ---------------------------------------------------------------- this week in metal (rolling 7 days)
@@ -500,12 +500,12 @@ for key, items in sorted(HIST.items()):
     first = sorted(items, key=lambda h: h["year"])[0]
     share_picture(f"og/history-{key}.png", f"{label} in metal history", f"heavymusix.com  ·  {len(items)} moment{'s' if len(items) != 1 else ''} from {first['year']} on")
     page(f"history/{key}.html", f"{label} in metal history: albums, birthdays and more | HeavyMusix",
-         cut(f"What happened in metal on {label}: " + "; ".join(h["text"].rstrip(".") for h in items[:2]) + ".", 155), body, nav="news.html", image=f"og/history-{key}.png")
+         cut(f"What happened in metal on {label}: " + "; ".join(h["text"].rstrip(".") for h in items[:2]) + ".", 155), body, nav="index.html#history", image=f"og/history-{key}.png")
     pages.append((f"history/{key}.html", TODAY.isoformat()))
 
 # ---------------------------------------------------------------- sitemap
 MAIN = ["", "news.html", "show.html", "bands.html", "arizona.html", "series.html",
-        "submit.html", "shop.html", "about.html", "checklist-ep1.html", "search.html", "ideas.html", "privacy.html"]
+        "submit.html", "shop.html", "about.html", "checklist-ep1.html", "search.html", "ideas.html", "privacy.html", "newsletter.html"]
 urls = [(p, TODAY.isoformat()) for p in MAIN] + pages
 with open("sitemap.xml", "w", encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
