@@ -78,9 +78,10 @@ except FileNotFoundError:
 closed = "Closed until submissions open" in open("submit.html", encoding="utf-8").read()
 if closed:
     bad = re.compile(r"submissions (are|now) open\b|send (it|your music|us your music)[^.]{0,40}submit@|"
-                     r"email (us )?your (music|band)|submit your music now", re.I)
+                     r"email (us )?your (music|band)|submit your music now|"
+                     r"bands:\s*(<[^>]+>\s*)*submit@|submissions are free[^.]{0,20}submit@", re.I)
     hits = set()
-    for f in ["news.js", "shows.js", "wire.js"] + glob.glob("*.html") + glob.glob("*/*.html"):
+    for f in ["news.js", "shows.js", "wire.js", "scripts/fan_email.py"] + glob.glob("*.html") + glob.glob("*/*.html"):
         try:
             txt = open(f, encoding="utf-8").read()
         except FileNotFoundError:

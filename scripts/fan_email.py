@@ -68,7 +68,7 @@ def build(today):
 {f'<tr><td style="padding:18px 22px;font:15px/1.5 Arial,sans-serif;color:{bone}"><div style="font:700 18px Georgia,serif;margin-bottom:6px">Coming up in Arizona</div><ul style="padding-left:18px;margin:0">{show_rows}</ul></td></tr>' if soon else ''}
 <tr><td style="padding:18px 22px 24px;font:15px/1.5 Arial,sans-serif;color:{bone}">
 <a href="{SITE}?ref=email" style="display:inline-block;background:{red};color:#fff;font:700 16px Arial,sans-serif;padding:12px 20px;text-decoration:none;border:2px solid {bone}">&#9654; Listen to HeavyMusix Radio</a>
-<p style="margin:16px 0 0;color:#cfc7b4">In a band? Submissions are free, always: submit@heavymusix.com. Every band gets a turn.<br>&mdash; Heavy</p></td></tr>
+<p style="margin:16px 0 0;color:#cfc7b4">In a band? Band submissions open soon at <a href="https://heavymusix.com/submit?ref=email" style="color:#cfc7b4">heavymusix.com/submit</a>. Free, always, and every band gets a turn.<br>&mdash; Heavy</p></td></tr>
 </table></div>"""
     lead_title = lead[0]["title"] if lead else "This week in metal"
     subject = ("This week in metal: " + lead_title)[:120]
