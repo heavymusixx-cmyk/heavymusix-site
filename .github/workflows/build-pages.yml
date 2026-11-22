@@ -5,7 +5,7 @@ name: Build pages
 on:
   push:
     branches: [main]
-    paths: ["news.js", "shows.js", "show/**", "history.js", "article.html", "search.html", "style.css", "scripts/build_pages.py"]
+    paths: ["news.js", "shows.js", "venues.js", "show/**", "history.js", "article.html", "search.html", "style.css", "scripts/build_pages.py"]
   schedule:
     - cron: "41 7 * * *"     # every night at 12:41 AM Arizona time (rolls the shows page to the new day)
   workflow_dispatch: {}
@@ -22,8 +22,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
       - name: Install picture maker
