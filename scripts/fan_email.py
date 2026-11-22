@@ -12,7 +12,8 @@ after the owner approves it. Run it from the "Weekly fan email" workflow with
 
 Needs the GitHub secret BREVO_API_KEY. Without it the robot does nothing.
 Sender: HeavyMusix <info@heavymusix.com> (must be a verified sender in Brevo).
-Brevo adds the unsubscribe link and the postal footer itself.
+Every email carries our own one-click unsubscribe link at the top and bottom ({{ unsubscribe }},
+filled in by Brevo); Brevo also adds its postal footer and the List-Unsubscribe header.
 """
 import datetime as dt
 import html
@@ -77,6 +78,7 @@ def build(today):
         f'<li style="margin:6px 0">{esc(u["text"])}' + (f' <a href="{esc(u["link"])}{"&" if "?" in u["link"] else "?"}ref=email" style="color:#ff4a52">See it</a>' if u.get("link") else "") + '</li>'
         for u in ups)
     body = f"""<div style="background:#050404;padding:24px 0"><table role="presentation" width="100%" style="max-width:600px;margin:0 auto;background:#0b0a0a;border:3px solid {bone}">
+<tr><td style="padding:8px 22px;font:13px Arial,sans-serif;color:#b9b0a2;text-align:right">Not into it anymore? <a href="{{{{ unsubscribe }}}}" style="color:#e8e2d4">Unsubscribe in one click</a>, no hard feelings.</td></tr>
 <tr><td style="background:{red};padding:18px 22px;font:700 30px Georgia,serif;color:#fff">HeavyMusix <span style="font-size:16px;font-weight:400">&middot; This week in metal</span></td></tr>
 <tr><td style="padding:8px 22px 0"><table role="presentation" width="100%">{rows}</table></td></tr>
 {f'<tr><td style="padding:18px 22px 0;font:15px/1.5 Arial,sans-serif;color:{bone}"><div style="font:700 18px Georgia,serif;margin-bottom:6px">New on HeavyMusix</div><ul style="padding-left:18px;margin:0">{up_rows}</ul></td></tr>' if ups else ''}
@@ -84,6 +86,7 @@ def build(today):
 <tr><td style="padding:18px 22px 24px;font:15px/1.5 Arial,sans-serif;color:{bone}">
 <a href="{SITE}?ref=email" style="display:inline-block;background:{red};color:#fff;font:700 16px Arial,sans-serif;padding:12px 20px;text-decoration:none;border:2px solid {bone}">&#9654; Listen to HeavyMusix Radio</a>
 <p style="margin:16px 0 0;color:#cfc7b4">In a band? Band submissions open soon at <a href="https://heavymusix.com/submit?ref=email" style="color:#cfc7b4">heavymusix.com/submit</a>. Free, always, and every band gets a turn.<br>&mdash; Heavy</p></td></tr>
+<tr><td style="padding:14px 22px 20px;border-top:1px solid #333;font:13px/1.5 Arial,sans-serif;color:#b9b0a2">You get this because you signed up at heavymusix.com. Want out? <a href="{{{{ unsubscribe }}}}" style="color:#e8e2d4">Unsubscribe in one click</a>, or just reply &ldquo;unsubscribe.&rdquo; You&rsquo;re always welcome back.</td></tr>
 </table></div>"""
     lead_title = lead[0]["title"] if lead else "This week in metal"
     subject = ("This week in metal: " + lead_title)[:120]
@@ -97,10 +100,12 @@ def build_announcement():
     link = a["link"] + ("&" if "?" in a["link"] else "?") + "ref=announce"
     paras = "".join(f'<p style="margin:0 0 12px">{esc(t)}</p>' for t in a["text"])
     body = f"""<div style="background:#050404;padding:24px 0"><table role="presentation" width="100%" style="max-width:600px;margin:0 auto;background:#0b0a0a;border:3px solid {bone}">
+<tr><td style="padding:8px 22px;font:13px Arial,sans-serif;color:#b9b0a2;text-align:right">Not into it anymore? <a href="{{{{ unsubscribe }}}}" style="color:#e8e2d4">Unsubscribe in one click</a>, no hard feelings.</td></tr>
 <tr><td style="background:{red};padding:18px 22px;font:700 30px Georgia,serif;color:#fff">HeavyMusix</td></tr>
 <tr><td style="padding:22px;font:16px/1.55 Arial,sans-serif;color:{bone}"><div style="font:700 26px Georgia,serif;margin-bottom:12px">{esc(a["title"])}</div>{paras}
 <a href="{esc(link)}" style="display:inline-block;background:{red};color:#fff;font:700 16px Arial,sans-serif;padding:12px 20px;text-decoration:none;border:2px solid {bone}">{esc(a.get("button", "See it on HeavyMusix"))}</a>
-<p style="margin:16px 0 0;color:#cfc7b4">&mdash; Heavy</p></td></tr></table></div>"""
+<p style="margin:16px 0 0;color:#cfc7b4">&mdash; Heavy</p></td></tr>
+<tr><td style="padding:14px 22px 20px;border-top:1px solid #333;font:13px/1.5 Arial,sans-serif;color:#b9b0a2">You get this because you signed up at heavymusix.com. Want out? <a href="{{{{ unsubscribe }}}}" style="color:#e8e2d4">Unsubscribe in one click</a>, or just reply &ldquo;unsubscribe.&rdquo; You&rsquo;re always welcome back.</td></tr></table></div>"""
     return a["subject"][:120], body, a.get("id", "")
 
 

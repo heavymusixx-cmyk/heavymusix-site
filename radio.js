@@ -8,26 +8,90 @@
   if (window.__hmxRadio) return;
   window.__hmxRadio = true;
 
-  /* Hamburger menu: the button opens and closes the menu on phones and tablets. */
+  /* Header menus: the hamburger (site menu) and Follow (email, socials, app).
+     One opens at a time. Close with the X, Escape, a click outside, or by picking something. */
+  var FOLLOW = [
+    {k: 'email', name: 'Get the HeavyMusix email', note: 'Free, once a week. Unsubscribe any time with one click.', href: 'newsletter.html', icon: 'M3 6h18v12H3zM3 6l9 7 9-7'},
+    {k: 'instagram', name: 'Instagram', note: '@heavymusixradio', href: 'https://www.instagram.com/heavymusixradio/', icon: 'M4 8h3l2-3h6l2 3h3v11H4zM12 10a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z'},
+    {k: 'threads', name: 'Threads', note: '@heavymusixradio', href: 'https://www.threads.com/@heavymusixradio', icon: 'M16 12a4 4 0 1 1-1.2-2.8M16 9v4.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-3.5 7.1'},
+    {k: 'youtube', name: 'YouTube', note: '@HeavyMusix', href: 'https://www.youtube.com/@HeavyMusix', icon: 'M8 5v14l11-7z'},
+    {k: 'bluesky', name: 'Bluesky', note: 'Coming soon', href: '', icon: 'M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 9.5 4.3 4.3 0 0 0 7 18z'},
+    {k: 'discord', name: 'Discord', note: 'Coming soon', href: '', icon: 'M4 5h16v10H9l-5 4z'}
+  ];
+  function hdr(){ return document.querySelector('header.site'); }
+  function followPanel(){
+    var h = hdr(); if (!h) return null;
+    var p = document.getElementById('hmx-follow');
+    if (p && h.contains(p)) return p;
+    p = document.createElement('div');
+    p.id = 'hmx-follow'; p.className = 'followpanel'; p.hidden = true;
+    p.setAttribute('role', 'region'); p.setAttribute('aria-labelledby', 'hmx-follow-h');
+    var svg = function(d){ return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="' + d + '"/></svg>'; };
+    p.innerHTML = '<p class="followh" id="hmx-follow-h">Follow HeavyMusix</p><ul>' + FOLLOW.map(function(f){
+      var inner = svg(f.icon) + '<span><strong>' + f.name + '</strong><small>' + f.note + '</small></span>';
+      if (!f.href) return '<li class="f-' + f.k + ' is-soon"><span class="frow" aria-disabled="true">' + inner + '</span></li>';
+      var out = /^https?:/.test(f.href);
+      return '<li class="f-' + f.k + '"><a class="frow" href="' + f.href + '"' + (out ? ' target="_blank" rel="noopener" aria-label="' + f.name + ' ' + f.note + ' (opens a new tab)"' : '') + '>' + inner + (out ? '<span class="fout" aria-hidden="true">&#8599;</span>' : '') + '</a></li>';
+    }).join('') +
+    '<li class="f-app"><button type="button" class="frow" data-install>' + svg('M12 3v11M7 10l5 5 5-5M4 20h16') + '<span><strong>Get the app</strong><small>HeavyMusix Radio on your home screen</small></span></button></li></ul>' +
+    '<p class="followfine">Free, always. Unfollow or unsubscribe any time, no questions asked.</p>';
+    h.querySelector('.wrap').appendChild(p);
+    return p;
+  }
+  function setBtns(sel, open, labels){
+    document.querySelectorAll(sel).forEach(function(b){
+      b.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (labels) b.setAttribute('aria-label', open ? labels[1] : labels[0]);
+    });
+  }
+  function closeMenus(focusBack){
+    var h = hdr(); if (!h) return;
+    var wasMenu = h.classList.contains('open'), wasFollow = h.classList.contains('following');
+    h.classList.remove('open', 'following');
+    var p = document.getElementById('hmx-follow'); if (p) p.hidden = true;
+    setBtns('.navtoggle', false, ['Open menu', 'Close menu']);
+    setBtns('[data-follow]', false);
+    if (focusBack){
+      var b = wasMenu ? h.querySelector('.navtoggle') : wasFollow ? h.querySelector('.followbtn') : null;
+      if (b) b.focus();
+    }
+  }
+  function openMenu(){
+    var h = hdr(); if (!h) return;
+    closeMenus(false);
+    h.classList.add('open');
+    setBtns('.navtoggle', true, ['Open menu', 'Close menu']);
+    var n = h.querySelector('nav.main'); if (n) n.scrollTop = 0;
+  }
+  function openFollow(from){
+    var h = hdr(); if (!h) return;
+    closeMenus(false);
+    var p = followPanel(); if (!p) return;
+    h.classList.add('following'); p.hidden = false;
+    setBtns('[data-follow]', true);
+    if (from && !h.contains(from)) window.scrollTo(0, 0);   // opened from a button lower on the page: show the panel under the banner
+    var first = p.querySelector('a,button'); if (first) first.focus({preventScroll: true});
+  }
   document.addEventListener('click', function(e){
-    var t = e.target.closest && e.target.closest('.navtoggle');
-    var h = document.querySelector('header.site');
-    if (!h) return;
-    if (t){
-      var open = h.classList.toggle('open');
-      t.setAttribute('aria-expanded', open ? 'true' : 'false');
-      t.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-      return;
-    }
-    if (h.classList.contains('open') && (e.target.closest('nav.main a') || !e.target.closest('header.site'))){
-      h.classList.remove('open');
-      var b = h.querySelector('.navtoggle'); if (b){ b.setAttribute('aria-expanded', 'false'); b.setAttribute('aria-label', 'Open menu'); }
-    }
+    if (!e.target.closest) return;
+    var h = hdr(); if (!h) return;
+    var t = e.target.closest('.navtoggle');
+    if (t){ h.classList.contains('open') ? closeMenus(false) : openMenu(); return; }
+    var f = e.target.closest('[data-follow]');
+    if (f){ e.preventDefault(); h.classList.contains('following') && h.contains(f) ? closeMenus(false) : openFollow(f); return; }
+    if (!h.classList.contains('open') && !h.classList.contains('following')) return;
+    if (e.target.closest('nav.main a, .followpanel a, .followpanel button') || !e.target.closest('header.site')) closeMenus(false);
   });
   document.addEventListener('keydown', function(e){
-    var h = document.querySelector('header.site');
-    if (e.key === 'Escape' && h && h.classList.contains('open')){ h.classList.remove('open'); var b = h.querySelector('.navtoggle'); if (b){ b.setAttribute('aria-expanded', 'false'); b.setAttribute('aria-label', 'Open menu'); b.focus(); } }
+    var h = hdr();
+    if (e.key === 'Escape' && h && (h.classList.contains('open') || h.classList.contains('following'))) closeMenus(true);
   });
+  /* Keyboard users who Tab past the end of an open menu leave it closed behind them. */
+  document.addEventListener('focusin', function(e){
+    var h = hdr();
+    if (h && (h.classList.contains('open') || h.classList.contains('following')) && !h.contains(e.target) && !e.target.closest('#hmx-app')) closeMenus(false);
+  });
+  var POPW = 232, POPH = 350;   // pop-out window: just big enough for the 200x200 video plus the buttons
   var PL = 'PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M';
   var player = null, ready = false, pending = null;
   var mode = null;          // {kind:'radio'} | {kind:'episode', i} | {kind:'song', v, label}
@@ -64,7 +128,7 @@
   };
   function openPopout(){
     remember();
-    var w = window.open('player.html', 'hmxPlayer', 'popup,width=460,height=320');
+    var w = window.open('player.html', 'hmxPlayer', 'popup,width=' + POPW + ',height=' + POPH);
     if (!w){ setLabel(' \u00b7 allow pop-ups to pop out'); return; }
     try { player.stopVideo(); player.destroy(); } catch (x) {}
     player = null; ready = false; pending = null; mode = null;
@@ -583,7 +647,7 @@
   }
   function launchPopout(cmd){
     try { localStorage.setItem(START, JSON.stringify(cmd)); } catch (x) {}
-    var w = window.open('player.html', 'hmxPlayer', 'popup,width=460,height=320');
+    var w = window.open('player.html', 'hmxPlayer', 'popup,width=' + POPW + ',height=' + POPH);
     if (!w){ try { localStorage.removeItem(START); } catch (x) {} return false; }   // pop-ups blocked: use the pinned player
     try { localStorage.setItem(ALIVE, String(Date.now())); } catch (x) {}
     var r = document.getElementById('radio');
@@ -716,6 +780,8 @@
     if (!POPOUT){ buildNowBar(); resumeIfPlaying(); markHome(); return; }
     /* Pop-out window: say it is alive, take requests from the site's pages, start the music. */
     buildNowBar();
+    /* Shrink the window to fit: the 200x200 video (YouTube's smallest allowed) plus the two button rows. */
+    setTimeout(function(){ try { var top = document.querySelector('#hmx-dock .dock-top'), nb = document.getElementById('hmx-now'); var need = 200 + (top ? top.offsetHeight + 2 : 42) + (nb ? nb.offsetHeight : 47); window.resizeTo(Math.max(232, window.outerWidth - window.innerWidth + 204), window.outerHeight - window.innerHeight + need); } catch (x) {} }, 300);
     var beat = function(){ try { localStorage.setItem(ALIVE, String(Date.now())); } catch (x) {} };
     beat(); setInterval(beat, 2000);
     window.addEventListener('pagehide', function(){ forget(); try { localStorage.removeItem(ALIVE); } catch (x) {} });   // closing the window stops the radio

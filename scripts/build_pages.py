@@ -107,6 +107,7 @@ def page(path, title, desc, body, nav=None, ld=None, extra_head="", image="og/de
 {FOOTER}
 <script src="hmx.js?v=5"></script>
 <script src="{RADIO}"></script>
+<script data-goatcounter="https://heavymusix.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
 """
