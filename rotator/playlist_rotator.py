@@ -210,11 +210,14 @@ def youtube_client(scheduled=False):
         if creds and creds.expired and creds.refresh_token:
             try:
                 creds.refresh(Request())
-            except Exception:
+            except Exception as e:
+                # Say exactly why (e.g. "invalid_grant: Token has been expired or revoked") so the fix is obvious.
+                print(f"Google refused the saved sign-in: {e}")
                 creds = None
         if not creds or not creds.valid:
             if scheduled:
-                print("Google sign-in is needed, but this is the automatic run so nobody can click.\n"
+                print(("No saved sign-in was found (the YT_TOKEN secret is empty or not a token).\n" if not creds and not os.path.exists(TOKEN) else "") +
+                      "Google sign-in is needed, but this is the automatic run so nobody can click.\n"
                       "Double-click Start-Setup.bat once to sign in again. Tip: in Google Cloud, the\n"
                       "OAuth consent screen must say 'In production' (Publish App) or sign-in expires every 7 days.")
                 sys.exit(1)
