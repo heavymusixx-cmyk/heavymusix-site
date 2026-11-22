@@ -30,7 +30,7 @@
   <nav class="main" id="mainnav" aria-label="Main menu">
     <form class="navfind" action="search.html" role="search"><input type="search" name="q" placeholder="Find a band, song or story" aria-label="Search HeavyMusix"><button type="submit">Search</button></form>
     <div class="navcol"><div class="navgrp" role="group" aria-labelledby="nh-listen"><p class="navh" id="nh-listen">Listen</p><a href="index.html">HeavyMusix Radio</a><a href="show.html">Radio Show</a></div><div class="navgrp" role="group" aria-labelledby="nh-news"><p class="navh" id="nh-news">Metal news</p><a href="news.html">Latest news</a><a href="this-week-in-metal.html">This week in metal</a><a href="index.html#history">Today in metal history</a></div><div class="navgrp" role="group" aria-labelledby="nh-az"><p class="navh" id="nh-az">Arizona</p><a href="arizona-metal-shows.html">Shows this week</a><a href="arizona.html">Arizona metal scene</a></div></div>
-    <div class="navcol"><div class="navgrp" role="group" aria-labelledby="nh-bands"><p class="navh" id="nh-bands">Bands</p><a href="bands.html">Find a band</a><a href="genres/index.html">Genres</a><a href="series.html">Band Survival Kit</a><a href="submit.html" class="on" aria-current="page">Band submissions (soon)</a></div><div class="navgrp" role="group" aria-labelledby="nh-hmx"><p class="navh" id="nh-hmx">HeavyMusix</p><a href="about.html">About</a><a href="newsletter.html">The HeavyMusix email</a><a href="shop.html">Shop (coming soon)</a><a href="ideas.html">Share an idea</a></div></div>
+    <div class="navcol"><div class="navgrp" role="group" aria-labelledby="nh-bands"><p class="navh" id="nh-bands">Bands</p><a href="bands.html">Find a band</a><a href="series.html">Band Survival Kit</a><a href="submit.html" class="on" aria-current="page">Band submissions (soon)</a></div><div class="navgrp" role="group" aria-labelledby="nh-hmx"><p class="navh" id="nh-hmx">HeavyMusix</p><a href="about.html">About</a><a href="newsletter.html">The HeavyMusix email</a><a href="shop.html">Shop (coming soon)</a><a href="ideas.html">Share an idea</a></div></div>
   </nav>
 </div></header>
 <main id="main">
@@ -66,7 +66,6 @@
   <legend class="muted">Closed until submissions open</legend>
     <label>Band name <input name="band" required></label>
     <label>City and country <input name="where" required placeholder="Phoenix, USA"></label>
-    <label>Genre <input name="genre" required placeholder="Thrash, death, doom, deathcore..."></label>
     <label>Music links (Bandcamp, Spotify, YouTube; at least 4 songs) <textarea name="music" rows="3" required></textarea></label>
     <label>Short bio <textarea name="bio" rows="5" required placeholder="Who you are, when you started, what you sound like, what you've released"></textarea></label>
     <label>Photos and logo (a shared link) <input name="photos" required></label>
@@ -102,7 +101,7 @@ function sendBand(e){
   e.preventDefault(); return false; // submissions closed until legal setup is done; remove this line to reopen
   e.preventDefault();
   var d=new FormData(document.getElementById('bandform'));
-  var body='Band: '+d.get('band')+'\nFrom: '+d.get('where')+'\nGenre: '+d.get('genre')+'\n\nMusic:\n'+d.get('music')+'\n\nBio:\n'+d.get('bio')+'\n\nPhotos and logo: '+d.get('photos')+'\nContact: '+d.get('contact')+'\nSocial and merch: '+(d.get('social')||'-')+'\n\nRights: We, the band members and songwriters, own this music. If our band is selected, HeavyMusix may play it on the radio, streams and clips and feature our band.';
+  var body='Band: '+d.get('band')+'\nFrom: '+d.get('where')+'\n\nMusic:\n'+d.get('music')+'\n\nBio:\n'+d.get('bio')+'\n\nPhotos and logo: '+d.get('photos')+'\nContact: '+d.get('contact')+'\nSocial and merch: '+(d.get('social')||'-')+'\n\nRights: We, the band members and songwriters, own this music. If our band is selected, HeavyMusix may play it on the radio, streams and clips and feature our band.';
   var c=String(d.get('contact')||''), em=(c.match(/[^\s<>,;]+@[^\s<>,;]+\.[a-z]{2,}/i)||[''])[0];
   hmxSend(document.getElementById('bandform'),'submit@heavymusix.com','Band submission: '+d.get('band')+' ('+d.get('where')+')',body,em);
   return false;
@@ -114,7 +113,6 @@ function sendBand(e){
   <p>When submissions open, put it all in one submission. Incomplete submissions can&rsquo;t be reviewed.</p>
   <ul class="check">
     <li><strong>Band name, city and country</strong></li>
-    <li><strong>Genre</strong> (death, thrash, doom, black, deathcore, metalcore, sludge&hellip;)</li>
     <li><strong>Bio:</strong> a short paragraph about the band: who you are, when you started, what you sound like, what you&rsquo;ve released</li>
     <li><strong>Photos:</strong> 2 or 3 good band photos and your logo, as a shared link (Google Drive, Dropbox or your press kit)</li>
     <li><strong>Music:</strong> a full album or EP, or at least 4 tracks. One single isn&rsquo;t enough for a review. Links to Bandcamp, Spotify, YouTube or SoundCloud</li>

@@ -278,17 +278,7 @@ with open("feed.xml", "w", encoding="utf-8") as f:
 """)
 
 # ---------------------------------------------------------------- bands
-GENRES = [  # (slug, page name, words that put a band in it)
-    ("thrash-metal", "Thrash metal", ["thrash"]),
-    ("death-metal", "Death metal", ["death metal", "death /", "deathgrind", "death-thrash", "death 'n' roll", "technical death"]),
-    ("deathcore", "Deathcore", ["deathcore"]),
-    ("metalcore", "Metalcore and hardcore", ["metalcore", "hardcore", "mathcore"]),
-    ("progressive-metal", "Progressive metal", ["progressive"]),
-    ("groove-metal", "Groove metal", ["groove"]),
-    ("heavy-metal", "Heavy metal and NWOBHM", ["heavy metal", "heavy /", "nwobhm", "power"]),
-    ("sludge-doom-gothic", "Sludge, stoner and gothic metal", ["sludge", "stoner", "doom", "gothic"]),
-    ("alternative-nu-industrial", "Alternative, nu and industrial metal", ["alternative", "nu metal", "nu /", "industrial"]),
-]
+# No genre labels anywhere on the site (owner, Nov 21, 2026): it's metal, period.
 
 catalog = load_json("show/catalog.json", [])
 UNPLAYABLE = {x["v"] for x in load_json("show/unplayable.json", {"songs": []}).get("songs", [])}
@@ -309,9 +299,9 @@ for key, b in bands.items():
     songs = [s for s in catalog if s.get("b") == key]
     if not songs:
         continue
-    loc, genre = where(b), b.get("genre", "")
-    bits = [x for x in (genre, loc) if x]
-    intro = b.get("bio") or (f"{b['name']} is a {genre.lower() if genre else 'metal'} band"
+    loc = where(b)
+    bits = [x for x in (loc,) if x]
+    intro = b.get("bio") or (f"{b['name']} is a metal band"
                              + (f" from {loc}" if loc else "")
                              + f". HeavyMusix Radio plays {len(songs)} of their song{'s' if len(songs) != 1 else ''}.")
     links = {k: v for k, v in (b.get("links") or {}).items() if v}
@@ -330,7 +320,7 @@ for key, b in bands.items():
   <h2 class="sub">{len(songs)} song{'s' if len(songs) != 1 else ''} on HeavyMusix Radio</h2>
   <ul class="songs">{song_list}</ul>
   {('<h2 class="sub">' + esc(b['name']) + ' in the news</h2><ul class="morenews">' + ''.join(f'<li><a href="news/{slug_of(m)}.html">{esc(m["title"])}</a><span class="wsrc">{fmt_date(m["date"])}</span></li>' for m in story_bands.get(key, [])[:8]) + '</ul>') if story_bands.get(key) else ''}
-  <div class="sharebar"><button type="button" class="sharebtn" data-share>Share this band</button>{''.join(f'<a class="sharebtn" href="genres/{g}.html">More {esc(n.lower())}</a>' for g, n, ws in GENRES if any(w in (genre or '').lower() for w in ws))}</div>
+  <div class="sharebar"><button type="button" class="sharebtn" data-share>Share this band</button></div>
   <details class="followbox"><summary>In {esc(b['name'])}? Add the HeavyMusix Radio badge to your site</summary>
     <p><img src="assets/badge.svg" alt="Played on HeavyMusix Radio" width="240" height="64"></p>
     <p>Copy this into your website or link page:</p>
@@ -339,12 +329,12 @@ for key, b in bands.items():
   {('<p class="wupd">Played on ' + ', '.join(f'<a href="episodes/{e["n"]}.html">Show #{e["n"]}</a>' for e in on_eps) + '.</p>') if on_eps else ''}
   <div class="btns"><a class="btn ghost" href="bands.html">Find another band</a></div>
 </div></section>"""
-    desc = (f"{b['name']}: {genre} from {loc}. Listen to {len(songs)} song{'s' if len(songs) != 1 else ''} free on HeavyMusix Radio."
+    desc = (f"{b['name']}: metal from {loc}. Listen to {len(songs)} song{'s' if len(songs) != 1 else ''} free on HeavyMusix Radio."
             if loc else f"{b['name']} on HeavyMusix Radio: listen to {len(songs)} songs free.")
     ld = {"@context": "https://schema.org", "@type": "MusicGroup", "name": b["name"], "url": f"{SITE}bands/{key}.html"}
-    if genre: ld["genre"] = genre
+    ld["genre"] = "Metal"
     if loc: ld["foundingLocation"] = {"@type": "Place", "name": loc}
-    page(f"bands/{key}.html", f"{b['name']} | {genre or 'Metal'}{' from ' + (b.get('city') or b.get('country')) if (b.get('city') or b.get('country')) else ''} | HeavyMusix",
+    page(f"bands/{key}.html", f"{b['name']} | Metal{' from ' + (b.get('city') or b.get('country')) if (b.get('city') or b.get('country')) else ''} | HeavyMusix",
          cut(desc, 160), body, nav="bands.html", ld=[ld, crumbs(("Bands", "bands.html"), (b["name"], f"bands/{key}.html"))])
     pages.append((f"bands/{key}.html", TODAY.isoformat()))
 
@@ -413,43 +403,7 @@ page("arizona-metal-shows.html", "Metal shows in Phoenix & Arizona this week | H
      body, nav="arizona-metal-shows.html", ld=events or None)
 pages.append(("arizona-metal-shows.html", TODAY.isoformat()))
 
-# ---------------------------------------------------------------- genre pages
-fresh_dir("genres")
-genre_links = []
-for gslug, gname, words in GENRES:
-    members = sorted((k for k, b in bands.items() if b.get("songs") and any(w in (b.get("genre") or "").lower() for w in words)),
-                     key=lambda k: bands[k]["name"].lower())
-    if not members:
-        continue
-    gsongs = [x for x in catalog if x.get("b") in set(members)]
-    rows = "".join(f'<li><a href="bands/{esc(k)}.html">{esc(bands[k]["name"])}</a>'
-                   f'{" <span class=\"badge\">Unsigned</span>" if bands[k].get("unsigned") else ""}'
-                   f'<span class="wsrc">{esc(where(bands[k]))} &middot; {bands[k]["songs"]} songs</span></li>' for k in members)
-    picks = gsongs[::max(1, len(gsongs) // 12)][:12]
-    plist = "".join(f'<li>{play_button(x["v"], x["n"] + " – " + x["t"])}'
-                    f'<span class="sinfo"><strong>{esc(x["t"])}</strong><a href="bands/{esc(x["b"])}.html">{esc(x["n"])}</a></span></li>' for x in picks)
-    body = f"""<section class="hero"><div class="wrap">
-  <p class="kicker">Genres on HeavyMusix Radio</p>
-  <h1>{esc(gname)}</h1>
-  <p class="lead">{len(members)} {esc(gname.lower())} bands and {len(gsongs)} songs on HeavyMusix Radio, from the underground to the heavy hitters. Hit play on any song.</p>
-  <h2 class="sub">Start listening</h2>
-  <ul class="songs">{plist}</ul>
-  <h2 class="sub">All {esc(gname.lower())} bands</h2>
-  <ul class="az">{rows}</ul>
-  <div class="btns"><a class="btn ghost" href="genres/index.html">All genres</a> <a class="btn ghost" href="bands.html">Find a band</a></div>
-</div></section>"""
-    page(f"genres/{gslug}.html", f"{gname} bands and songs | HeavyMusix Radio",
-         f"{len(members)} {gname.lower()} bands and {len(gsongs)} songs to play free on HeavyMusix Radio: underground and heavy hitters.",
-         body, nav="genres/index.html")
-    pages.append((f"genres/{gslug}.html", TODAY.isoformat()))
-    genre_links.append((gslug, gname, len(members)))
-body = """<section class="hero"><div class="wrap">
-  <p class="kicker">Genres</p>
-  <h1>Find your kind of heavy</h1>
-  <ul class="bandchips">""" + "".join(f'<li><a href="genres/{g}.html">{esc(n)} ({c})</a></li>' for g, n, c in genre_links) + """</ul>
-</div></section>"""
-page("genres/index.html", "Metal genres | HeavyMusix Radio", "Thrash, death, deathcore, metalcore, prog, groove and more: every genre on HeavyMusix Radio.", body, nav="genres/index.html")
-pages.append(("genres/index.html", TODAY.isoformat()))
+shutil.rmtree("genres", ignore_errors=True)   # genre pages retired Nov 21, 2026; old links land on 404.html, which sends them to Find a band
 
 # ---------------------------------------------------------------- this week in metal (rolling 7 days)
 week_ago = (TODAY - datetime.timedelta(days=7)).isoformat()

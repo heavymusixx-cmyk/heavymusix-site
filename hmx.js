@@ -91,7 +91,7 @@ var HMX = window.HMX || {};
         }
         var hits = d.catalog.filter(function(s){
           var b = bandsOk[s.b]; if (!b) return false;
-          return (s.t + ' ' + b.name + ' ' + where(b) + ' ' + (b.genre || '')).toLowerCase().indexOf(term) > -1;
+          return (s.t + ' ' + b.name + ' ' + where(b)).toLowerCase().indexOf(term) > -1;
         }).slice(0, 120);
         out.innerHTML = hits.length ? '<h2 class="sub">' + hits.length + (hits.length === 120 ? '+' : '') + ' songs</h2><ul class="songs">' + hits.map(function(s){
           var b = bandsOk[s.b], ep = epsBy[s.v];
@@ -121,7 +121,7 @@ var HMX = window.HMX || {};
       el.innerHTML =
         '<p class="kicker">' + (b.unsigned ? 'HeavyMusix unsigned pick' : 'On HeavyMusix Radio') + '</p>' +
         '<h1>' + esc(b.name) + '</h1>' +
-        '<p class="lead">' + esc([b.genre, where(b)].filter(Boolean).join(' · ')) + '</p>' +
+        '<p class="lead">' + esc(where(b)) + '</p>' +
         (b.bio ? '<p>' + esc(b.bio) + '</p>' : '') +
         (linkHtml ? '<div class="btns">' + linkHtml + '</div>' : '') +
         '<h2 class="sub">' + songs.length + ' song' + (songs.length === 1 ? '' : 's') + ' on HeavyMusix Radio</h2>' +

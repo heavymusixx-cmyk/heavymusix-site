@@ -32,7 +32,7 @@
   <nav class="main" id="mainnav" aria-label="Main menu">
     <form class="navfind" action="search.html" role="search"><input type="search" name="q" placeholder="Find a band, song or story" aria-label="Search HeavyMusix"><button type="submit">Search</button></form>
     <div class="navcol"><div class="navgrp" role="group" aria-labelledby="nh-listen"><p class="navh" id="nh-listen">Listen</p><a href="index.html" class="on" aria-current="page">HeavyMusix Radio</a><a href="show.html">Radio Show</a></div><div class="navgrp" role="group" aria-labelledby="nh-news"><p class="navh" id="nh-news">Metal news</p><a href="news.html">Latest news</a><a href="this-week-in-metal.html">This week in metal</a><a href="index.html#history">Today in metal history</a></div><div class="navgrp" role="group" aria-labelledby="nh-az"><p class="navh" id="nh-az">Arizona</p><a href="arizona-metal-shows.html">Shows this week</a><a href="arizona.html">Arizona metal scene</a></div></div>
-    <div class="navcol"><div class="navgrp" role="group" aria-labelledby="nh-bands"><p class="navh" id="nh-bands">Bands</p><a href="bands.html">Find a band</a><a href="genres/index.html">Genres</a><a href="series.html">Band Survival Kit</a><a href="submit.html">Band submissions (soon)</a></div><div class="navgrp" role="group" aria-labelledby="nh-hmx"><p class="navh" id="nh-hmx">HeavyMusix</p><a href="about.html">About</a><a href="newsletter.html">The HeavyMusix email</a><a href="shop.html">Shop (coming soon)</a><a href="ideas.html">Share an idea</a></div></div>
+    <div class="navcol"><div class="navgrp" role="group" aria-labelledby="nh-bands"><p class="navh" id="nh-bands">Bands</p><a href="bands.html">Find a band</a><a href="series.html">Band Survival Kit</a><a href="submit.html">Band submissions (soon)</a></div><div class="navgrp" role="group" aria-labelledby="nh-hmx"><p class="navh" id="nh-hmx">HeavyMusix</p><a href="about.html">About</a><a href="newsletter.html">The HeavyMusix email</a><a href="shop.html">Shop (coming soon)</a><a href="ideas.html">Share an idea</a></div></div>
   </nav>
 </div></header>
 <main id="main">
@@ -132,16 +132,16 @@
   Promise.all([fetch('show/bands.json').then(function(r){return r.json();}),fetch('show/catalog.json').then(function(r){return r.json();})]).then(function(d){
     var B=d[0], C=d[1], picks=Object.keys(B).filter(function(k){return B[k].unsigned && B[k].songs>0;}).sort();
     if(!picks.length){   // Band of the Day is only for unsigned bands Heavy has selected
-      el.innerHTML='<div class="card"><h2 style="margin:0">Your band could be here</h2><p>Band of the Day spotlights the unsigned bands hand-picked for HeavyMusix Radio. Band submissions open soon.</p><div class="btns"><a class="btn" href="submit.html">Submissions: opening soon</a><a class="btn ghost" href="genres/index.html">Browse by genre</a></div></div>';
+      el.innerHTML='<div class="card"><h2 style="margin:0">Your band could be here</h2><p>Band of the Day spotlights the unsigned bands hand-picked for HeavyMusix Radio. Band submissions open soon.</p><div class="btns"><a class="btn" href="submit.html">Submissions: opening soon</a><a class="btn ghost" href="bands.html">Find a band</a></div></div>';
       return;
     }
     var day=Math.floor((Date.now()-7*3600e3)/864e5);           // changes at midnight Arizona time
     var k=picks[day%picks.length], b=B[k];
     var songs=C.filter(function(s){return s.b===k;}).slice(0,3);
     var where=[b.city,b.region,b.country].filter(Boolean).join(', ');
-    el.innerHTML='<div class="card"><h2 style="margin:0">'+esc(b.name)+'</h2><p class="muted">'+esc([b.genre,where].filter(Boolean).join(' · '))+'</p>'+(b.bio?'<p>'+esc(b.bio)+'</p>':'')+
+    el.innerHTML='<div class="card"><h2 style="margin:0">'+esc(b.name)+'</h2><p class="muted">'+esc(where)+'</p>'+(b.bio?'<p>'+esc(b.bio)+'</p>':'')+
       '<ul class="songs">'+songs.map(function(s){var l=b.name+' – '+s.t;return '<li><button type="button" class="playbtn" data-v="'+esc(s.v)+'" data-label="'+esc(l)+'" aria-label="Play '+esc(l)+'">&#9654; Play</button><span class="sinfo"><strong>'+esc(s.t)+'</strong></span></li>';}).join('')+'</ul>'+
-      '<div class="btns"><a class="btn ghost" href="bands/'+esc(k)+'.html">All '+b.songs+' songs by '+esc(b.name)+'</a><a class="btn ghost" href="genres/index.html">Browse by genre</a></div></div>';
+      '<div class="btns"><a class="btn ghost" href="bands/'+esc(k)+'.html">All '+b.songs+' songs by '+esc(b.name)+'</a><a class="btn ghost" href="bands.html">Find a band</a></div></div>';
   }).catch(function(){el.innerHTML='<p><a href="bands.html">Find a band</a></p>';});
 })();
 </script>

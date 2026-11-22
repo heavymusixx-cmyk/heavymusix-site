@@ -30,7 +30,7 @@
   <nav class="main" id="mainnav" aria-label="Main menu">
     <form class="navfind" action="search.html" role="search"><input type="search" name="q" placeholder="Find a band, song or story" aria-label="Search HeavyMusix"><button type="submit">Search</button></form>
     <div class="navcol"><div class="navgrp" role="group" aria-labelledby="nh-listen"><p class="navh" id="nh-listen">Listen</p><a href="index.html">HeavyMusix Radio</a><a href="show.html">Radio Show</a></div><div class="navgrp" role="group" aria-labelledby="nh-news"><p class="navh" id="nh-news">Metal news</p><a href="news.html">Latest news</a><a href="this-week-in-metal.html">This week in metal</a><a href="index.html#history">Today in metal history</a></div><div class="navgrp" role="group" aria-labelledby="nh-az"><p class="navh" id="nh-az">Arizona</p><a href="arizona-metal-shows.html">Shows this week</a><a href="arizona.html">Arizona metal scene</a></div></div>
-    <div class="navcol"><div class="navgrp" role="group" aria-labelledby="nh-bands"><p class="navh" id="nh-bands">Bands</p><a href="bands.html">Find a band</a><a href="genres/index.html">Genres</a><a href="series.html">Band Survival Kit</a><a href="submit.html">Band submissions (soon)</a></div><div class="navgrp" role="group" aria-labelledby="nh-hmx"><p class="navh" id="nh-hmx">HeavyMusix</p><a href="about.html">About</a><a href="newsletter.html">The HeavyMusix email</a><a href="shop.html">Shop (coming soon)</a><a href="ideas.html">Share an idea</a></div></div>
+    <div class="navcol"><div class="navgrp" role="group" aria-labelledby="nh-bands"><p class="navh" id="nh-bands">Bands</p><a href="bands.html">Find a band</a><a href="series.html">Band Survival Kit</a><a href="submit.html">Band submissions (soon)</a></div><div class="navgrp" role="group" aria-labelledby="nh-hmx"><p class="navh" id="nh-hmx">HeavyMusix</p><a href="about.html">About</a><a href="newsletter.html">The HeavyMusix email</a><a href="shop.html">Shop (coming soon)</a><a href="ideas.html">Share an idea</a></div></div>
   </nav>
 </div></header>
 <main id="main">
@@ -64,7 +64,7 @@
     try{history.replaceState(null,'',term?'search.html?q='+encodeURIComponent(q.value.trim()):'search.html');}catch(x){}
     if(!term||!D){out.innerHTML='<p class="lead">Type a band, song, city, country or word like tour or album.</p>';return;}
     var has=function(s){return String(s||'').toLowerCase().indexOf(term)>-1;};
-    var bands=Object.keys(D.bands).filter(function(k){var b=D.bands[k];return b.songs&&(has(b.name)||has(where(b))||has(b.genre));}).slice(0,30);
+    var bands=Object.keys(D.bands).filter(function(k){var b=D.bands[k];return b.songs&&(has(b.name)||has(where(b)));}).slice(0,30);
     var songs=D.cat.filter(function(s){return has(s.t)||has(s.n);}).slice(0,40);
     var news=(window.NEWS||[]).filter(function(n){return has(n.title+' '+n.tag+' '+n.text.join(' '));}).slice(0,20);
     var today=new Date().toISOString().slice(0,10);
