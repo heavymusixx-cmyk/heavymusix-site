@@ -166,11 +166,19 @@ try:
                          capture_output=True, text=True, timeout=60)
     if out.returncode == 0:
         since = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=24)
-        fails = {}
-        for r in json.loads(out.stdout):
+        fails, recovered, fixed = {}, set(), []
+        for r in json.loads(out.stdout):  # newest first
             when = datetime.datetime.fromisoformat(r["createdAt"].replace("Z", "+00:00"))
+            if r.get("conclusion") == "success":
+                recovered.add(r["name"])  # a later run worked, so an older failure is already fixed
             if when > since and r.get("conclusion") == "failure" and r["name"] != "Site health check":
-                fails.setdefault(r["name"], r["url"])
+                if r["name"] in recovered:
+                    if r["name"] not in fixed:
+                        fixed.append(r["name"])
+                else:
+                    fails.setdefault(r["name"], r["url"])
+        if fixed:
+            notes.append("Failed earlier but ran fine since: " + ", ".join(fixed) + ".")
         if fails:
             problems.append("Robots that failed in the last 24 hours: " + "; ".join(f"{n} ({u})" for n, u in fails.items()))
         else:
