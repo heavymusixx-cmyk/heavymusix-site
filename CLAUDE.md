@@ -40,5 +40,5 @@ The site updates by **5 AM Eastern** every day: stories (Claude task, 4:23 AM ET
 
 `skin.js` (in every page's head) picks the look by date; `style.css` holds the colors and art. Every skin stays dark, evil and metal, with metal lettering, and must pass AA contrast.
 - Weekly rotation every Monday: Blood, Crypt, Toxic, Frost (counted from Mon Nov 16, 2026).
-- Holidays override the week: Valentine's (Feb 7-14), St. Patrick's (Mar 14-17), 4th of July (Jun 28-Jul 5), Halloween (Oct 15-31), Thanksgiving (Mon-Sun of the 4th-Thursday week), Christmas (Dec 1-26), New Year's (Dec 27-Jan 2). Holiday skins use the holiday's colors across the whole page, a skull in a holiday hat, and a garland under the banner. Art lives in `images/skins/`.
+- Holidays override the week: Valentine's (Feb 7-14), St. Patrick's (Mar 14-17), 4th of July (Jun 28-Jul 5), Halloween (Oct 15-31), Thanksgiving (the Sunday before through the Sunday after the 4th Thursday; owner moved the start up a day, Nov 22, 2026), Christmas (Dec 1-26), New Year's (Dec 27-Jan 2). Holiday skins use the holiday's colors across the whole page, a skull in a holiday hat, and a garland under the banner. Art lives in `images/skins/`.
 - Preview with `?skin=<name>` (lasts only while browsing in that tab; a normal visit always follows the schedule). The owner will fine-tune the looks later.

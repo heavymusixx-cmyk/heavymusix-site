@@ -5,7 +5,7 @@
      St. Patrick's Day Mar 14-17    clover skull
      4th of July       Jun 28-Jul 5 red, white and blue firework skull
      Halloween         Oct 15-31    evil jack-o'-lanterns
-     Thanksgiving      Mon-Sun of Thanksgiving week (4th Thursday of November)   turkey skull
+     Thanksgiving      Sun-Sun of Thanksgiving week (4th Thursday of November) turkey skull
      Christmas         Dec 1-26     skull ornaments
      New Year's        Dec 27-Jan 2 gold firework skull
    Preview any skin with ?skin=crypt (or blood, toxic, frost, valentine, stpatrick, july4, halloween,
@@ -16,7 +16,7 @@
   var tday = 1 + ((4 - nov1 + 7) % 7) + 21;                      // Thanksgiving: 4th Thursday of November
   if (m === 2 && day >= 7 && day <= 14) skin = 'valentine';
   else if (m === 3 && day >= 14 && day <= 17) skin = 'stpatrick';
-  else if (m === 11 && day >= tday - 3 && day <= tday + 3) skin = 'thanksgiving';
+  else if (m === 11 && day >= tday - 4 && day <= tday + 3) skin = 'thanksgiving';
   else if (m === 10 && day >= 15) skin = 'halloween';
   else if (m === 12 && day <= 26) skin = 'christmas';
   else if ((m === 12 && day >= 27) || (m === 1 && day <= 2)) skin = 'newyear';

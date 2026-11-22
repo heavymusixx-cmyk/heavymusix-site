@@ -96,7 +96,7 @@ def page(path, title, desc, body, nav=None, ld=None, extra_head="", image="og/de
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Metal+Mania&family=New+Rocker&family=Nosifer&family=Pirata+One&family=UnifrakturCook:wght@700&family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{STYLE}">
-<script src="skin.js?v=5"></script>
+<script src="skin.js?v=6"></script>
 {extra_head}{ld_tag}</head>
 <body>
 <!-- Built automatically by scripts/build_pages.py. Do not edit by hand. -->
