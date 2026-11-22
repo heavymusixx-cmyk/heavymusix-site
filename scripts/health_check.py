@@ -141,6 +141,29 @@ for f in ["news.js", "history.js"] + glob.glob("*.html"):
             spell.add(f"{f}: should be {right}")
 if spell:
     problems.append("Misspelled names: " + "; ".join(sorted(spell)[:10]))
+# No genre labels (owner, Nov 21, 2026: "it's METAL, period"). Checks the words readers see in stories,
+# history and band bios. Story addresses (slugs) and proper names such as "Grind Core Records" are allowed.
+GENRE = re.compile(r"\b(thrash\w*|death[- ]metal|deathcore|metalcore|black[- ]metal|doom\w*|sludge|groove[- ]metal|nu[- ]metal|"
+                   r"power[- ]metal|progressive|prog[- ]metal|grindcore|hardcore|NWOBHM|tech[- ]death|technical death|stoner|"
+                   r"gothic metal|post-metal|speed metal|symphonic|folk metal|djent|blackened|deathgrind)\b", re.I)
+ALLOWED = re.compile(r"Grind Core Records", re.I)
+genre_hits = []
+try:
+    data = json.loads(subprocess.run(["node", "-e", "const fs=require('fs');eval(fs.readFileSync('news.js','utf8'));eval(fs.readFileSync('history.js','utf8'));"
+                                  "process.stdout.write(JSON.stringify({n:NEWS.map(x=>[x.date,x.title,(x.text||[]).join(' ')]),h:Object.values(HISTORY).flat().map(x=>x.text)}))"], capture_output=True, text=True, timeout=60).stdout)
+    for d, t, body in data["n"]:
+        m = GENRE.search(ALLOWED.sub("", t + " " + body))
+        if m: genre_hits.append(f"story {d} \"{t[:50]}\" says \"{m.group(0)}\"")
+    for t in data["h"]:
+        m = GENRE.search(ALLOWED.sub("", t))
+        if m: genre_hits.append(f"history \"{t[:50]}\" says \"{m.group(0)}\"")
+    for k, b in json.load(open("show/bands.json", encoding="utf-8")).items():
+        m = GENRE.search(b.get("bio") or "")
+        if m: genre_hits.append(f"bio of {b.get('name', k)} says \"{m.group(0)}\"")
+except Exception as e:
+    notes.append(f"Genre-word check skipped ({e})")
+if genre_hits:
+    problems.append(f"{len(genre_hits)} genre label(s) found (it's metal, period; rewrite as plain metal): " + "; ".join(genre_hits[:10]))
 cut = []
 for f in glob.glob("*.html") + glob.glob("*/*.html"):
     m = re.search(r'name="description" content="([^"]*)"', open(f, encoding="utf-8").read())

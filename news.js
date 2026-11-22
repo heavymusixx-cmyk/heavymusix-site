@@ -21,7 +21,7 @@ var NEWS = [
     tag: "Tours",
     title: "Firewind and Powerglove team up for the \"Firepower USA Tour 2027\", ending in Mesa on March 7",
     text: [
-      "Greek power metal band Firewind are coming to the US with video-game metal crew Powerglove as co-headliners. The 11-date run starts February 23 in Austin and stops in Dallas, Kansas City, Iowa City, Chicago, Milwaukee, Denver, Salt Lake City, San Francisco and Los Angeles.",
+      "Greek metal band Firewind are coming to the US with metal crew Powerglove as co-headliners. The 11-date run starts February 23 in Austin and stops in Dallas, Kansas City, Iowa City, Chicago, Milwaukee, Denver, Salt Lake City, San Francisco and Los Angeles.",
       "Arizona gets the final night: Sunday, March 7, 2027 at the Rosetta Room in Mesa.",
       "The tour backs Firewind's new album \"Gods, Myths & Titans\", a Greek mythology concept record out February 19 on BLKIIBLK. Henning Basse is back on vocals, and the songs \"Firegod\" and \"The Legend Of Achilles\" are the first highlights.",
       "Source: Blabbermouth"
@@ -33,7 +33,7 @@ var NEWS = [
     title: "Bloodstock 2027 adds Khemmis, Crisix, The Zenith Passage and 14 more; day tickets go on sale November 27",
     text: [
       "The UK's Bloodstock Open Air has added 17 bands to its 2027 festival, held August 5 to 8 at Catton Park in Derbyshire. Mercyful Fate, Electric Callboy and Motionless In White headline the main Ronnie James Dio Stage.",
-      "New on the main stage are Pintglass on Friday and Brat and Pest Control on Sunday. The Sophie Lancaster Stage picks up Denver doom band Khemmis, Spanish thrashers Crisix, tech-death band The Zenith Passage, Viscera, Soldiers Of Rage, Only Pain, De Profundis, Devora, VCTMS, Redeemon, Muddibrooke, Endeavour, Pryma and The Five Hundred.",
+      "New on the main stage are Pintglass on Friday and Brat and Pest Control on Sunday. The Sophie Lancaster Stage picks up Denver's Khemmis, Spain's Crisix, The Zenith Passage, Viscera, Soldiers Of Rage, Only Pain, De Profundis, Devora, VCTMS, Redeemon, Muddibrooke, Endeavour, Pryma and The Five Hundred.",
       "Day tickets go on sale Friday, November 27, and the festival is offering a three-payment plan for the first time. Bloodstock is also premiering clips from Sepultura's last UK festival set on its YouTube channel on November 23, 25 and 27.",
       "Source: This Day In Metal, MetalTalk"
     ]
@@ -53,7 +53,7 @@ var NEWS = [
     tag: "Tours",
     title: "As I Lay Dying book a 16-date European tour for spring 2027",
     text: [
-      "Metalcore band As I Lay Dying will tour Europe from April 20 to May 16, 2027. The run opens at Matrix in Bochum, Germany and heads through Leipzig, Ostrava, Vienna, Bucharest, Sofia, Athens, Thessaloniki, Belgrade, Zagreb, Venice, Milan and Paris before closing at De Helling in Utrecht.",
+      "Metal band As I Lay Dying will tour Europe from April 20 to May 16, 2027. The run opens at Matrix in Bochum, Germany and heads through Leipzig, Ostrava, Vienna, Bucharest, Sofia, Athens, Thessaloniki, Belgrade, Zagreb, Venice, Milan and Paris before closing at De Helling in Utrecht.",
       "No support acts have been named yet. Tickets are on general sale now.",
       "Source: Lambgoat"
     ]
@@ -63,7 +63,7 @@ var NEWS = [
     tag: "Releases",
     title: "Gates To Hell unveil new singer JP Kaine on crushing single \"Rotting Heart\"",
     text: [
-      "Louisville, Kentucky metallic hardcore band Gates To Hell have a new voice. The Nuclear Blast band parted ways with singer Ryan Storey and brought in JP Kaine, who also fronts Surfaced. \"Rotting Heart\" is the first song with him, and it comes with a video directed by Errick Easterday.",
+      "Louisville, Kentucky metal band Gates To Hell have a new voice. The Nuclear Blast band parted ways with singer Ryan Storey and brought in JP Kaine, who also fronts Surfaced. \"Rotting Heart\" is the first song with him, and it comes with a video directed by Errick Easterday.",
       "The track was recorded, mixed and mastered this summer by Randy LeBoeuf in New Jersey. No album has been announced yet.",
       "The band are on the road supporting Guilt Trip from November 27 to December 16, and they are booked to support Avatar in June 2027.",
       "Source: Nuclear Blast, Lambgoat"
@@ -105,7 +105,7 @@ var NEWS = [
     tag: "Releases",
     title: "Angelus Apatrida drop \"Burn It Down\" video as their Napalm Records debut EP \"The Reckoning\" lands",
     text: [
-      "Spanish thrash crew Angelus Apatrida have released a music video for \"Burn It Down\", the opening track of their new EP \"The Reckoning\". The three-song release came out November 19 and is the band's first for Napalm Records, following their 2023 album \"Aftermath\".",
+      "Spanish metal crew Angelus Apatrida have released a music video for \"Burn It Down\", the opening track of their new EP \"The Reckoning\". The three-song release came out November 19 and is the band's first for Napalm Records, following their 2023 album \"Aftermath\".",
       "The EP runs about eleven minutes: \"Burn It Down\", \"Cycle of Ruin\" and a cover of Sepultura's \"Propaganda\". Singer and guitarist Guillermo Izquierdo produced it, with Zeuss handling the mix and master. The new song's lyrics are about getting back up after hitting bottom. It is out digitally, on CD and on black and translucent green vinyl.",
       "The band play four shows in Spain in December, starting December 4 in Murcia and moving on to Granada, Guadalajara and Valls, then sail on the 70000 Tons of Metal cruise out of Miami in January.",
       "Source: Stormblast Magazine, Napalm Records"
@@ -138,7 +138,7 @@ var NEWS = [
     tag: "Tours",
     title: "Milwaukee Metal Fest 2027 adds Shadows Fall and Fear Factory to a bill led by Meshuggah",
     text: [
-      "Milwaukee Metal Fest keeps growing for its May 14 to 16, 2027 edition at The Rave/Eagles Club. Massachusetts metalcore veterans Shadows Fall are the newest name, booked for opening day on Friday, May 14, and Fear Factory are confirmed to play \"Obsolete\" among other songs.",
+      "Milwaukee Metal Fest keeps growing for its May 14 to 16, 2027 edition at The Rave/Eagles Club. Massachusetts metal veterans Shadows Fall are the newest name, booked for opening day on Friday, May 14, and Fear Factory are confirmed to play \"Obsolete\" among other songs.",
       "They join a bill already led by Meshuggah, who are celebrating 40 years, plus Testament, Crowbar, YOB, Pig Destroyer and Repulsion. A pre-party runs May 13, and organizers say more bands are on the way.",
       "Source: ThePRP, Lambgoat"
     ]
@@ -170,7 +170,7 @@ var NEWS = [
     tag: "Throwback",
     title: "On this day in metal: Dark Tranquillity release \"Moment\" (2020)",
     text: [
-      "Six years ago today, on November 20, 2020, Swedish melodic death metal band Dark Tranquillity released their twelfth album, \"Moment\", on Century Media.",
+      "Six years ago today, on November 20, 2020, Swedish metal band Dark Tranquillity released their twelfth album, \"Moment\", on Century Media.",
       "It was the first album without founding guitarist Niklas Sundin. Two new guitarists came in, Johan Reinholdz and former Arch Enemy player Christopher Amott, making the band a six-piece on record for the first time since 2010. Martin Brändström produced it and Jens Bogren mixed it.",
       "It came out in the middle of the pandemic, and the band said they hoped it would give fans a break from hard times. It made the top 10 in Finland and charted across Europe.",
       "Source: This Day in Metal, Blabbermouth"
@@ -181,7 +181,7 @@ var NEWS = [
     tag: "Tours",
     title: "Meshuggah bring Testament and Blood Incantation on their 40th-anniversary \"Forty-Year Anomaly\" tour, with Phoenix on April 27",
     text: [
-      "Swedish polyrhythm machine Meshuggah turn 40 in 2027, and they are celebrating with \"The Forty-Year Anomaly\", a 35-date North American run. Bay Area thrash legends Testament and Denver's cosmic death metal crew Blood Incantation are the special guests on the headline shows.",
+      "Swedish polyrhythm machine Meshuggah turn 40 in 2027, and they are celebrating with \"The Forty-Year Anomaly\", a 35-date North American run. Bay Area metal legends Testament and Denver's cosmic metal crew Blood Incantation are the special guests on the headline shows.",
       "The first leg runs February 12 in Toronto to March 6 in Boston. The second starts April 15 in Vancouver, takes in Meshuggah's first-ever Red Rocks show on April 21, and wraps with festival sets at Welcome to Rockville, Sonic Temple and Milwaukee Metal Fest in mid-May.",
       "Arizona's date is Tuesday, April 27, 2027 at Arizona Financial Theatre in Phoenix. A 20-date European leg follows in the fall with Periphery and Vildhjarta, closing October 30 at London's Wembley arena. Tickets are on sale now through the band's official site.",
       "Source: Blabbermouth, Loudwire, TicketNews"
@@ -193,7 +193,7 @@ var NEWS = [
     title: "Testament's Chuck Billy tells his life story in new memoir \"Holding My Breath\"",
     text: [
       "Testament frontman Chuck Billy's memoir, \"Holding My Breath: The Two Testaments of Chuck Billy\", is out now through Permuted Press. He wrote it with Dave Erickson, and it comes with a foreword from Judas Priest's Rob Halford and an afterword from Lamb of God's Randy Blythe.",
-      "The book is split in two. The \"Old Testament\" covers his childhood in a Native American and Mexican-American family, the birth of Bay Area thrash and Testament's rise. The \"New Testament\" follows his cancer diagnosis at 38 in 2001, his recovery through chemotherapy and traditional Native American healing, and the band's comeback.",
+      "The book is split in two. The \"Old Testament\" covers his childhood in a Native American and Mexican-American family, the birth of the Bay Area metal scene and Testament's rise. The \"New Testament\" follows his cancer diagnosis at 38 in 2001, his recovery through chemotherapy and traditional Native American healing, and the band's comeback.",
       "Billy has been cancer-free for more than two decades. He will be on the road again in 2027 with Testament, supporting Meshuggah in North America and Megadeth in Europe.",
       "Source: Blabbermouth, Loudwire, Knotfest"
     ]
@@ -214,7 +214,7 @@ var NEWS = [
     tag: "World",
     title: "Within Temptation release \"Through Fire & Ashes\" with Dutch singer S10, title track of a spring 2027 album",
     text: [
-      "Dutch symphonic metal band Within Temptation are back with \"Through Fire & Ashes\", a duet between Sharon den Adel and Dutch singer S10 that opens as an acoustic ballad and grows into a big choral finish.",
+      "Dutch metal band Within Temptation are back with \"Through Fire & Ashes\", a duet between Sharon den Adel and Dutch singer S10 that opens as an acoustic ballad and grows into a big choral finish.",
       "It is also the title track of the band's ninth studio album, due in spring 2027 and following 2023's \"Bleed Out\". The band say the album is not finished yet and has a different sound, and no tour has been decided.",
       "Fans can add their own artwork to a project on the band's site, which will be completed on the album's release day.",
       "Source: Blabbermouth"
@@ -225,7 +225,7 @@ var NEWS = [
     tag: "World",
     title: "Austria's Serenity announce ninth album \"Melancholia\" for February 12 on Napalm Records",
     text: [
-      "Austrian symphonic power metal band Serenity mark 20 years with \"Melancholia\", their ninth album, out February 12, 2027 on Napalm Records. The title track is out now.",
+      "Austrian metal band Serenity mark 20 years with \"Melancholia\", their ninth album, out February 12, 2027 on Napalm Records. The title track is out now.",
       "The record is built around Albrecht Dürer and the Renaissance: the title song draws on Dürer's 1514 engraving \"Melencolia I\", and the closer, \"School of Athens\", honors Raphael. Sascha Paeth produced again, and Visions of Atlantis singer Clémentine Delauney guests on \"Mirror Mirror\".",
       "The \"Melancholia - 20 Years of Serenity\" tour runs February 11 to March 13 across Germany, the Netherlands, Czechia, Austria, Hungary, Switzerland and the UK, with Secret Sphere and Secret Rule.",
       "Source: Blabbermouth"
@@ -258,7 +258,7 @@ var NEWS = [
     tag: "Throwback",
     title: "On this day in metal: Gamma Ray release \"Land of the Free II\" (2007)",
     text: [
-      "On November 19, 2007, Gamma Ray released \"Land of the Free II\" in Europe, the ninth studio album from Kai Hansen's power metal band.",
+      "On November 19, 2007, Gamma Ray released \"Land of the Free II\" in Europe, the ninth studio album from Kai Hansen's band.",
       "Hansen, guitarist Henjo Richter, bassist Dirk Schlächter and drummer Dan Zimmermann recorded it at Hansen's High Gain Studio in Hamburg. The band took it on the road on the Hellish Rock Tour with Helloween. North America got the album in January 2008.",
       "Source: Wikipedia, Gamma Ray official site"
     ]
@@ -268,7 +268,7 @@ var NEWS = [
     tag: "Throwback",
     title: "On this day in metal: Helloween release their debut album \"Walls of Jericho\" (1985)",
     text: [
-      "Forty-one years ago today, on November 18, 1985, a young band from Hamburg, Germany put out their first full-length album through Noise Records. Helloween's \"Walls of Jericho\" mixed the speed of thrash with soaring melodies and big gang choruses, and it is now counted among the records that built European power metal.",
+      "Forty-one years ago today, on November 18, 1985, a young band from Hamburg, Germany put out their first full-length album through Noise Records. Helloween's \"Walls of Jericho\" mixed blazing speed with soaring melodies and big gang choruses, and it is now counted among the records that built European metal.",
       "Kai Hansen handled lead vocals as well as guitar, alongside Michael Weikath on guitar, Markus Grosskopf on bass and the late Ingo Schwichtenberg on drums. It is the only Helloween studio album with Hansen as lead singer until the band's 2021 self-titled reunion record. Songs like \"Ride the Sky\", \"Guardians\", \"Metal Invaders\" and \"Heavy Metal (Is the Law)\" are still fan favorites, and the pinball-inspired \"Gorgar\" borrows Grieg's \"In the Hall of the Mountain King\".",
       "The anniversary party keeps going: Helloween are one of the headliners at Wacken Open Air 2027, where they will play a special 40th-anniversary set.",
       "Source: This Day in Metal, I Love Heavy Metal Radio"
@@ -290,7 +290,7 @@ var NEWS = [
     tag: "Tours",
     title: "Týr announce 2027 North American tour with Dynazty, Dominum and Edge of Paradise, including Mesa on March 30",
     text: [
-      "Faroese Viking metal band Týr are coming back to North America with a 24-date tour from March 10, 2027 in Boston to April 11 in New York City. Swedish power metal band Dynazty, Dominum and Edge of Paradise round out the bill.",
+      "Faroese Viking metal band Týr are coming back to North America with a 24-date tour from March 10, 2027 in Boston to April 11 in New York City. Swedish metal band Dynazty, Dominum and Edge of Paradise round out the bill.",
       "Arizona's stop is Tuesday, March 30, 2027 at the Nile Theater in Mesa, between Los Angeles and Denver.",
       "The tour supports Týr's tenth studio album, simply titled \"Týr\", which comes out worldwide on November 24. It is the band's first album outside the usual label system, released on their own Runic Records after 2024's \"Battle Ballads\" came out on Metal Blade. The nine-track record includes a ten-minute epic, \"Two Paths to the Twilight Field\".",
       "Source: Blabbermouth"
@@ -310,7 +310,8 @@ var NEWS = [
   {
     date: "2026-11-18",
     tag: "World",
-    title: "Norwegian black metal band Nordjevel unveil title track \"Damnous\" ahead of their Season of Mist debut",
+    title: "Norwegian metal band Nordjevel unveil title track \"Damnous\" ahead of their Season of Mist debut",
+    slug: "2026-11-18-norwegian-black-metal-band-nordjevel-unveil-title-track-damn",
     text: [
       "Norway's Nordjevel have shared \"Damnous\", the title track and second single from their fourth album, with an official video. The album is out December 11 through Season of Mist's Underground Activists imprint, the band's first release with the label.",
       "The song features guest vocals from Sanrabb of Gehenna and keys from Morfeus, formerly of Limbonic Art. Formed in 2015 in Askim around vocalist Doedsadmiral, the band recorded the nine-song album at Studio Nyhagen, and Fredrik Nordström mixed and mastered it at Studio Fredman. Lyrics switch between Norwegian and English.",
@@ -323,7 +324,7 @@ var NEWS = [
     tag: "Releases",
     title: "Necrot share live-shot video for \"Drill the Skull\" from new album \"Lifeless Birth\"",
     text: [
-      "Death metal power trio Necrot have a new video for \"Drill the Skull\", the fourth track on their album \"Lifeless Birth\", out now on Tankcrimes. The song swings between heavy grooves and full-speed blast beats.",
+      "Metal power trio Necrot have a new video for \"Drill the Skull\", the fourth track on their album \"Lifeless Birth\", out now on Tankcrimes. The song swings between heavy grooves and full-speed blast beats.",
       "The clip was filmed on this year's Decibel Magazine Tour, where Necrot played 30 dates with Cryptopsy, Spirit Adrift and Blood Monolith, and it is packed with crowd-surfing and pit footage. Guitarist Sonny Reinhardt said the band had a blast shooting it.",
       "Next up, Necrot head south for shows in Chile, Brazil and Mexico from November 27 to December 6, including dates with My Dying Bride in Brazil.",
       "Source: Decibel Magazine"
@@ -334,7 +335,7 @@ var NEWS = [
     tag: "Tours",
     title: "Cryptopsy and Dying Fetus announce 2027 North American tour, with a Phoenix stop at Rebel Lounge on March 7",
     text: [
-      "Two of extreme metal's most punishing live acts are teaming up for the start of 2027. Maryland death metal veterans Dying Fetus will headline a 24-date North American run with Montreal technical death metal legends Cryptopsy as special guests and brutal death metal band Gorgasm opening most of the dates.",
+      "Two of extreme metal's most punishing live acts are teaming up for the start of 2027. Maryland metal veterans Dying Fetus will headline a 24-date North American run with Montreal metal legends Cryptopsy as special guests and Gorgasm opening most of the dates.",
       "The tour starts February 11 in Washington, D.C. and wraps March 16 in Durham, North Carolina. Arizona fans get their turn on Sunday, March 7, 2027, when the tour hits the Rebel Lounge in Phoenix. West Coast stops include Seattle, Portland, San Francisco and San Diego in the days before.",
       "Cryptopsy say they will lean on songs from their 2026 album \"An Insatiable Violence\", which picked up a JUNO Award nomination, while still mixing in early classics after a year spent celebrating the 30th anniversary of \"None So Vile\".",
       "Source: Season of Mist, Metal Injection"
@@ -379,7 +380,7 @@ var NEWS = [
     title: "Tanith announce new album \"Worldview\" for February 19, 2027 on Metal Blade",
     text: [
       "New York City hard rock cult act Tanith will release their new full-length album, \"Worldview\", on February 19, 2027 through Metal Blade Records.",
-      "Tanith are known for keeping the spirit and sound of 1970s hard rock and heavy metal alive. Guitarist Russ Tippins is also a member of NWOBHM legends Satan, and the band's last album, \"Voyage\", was recorded on analog tape.",
+      "Tanith are known for keeping the spirit and sound of 1970s hard rock and heavy metal alive. Guitarist Russ Tippins is also a member of British metal legends Satan, and the band's last album, \"Voyage\", was recorded on analog tape.",
       "Source: Metal Blade Records"
     ]
   },
@@ -388,8 +389,8 @@ var NEWS = [
     tag: "Throwback",
     title: "On this day in metal: Dark Angel's \"Darkness Descends\" turns 40",
     text: [
-      "Forty years ago today, on November 17, 1986, Los Angeles thrashers Dark Angel released \"Darkness Descends\", one of the fastest and most savage thrash albums of the decade.",
-      "The record is still a touchstone for thrash fans and extreme metal players alike, and it paved the way for the band's later classics. If you have never heard it, today is the day to crank it.",
+      "Forty years ago today, on November 17, 1986, Los Angeles metal band Dark Angel released \"Darkness Descends\", one of the fastest and most savage metal albums of the decade.",
+      "The record is still a touchstone for metal fans and players alike, and it paved the way for the band's later classics. If you have never heard it, today is the day to crank it.",
       "Source: This Day in Metal, I Love Heavy Metal Radio"
     ]
   },
@@ -398,8 +399,8 @@ var NEWS = [
     tag: "Releases",
     title: "New releases this week: Angelus Apatrida's \"The Reckoning\" EP leads a loaded week, with Suicide Silence, Thy Catafalque and more",
     text: [
-      "Spain's Angelus Apatrida open their Napalm Records chapter on Thursday, November 19 with \"The Reckoning\", a three-track EP. It carries the single \"Cycle Of Ruin\", a new song called \"Burn It Down\" and their take on Sepultura's \"Propaganda\". The Albacete thrashers produced it themselves, with Juanan López recording and Zeuss handling the mix and master.",
-      "Friday, November 20 keeps the pit open. Suicide Silence drop \"Graceless\" on Century Media, Hungary's Thy Catafalque bring \"XIII: Sárga erdő\" on Season of Mist, Polish blackened death crew Azarath unleash \"Scorn Eternal\" on Agonia, and Canada's Golgothan Remains return with \"Born From Darkness Absolute\" on Dark Descent.",
+      "Spain's Angelus Apatrida open their Napalm Records chapter on Thursday, November 19 with \"The Reckoning\", a three-track EP. It carries the single \"Cycle Of Ruin\", a new song called \"Burn It Down\" and their take on Sepultura's \"Propaganda\". The Albacete band produced it themselves, with Juanan López recording and Zeuss handling the mix and master.",
+      "Friday, November 20 keeps the pit open. Suicide Silence drop \"Graceless\" on Century Media, Hungary's Thy Catafalque bring \"XIII: Sárga erdő\" on Season of Mist, Polish metal crew Azarath unleash \"Scorn Eternal\" on Agonia, and Canada's Golgothan Remains return with \"Born From Darkness Absolute\" on Dark Descent.",
       "That is on top of the Trivium, Down, Disfear and Wolf albums we told you about last week. Angelus Apatrida are one of the most-played bands on HeavyMusix Radio, so expect \"Cycle Of Ruin\" in rotation. What are you buying first?",
       "Source: Blabbermouth, Napalm Records, Loudwire"
     ]
@@ -463,7 +464,7 @@ var NEWS = [
     tag: "Throwback",
     title: "On this day in metal: Vader unleash \"The Ultimate Incantation\" (1992)",
     text: [
-      "On November 16, 1992, Polish death metal pioneers Vader released their full-length debut, \"The Ultimate Incantation\", through Earache in Europe and the US. It put a band from Olsztyn, formed back in 1983, on the world death metal map.",
+      "On November 16, 1992, Polish metal pioneers Vader released their full-length debut, \"The Ultimate Incantation\", through Earache in Europe and the US. It put a band from Olsztyn, formed back in 1983, on the world metal map.",
       "Getting there was not easy. The album was first recorded at Sunlight Studio in Sweden, but neither the band nor the label liked the result, so they re-recorded it at Rhythm Studios in England with producer Paul Johnson. Dan Seagrave painted the cover, and \"Dark Age\" got a music video.",
       "Vader are on HeavyMusix Radio. Which era of Vader is your favorite?",
       "Source: Wikipedia, This Day In Metal"
@@ -516,7 +517,8 @@ var NEWS = [
   {
     date: "2026-11-16",
     tag: "World",
-    title: "Greek post-metal band Unverkalt share a live session of \"Penumbrian Lament\" from their Season of Mist debut",
+    title: "Greek metal band Unverkalt share a live session of \"Penumbrian Lament\" from their Season of Mist debut",
+    slug: "2026-11-16-greek-post-metal-band-unverkalt-share-a-live-session-of-penu",
     text: [
       "Greece's Unverkalt, a five-piece that started in 2017, have shared a live session video of \"Penumbrian Lament\", a song the band calls the heart of the downfall on their new album. It was directed and edited by Themis Ioannou at RAWBITE Studio.",
       "The song comes from \"Héréditaire\", their third album and first for Season of Mist, which is out now on CD and double vinyl. It also features a guest spot from Rotting Christ's Sakis Tolis on \"I, The Deceit\".",
@@ -527,9 +529,10 @@ var NEWS = [
   {
     date: "2026-11-16",
     tag: "Releases",
-    title: "Underground black metal to watch: Panzerfaust, Skagos, Necronautical, Limbes, Jöjjön and Nihilo",
+    title: "Underground metal to watch: Panzerfaust, Skagos, Necronautical, Limbes, Jöjjön and Nihilo",
+    slug: "2026-11-16-underground-black-metal-to-watch-panzerfaust-skagos-necronau",
     text: [
-      "Canada leads this week's black metal picks. Panzerfaust release \"The Lucifer Principle (Redux)\" on Eisenwald on December 4, a remix and remaster of their 2016 EP with a new song, \"All Grounds Zeroed\". Fellow Canadians Skagos follow on December 21 with \"Stricken\", their fourth album, on Bindrune Recordings.",
+      "Canada leads this week's underground picks. Panzerfaust release \"The Lucifer Principle (Redux)\" on Eisenwald on December 4, a remix and remaster of their 2016 EP with a new song, \"All Grounds Zeroed\". Fellow Canadians Skagos follow on December 21 with \"Stricken\", their fourth album, on Bindrune Recordings.",
       "From the UK, Necronautical bring their fifth album \"The Second Death\" on Vendetta Records on December 4. France's Limbes, the solo project of former Blurr Thrower member Guillaume Galaup, has \"Litanies\" coming January 15 on Frozen Records.",
       "Already out: Hungary's one-man project Jöjjön released its third album \"Szelet Vet\" on November 6, and Switzerland's Nihilo put out \"Abyss\" on Xtreem Music on November 3, with a guest vocal from Impiety's Shyaithan. Six countries, one very dark playlist.",
       "Source: No Clean Singing"
@@ -597,7 +600,7 @@ var NEWS = [
     text: [
       "Black Sabbath's Tony Iommi and singer Jørn Lande have shared an official video interview about \"From The Dark\", Iommi's first solo album in 21 years, released October 23 on BMG.",
       "Lande, the Norwegian singer known for Masterplan and Allen-Lande, co-wrote every song and wrote the lyrics. Iommi first worked with him at the 2010 High Voltage festival tribute to Ronnie James Dio. Becky Baldwin plays bass and Karl Brazil plays drums.",
-      "Iommi had hoped to get Geezer Butler on the record, but Geezer could not do it. The lead single is \"World Alone\". If you love down-tuned, doom-heavy riffs, this one is worth your time.",
+      "Iommi had hoped to get Geezer Butler on the record, but Geezer could not do it. The lead single is \"World Alone\". If you love down-tuned, crushing riffs, this one is worth your time.",
       "Source: Blabbermouth, Ultimate Classic Rock"
     ]
   },
@@ -617,7 +620,7 @@ var NEWS = [
     tag: "Releases",
     title: "Death Angel's next album is aiming for early 2028",
     text: [
-      "Bay Area thrash veterans Death Angel are writing and demoing songs for the follow-up to 2019's Grammy-nominated \"Humanicide\", but singer Mark Osegueda says fans shouldn't expect it before the first quarter of 2028.",
+      "Bay Area metal veterans Death Angel are writing and demoing songs for the follow-up to 2019's Grammy-nominated \"Humanicide\", but singer Mark Osegueda says fans shouldn't expect it before the first quarter of 2028.",
       "The plan is to record by summer 2027. The band wants to write a big batch of songs and keep only the best, the same way they built 1990's \"Act III\". That means the recent singles \"Wrath (Bring Fire)\", \"Cult Of The Used\" and \"The Never Was\" may or may not make the album.",
       "Osegueda blamed most of the long gap on the pandemic, which hit drummer Will Carroll hard. Until the album lands, Death Angel keep touring, with shows planned in Europe and Australia plus their yearly holiday gigs.",
       "Source: Blabbermouth"
@@ -628,7 +631,7 @@ var NEWS = [
     tag: "News",
     title: "Tiamat's Johan Edlund hospitalized; Belgrade show canceled",
     text: [
-      "Swedish gothic metal pioneers Tiamat canceled their Saturday, November 14 concert at Zappa Barka in Belgrade, Serbia, after founder and singer Johan Edlund suffered a brain hemorrhage.",
+      "Swedish metal pioneers Tiamat canceled their Saturday, November 14 concert at Zappa Barka in Belgrade, Serbia, after founder and singer Johan Edlund suffered a brain hemorrhage.",
       "The band shared the news on social media, saying Edlund will stay in the hospital until further notice. They asked fans to keep him in their thoughts.",
       "Everyone at HeavyMusix is wishing Johan a full and fast recovery.",
       "Source: Blabbermouth"
@@ -659,9 +662,10 @@ var NEWS = [
   {
     date: "2026-11-15",
     tag: "Releases",
-    title: "North Dakota death metal: Gorgatron's fifth album \"Turmoil\" lands Dec 11",
+    title: "North Dakota metal: Gorgatron's fifth album \"Turmoil\" lands Dec 11",
+    slug: "2026-11-15-north-dakota-death-metal-gorgatron-s-fifth-album-turmoil-lan",
     text: [
-      "Gorgatron, death metal from North Dakota, have shared the title track from their fifth album, \"Turmoil\".",
+      "Gorgatron, metal from North Dakota, have shared the title track from their fifth album, \"Turmoil\".",
       "The record comes out December 11 on Time To Kill Records. Proof that heavy music comes from everywhere, even the snowy middle of the map.",
       "Source: No Clean Singing"
     ]
@@ -682,7 +686,7 @@ var NEWS = [
     tag: "Shows",
     title: "Phoenix metal this week: DragonForce tonight, Imminence and Trivium coming",
     text: [
-      "Power metal takes over The Van Buren tonight: DragonForce, with Ensiferum and Rhapsody of Fire, Sunday Nov 15 at 7:30 PM.",
+      "Metal takes over The Van Buren tonight: DragonForce, with Ensiferum and Rhapsody of Fire, Sunday Nov 15 at 7:30 PM.",
       "Coming up: Imminence with Dying Wish at The Van Buren on Nov 27, and Trivium at Arizona Financial Theatre on Dec 2.",
       "Heading out? Tag @heavymusixradio in your show pics. Band submissions open soon. Follow @heavymusixradio for the date."
     ]
@@ -745,7 +749,7 @@ function fmtDate(d){
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));}
 
 /* Each story has its own page: news/<slug>.html (built by scripts/build_pages.py) */
-function slugOf(n){return n.date+"-"+n.title.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,60);}
+function slugOf(n){return n.slug||n.date+"-"+n.title.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,60);}
 function storyUrl(n){return "news/"+slugOf(n)+".html";}
 function bodyHtml(n){return n.text.map(p=>/^Source:/i.test(p)?`<p class="src">${esc(p)}</p>`:`<p>${esc(p)}</p>`).join("");}
 
