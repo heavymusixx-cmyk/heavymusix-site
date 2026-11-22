@@ -25,6 +25,8 @@ jobs:
           python-version: "3.12"
       - name: Install the YouTube tools
         run: pip install --quiet google-api-python-client google-auth-oauthlib
+      - name: Self-test the reshuffle script (a broken script never touches the playlist)
+        run: python rotator/selftest.py
       - name: Sign in as HeavyMusix (from the YT_TOKEN secret)
         env:
           YT_TOKEN: ${{ secrets.YT_TOKEN }}

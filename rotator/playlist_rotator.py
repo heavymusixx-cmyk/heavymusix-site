@@ -18,6 +18,9 @@ The rules for each pass:
   * a band's songs don't repeat until all of that band's songs have played
     (each song plays once per pass; songs from late in the last pass go later)
   * NEW songs go first in the next section that gets dealt.
+  * FRESH songs (added to the playlist in the last 14 days) are kept in the top 50
+    spots every day for those 2 weeks, spread out, so listeners actually hear what's
+    new. After that they mix in like everything else. (Owner's choice, Nov 21, 2026.)
 
 Usage:
   python playlist_rotator.py            preview only, changes nothing
@@ -141,6 +144,30 @@ def build_order(songs, is_new, later, recent=(), first_round=True):
         out.append(queues[k].pop(0))
         history.append(k)
         left -= 1
+    return out
+
+
+FRESH_DAYS = 14   # how long a newly added song stays near the top
+FRESH_TOP = 50    # ...within this many top spots
+FRESH_MAX = 25    # at most this many fresh songs pinned at once (newest first)
+
+
+def pin_fresh(target, fresh, top=FRESH_TOP):
+    """Takes the planned order and moves the fresh songs into evenly spread spots in the
+    top `top` positions (newest first), never next to the same band if it can be helped."""
+    if not fresh:
+        return target
+    ids = {s.id for s in fresh}
+    rest = [s for s in target if s.id not in ids]
+    out = list(rest)
+    step = top / len(fresh)
+    for i, s in enumerate(fresh):
+        pos = min(int(i * step) + 1, len(out))      # spot 1, not 0: the top song stays as dealt
+        for p in (pos, pos + 1, pos - 1, pos + 2):  # dodge a same-band neighbour
+            if 0 < p <= len(out) and out[p - 1].key != s.key and (p == len(out) or out[p].key != s.key):
+                pos = p
+                break
+        out.insert(pos, s)
     return out
 
 
@@ -388,6 +415,13 @@ def main():
         return not first_run and s.id not in known
 
     new = [s for s in playable if is_new(s)]
+    today_s = datetime.date.today().isoformat()
+    added = {i: d for i, d in (mem.get("added", {}) if mem else {}).items() if i in now_ids}
+    for s in new:
+        added.setdefault(s.id, today_s)
+    cutoff = (datetime.date.today() - datetime.timedelta(days=FRESH_DAYS - 1)).isoformat()
+    fresh = sorted((s for s in playable if added.get(s.id, "") >= cutoff),
+                   key=lambda s: added[s.id], reverse=True)[:FRESH_MAX]
     if first_run:
         print("First run: all current songs count as already in the playlist.")
     else:
@@ -405,7 +439,9 @@ def main():
     fresh_pass = not prefix
     recent = [s.key for s in prefix[-GAP:]]
     section = build_order(rest, is_new, later, recent, first_round=fresh_pass)
-    target = prefix + section + gone
+    target = pin_fresh(prefix + section, fresh) + gone
+    if fresh:
+        print(f"Fresh songs kept in the top {FRESH_TOP} (added in the last {FRESH_DAYS} days): {len(fresh)}")
     today = section[:a.budget]
 
     if fresh_pass:
@@ -436,7 +472,7 @@ def main():
         dealt_ids = set(dealt)
         known = now_ids if first_run else (known & now_ids) | dealt_ids
         all_mem[playlist_id] = {"version": 3, "known": sorted(known),
-                                "dealt": dealt, "last_pass": last_pass}
+                                "dealt": dealt, "last_pass": last_pass, "added": added}
         with open(MEMORY, "w", encoding="utf-8") as f:
             json.dump(all_mem, f)
         print(f"\nMoved {used} song(s). This pass has now reshuffled the top {len(dealt)} "
