@@ -23,7 +23,7 @@ def js(file, var):
 
 
 def slug_of(n):
-    return n.get("slug") or (n["date"] + "-" + re.sub(r"[^a-z0-9]+", "-", n["title"].lower()).strip("-")[:60])  # "slug" keeps the old address when a title is reworded
+    return n["date"] + "-" + re.sub(r"[^a-z0-9]+", "-", n["title"].lower()).strip("-")[:60]
 
 
 def clip(s, n):

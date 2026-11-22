@@ -39,7 +39,7 @@ def js_data(file, var):
 
 
 def slug_of(n):  # same as build_pages.py / news.js
-    return n.get("slug") or (n["date"] + "-" + re.sub(r"[^a-z0-9]+", "-", n["title"].lower()).strip("-")[:60])  # "slug" keeps the old address when a title is reworded
+    return n["date"] + "-" + re.sub(r"[^a-z0-9]+", "-", n["title"].lower()).strip("-")[:60]
 
 
 def call(method, path, key, body=None):

@@ -47,7 +47,7 @@ def load_json(path, default):
 
 
 def slug_of(n):  # same as slugOf() in news.js
-    return n.get("slug") or (n["date"] + "-" + re.sub(r"[^a-z0-9]+", "-", n["title"].lower()).strip("-")[:60])  # "slug" keeps the old address when a title is reworded
+    return n["date"] + "-" + re.sub(r"[^a-z0-9]+", "-", n["title"].lower()).strip("-")[:60]
 
 
 def fmt_date(d):
