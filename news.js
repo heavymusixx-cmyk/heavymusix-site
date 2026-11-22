@@ -6,6 +6,92 @@
 */
 var NEWS = [
   {
+    date: "2026-11-22",
+    tag: "Tours",
+    title: "Festival lineup roundup: Download 2027 books Bring Me The Horizon, Evanescence and blink-182, with Faith No More, Carcass and Napalm Death",
+    text: [
+      "Download Festival has revealed its first wave for 2027, and it is a big one. The UK festival returns to Donington Park from June 9 to 13, 2027 for its 24th edition, with Bring Me The Horizon, Evanescence and blink-182 sharing the top of the bill. It is blink-182's first time at Download, and Evanescence become the festival's second female-led headliner.",
+      "More than 100 bands were announced in this first wave. For the heavier crowd, the bill already includes Faith No More, a special performance from Mötley Crüe, Static-X, Body Count featuring Ice-T, the reunited Murderdolls, I Prevail, Malevolence, Converge, Dayseeker, plus Carcass and Napalm Death.",
+      "Tickets are on sale now. The organizers say the early bird tickets sold out in under two weeks, the fastest-selling Download ever, and that more bands and surprises are still to come.",
+      "Source: Metal Planet Music"
+    ]
+  },
+  {
+    date: "2026-11-22",
+    tag: "Tours",
+    title: "70000 Tons of Metal 2027 has 46 of its 60 bands booked, with Arch Enemy, Exodus and Forbidden on board",
+    text: [
+      "The world's biggest heavy metal cruise is taking shape. 70000 Tons of Metal sails January 14 to 18, 2027 on Royal Caribbean's Freedom of the Seas, leaving Miami for Puerto Plata in the Dominican Republic and returning to Miami four nights later.",
+      "Forty-six of the planned 60 bands are already on the official lineup. Names on board include Arch Enemy, Exodus, Forbidden, Warbringer, Obscura, Exmortus, DGM, Vintersorg, Visions of Atlantis, Firtan, Thulcandra, Fires in the Distance, Avaland and Famous Strangers.",
+      "Every band plays twice across four stages, including a pool deck stage, for more than 120 performances in all. Only about 3,000 tickets are sold for each sailing.",
+      "Source: This Day In Metal"
+    ]
+  },
+  {
+    date: "2026-11-22",
+    tag: "Arizona",
+    title: "Arizona metal in March 2027: Haken and Nile with Coroner in Mesa, Clutch and Corrosion of Conformity at The Van Buren",
+    text: [
+      "March is shaping up to be a heavy month in the Valley. Prog metal band Haken bring their In A Fever Dream tour to the Nile Theater in Mesa on March 7, 2027, with Thank You Scientist and Leprous frontman Einar Solberg as support.",
+      "Three nights later, on March 10, the same Mesa room hosts the Underworld Dissonance co-headline tour, with Nile and Coroner each playing a headline set, plus Syn Absence.",
+      "Then on March 21, Clutch bring their Give The People What They Want tour to The Van Buren in Phoenix with Corrosion of Conformity, Agnostic Front and Chuck Ragan. Add Dying Fetus and Cryptopsy at Rebel Lounge and Firewind with Powerglove at the Rosetta Room, both on March 7, and Arizona's spring is already stacked.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-22",
+    tag: "Releases",
+    title: "Clutch announce 14th album \"Wasted Lands\" for January 22 and share \"Beware The Fever\"",
+    text: [
+      "Clutch will release their 14th studio album, \"Wasted Lands\", on January 22, 2027 through their own label, Weathermaker Music. The first single, \"Beware The Fever\", is out now.",
+      "The band will tour hard behind it. A January run in Australia with Corrosion of Conformity comes first, then the 28-date Give The People What They Want tour of the US, from February 5 in Honolulu to April 4 in Brooklyn, with Corrosion of Conformity, Agnostic Front and Chuck Ragan on the headline dates.",
+      "Arizona fans get their night on March 21 at The Van Buren in Phoenix.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-22",
+    tag: "Tours",
+    title: "Nile and Coroner team up for the 31-date \"Underworld Dissonance\" US tour in March and April",
+    text: [
+      "Two very different kinds of extreme metal share one stage next spring. Nile and Coroner will co-headline the Underworld Dissonance tour of the United States, 31 shows that run from March 2, 2027 in Greenville, South Carolina to April 11 in Leesburg, Virginia.",
+      "Both bands play a full headline set each night. Nile are still touring \"The Underworld Awaits Us All\", released in August 2024 on Napalm Records, and Coroner are behind \"Dissonance Theory\", released in October 2025 on Century Media. Syn Absence open, with one more special guest still to be named.",
+      "The tour stops at the Nile Theater in Mesa, Arizona on March 10.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-22",
+    tag: "Tours",
+    title: "The Black Dahlia Murder take \"Nocturnal\" across Europe for its 20th anniversary this winter",
+    text: [
+      "The Black Dahlia Murder are marking 20 years of \"Nocturnal\", their 2007 album on Metal Blade Records, with a European headline tour called Two Decades Of Nocturnal.",
+      "The run is 29 shows in 13 countries, from January 14, 2027 at Batschkapp in Frankfurt to February 14 at Substage in Karlsruhe. Along the way the band hit Berlin, Copenhagen, Stockholm, Oslo, Prague, Krakow, Budapest, Vienna, Paris and London's The Dome, plus a slot at Drachten Deathfest in the Netherlands.",
+      "Source: Metal Blade Records"
+    ]
+  },
+  {
+    date: "2026-11-22",
+    tag: "News",
+    title: "Metallica's All Within My Hands foundation gives $100,000 to help children affected by domestic violence in Las Vegas",
+    text: [
+      "Metallica's charity, the All Within My Hands Foundation, has given a $100,000 grant to SafeNest, Southern Nevada's largest nonprofit working to end domestic and sexual violence.",
+      "The money pays for two years of staff and programs for the Child Advocacy and Support team at One Safe Place, SafeNest's new Family Justice Center, which opened in October. That includes weekly support sessions, a year-long program for children aged 7 to 17, and meals and resources for parents and caregivers.",
+      "The foundation tied the gift to the fans who came to Las Vegas for Metallica's \"Life Burns Faster\" shows at Sphere.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-22",
+    tag: "Throwback",
+    title: "On this day in metal: Sonata Arctica release their debut album \"Ecliptica\" (1999)",
+    text: [
+      "On November 22, 1999, Finnish power metal band Sonata Arctica released their first album, \"Ecliptica\".",
+      "It was the start of the band's recording career. Spin it today and hear where it all began.",
+      "Source: This Day In Metal, I Love Heavy Metal Radio"
+    ]
+  },
+  {
     date: "2026-11-21",
     tag: "Tips",
     title: "Band business tip: register every song so the royalties actually reach you",

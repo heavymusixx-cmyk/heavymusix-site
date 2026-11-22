@@ -52,5 +52,12 @@ var HISTORY = {
     {year: 2004, type: "Album", text: "Swedish black metal band Marduk release \"Plague Angel\" on Regain Records, their first album with vocalist Mortuus.", band: "", source: "Wikipedia, Blabbermouth"},
     {year: 2011, type: "Album", text: "US heavy metal band Riot release \"Immortal Soul\" in North America on SPV/Steamhammer.", band: "", source: "Wikipedia, I Love Heavy Metal Radio"},
     {year: 2013, type: "Album", text: "Italian symphonic power metal band Rhapsody of Fire release \"Dark Wings of Steel\" in Europe on AFM Records.", band: "", source: "Wikipedia, Blabbermouth"}
+  ],
+  "11-23": [
+    {year: 1988, type: "Album", text: "Candlemass release \"Ancient Dreams\", on Active Records.", band: "", source: "This Day In Metal, Metal Music Archives"},
+    {year: 1989, type: "Album", text: "Nuclear Assault release \"Handle With Care\" on In-Effect Records.", band: "", source: "This Day In Metal, Metal Music Archives"},
+    {year: 1993, type: "Album", text: "Metallica release \"Live Shit: Binge & Purge\", their first live album, as a box set on Elektra.", band: "metallica", source: "This Day In Metal, Wikiwand"},
+    {year: 2010, type: "Album", text: "After The Burial release \"In Dreams\" on Sumerian Records.", band: "after-the-burial", source: "This Day In Metal, Metal Music Archives"},
+    {year: 2012, type: "Album", text: "Destruction release \"Spiritual Genocide\" on Nuclear Blast, marking their 30th anniversary.", band: "", source: "This Day In Metal, Wikipedia"}
   ]
 };
