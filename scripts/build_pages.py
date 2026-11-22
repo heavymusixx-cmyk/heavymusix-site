@@ -358,6 +358,7 @@ for e in live:
     pages.append((f"episodes/{e['n']}.html", (e.get("live") or TODAY.isoformat())[:10]))
 
 # ---------------------------------------------------------------- Arizona shows this week
+VENUES = js_data("venues.js", "VENUES") if os.path.exists("venues.js") else {}
 shows = sorted((s for s in js_data("shows.js", "SHOWS") if s["date"] >= TODAY.isoformat()),
                key=lambda s: (s["date"], s["city"]))
 week_end = (TODAY + datetime.timedelta(days=7)).isoformat()
@@ -370,8 +371,21 @@ def show_rows(lst):
         return '<p class="muted">No metal shows on the calendar yet. Check back soon.</p>'
     return '<ul class="morenews">' + "".join(
         f'<li><strong>{esc(s["bands"])}</strong><span class="wsrc">'
-        f'{datetime.date.fromisoformat(s["date"]).strftime("%a, %b %-d")} &middot; {esc(s["venue"])}, {esc(s["city"])}</span></li>'
+        f'{datetime.date.fromisoformat(s["date"]).strftime("%a, %b %-d")} &middot; {esc(s["venue"])}, {esc(s["city"])}</span>{venue_html(s["venue"])}</li>'
         for s in lst) + "</ul>"
+
+
+def venue_html(name):
+    """Address, tap-to-call and Directions (same markup as venueDetails() in venues.js)."""
+    v = VENUES.get(name)
+    if not v:
+        return ""
+    full = f'{v["address"]}, {v["city"]}, AZ {v.get("zip", "")}'.strip()
+    maps = "https://www.google.com/maps/dir/?api=1&destination=" + quote(f"{name}, {full}", safe="")
+    call = (f'<a class="vcall" href="tel:+1{re.sub(r"[^0-9]", "", v["phone"])}" aria-label="Call {esc(name)} at {esc(v["phone"])}">&#9742;&#xFE0E; {esc(v["phone"])}</a>'
+            if v.get("phone") else "")
+    return (f'<span class="vdet"><span class="vaddr">{esc(full)}</span><span class="vlinks">{call}'
+            f'<a class="vdir" href="{maps}" target="_blank" rel="noopener" aria-label="Directions to {esc(name)} (opens Google Maps in a new tab)">&#10148;&#xFE0E; Directions</a></span></span>')
 
 
 cities = sorted({s["city"] for s in shows})
@@ -391,7 +405,7 @@ events = [{"@context": "https://schema.org", "@type": "MusicEvent", "name": s["b
            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
            "eventStatus": "https://schema.org/EventScheduled",
            "location": {"@type": "Place", "name": s["venue"],
-                        "address": {"@type": "PostalAddress", "addressLocality": s["city"],
+                        "address": {"@type": "PostalAddress", **({"streetAddress": VENUES[s["venue"]]["address"], "postalCode": VENUES[s["venue"]].get("zip", "")} if s["venue"] in VENUES else {}), "addressLocality": s["city"],
                                     "addressRegion": "AZ", "addressCountry": "US"}},
            "performer": [{"@type": "MusicGroup", "name": p.strip()} for p in s["bands"].split(",") if p.strip()],
            "image": SITE + "og/default.png",

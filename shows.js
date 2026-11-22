@@ -66,6 +66,6 @@ function renderShows(el, limit){
   el.innerHTML = '<ul class="shows">' + list.map(function(s){
     var d = showDate(s.date), tonight = s.date === today;
     return '<li' + (tonight ? ' class="tonight"' : '') + '><span class="sdate"><b>' + d.md + '</b>' + (tonight ? 'Tonight' : d.dow) + '</span>' +
-      '<span class="sinfo"><strong>' + showEsc(s.bands) + '</strong><span>' + showEsc(s.venue) + ' &middot; ' + showEsc(s.city) + ', AZ</span></span></li>';
+      '<span class="sinfo"><strong>' + showEsc(s.bands) + '</strong><span>' + showEsc(s.venue) + ' &middot; ' + showEsc(s.city) + ', AZ</span>' + (typeof venueDetails === 'function' ? venueDetails(s.venue) : '') + '</span></li>';
   }).join('') + '</ul>';
 }

@@ -141,6 +141,17 @@ for f in ["news.js", "history.js"] + glob.glob("*.html"):
             spell.add(f"{f}: should be {right}")
 if spell:
     problems.append("Misspelled names: " + "; ".join(sorted(spell)[:10]))
+# Arizona shows: every venue needs an address in venues.js so the show gets Directions (and tap-to-call when it has a phone)
+try:
+    vs = json.loads(subprocess.run(["node", "-e", "const fs=require('fs');eval(fs.readFileSync('venues.js','utf8')+fs.readFileSync('shows.js','utf8'));"
+                                    "process.stdout.write(JSON.stringify([...new Set(SHOWS.map(s=>s.venue))].filter(v=>!VENUES[v]||!VENUES[v].address)))"],
+                                   capture_output=True, text=True, timeout=60).stdout or "[]")
+    if vs:
+        problems.append("Arizona venue missing details (add address, city and phone to venues.js from the venue's own site): " + "; ".join(vs))
+    else:
+        notes.append("Every Arizona show's venue has an address and Directions.")
+except Exception as e:
+    notes.append(f"Venue check skipped ({e})")
 cut = []
 for f in glob.glob("*.html") + glob.glob("*/*.html"):
     m = re.search(r'name="description" content="([^"]*)"', open(f, encoding="utf-8").read())

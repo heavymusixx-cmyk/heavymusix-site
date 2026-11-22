@@ -596,3 +596,14 @@ body.popout #hmx-dock .dock-video{min-width:200px;min-height:200px}
   nav.main{position:absolute;top:100%;left:0;right:0;z-index:30;background:#070607;border-top:2px solid var(--blood-hot);border-bottom:1px solid var(--edge,#333);box-shadow:0 18px 40px rgba(0,0,0,.75);padding:4px 16px 14px;flex-direction:column;flex-wrap:nowrap;align-items:stretch}
   nav.main .navcol{flex:none;width:100%}
 }
+
+/* Arizona shows: venue address, tap-to-call and Directions (Nov 21, 2026) */
+.vdet{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.vdet .vaddr{font-size:15px;color:#cfc7b4;opacity:1}
+.vdet .vlinks{display:flex;flex-wrap:wrap;gap:8px}
+.vdet a{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border:1px solid var(--edge,#444);background:rgba(0,0,0,.45);color:var(--bone);text-decoration:none;font:600 15px/1 var(--text)}
+.vdet a.vdir{border-color:var(--blood-text)}
+.vdet a:hover{border-color:var(--blood-text);color:var(--blood-text)}
+.vdet a:focus-visible{outline:3px solid var(--blood-text);outline-offset:2px}
+ul.shows .sinfo .vdet span{opacity:1}
+ul.morenews li .vdet{margin-top:8px}
