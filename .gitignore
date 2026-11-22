@@ -3,3 +3,4 @@ rotator/client_secret.json
 rotator/rotator_log.txt
 health_report.md
 __pycache__/
+rotator/added_today.txt

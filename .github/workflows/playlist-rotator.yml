@@ -2,6 +2,7 @@ name: Playlist reshuffle
 
 # Reshuffles the HeavyMusix Radio playlist on YouTube every morning
 # Version 3: rolling reshuffle of the whole playlist, ~180 songs a day, bands spread evenly.
+# Also adds owner-approved songs from rotator/add_queue.json, up to 20 a day, before reshuffling.
 # Runs on GitHub's computers, so your laptop can stay off.
 on:
   schedule:
@@ -24,7 +25,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install the YouTube tools
-        run: pip install --quiet google-api-python-client google-auth-oauthlib
+        run: pip install --quiet google-api-python-client google-auth-oauthlib ytmusicapi
       - name: Self-test the reshuffle script (a broken script never touches the playlist)
         run: python rotator/selftest.py
       - name: Sign in as HeavyMusix (from the YT_TOKEN secret)
@@ -33,8 +34,13 @@ jobs:
         run: |
           if [ -z "$YT_TOKEN" ]; then echo "The YT_TOKEN secret is missing. Add it under Settings > Secrets and variables > Actions."; exit 1; fi
           printf '%s' "$YT_TOKEN" > rotator/token.json
-      - name: Reshuffle the playlist
-        run: python rotator/playlist_rotator.py --apply --scheduled
+      - name: Add approved new songs (up to 20 a day, from rotator/add_queue.json)
+        continue-on-error: true
+        run: python rotator/add_songs.py --apply --max 20
+      - name: Reshuffle the playlist (budget lowered by the songs just added, to stay inside YouTube's daily limit)
+        run: |
+          ADDED=$(cat rotator/added_today.txt 2>/dev/null || echo 0)
+          python rotator/playlist_rotator.py --apply --scheduled --budget $((180 - ADDED))
       - name: Remove the sign-in file
         if: always()
         run: rm -f rotator/token.json rotator/client_secret.json
@@ -42,7 +48,7 @@ jobs:
         run: |
           git config user.name "HeavyMusix Playlist Bot"
           git config user.email "playlist-bot@users.noreply.github.com"
-          git add rotator/rotator_memory.json
+          git add rotator/rotator_memory.json rotator/add_queue.json
           if git diff --cached --quiet; then
             echo "Nothing to save."
           else

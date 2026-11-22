@@ -1,0 +1,655 @@
+{
+ "_about": "Songs waiting to be added to the HeavyMusix Radio playlist (owner approved Nov 22, 2026: the Liquid Metal + Full Metal Jackie list). add_songs.py adds up to 20 a day before the reshuffle. status: queued, added (with videoId), not_found, already_there, failed.",
+ "songs": [
+  {
+   "band": "Machine Head",
+   "song": "Sutures",
+   "status": "queued"
+  },
+  {
+   "band": "Trivium",
+   "song": "Crown In The Grave",
+   "status": "queued"
+  },
+  {
+   "band": "Orbit Culture",
+   "song": "Nuclear God",
+   "status": "queued"
+  },
+  {
+   "band": "thrown",
+   "song": "split",
+   "status": "queued"
+  },
+  {
+   "band": "Fear Factory",
+   "song": "Detonizer",
+   "status": "queued"
+  },
+  {
+   "band": "Gideon",
+   "song": "4x4",
+   "status": "queued"
+  },
+  {
+   "band": "Burn Eternal",
+   "song": "Wounds I've Made",
+   "status": "queued"
+  },
+  {
+   "band": "Falling In Reverse, Corey Taylor, Serj Tankian",
+   "song": "Joseph",
+   "status": "queued"
+  },
+  {
+   "band": "Power Trip",
+   "song": "Precinct 3",
+   "status": "queued"
+  },
+  {
+   "band": "200 Stab Wounds",
+   "song": "Pangs of Conscience",
+   "status": "queued"
+  },
+  {
+   "band": "Hatebreed",
+   "song": "Decisions Become Destinies",
+   "status": "queued"
+  },
+  {
+   "band": "Filth",
+   "song": "Outta Pocket",
+   "status": "queued"
+  },
+  {
+   "band": "Suicide Silence",
+   "song": "Make Your Exit",
+   "status": "queued"
+  },
+  {
+   "band": "To The Grave",
+   "song": "Limb From Lamb",
+   "status": "queued"
+  },
+  {
+   "band": "Chained Saint",
+   "song": "Uncrowned",
+   "status": "queued"
+  },
+  {
+   "band": "DevilDriver",
+   "song": "Dig Your Own Grave",
+   "status": "queued"
+  },
+  {
+   "band": "Clutch",
+   "song": "Wasted Lands",
+   "status": "queued"
+  },
+  {
+   "band": "Forbidden",
+   "song": "Burning The Lungs Of Earth",
+   "status": "queued"
+  },
+  {
+   "band": "Black Spikes",
+   "song": "REVANA",
+   "status": "queued"
+  },
+  {
+   "band": "Crown Magnetar",
+   "song": "Godkiller",
+   "status": "queued"
+  },
+  {
+   "band": "DevilDriver",
+   "song": "Dead in the Water",
+   "status": "queued"
+  },
+  {
+   "band": "Heathen",
+   "song": "Escapegoat",
+   "status": "queued"
+  },
+  {
+   "band": "Tornadic",
+   "song": "BRIGHTS",
+   "status": "queued"
+  },
+  {
+   "band": "Black Spikes",
+   "song": "AUREA",
+   "status": "queued"
+  },
+  {
+   "band": "Boundaries",
+   "song": "May this pain never leave",
+   "status": "queued"
+  },
+  {
+   "band": "Left to Suffer",
+   "song": "Gun In The Duffel Bag",
+   "status": "queued"
+  },
+  {
+   "band": "Nails",
+   "song": "Dollar Bin Generation",
+   "status": "queued"
+  },
+  {
+   "band": "BIG ASS TRUCK I.E.",
+   "song": "DRAGGING MEAT",
+   "status": "queued"
+  },
+  {
+   "band": "Godflesh",
+   "song": "Living/Ending",
+   "status": "queued"
+  },
+  {
+   "band": "Justifications",
+   "song": "Urge to Kill",
+   "status": "queued"
+  },
+  {
+   "band": "Kerry King",
+   "song": "My War",
+   "status": "queued"
+  },
+  {
+   "band": "Distant, Darius Tehrani",
+   "song": "The Shallow Gaze",
+   "status": "queued"
+  },
+  {
+   "band": "DragonForce",
+   "song": "Hunger of the Beast",
+   "status": "queued"
+  },
+  {
+   "band": "PeelingFlesh, Missing Link",
+   "song": "Murderous Intent",
+   "status": "queued"
+  },
+  {
+   "band": "Saltwound, Mugshot",
+   "song": "Pound of Flesh",
+   "status": "queued"
+  },
+  {
+   "band": "Amon Amarth",
+   "song": "Gjallarhorn",
+   "status": "queued"
+  },
+  {
+   "band": "Blue Medusa",
+   "song": "Crocodile.",
+   "status": "queued"
+  },
+  {
+   "band": "Starkill",
+   "song": "Death on Display",
+   "status": "queued"
+  },
+  {
+   "band": "Amon Amarth",
+   "song": "Eight Legs of Thunder",
+   "status": "queued"
+  },
+  {
+   "band": "Down",
+   "song": "Blood Oath",
+   "status": "queued"
+  },
+  {
+   "band": "Ice Nine Kills",
+   "song": "Play Dead",
+   "status": "queued"
+  },
+  {
+   "band": "Bring Me The Horizon",
+   "song": "Dehumanized",
+   "status": "queued"
+  },
+  {
+   "band": "Trivium",
+   "song": "Dead Inside Of Me",
+   "status": "queued"
+  },
+  {
+   "band": "Trivium",
+   "song": "The Terror",
+   "status": "queued"
+  },
+  {
+   "band": "Anthrax",
+   "song": "T.O.M.B.",
+   "status": "queued"
+  },
+  {
+   "band": "Showing Teeth",
+   "song": "Hellraiser",
+   "status": "queued"
+  },
+  {
+   "band": "Ladrones",
+   "song": "No Pido Y No Debo",
+   "status": "queued"
+  },
+  {
+   "band": "Bullet For My Valentine, Will Ramos",
+   "song": "I Don't Trust Tomorrow",
+   "status": "queued"
+  },
+  {
+   "band": "Empty Shell Casing",
+   "song": "SAPPHIRE",
+   "status": "queued"
+  },
+  {
+   "band": "Castle Rat",
+   "song": "SIREN",
+   "status": "queued"
+  },
+  {
+   "band": "Hatebreed",
+   "song": "The Carrion Choir",
+   "status": "queued"
+  },
+  {
+   "band": "Ladrones",
+   "song": "Arriba La L",
+   "status": "queued"
+  },
+  {
+   "band": "Anthrax",
+   "song": "It's For the Kids",
+   "status": "queued"
+  },
+  {
+   "band": "Castle Rat",
+   "song": "WIZARD",
+   "status": "queued"
+  },
+  {
+   "band": "Castle Rat",
+   "song": "WOLF I",
+   "status": "queued"
+  },
+  {
+   "band": "Mastodon",
+   "song": "Barbarians Blood",
+   "status": "queued"
+  },
+  {
+   "band": "Anthrax",
+   "song": "The Edge Of Perfection",
+   "status": "queued"
+  },
+  {
+   "band": "No Cure",
+   "song": "Slowly Turning Blue",
+   "status": "queued"
+  },
+  {
+   "band": "Ladrones",
+   "song": "No Que No",
+   "status": "queued"
+  },
+  {
+   "band": "Ladrones",
+   "song": "Traición",
+   "status": "queued"
+  },
+  {
+   "band": "Mastodon",
+   "song": "Your Ghost Again",
+   "status": "queued"
+  },
+  {
+   "band": "Darkest Hour",
+   "song": "Suffer Divine",
+   "status": "queued"
+  },
+  {
+   "band": "Loathe",
+   "song": "Gemini",
+   "status": "queued"
+  },
+  {
+   "band": "Mastodon",
+   "song": "Poisonous Weapons",
+   "status": "queued"
+  },
+  {
+   "band": "Hatebreed",
+   "song": "Kill Count Increase",
+   "status": "queued"
+  },
+  {
+   "band": "Mastodon",
+   "song": "Snakes for Dinner",
+   "status": "queued"
+  },
+  {
+   "band": "Carnifex",
+   "song": "More Than Misery",
+   "status": "queued"
+  },
+  {
+   "band": "Showing Teeth",
+   "song": "Bad Exchanges",
+   "status": "queued"
+  },
+  {
+   "band": "Arch Enemy",
+   "song": "To The Last Breath",
+   "status": "queued"
+  },
+  {
+   "band": "Ice Nine Kills, Shavo",
+   "song": "A Work of Art",
+   "status": "queued"
+  },
+  {
+   "band": "Lorna Shore",
+   "song": "Glenwood",
+   "status": "queued"
+  },
+  {
+   "band": "Make Them Suffer",
+   "song": "BLACK SHEEP",
+   "status": "queued"
+  },
+  {
+   "band": "Hatebreed",
+   "song": "Fatal Paradox",
+   "status": "queued"
+  },
+  {
+   "band": "Killswitch Engage",
+   "song": "The Fall of Us",
+   "status": "queued"
+  },
+  {
+   "band": "Paleface Swiss",
+   "song": "Let Me Sleep",
+   "status": "queued"
+  },
+  {
+   "band": "Poison The Well",
+   "song": "Primal Bloom",
+   "status": "queued"
+  },
+  {
+   "band": "Upon A Burning Body",
+   "song": "Killshot",
+   "status": "queued"
+  },
+  {
+   "band": "I Prevail",
+   "song": "Violent Nature",
+   "status": "queued"
+  },
+  {
+   "band": "Ministry",
+   "song": "Crickets",
+   "status": "queued"
+  },
+  {
+   "band": "Pro-Pain",
+   "song": "Oceans of Blood",
+   "status": "queued"
+  },
+  {
+   "band": "Slaughter to Prevail",
+   "song": "Russian Grizzly In America",
+   "status": "queued"
+  },
+  {
+   "band": "Soulfly",
+   "song": "Storm the Gates",
+   "status": "queued"
+  },
+  {
+   "band": "Lorna Shore",
+   "song": "Unbreakable",
+   "status": "queued"
+  },
+  {
+   "band": "Bloodywood, Babymetal",
+   "song": "Bekhauf",
+   "status": "queued"
+  },
+  {
+   "band": "Decessus",
+   "song": "Dark Flames",
+   "status": "queued"
+  },
+  {
+   "band": "Guilt Trip",
+   "song": "Angel Eyes",
+   "status": "queued"
+  },
+  {
+   "band": "Lorna Shore",
+   "song": "Oblivion",
+   "status": "queued"
+  },
+  {
+   "band": "Parkway Drive",
+   "song": "Sacred",
+   "status": "queued"
+  },
+  {
+   "band": "Periphery",
+   "song": "Mr. God",
+   "status": "queued"
+  },
+  {
+   "band": "Sepultura",
+   "song": "Dead Embryonic Cells",
+   "status": "queued"
+  },
+  {
+   "band": "Alestorm",
+   "song": "Hyperion Omniriff",
+   "status": "queued"
+  },
+  {
+   "band": "Architects",
+   "song": "Elegy",
+   "status": "queued"
+  },
+  {
+   "band": "At the Gates",
+   "song": "The Fever Mask",
+   "status": "queued"
+  },
+  {
+   "band": "Chained Saint",
+   "song": "SnakeSkin",
+   "status": "queued"
+  },
+  {
+   "band": "Converge",
+   "song": "Love Is Not Enough",
+   "status": "queued"
+  },
+  {
+   "band": "Corrosion of Conformity",
+   "song": "Wishbone (Some Tomorrow)",
+   "status": "queued"
+  },
+  {
+   "band": "Cro-Mags",
+   "song": "Wired For Chaos",
+   "status": "queued"
+  },
+  {
+   "band": "Demon Hunter",
+   "song": "Beauty Through The Eyes Of A Predator",
+   "status": "queued"
+  },
+  {
+   "band": "Flotsam and Jetsam",
+   "song": "Rats in the Temple",
+   "status": "queued"
+  },
+  {
+   "band": "Guilt",
+   "song": "Down to the City",
+   "status": "queued"
+  },
+  {
+   "band": "Heathen",
+   "song": "Never A God",
+   "status": "queued"
+  },
+  {
+   "band": "In Flames",
+   "song": "The Mirror's Truth",
+   "status": "queued"
+  },
+  {
+   "band": "In Flames",
+   "song": "Cloud Connected",
+   "status": "queued"
+  },
+  {
+   "band": "Lamb of God",
+   "song": "Into Oblivion",
+   "status": "queued"
+  },
+  {
+   "band": "Lamb of God",
+   "song": "Parasocial Christ",
+   "status": "queued"
+  },
+  {
+   "band": "Loathe",
+   "song": "Fortress Down",
+   "status": "queued"
+  },
+  {
+   "band": "Megadeth",
+   "song": "Foreclosure of a Dream",
+   "status": "queued"
+  },
+  {
+   "band": "Megadeth",
+   "song": "Let There Be Shred",
+   "status": "queued"
+  },
+  {
+   "band": "One Brick Down",
+   "song": "Oath",
+   "status": "queued"
+  },
+  {
+   "band": "Orbit Culture, Tina Guo",
+   "song": "The Path I Walk",
+   "status": "queued"
+  },
+  {
+   "band": "Outer Gloom",
+   "song": "Predator Caste",
+   "status": "queued"
+  },
+  {
+   "band": "Overgrown",
+   "song": "Waiting Room",
+   "status": "queued"
+  },
+  {
+   "band": "Praying Mantis",
+   "song": "Children of Earth",
+   "status": "queued"
+  },
+  {
+   "band": "Prong",
+   "song": "The Banner",
+   "status": "queued"
+  },
+  {
+   "band": "Slipknot",
+   "song": "Arsenal",
+   "status": "queued"
+  },
+  {
+   "band": "Spiritual Chaos",
+   "song": "Scorched Words",
+   "status": "queued"
+  },
+  {
+   "band": "Starkill",
+   "song": "Hanging Up My Halo",
+   "status": "queued"
+  },
+  {
+   "band": "Suffer the Nine",
+   "song": "Inferno of Deceit",
+   "status": "queued"
+  },
+  {
+   "band": "Terror",
+   "song": "Still Suffer",
+   "status": "queued"
+  },
+  {
+   "band": "The adamhar",
+   "song": "Everything hurts",
+   "status": "queued"
+  },
+  {
+   "band": "Tony Iommi & Jorn",
+   "song": "World Alone",
+   "status": "queued"
+  },
+  {
+   "band": "Trauma",
+   "song": "The Day All Hell Broke Loose",
+   "status": "queued"
+  },
+  {
+   "band": "Trivium",
+   "song": "Devour Your Dreams",
+   "status": "queued"
+  },
+  {
+   "band": "Trivium",
+   "song": "Paradise Of Sinners",
+   "status": "queued"
+  },
+  {
+   "band": "Trivium",
+   "song": "The Haunting Never Ends",
+   "status": "queued"
+  },
+  {
+   "band": "Trivium",
+   "song": "The Agony",
+   "status": "queued"
+  },
+  {
+   "band": "Trivium",
+   "song": "Blackout The Dawn",
+   "status": "queued"
+  },
+  {
+   "band": "Trivium",
+   "song": "Serpent In The Flame",
+   "status": "queued"
+  },
+  {
+   "band": "Trivium",
+   "song": "Death Throes",
+   "status": "queued"
+  },
+  {
+   "band": "Turnstile",
+   "song": "BIRDS",
+   "status": "queued"
+  }
+ ]
+}
