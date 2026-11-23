@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-23T04:21-07:00",
+ "updated": "2026-11-23T11:15-07:00",
  "playlist": "PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M",
  "ready_ahead": 0,
  "episodes": [
@@ -330,10 +330,10 @@
      "song": "Midnight Run"
     },
     {
-     "v": "V_lptHHokws",
-     "b": "hagen-quartett",
-     "band": "Hagen Quartett",
-     "song": "Shostakovich: String Quartet No. 3 in F Major, Op. 73: III. Allegro non troppo"
+     "v": "PIF4So6xcU8",
+     "b": "deftones",
+     "band": "Deftones",
+     "song": "My Own Summer (Shove It)"
     },
     {
      "v": "ZcSoW_iLDo0",
@@ -348,10 +348,10 @@
      "song": "Berzerker"
     },
     {
-     "v": "LNd_SlINFLM",
-     "b": "armida-quartett",
-     "band": "Armida Quartett",
-     "song": "Shostakovich: String Quartet No. 10 in A-Flat Major, Op. 118: II. Allegretto furioso"
+     "v": "b0hyL0aQg7c",
+     "b": "entombed",
+     "band": "Entombed",
+     "song": "Wolverine Blues"
     },
     {
      "v": "86HYHjTfhXE",
@@ -399,7 +399,7 @@
     },
     {
      "code": "E003-07",
-     "role": "Intro: Hagen Quartett - Shostakovich: String Quartet No. 3 in F Major, Op. 73: III. Allegro non troppo"
+     "role": "Intro: Deftones - My Own Summer (Shove It)"
     },
     {
      "code": "E003-90",
@@ -415,7 +415,7 @@
     },
     {
      "code": "E003-10",
-     "role": "Intro: Armida Quartett - Shostakovich: String Quartet No. 10 in A-Flat Major, Op. 118: II. Allegretto furioso"
+     "role": "Intro: Entombed - Wolverine Blues"
     },
     {
      "code": "E003-11",

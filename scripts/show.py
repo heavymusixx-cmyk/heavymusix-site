@@ -21,6 +21,7 @@ NEWS_AFTER_SONG = 6
 BUFFER = 5
 RELEASE_GAP_DAYS = 7
 DIR = "show"
+ROOTS_GENRES = {"Classical", "Jazz"}
 AZ = dt.timezone(dt.timedelta(hours=-7))
 
 # Channel names that are not the band's own name
@@ -265,6 +266,36 @@ def plan_episode(n, catalog, bands, state, rng):
             "status": "needs_voice", "planned": dt.datetime.now(AZ).strftime("%Y-%m-%d")}
 
 
+def swap_roots(eps, catalog, bands, state, rng, roots_vids):
+    """In episodes not yet live, replace any roots (classical/jazz) song with a metal song by a band
+    not already in that episode. Clip codes stay the same; only the intro wording changes."""
+    by_band = {}
+    for s in catalog:
+        by_band.setdefault(s["b"], []).append(s)
+    for e in eps:
+        if e["status"] == "live" or not any(x["v"] in roots_vids for x in e["songs"]):
+            continue
+        used = {x["b"] for x in e["songs"]}
+        free = [b for b in by_band if b not in used and not bands.get(b, {}).get("unsigned")]
+        rng.shuffle(free)
+        k = 0
+        for i, x in enumerate(e["songs"]):
+            if x["v"] not in roots_vids or not free:
+                continue
+            b = free.pop(0)
+            new = rng.choice(by_band[b])
+            old_role = "Intro: " + x["band"] + " - " + x["song"]
+            e["songs"][i] = {"v": new["v"], "b": b, "band": bands.get(b, {}).get("name", new["n"]), "song": new["t"]}
+            for c in e["clips"]:
+                if c["role"] == old_role:
+                    c["role"] = "Intro: " + e["songs"][i]["band"] + " - " + new["t"]
+            for st in e["seq"]:
+                if st.get("song") == x["v"]:
+                    st["song"] = new["v"]
+            k += 1
+            print(f"Episode {e['n']}: swapped roots song {x['band']} - {x['song']} for {e['songs'][i]['band']} - {new['t']}")
+
+
 def main():
     rng = random.Random()
     today = dt.datetime.now(AZ).date()
@@ -285,6 +316,26 @@ def main():
         save("catalog.json", catalog)
     else:
         catalog = old
+    # Classical/jazz ("roots", saved for a future show idea) stay off the site and out of shows:
+    # they go to show/roots.json instead of the catalog.
+    try:
+        import importlib.util as _u
+        _sp = _u.spec_from_file_location("bandinfo", os.path.join("scripts", "bandinfo.py"))
+        _bi = _u.module_from_spec(_sp)
+        _sp.loader.exec_module(_bi)
+        roots_names = {n for n, v in _bi.B.items() if len(v) > 3 and v[3] in ROOTS_GENRES}
+    except Exception:
+        roots_names = set()
+    roots_names |= {v.get("name") for v in load("bands.json", {}).values() if v.get("genre") in ROOTS_GENRES}
+    roots = {x["v"]: x for x in load("roots.json", [])}
+    for x in catalog:
+        if x["n"] in roots_names:
+            roots[x["v"]] = x
+    catalog = [x for x in catalog if x["n"] not in roots_names and x["v"] not in roots]
+    save("catalog.json", catalog)
+    save("roots.json", list(roots.values()))
+    if roots:
+        print(f"Roots songs kept off the site and shows: {len(roots)}")
     if not catalog:
         print("No catalog yet; nothing to plan")
         return
@@ -319,6 +370,7 @@ def main():
     # 3. Plan episodes to keep the buffer full
     state = load("state.json", {"band_cycle": [], "songs": {}, "unsigned_cycle": [], "episodes": []})
     eps = state["episodes"]
+    swap_roots(eps, catalog, bands, state, rng, set(roots))
     waiting = [e for e in eps if e["status"] != "live"]
     while len(waiting) < BUFFER:
         n = (eps[-1]["n"] + 1) if eps else 1

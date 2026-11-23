@@ -281,6 +281,8 @@ with open("feed.xml", "w", encoding="utf-8") as f:
 # No genre labels anywhere on the site (owner, Nov 21, 2026): it's metal, period.
 
 catalog = load_json("show/catalog.json", [])
+_roots_vids = {x.get("v") for x in load_json("show/roots.json", [])}
+catalog = [x for x in catalog if x.get("v") not in _roots_vids]   # classical/jazz never on the site
 UNPLAYABLE = {x["v"] for x in load_json("show/unplayable.json", {"songs": []}).get("songs", [])}
 
 
@@ -303,7 +305,7 @@ for key, b in bands.items():
     bits = [x for x in (loc,) if x]
     intro = b.get("bio") or (f"{b['name']} is a metal band"
                              + (f" from {loc}" if loc else "")
-                             + f". HeavyMusix Radio plays {len(songs)} of their song{'s' if len(songs) != 1 else ''}.")
+                             + (". HeavyMusix Radio plays 1 song." if len(songs) == 1 else f". HeavyMusix Radio plays {len(songs)} of their songs."))
     links = {k: v for k, v in (b.get("links") or {}).items() if v}
     link_html = "".join(f'<a class="btn ghost" href="{esc(v)}">{esc("Band merch" if k == "merch" else k.capitalize())}</a>'
                         for k, v in links.items())

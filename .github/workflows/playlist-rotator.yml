@@ -34,13 +34,17 @@ jobs:
         run: |
           if [ -z "$YT_TOKEN" ]; then echo "The YT_TOKEN secret is missing. Add it under Settings > Secrets and variables > Actions."; exit 1; fi
           printf '%s' "$YT_TOKEN" > rotator/token.json
+      - name: Move classical/jazz songs into the private HeavyMusix Roots playlist (only when some are waiting)
+        continue-on-error: true
+        run: python rotator/roots_move.py --apply
       - name: Add approved new songs (up to 20 a day, from rotator/add_queue.json)
         continue-on-error: true
         run: python rotator/add_songs.py --apply --max 20
       - name: Reshuffle the playlist (budget lowered by the songs just added, to stay inside YouTube's daily limit)
         run: |
           ADDED=$(cat rotator/added_today.txt 2>/dev/null || echo 0)
-          python rotator/playlist_rotator.py --apply --scheduled --budget $((180 - ADDED))
+          ROOTS=$(cat rotator/roots_moved_today.txt 2>/dev/null || echo 0)
+          python rotator/playlist_rotator.py --apply --scheduled --budget $((180 - ADDED - ROOTS))
       - name: Remove the sign-in file
         if: always()
         run: rm -f rotator/token.json rotator/client_secret.json
@@ -48,7 +52,7 @@ jobs:
         run: |
           git config user.name "HeavyMusix Playlist Bot"
           git config user.email "playlist-bot@users.noreply.github.com"
-          git add rotator/rotator_memory.json rotator/add_queue.json
+          git add rotator/rotator_memory.json rotator/add_queue.json rotator/roots_pending.json; [ -f rotator/roots_playlist.txt ] && git add rotator/roots_playlist.txt || true
           if git diff --cached --quiet; then
             echo "Nothing to save."
           else

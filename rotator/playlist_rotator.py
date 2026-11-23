@@ -377,6 +377,9 @@ def main():
     if not link:
         sys.exit("No playlist link found. Put your link on the first line of playlist.txt in this folder.")
     playlist_id = extract_id(link)
+    roots_file = os.path.join(HERE, "roots_playlist.txt")
+    if os.path.exists(roots_file) and open(roots_file, encoding="utf-8").read().strip() == playlist_id:
+        sys.exit("Refusing: that is the private HeavyMusix Roots playlist, which is never reshuffled.")
 
     yt = youtube_client(a.scheduled)
     me, owner, same = owner_check(yt, playlist_id)

@@ -70,6 +70,18 @@ def ytmusic_search():
     return search
 
 
+def roots_bands():
+    """Normalized names of classical/jazz acts (scripts/bandinfo.py genre), kept off the main playlist."""
+    try:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("bandinfo", os.path.join(HERE, "..", "scripts", "bandinfo.py"))
+        info = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(info)
+        return {norm(n) for n, v in info.B.items() if len(v) > 3 and v[3] in ("Classical", "Jazz")}
+    except Exception:
+        return set()
+
+
 def run(yt, playlist_id, search, queue, max_add, apply, fetch_items):
     """Adds up to max_add queued songs. Returns how many were added. Updates queue in place."""
     have_vids, have_titles = set(), set()
@@ -78,10 +90,15 @@ def run(yt, playlist_id, search, queue, max_add, apply, fetch_items):
         have_vids.add(sn.get("resourceId", {}).get("videoId"))
         have_titles.add(norm(sn.get("title", "")))
     added, blank = 0, 0
+    roots = roots_bands()
     for q in queue:
         if added >= max_add:
             break
         if q.get("status") not in ("queued", "failed"):
+            continue
+        if norm(first_band(q["band"])) in roots:   # classical/jazz never go in the main playlist
+            q["status"] = "held_roots"
+            print(f"   held for the Roots playlist (not added): {q['band']} - {q['song']}")
             continue
         vid, got_any = find_video(search, q["band"], q["song"])
         if not got_any:
