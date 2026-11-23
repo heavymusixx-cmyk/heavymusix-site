@@ -371,7 +371,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 2
  },
  "cryptosis": {
   "name": "Cryptosis",
@@ -393,7 +393,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 2
  },
  "as-blood-runs-black": {
   "name": "As Blood Runs Black",
@@ -547,7 +547,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 2
  },
  "machine-head": {
   "name": "Machine Head",
@@ -558,7 +558,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 3
  },
  "hagen-quartett": {
   "name": "Hagen Quartett",
@@ -833,7 +833,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 2
  },
  "meshuggah": {
   "name": "Meshuggah",
@@ -954,7 +954,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 2
  },
  "opeth": {
   "name": "Opeth",
@@ -1409,6 +1409,336 @@
  },
  "ektonorth": {
   "name": "Ektonorth",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "devildriver": {
+  "name": "DevilDriver",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 2
+ },
+ "heathen": {
+  "name": "Heathen",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "tornadic": {
+  "name": "TORNADIC",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "black-spikes": {
+  "name": "Black Spikes",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 2
+ },
+ "boundaries": {
+  "name": "Boundaries",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "left-to-suffer": {
+  "name": "Left to Suffer",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "nails": {
+  "name": "NAILS",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "big-ass-truck-i-e": {
+  "name": "BIG ASS TRUCK I.E.",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "godflesh": {
+  "name": "Godflesh",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "justifications": {
+  "name": "Justifications",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "burn-eternal": {
+  "name": "Burn Eternal",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "distant": {
+  "name": "DISTANT",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "falling-in-reverse": {
+  "name": "Falling In Reverse",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "dragonforce": {
+  "name": "DragonForce",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "peelingflesh": {
+  "name": "PeelingFlesh",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "saltwound": {
+  "name": "Saltwound",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "amon-amarth": {
+  "name": "Amon Amarth",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 2
+ },
+ "blue-medusa": {
+  "name": "Blue Medusa",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "200-stab-wounds": {
+  "name": "200 STAB WOUNDS",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "starkill": {
+  "name": "Starkill",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "hatebreed": {
+  "name": "Hatebreed",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "filth": {
+  "name": "Filth",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "orbit-culture-official": {
+  "name": "Orbit Culture Official",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "gideon": {
+  "name": "Gideon",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "suicide-silence": {
+  "name": "Suicide Silence",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "to-the-grave": {
+  "name": "To The Grave",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "chained-saint": {
+  "name": "Chained Saint",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "officialclutch": {
+  "name": "OfficialClutch",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "forbidden": {
+  "name": "Forbidden",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "crown-magnetar": {
+  "name": "Crown Magnetar",
   "city": "",
   "region": "",
   "country": "",
