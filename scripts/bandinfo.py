@@ -1,5 +1,9 @@
 # name: (city, region, country, genre)
 B = {
+"Designing Creation":("Charleston", "South Carolina", "USA", ""),
+"Funeral Dancer":("Long Island", "New York", "USA", ""),
+"Fusion Bomb":("", "", "Luxembourg", ""),
+"Overt Enemy":("Mission", "Texas", "USA", ""),
 "Jinjer":("Horlivka","Donetsk Oblast","Ukraine","Progressive groove metal"),
 "Job For A Cowboy":("Glendale","Arizona","USA","Death metal"),
 "Meshuggah":("Umeå","","Sweden","Progressive / extreme metal"),

@@ -152,6 +152,18 @@ try:
         notes.append("Every Arizona show's venue has an address and Directions.")
 except Exception as e:
     notes.append(f"Venue check skipped ({e})")
+# Radio scroll data (owner: band, song, year, country; blank when unknown). Not a problem, a to-do list:
+# the Song info robot retries missing years every 30 days; the Saturday caretaker fills countries from real sources.
+try:
+    cat = json.load(open("show/catalog.json", encoding="utf-8"))
+    bnd = json.load(open("show/bands.json", encoding="utf-8"))
+    inf = json.load(open("show/songinfo.json", encoding="utf-8"))
+    noc = sorted({bnd[s["b"]]["name"] for s in cat if s["b"] in bnd and not bnd[s["b"]].get("country")})
+    noy = sum(1 for s in cat if not inf.get(s["v"], {}).get("y"))
+    notes.append(f"Radio scroll: {noy} of {len(cat)} songs have no year yet; {len(noc)} bands have no country yet"
+                 + (": " + ", ".join(noc[:15]) if noc else "") + ".")
+except Exception as e:
+    notes.append(f"Radio scroll check skipped ({e})")
 cut = []
 for f in glob.glob("*.html") + glob.glob("*/*.html"):
     m = re.search(r'name="description" content="([^"]*)"', open(f, encoding="utf-8").read())
