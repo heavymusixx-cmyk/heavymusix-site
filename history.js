@@ -54,10 +54,19 @@ var HISTORY = {
     {year: 2013, type: "Album", text: "Italian symphonic power metal band Rhapsody of Fire release \"Dark Wings of Steel\" in Europe on AFM Records.", band: "", source: "Wikipedia, Blabbermouth"}
   ],
   "11-23": [
+    {year: 1972, type: "Born", text: "Chris Adler is born. He drummed for Lamb of God from 1994 to 2019 and played on Megadeth's \"Dystopia\".", band: "lamb-of-god", source: "This Day In Metal, Wikipedia"},
+    {year: 1987, type: "Album", text: "Black Sabbath release \"The Eternal Idol\" in the UK on Vertigo, their first album with singer Tony Martin.", band: "black-sabbath", source: "This Day In Metal, black-sabbath.com"},
     {year: 1988, type: "Album", text: "Candlemass release \"Ancient Dreams\", on Active Records.", band: "", source: "This Day In Metal, Metal Music Archives"},
+    {year: 1988, type: "Album", text: "Meliah Rage release their debut album, \"Kill to Survive\".", band: "", source: "This Day In Metal, Metal Music Archives"},
     {year: 1989, type: "Album", text: "Nuclear Assault release \"Handle With Care\" on In-Effect Records.", band: "", source: "This Day In Metal, Metal Music Archives"},
     {year: 1993, type: "Album", text: "Metallica release \"Live Shit: Binge & Purge\", their first live album, as a box set on Elektra.", band: "metallica", source: "This Day In Metal, Wikiwand"},
     {year: 2010, type: "Album", text: "After The Burial release \"In Dreams\" on Sumerian Records.", band: "after-the-burial", source: "This Day In Metal, Metal Music Archives"},
     {year: 2012, type: "Album", text: "Destruction release \"Spiritual Genocide\" on Nuclear Blast, marking their 30th anniversary.", band: "", source: "This Day In Metal, Wikipedia"}
+  ],
+  "11-24": [
+    {year: 1991, type: "Remembering", text: "KISS drummer Eric Carr dies at 41. He played with KISS from 1980 to 1991.", band: "", source: "Wikipedia, Ultimate Classic Rock"},
+    {year: 1998, type: "Album", text: "Metallica release the covers album \"Garage Inc.\" on Elektra.", band: "metallica", source: "This Day In Metal, Wikipedia"},
+    {year: 2003, type: "Album", text: "Iron Maiden release \"Rainmaker\", the second single from \"Dance of Death\"; it reached No. 13 in the UK.", band: "iron-maiden", source: "Wikipedia, IronMaiden.com"},
+    {year: 2010, type: "Album", text: "Dark Moor release their eighth album, \"Ancestral Romance\", on Scarlet Records.", band: "", source: "Wikipedia, Metal Music Archives"}
   ]
 };

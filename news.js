@@ -6,6 +6,102 @@
 */
 var NEWS = [
   {
+    date: "2026-11-23",
+    tag: "Releases",
+    title: "New metal releases this week: Mystic Prophecy, Leviathan, King 810 and Sacral Rage lead a packed November 27",
+    text: [
+      "Friday, November 27 brings a mixed and heavy pile of new records. German five-piece Mystic Prophecy return with \"In Metal\" on Perception, led by the single \"Robots\". The lineup is R.D. Liapakis on vocals, Dan Baune on guitar, Tommy Gun on bass and Christophe de Combe on drums.",
+      "Leviathan drops \"Die To This\" through Profound Lore, while Flint, Michigan's King 810 self-release \"La Grande Mort Or Silence Of God\", produced by Josh Schroeder and previewed with \"Love Kills\". Heavy metal fans should also look for Sacral Rage's \"Ark Of Cosmic Resonance\" on No Remorse and Sarlic Bliss with \"Melodies Of A Dying Dawn\".",
+      "Also out Friday: Devastator's \"Goathammer\" EP on Listenable, Revnoir's \"Sometimes I Feel You, Sometimes I Don't\" on Arising Empire, Neal Morse & The Resonance's \"River Of Light\", Molly Hatchet's \"Lost Horizon\" and the Saint Vitus tribute \"Doom Shall Rise\". On the reissue side, Pungent Stench's \"Dirty Rhymes And Psychotronic Beats\" and Vinterland's \"Welcome My Last Chapter\" return.",
+      "Source: Loudwire"
+    ]
+  },
+  {
+    date: "2026-11-23",
+    tag: "Tours",
+    title: "Forever Deaf Fest 2027 books Sanguisugabogg, Author & Punisher, Thou and Gutalax for Chicago in April",
+    text: [
+      "Chicago's Forever Deaf Fest has named its first 16 bands for 2027. The festival runs April 9 and 10 at Avondale Music Hall, with a pre-party on April 8 at Sleeping Village.",
+      "The bill leans hard into the extreme end: Sanguisugabogg, Author & Punisher, Thou, Gutalax, Cephalic Carnage, Crippling Alcoholism, Scalp, Deadguy, Ancient Death, Anagnorisis, Chained To The Bottom Of The Ocean, Gylt, Intercourse, Barren Heir, Si Dios Quiere and Death Pose.",
+      "Ticket details have not been announced yet.",
+      "Source: Lambgoat"
+    ]
+  },
+  {
+    date: "2026-11-23",
+    tag: "Tours",
+    title: "Mongolia's The HU book 12 shows across Australia, New Zealand and Asia for March 2027",
+    text: [
+      "Mongolian band The HU will spend March 2027 in the Asia-Pacific region. The run has 12 dates from March 6 to 24.",
+      "It opens March 6 in Auckland at Te Paepae Theatre, then hits Adelaide, two nights at Sydney's Enmore Theatre, two at Forum Melbourne, Brisbane and Perth. After that the band plays Megaport Festival in Kaohsiung City, Taiwan on March 20 and 21, then Tokyo's Yebisu Garden Hall on March 23 and Osaka's Club Quattro on March 24.",
+      "Skáld open the Australian and New Zealand shows. There are no US dates on this run.",
+      "Source: Lambgoat"
+    ]
+  },
+  {
+    date: "2026-11-23",
+    tag: "Tours",
+    title: "Norway's Slomosa bring the \"Mute Tour\" to the US in May 2027, with Welcome To Rockville and Sonic Temple",
+    text: [
+      "Norwegian band Slomosa have booked their \"Mute Tour\" across the US for spring 2027. The run has 11 dates between May 5 and May 20.",
+      "Two big festival slots anchor the trip: Welcome To Rockville on May 8 and Sonic Temple on May 13. There is no Arizona date on this leg.",
+      "Source: Lambgoat"
+    ]
+  },
+  {
+    date: "2026-11-23",
+    tag: "News",
+    title: "Slayer's Tom Araya and Kerry King host the metal station in Grand Theft Auto VI",
+    text: [
+      "Grand Theft Auto VI has a metal radio station, and Slayer are running it. The game's station is called The Chamber 106.6, and its hosts are Kerry King and Tom Araya. Comedian Brian Posehn also turns up as \"Big Fan Brian\".",
+      "The playlist reportedly includes Slayer's \"Raining Blood\", Metallica's \"Battery\" and \"Master Of Puppets\", Megadeth's \"Symphony Of Destruction\", Anthrax's \"I Am The Law\", Black Sabbath's \"I\", Pantera's \"I'm Broken\", Sepultura's \"Territory\", Overkill's \"Rotten To The Core\", Mastodon's \"Blood And Thunder\" and Tool's \"Sober\".",
+      "Other reported picks include Dio's \"We Rock\", Exodus' \"Bonded By Blood\", Iron Maiden's \"The Trooper\", Judas Priest's \"Freewheel Burning\" and Flotsam & Jetsam's \"Hammerhead\". Full song lists are still being pieced together by players.",
+      "Source: Lambgoat, Dexerto"
+    ]
+  },
+  {
+    date: "2026-11-23",
+    tag: "Releases",
+    title: "Impending Doom share \"I Have Seen The Light\" from \"At The Throne Of God\", their first album in almost eight years",
+    text: [
+      "Impending Doom are back with their first full-length in nearly eight years. The new album is called \"At The Throne Of God\" and has 12 tracks.",
+      "The first single, \"I Have Seen The Light\", is out now. Orders are open through the band's own store, and the album reaches digital services on February 5, 2027.",
+      "Source: Lambgoat"
+    ]
+  },
+  {
+    date: "2026-11-23",
+    tag: "World",
+    title: "Poland's Dopelord get a Season of Mist reissue of \"Black Arts, Riff Worship & Weed Cult\"",
+    text: [
+      "Polish doom band Dopelord, formed in 2010, are seeing their second album return. Season of Mist will reissue 2014's \"Black Arts, Riff Worship & Weed Cult\" on January 22, 2027.",
+      "It comes on CD, black vinyl, and clear vinyl with purple splatter. Songs include \"Addicted to Black Magick\", \"Preacher Electrik\", \"Acid Trippin'\" and \"Green Plague\". The band recently finished a European tour with Monolord.",
+      "Source: Season of Mist"
+    ]
+  },
+  {
+    date: "2026-11-23",
+    tag: "Arizona",
+    title: "Arizona metal this week: As I Lay Dying in Tucson Tuesday, Psycroptic in Mesa on Friday, plus Nervosa and Currents booked for 2027",
+    text: [
+      "Two strong club shows hit Arizona this week. As I Lay Dying play 191 Toole in Tucson on Tuesday, November 24, at 7:30 PM.",
+      "On Friday, November 27, Psycroptic headline The Rosetta Room in Mesa, with Inferi, Cognitive and Summoning The Lich on the bill. Metal Blade lists it as part of the band's North American headlining tour.",
+      "New for 2027: Nervosa play The Rosetta Room in Mesa on February 2, Boundaries come to Mesa's Nile Theater on March 5, and Currents play the Marquee Theatre in Tempe on March 9. Every date is on our Arizona shows list, with directions and venue phone numbers.",
+      "Source: Metal Blade Records, venue and ticket listings"
+    ]
+  },
+  {
+    date: "2026-11-23",
+    tag: "Throwback",
+    title: "On this day in metal: Black Sabbath release \"The Eternal Idol\" (1987)",
+    text: [
+      "On November 23, 1987, Black Sabbath released \"The Eternal Idol\" in the UK on Vertigo, their 13th studio album. It was the first Sabbath album with Tony Martin on vocals, alongside Tony Iommi, Bob Daisley on bass, Eric Singer on drums and Geoff Nicholls on keyboards. The US release followed on December 8 through Warner Bros.",
+      "The record had a rough birth. Ray Gillen sang the first version of the songs and then left the band, so Martin joined in 1987 and recorded the vocals again. Several producers came and went before Chris Tsangarides finished the job.",
+      "\"The Shining\" was the single and got a video. Other tracks include \"Ancient Warrior\", \"Glory Ride\" and \"Born to Lose\". The album reached No. 66 in the UK and No. 168 on the US Billboard 200.",
+      "Source: This Day In Metal, black-sabbath.com"
+    ]
+  },
+  {
     date: "2026-11-22",
     tag: "Tours",
     title: "Festival lineup roundup: Download 2027 books Bring Me The Horizon, Evanescence and blink-182, with Faith No More, Carcass and Napalm Death",
