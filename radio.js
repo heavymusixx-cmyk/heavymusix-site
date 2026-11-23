@@ -349,7 +349,7 @@
   var catalogReady = fetch('show/catalog.json', {cache: 'no-cache'}).then(function(r){ return r.json(); })
     .then(function(c){ CAT = c || []; catalog = CAT.map(function(x){ return x.v; }).filter(Boolean); return catalog; })
     .catch(function(){ catalog = []; return catalog; });
-  /* Pinned "now playing" bar along the bottom of every page: song, band, album and year.
+  /* Pinned "now playing" bar along the bottom of every page: band, song, album, year and country.
      Stays when the player is closed, showing what's up next with a Listen button.
      Album and year come from show/songinfo.json (the Song info robot, MusicBrainz). */
   function TICK_HTML(cls){
@@ -360,13 +360,18 @@
   catalogReady.then(function(){ (CAT || []).forEach(function(x){ if (x.v) SONGS[x.v] = x; }); orderCache = null; refreshNow(); });
   fetch('show/songinfo.json', {cache: 'no-cache'}).then(function(r){ return r.ok ? r.json() : {}; })
     .then(function(d){ INFO = d || {}; refreshNow(); }).catch(function(){});
-  function songLine(id, fallback){   // Band - Song - Album (Year)
+  var BANDS = {};   // band key -> {country, ...} from show/bands.json, for the country in the scroll
+  fetch('show/bands.json', {cache: 'no-cache'}).then(function(r){ return r.ok ? r.json() : {}; })
+    .then(function(d){ BANDS = d || {}; refreshNow(); }).catch(function(){});
+  function songLine(id, fallback){   // Band - Song - Album (Year) - Country
     var s = SONGS[id], i = INFO[id] || {};
     var title = s ? s.t.replace(/\s*[\(\[][^\)\]]*(remaster|official|video|audio|lyric|visuali[sz]er|\bhd\b|4k|explicit)[^\)\]]*[\)\]]/gi, '').trim() : '';
     var text = s ? s.n + ' \u2014 ' + (title || s.t) : (fallback || '');
     if (!text) return '';
     if (i.al) text += ' \u00b7 ' + i.al + (i.y ? ' (' + i.y + ')' : '');
     else if (i.y) text += ' (' + i.y + ')';
+    var c = s && BANDS[s.b] && BANDS[s.b].country;
+    if (c && c !== 'International') text += ' \u00b7 ' + c;
     return text;
   }
   function bandOf(id){ var s = SONGS[id]; return s ? s.n : ''; }
