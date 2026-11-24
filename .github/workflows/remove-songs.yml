@@ -1,0 +1,51 @@
+name: Remove songs now
+
+# Takes the songs listed as "pending" in rotator/remove_queue.json off the HeavyMusix Radio
+# playlist right away, instead of waiting for the next morning's reshuffle (which also does it).
+# Only removes: it never adds or reorders. Costs 50 YouTube units per song removed.
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+    paths: ["rotator/remove_queue.json"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: site-robots
+  cancel-in-progress: false
+
+jobs:
+  remove:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install the YouTube tools
+        run: pip install --quiet google-api-python-client google-auth-oauthlib
+      - name: Sign in as HeavyMusix (from the YT_TOKEN secret)
+        env:
+          YT_TOKEN: ${{ secrets.YT_TOKEN }}
+        run: |
+          if [ -z "$YT_TOKEN" ]; then echo "The YT_TOKEN secret is missing."; exit 1; fi
+          printf '%s' "$YT_TOKEN" > rotator/token.json
+      - name: Take the songs off the playlist
+        run: python rotator/remove_songs.py --apply
+      - name: Remove the sign-in file
+        if: always()
+        run: rm -f rotator/token.json rotator/client_secret.json
+      - name: Save which songs are now off
+        run: |
+          git config user.name "HeavyMusix Playlist Bot"
+          git config user.email "playlist-bot@users.noreply.github.com"
+          git add rotator/remove_queue.json
+          if git diff --cached --quiet; then
+            echo "Nothing to save."
+          else
+            git commit -m "Removed songs from the playlist $(date -u '+%F')"
+            git pull --rebase
+            git push
+          fi

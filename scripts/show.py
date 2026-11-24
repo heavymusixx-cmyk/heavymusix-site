@@ -310,8 +310,16 @@ def main():
         raw = None
     if raw:
         catalog = []
+        try:   # songs and bands the owner took off the radio (rotator/remove_queue.json) never show on the site
+            rq = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "rotator", "remove_queue.json"), encoding="utf-8"))
+        except (OSError, ValueError):
+            rq = {}
+        off_vids = {s.get("v") for s in rq.get("songs", [])}
+        off_bands = {b["band"].lower() for b in rq.get("blocked_bands", [])}
         for x in raw:
             name = band_for(x["t"], x["c"])
+            if x["v"] in off_vids or name.lower() in off_bands:
+                continue
             catalog.append({"v": x["v"], "t": clean_song(x["t"], name), "n": name, "b": slug(name)})
         save("catalog.json", catalog)
     else:

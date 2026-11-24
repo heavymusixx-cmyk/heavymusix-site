@@ -27,6 +27,18 @@ def norm(s):
     return re.sub(r"[^a-z0-9]", "", s.replace("&", "and"))
 
 
+def owner_blocks():
+    """Songs and bands the owner removed (remove_queue.json): (video ids, (band, song) pairs, bands), all normalized."""
+    try:
+        d = json.load(open(os.path.join(HERE, "remove_queue.json"), encoding="utf-8"))
+    except (OSError, ValueError):
+        return set(), set(), set()
+    songs = d.get("songs", [])
+    return ({s.get("v") for s in songs if s.get("v")},
+            {(norm(s["band"]), norm(s["song"])) for s in songs},
+            {norm(b["band"]) for b in d.get("blocked_bands", [])})
+
+
 def first_band(band):
     return re.split(r",| vs\.? | & | and ", band, maxsplit=1)[0].strip()
 
@@ -91,10 +103,16 @@ def run(yt, playlist_id, search, queue, max_add, apply, fetch_items):
         have_titles.add(norm(sn.get("title", "")))
     added, blank = 0, 0
     roots = roots_bands()
+    blocked_vids, blocked_songs, blocked_bands = owner_blocks()
     for q in queue:
         if added >= max_add:
             break
         if q.get("status") not in ("queued", "failed"):
+            continue
+        if (q.get("videoId") in blocked_vids or (norm(first_band(q["band"])), norm(q["song"])) in blocked_songs
+                or norm(first_band(q["band"])) in blocked_bands):   # the owner took these off: never add back
+            q["status"] = "blocked"
+            print(f"   blocked by the owner, not added: {q['band']} - {q['song']}")
             continue
         if norm(first_band(q["band"])) in roots:   # classical/jazz never go in the main playlist
             q["status"] = "held_roots"

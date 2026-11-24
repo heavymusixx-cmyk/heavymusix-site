@@ -34,6 +34,9 @@ jobs:
         run: |
           if [ -z "$YT_TOKEN" ]; then echo "The YT_TOKEN secret is missing. Add it under Settings > Secrets and variables > Actions."; exit 1; fi
           printf '%s' "$YT_TOKEN" > rotator/token.json
+      - name: Take off songs the owner removed (rotator/remove_queue.json; only when some are waiting)
+        continue-on-error: true
+        run: python rotator/remove_songs.py --apply
       - name: Move classical/jazz songs into the private HeavyMusix Roots playlist (only when some are waiting)
         continue-on-error: true
         run: python rotator/roots_move.py --apply
@@ -44,7 +47,8 @@ jobs:
         run: |
           ADDED=$(cat rotator/added_today.txt 2>/dev/null || echo 0)
           ROOTS=$(cat rotator/roots_moved_today.txt 2>/dev/null || echo 0)
-          python rotator/playlist_rotator.py --apply --scheduled --budget $((180 - ADDED - ROOTS))
+          REMOVED=$(cat rotator/removed_today.txt 2>/dev/null || echo 0)
+          python rotator/playlist_rotator.py --apply --scheduled --budget $((180 - ADDED - ROOTS - REMOVED))
       - name: Remove the sign-in file
         if: always()
         run: rm -f rotator/token.json rotator/client_secret.json
@@ -52,7 +56,7 @@ jobs:
         run: |
           git config user.name "HeavyMusix Playlist Bot"
           git config user.email "playlist-bot@users.noreply.github.com"
-          git add rotator/rotator_memory.json rotator/add_queue.json rotator/roots_pending.json; [ -f rotator/roots_playlist.txt ] && git add rotator/roots_playlist.txt || true
+          git add rotator/rotator_memory.json rotator/add_queue.json rotator/roots_pending.json rotator/remove_queue.json; [ -f rotator/roots_playlist.txt ] && git add rotator/roots_playlist.txt || true
           if git diff --cached --quiet; then
             echo "Nothing to save."
           else

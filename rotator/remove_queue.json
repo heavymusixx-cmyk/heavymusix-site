@@ -1,0 +1,18 @@
+{
+ "_about": "Songs and bands the owner took off HeavyMusix Radio. pending = comes off at the next playlist run; removed = gone. Everything here is blocked: the add robot, the song scout and the site radio never add these songs, or any song by a blocked band, back.",
+ "songs": [
+  {
+   "band": "Black Spikes",
+   "song": "AUREA",
+   "v": "yxdd7HuE_Nc",
+   "status": "pending",
+   "asked": "2026-11-24"
+  }
+ ],
+ "blocked_bands": [
+  {
+   "band": "Linkin Park",
+   "asked": "2026-11-24"
+  }
+ ]
+}
