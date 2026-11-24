@@ -631,3 +631,5 @@ ul.shows .sdate{margin-top:2px}
 }
 /* Holiday skins: keep the quick-jump buttons clear of the mascot art in the hero's bottom-right corner */
 @media (min-width:900px){html:is([data-skin="halloween"],[data-skin="christmas"],[data-skin="newyear"],[data-skin="july4"],[data-skin="thanksgiving"],[data-skin="valentine"],[data-skin="stpatrick"]) body:not(.az) section.hero .jump{max-width:calc(100% - 250px)}}
+/* Lists people scan (Arizona shows, metal history): the lead line of each entry (band names, or year and type) in the skin's accent color, like the news headlines, so entries stand apart from their details */
+ul.shows .sinfo>strong,ul.morenews li>strong{color:var(--blood-text)}
