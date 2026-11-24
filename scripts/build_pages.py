@@ -447,12 +447,15 @@ try:
     HIST = js_data("history.js", "HISTORY")
 except Exception:
     HIST = {}
+AZ_RE = re.compile(r"\b(Alice Cooper|Flotsam|Sacred Reich|Job For A Cowboy|Soulfly|Gatecreeper|Rob Halford|Jason Newsted|Vehemence|Blessthefall|Knights of the Abyss|Chester Bennington|Spirit Adrift|Six Million Dead|St\. Madness|Landmine Marathon|Arizona|Phoenix|Tempe|Tucson|Mesa|Glendale|Scottsdale)\b", re.I)   # Arizona bands, legends and towns: these history moments get an "Arizona connection" badge (same list in index.html)
 fresh_dir("history")
 for key, items in sorted(HIST.items()):
     m, d = map(int, key.split("-"))
     label = datetime.date(2000, m, d).strftime("%B %-d")
     rows = "".join(
-        f'<li><strong>{h["year"]} &middot; {esc(h["type"])}</strong><span>{esc(h["text"])}'
+        f'<li><strong>{h["year"]} &middot; {esc(h["type"])}</strong>'
+        + ('<span class="azb">Arizona connection</span>' if AZ_RE.search(h["text"]) else '')
+        + f'<span>{esc(h["text"])}'
         + (f' <a href="bands/{esc(h["band"])}.html">Listen on HeavyMusix Radio</a>' if h.get("band") and os.path.exists(f"bands/{h['band']}.html") else "")
         + f'</span><span class="wsrc">Source: {esc(h.get("source", ""))}</span></li>'
         for h in sorted(items, key=lambda h: h["year"]))
@@ -476,7 +479,7 @@ for key, items in sorted(HIST.items()):
 
 # ---------------------------------------------------------------- sitemap
 MAIN = ["", "news.html", "show.html", "bands.html", "arizona.html", "series.html",
-        "submit.html", "shop.html", "about.html", "checklist-ep1.html", "search.html", "ideas.html", "privacy.html", "newsletter.html"]
+        "arizona-metal-history.html", "submit.html", "shop.html", "about.html", "checklist-ep1.html", "search.html", "ideas.html", "privacy.html", "newsletter.html"]
 urls = [(p, TODAY.isoformat()) for p in MAIN] + pages
 with open("sitemap.xml", "w", encoding="utf-8") as f:
     f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')

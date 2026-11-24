@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Metal+Mania&family=New+Rocker&family=Nosifer&family=Pirata+One&family=UnifrakturCook:wght@700&family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=58">
+<link rel="stylesheet" href="style.css?v=59">
 <script src="skin.js?v=6"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "HeavyMusix", "url": "https://heavymusix.com/", "potentialAction": {"@type": "SearchAction", "target": "https://heavymusix.com/search.html?q={search_term_string}", "query-input": "required name=search_term_string"}}, {"@type": "Organization", "name": "HeavyMusix", "url": "https://heavymusix.com/", "logo": "https://heavymusix.com/og/default.png", "email": "info@heavymusix.com", "sameAs": ["https://www.youtube.com/@HeavyMusix", "https://www.instagram.com/heavymusixradio/", "https://www.threads.com/@heavymusixradio", "https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M"]}]}</script>
 <meta property="og:image" content="https://heavymusix.com/og/default.png">
@@ -31,7 +31,7 @@
   <div class="hdrbtns"><button class="followbtn" type="button" aria-expanded="false" aria-controls="hmx-follow" data-follow><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11 4h2v7h7v2h-7v7h-2v-7H4v-2h7z"/></svg>Follow</button><button class="navtoggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mainnav"><span></span><span></span><span></span></button></div>
   <nav class="main" id="mainnav" aria-label="Main menu">
     <form class="navfind" action="search.html" role="search"><input type="search" name="q" placeholder="Find a band, song or story" aria-label="Search HeavyMusix"><button type="submit">Search</button></form>
-    <div class="navcol"><div class="navgrp" role="group" aria-labelledby="nh-listen"><p class="navh" id="nh-listen">Listen</p><a href="index.html" class="on" aria-current="page">HeavyMusix Radio</a><a href="show.html">Radio Show</a></div><div class="navgrp" role="group" aria-labelledby="nh-az"><p class="navh" id="nh-az">Arizona</p><a href="arizona-metal-shows.html">Shows this week</a><a href="arizona.html">Arizona metal scene</a></div><div class="navgrp" role="group" aria-labelledby="nh-news"><p class="navh" id="nh-news">Metal news</p><a href="news.html">Latest news</a><a href="this-week-in-metal.html">This week in metal</a><a href="index.html#history">Today in metal history</a></div></div>
+    <div class="navcol"><div class="navgrp" role="group" aria-labelledby="nh-listen"><p class="navh" id="nh-listen">Listen</p><a href="index.html" class="on" aria-current="page">HeavyMusix Radio</a><a href="show.html">Radio Show</a></div><div class="navgrp" role="group" aria-labelledby="nh-az"><p class="navh" id="nh-az">Arizona</p><a href="arizona-metal-shows.html">Shows this week</a><a href="arizona.html">Arizona metal scene</a><a href="arizona-metal-history.html">Arizona metal history</a></div><div class="navgrp" role="group" aria-labelledby="nh-news"><p class="navh" id="nh-news">Metal news</p><a href="news.html">Latest news</a><a href="this-week-in-metal.html">This week in metal</a><a href="index.html#history">Today in metal history</a></div></div>
     <div class="navcol"><div class="navgrp" role="group" aria-labelledby="nh-bands"><p class="navh" id="nh-bands">Bands</p><a href="bands.html">Find a band</a><a href="series.html">Band Survival Kit</a><a href="submit.html">Band submissions (soon)</a></div><div class="navgrp" role="group" aria-labelledby="nh-hmx"><p class="navh" id="nh-hmx">HeavyMusix</p><a href="about.html">About</a><a href="newsletter.html">The HeavyMusix email</a><a href="shop.html">Shop (coming soon)</a><a href="ideas.html">Share an idea</a></div></div>
   </nav>
 </div></header>
@@ -117,11 +117,12 @@
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   var az=new Date(Date.now()-7*3600e3), mm=('0'+(az.getUTCMonth()+1)).slice(-2), dd=('0'+az.getUTCDate()).slice(-2), key=mm+'-'+dd, yr=az.getUTCFullYear();
   var label=az.toLocaleDateString('en-US',{month:'long',day:'numeric',timeZone:'UTC'});
+  var AZRE=/\b(Alice Cooper|Flotsam|Sacred Reich|Job For A Cowboy|Soulfly|Gatecreeper|Rob Halford|Jason Newsted|Vehemence|Blessthefall|Knights of the Abyss|Chester Bennington|Spirit Adrift|Six Million Dead|St\. Madness|Landmine Marathon|Arizona|Phoenix|Tempe|Tucson|Mesa|Glendale|Scottsdale)\b/i;   // same list as scripts/build_pages.py
   var list=(HISTORY[key]||[]).slice().sort(function(a,b){return a.year-b.year;});
   if(!list.length){ el.innerHTML='<h2>'+esc(label)+' in metal</h2><p class="muted">Today\'s history is being dug up. Check back after 3 AM Arizona time (5 AM Eastern).</p>'; return; }
   el.innerHTML='<h2>'+esc(label)+' in metal</h2><ul class="morenews">'+list.slice(0,6).map(function(h){
     var ago=yr-h.year, who=h.band?' <a href="bands/'+esc(h.band)+'.html">Listen on HeavyMusix Radio</a>':'';
-    return '<li><strong>'+h.year+' &middot; '+esc(h.type)+(ago>0?' &middot; '+ago+' years ago':'')+'</strong><span>'+esc(h.text)+who+'</span></li>';
+    return '<li><strong>'+h.year+' &middot; '+esc(h.type)+(ago>0?' &middot; '+ago+' years ago':'')+'</strong>'+(AZRE.test(h.text)?'<span class="azb">Arizona connection</span>':'')+'<span>'+esc(h.text)+who+'</span></li>';
   }).join('')+'</ul><div class="btns"><a class="btn ghost" href="history/'+key+'.html">More from '+esc(label)+'</a></div>';
 })();
 </script>
