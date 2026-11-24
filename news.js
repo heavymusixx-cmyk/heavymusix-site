@@ -6,6 +6,50 @@
 */
 var NEWS = [
   {
+    date: "2026-11-24",
+    tag: "Tours",
+    title: "Iron Maiden close their 2026 run in Yokohama tonight; one last North American leg comes in spring, with Phoenix on April 26",
+    text: [
+      "Iron Maiden play the first of two nights at K-Arena Yokohama in Japan today, November 24, with the second on November 25. They are the last shows of the 2026 stretch of the \"Run For Your Lives\" world tour, the 50th-anniversary run that started in Budapest in May 2025 and leans on the band's first nine albums, from the 1980 debut through \"Fear of the Dark\".",
+      "The band first said they would rest through 2027, then changed course in October and added 16 North American shows they call the third and final leg. It opens April 14 at the Tacoma Dome and ends May 16 at Boardwalk Rock in Ocean City, Maryland, with a Sonic Temple headline slot in Columbus on May 14. Bullet For My Valentine and The Raven Age are the special guests on an all-British bill.",
+      "Arizona gets its night on Sunday, April 26, 2027, at Talking Stick Resort Amphitheatre in Phoenix, between San Bernardino and Dallas. Steve Harris said the leg goes to places the band missed, especially the Northwest and Southeast. When it wraps, the tour will have played 107 shows to more than 3 million fans in 36 countries.",
+      "Source: Iron Maiden"
+    ]
+  },
+  {
+    date: "2026-11-24",
+    tag: "Tours",
+    title: "The Devil Wears Prada and 156/Silence join The Plot In You's 2027 tour, with Phoenix on March 23",
+    text: [
+      "The Plot In You have named the support for their spring 2027 headline run: The Devil Wears Prada as direct support, with 156/Silence opening the night. The bill was announced on November 23.",
+      "The 26-date tour starts March 12 at The Factory in St. Louis and ends April 18 at The Pinnacle in Nashville, with stops in Denver, Los Angeles, Dallas, New York, Toronto and Chicago along the way. It follows \"The Volumes Series\", the set the band finished this summer on Fearless Records.",
+      "Arizona's date is Tuesday, March 23, at Arizona Financial Theatre in Phoenix. It's on the HeavyMusix Arizona shows list at heavymusix.com/az.",
+      "Source: Lambgoat, ThePRP"
+    ]
+  },
+  {
+    date: "2026-11-24",
+    tag: "News",
+    title: "Ryan McCombs leaves Drowning Pool for the second time to focus on SOIL",
+    text: [
+      "Singer Ryan McCombs is leaving Drowning Pool again. In a statement on November 23 he said the two sides will officially part ways as the band heads into 2027, and that the timing is right for everyone.",
+      "McCombs first fronted Drowning Pool from 2005 to 2011 and came back in early 2023 after Jasen Moreno left. With him, the band released the singles \"Revolution (The Final Amen)\", \"Madness\" and \"The Wrong One\". No replacement has been named.",
+      "He now turns his attention to SOIL, his other band, which signed with Better Noise Music, shared the single \"Enemy X\" in October and plans a new album for 2027.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-24",
+    tag: "Throwback",
+    title: "On this day in metal: Metallica release the covers double album \"Garage Inc.\" (1998)",
+    text: [
+      "On November 24, 1998, Metallica released \"Garage Inc.\" on Elektra, a two-disc set made entirely of other people's songs. Disc one was mostly new recordings produced with Bob Rock: Discharge, Diamond Head, Black Sabbath, the Misfits, Mercyful Fate, Blue Öyster Cult, Nick Cave and more.",
+      "Disc two gathered their earlier covers in one place, including the \"Garage Days Re-Revisited\" EP, \"Am I Evil?\", \"Breadfan\", \"Stone Cold Crazy\" and their Motörhead tribute tracks.",
+      "It entered the Billboard 200 at No. 2 and went on to sell more than five million copies in the US. Their take on \"Turn the Page\" topped the mainstream rock chart, and \"Whiskey in the Jar\" won the Grammy for Best Hard Rock Performance in 2000.",
+      "Source: Wikipedia, Ultimate Classic Rock"
+    ]
+  },
+  {
     date: "2026-11-23",
     tag: "Releases",
     title: "New metal releases this week: Mystic Prophecy, Leviathan, King 810 and Sacral Rage lead a packed November 27",

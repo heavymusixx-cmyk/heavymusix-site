@@ -46,6 +46,7 @@ var SHOWS = [
   {date:"2027-03-09", bands:"Currents, Vana, Novelists, Dreamwake", venue:"Marquee Theatre", city:"Tempe"},
   {date:"2027-03-10", bands:"Nile, Coroner, Syn Absence", venue:"Nile Theater", city:"Mesa"},
   {date:"2027-03-21", bands:"Clutch, Corrosion of Conformity, Agnostic Front, Chuck Ragan", venue:"The Van Buren", city:"Phoenix"},
+  {date:"2027-03-23", bands:"The Plot In You, The Devil Wears Prada, 156/Silence", venue:"Arizona Financial Theatre", city:"Phoenix"},
   {date:"2027-03-30", bands:"Týr, Dynazty, Dominum, Edge of Paradise", venue:"Nile Theater", city:"Mesa"},
   {date:"2027-04-26", bands:"Iron Maiden", venue:"Talking Stick Resort Amphitheatre", city:"Phoenix"},
   {date:"2027-04-27", bands:"Meshuggah, Testament, Blood Incantation", venue:"Arizona Financial Theatre", city:"Phoenix"},
