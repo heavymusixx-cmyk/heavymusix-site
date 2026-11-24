@@ -24,6 +24,7 @@ var SHOWS = [
   {date:"2026-12-03", bands:"Born of Osiris, Miss May I, Convictions, Downswing", venue:"Nile Theater", city:"Mesa"},
   {date:"2026-12-04", bands:"Silent Civilian", venue:"The Bisbee Grand", city:"Bisbee"},
   {date:"2026-12-06", bands:"Amorphis, Insomnium, Hinayana", venue:"Nile Theater", city:"Mesa"},
+  {date:"2026-12-07", bands:"Savage Master", venue:"Last Exit Live", city:"Phoenix"},
   {date:"2026-12-09", bands:"Whitechapel, Chelsea Grin, The Acacia Strain, Netherwalker", venue:"The Van Buren", city:"Phoenix"},
   {date:"2026-12-16", bands:"Beartooth, Don Broco, Magnolia Park, Windwaker", venue:"Arizona Financial Theatre", city:"Phoenix"},
   {date:"2026-12-16", bands:"Kingdom of Giants, Deadlands, Holy Wars, Night Rider", venue:"Rosetta Room", city:"Mesa"},

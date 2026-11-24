@@ -294,6 +294,8 @@ section{padding:84px 0}
 .card:hover{border-color:var(--blood);box-shadow:inset 3px 0 0 var(--blood-hot)}
 .grid .card:nth-child(n){transform:none}
 .card a,body section:not(.hero):nth-of-type(even) .card a{color:var(--blood-text)}
+/* Filled buttons inside cards keep light text on the red button (card links are red; a red label on a red button failed contrast) */
+.card a.btn:not(.ghost),body section:not(.hero):nth-of-type(even) .card a.btn:not(.ghost){color:var(--bone)}
 .tag{background:transparent;color:var(--blood-text);box-shadow:inset 0 0 0 1px var(--blood);text-transform:uppercase;letter-spacing:.1em;font-size:12px}
 .thumb{border:1px solid var(--edge);background:radial-gradient(ellipse at 50% 130%,rgba(var(--glow),.6),transparent 70%),#050404}
 .thumb span{font-weight:900;text-shadow:0 0 22px rgba(var(--glow),.6)}

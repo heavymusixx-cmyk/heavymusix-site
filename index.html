@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Metal+Mania&family=New+Rocker&family=Nosifer&family=Pirata+One&family=UnifrakturCook:wght@700&family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=55">
+<link rel="stylesheet" href="style.css?v=56">
 <script src="skin.js?v=6"></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "HeavyMusix", "url": "https://heavymusix.com/", "potentialAction": {"@type": "SearchAction", "target": "https://heavymusix.com/search.html?q={search_term_string}", "query-input": "required name=search_term_string"}}, {"@type": "Organization", "name": "HeavyMusix", "url": "https://heavymusix.com/", "logo": "https://heavymusix.com/og/default.png", "email": "info@heavymusix.com", "sameAs": ["https://www.youtube.com/@HeavyMusix", "https://www.instagram.com/heavymusixradio/", "https://www.threads.com/@heavymusixradio", "https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M"]}]}</script>
 <meta property="og:image" content="https://heavymusix.com/og/default.png">
@@ -58,7 +58,14 @@
     <input type="search" name="q" placeholder="Find a band, song, city or story" aria-label="Search HeavyMusix">
     <button type="submit">Search</button>
   </form>
-  <nav class="jump" aria-label="On this page"><a href="#news">Latest news</a><a href="newsletter.html">Email sign-up</a><a href="#history">Today in metal</a><a href="#az">Arizona shows</a><a href="#botd-sec">Band of the day</a><a href="#soon">Coming soon</a></nav>
+  <nav class="jump" aria-label="On this page"><a href="#az">Arizona shows</a><a href="#news">Latest news</a><a href="newsletter.html">Email sign-up</a><a href="#history">Today in metal</a><a href="#botd-sec">Band of the day</a><a href="#soon">Coming soon</a></nav>
+</div></section>
+
+<section id="az"><div class="wrap">
+  <p class="kicker">Arizona metal</p>
+  <h2>Metal shows in Arizona this week</h2>
+  <div id="azshows"></div>
+  <div class="btns"><a class="btn" href="arizona-metal-shows.html">Every Arizona show</a><a class="btn ghost" href="arizona.html">Arizona metal scene</a></div>
 </div></section>
 
 <section id="news"><div class="wrap">
@@ -80,12 +87,6 @@
   <div id="tihist"><p class="muted">Loading today in metal&hellip;</p></div>
 </div></section>
 
-<section id="az"><div class="wrap">
-  <p class="kicker">Arizona metal</p>
-  <h2>Coming up in the desert</h2>
-  <div id="azshows"></div>
-  <div class="btns"><a class="btn ghost" href="arizona.html">All Arizona shows and news</a></div>
-</div></section>
 
 <section id="botd-sec"><div class="wrap">
   <p class="kicker">Band of the day</p>
@@ -108,7 +109,7 @@
   <div>Bands: <a href="submit.html">Band submissions open soon</a><br>Everything else: <a href="mailto:info@heavymusix.com">info@heavymusix.com</a> &middot; <a href="ideas.html">Share an idea</a> &middot; <a href="privacy.html">Privacy</a><br><a href="newsletter.html">Get the HeavyMusix email</a> &middot; <button type="button" class="linkbtn" data-install>Get the app</button><br>
   <a href="https://www.youtube.com/@HeavyMusix">YouTube</a> &middot; <a href="https://www.instagram.com/heavymusixradio/">Instagram</a> &middot; <a href="https://www.threads.com/@heavymusixradio">Threads</a> &middot; <a href="https://music.youtube.com/playlist?list=PLcJENP7Pnf5xXQk-R_SlBiDXeaSlSSJ6M">YouTube Music</a></div>
 </div></footer>
-<script src="news.js?v=14"></script><script src="venues.js?v=1"></script><script src="shows.js?v=2"></script><script>renderShows(document.getElementById("azshows"),5)</script><script>renderLatest(document.getElementById("latest"))</script>
+<script src="news.js?v=14"></script><script src="venues.js?v=2"></script><script src="shows.js?v=3"></script><script>renderShows(document.getElementById("azshows"),6)</script><script>renderLatest(document.getElementById("latest"))</script>
 <script src="history.js?v=1"></script>
 <script>
 (function(){
