@@ -85,7 +85,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 53
+  "songs": 65
  },
  "the-zenith-passage": {
   "name": "The Zenith Passage",
@@ -118,7 +118,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 5
  },
  "carnifex": {
   "name": "Carnifex",
@@ -371,7 +371,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 4
  },
  "cryptosis": {
   "name": "Cryptosis",
@@ -492,7 +492,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 8
+  "songs": 36
  },
  "enforced": {
   "name": "Enforced",
@@ -1405,7 +1405,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 14
+  "songs": 15
  },
  "ektonorth": {
   "name": "Ektonorth",
@@ -1647,7 +1647,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 2
  },
  "filth": {
   "name": "Filth",
@@ -1739,6 +1739,116 @@
  },
  "crown-magnetar": {
   "name": "Crown Magnetar",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "ice-nine-kills": {
+  "name": "Ice Nine Kills",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "bring-me-the-horizon": {
+  "name": "Bring Me The Horizon",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "showing-teeth": {
+  "name": "Showing Teeth",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "ladrones": {
+  "name": "Ladrones",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 4
+ },
+ "bullet-for-my-valentine": {
+  "name": "Bullet For My Valentine",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "empty-shell-casing": {
+  "name": "Empty Shell Casing",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "castle-rat": {
+  "name": "Castle Rat",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 3
+ },
+ "mastodon": {
+  "name": "Mastodon",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "no-cure": {
+  "name": "NO CURE",
+  "city": "",
+  "region": "",
+  "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "nathan-cejas": {
+  "name": "Nathan Cejas",
   "city": "",
   "region": "",
   "country": "",
