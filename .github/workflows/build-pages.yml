@@ -41,8 +41,12 @@ jobs:
             echo "Pages already up to date."
           else
             git commit -m "Pages: rebuild $(date -u '+%F %H:%M')"
-            git pull --rebase
-            git push
+            # Retry: another robot can push between our pull and push (Nov 24 failure)
+            for i in 1 2 3 4; do
+              git pull --rebase && git push && break
+              [ "$i" = 4 ] && exit 1
+              sleep $((i*10))
+            done
             gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
             sleep 60   # let GitHub Pages publish before telling search engines
             python scripts/indexnow.py
