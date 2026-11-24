@@ -7,9 +7,17 @@
 "al": "PeelingFlesh",
 "y": 2026
 },
+"-JjUyiWxpXo": {
+"al": "It Is Going to Get Dark",
+"y": 2026
+},
 "-Lijvlq37TM": {
 "al": "Angelus Apatrida",
 "y": 2021
+},
+"-QugoiOhrDU": {
+"al": "FOUND ON ROAD DEAD",
+"y": 2026
 },
 "-SbUTuIePEk": {
 "al": "A Portrait of Decay",
@@ -48,6 +56,10 @@
 "0dZ6ufs5uCA": {
 "al": "Sevas Tra",
 "y": 2002
+},
+"0k3I-Y1V1dw": {
+"al": "Inhale. Do Not Breathe",
+"y": 2012
 },
 "0kO8xqCe_qc": {
 "al": "As Gomorrah Burns",
@@ -152,6 +164,10 @@
 "al": "Chaos of Forms",
 "y": 2011
 },
+"3DJaLFW0PJ4": {
+"al": "Crown in the Grave",
+"y": 2026
+},
 "3GqnNSlrV18": {
 "miss": "2026-11-20"
 },
@@ -170,6 +186,9 @@
 "3dbRdzATXBE": {
 "al": "Screaming for Vengeance",
 "y": 1982
+},
+"3qzBGYG786Y": {
+"miss": "2026-11-24"
 },
 "3s5Vld1eYdE": {
 "al": "The Way of All Flesh",
@@ -270,6 +289,10 @@
 "al": "Are You Kidding Me? No.",
 "y": 2014
 },
+"602IRlrMH5E": {
+"al": "Are You Kidding Me? No.",
+"y": 2014
+},
 "68G3Yfb6PSE": {
 "al": "The Way of All Flesh",
 "y": 2008
@@ -306,6 +329,9 @@
 "al": "Servitude",
 "y": 2024
 },
+"74CqAMOhbf4": {
+"miss": "2026-11-24"
+},
 "74nTzbgDGWM": {
 "al": "Christ Illusion",
 "y": 2007
@@ -325,6 +351,10 @@
 "7E7xBMebANM": {
 "al": "Moon Healer",
 "y": 2024
+},
+"7GDGDHhn0oE": {
+"al": "Play Dead",
+"y": 2026
 },
 "7NtJKotSmMA": {
 "al": "New Gods, New Masters",
@@ -386,6 +416,10 @@
 "8se8bNe3FeU": {
 "al": "Periphery II: This Time It’s Personal",
 "y": 2012
+},
+"8u_oAhW6lN8": {
+"al": "Duél",
+"y": 2025
 },
 "950wnDB4eWw": {
 "al": "Immutable",
@@ -455,6 +489,10 @@
 "al": "Dark Roots of Earth",
 "y": 2012
 },
+"AgaeUV1Zj0k": {
+"al": "Youthanasia",
+"y": 1994
+},
 "AkvHFBC35Oc": {
 "miss": "2026-11-20"
 },
@@ -487,6 +525,10 @@
 },
 "BMdhVpTfuAU": {
 "miss": "2026-11-20"
+},
+"BYOLgULQfNM": {
+"al": "Count Your Blessings | Repented",
+"y": 2026
 },
 "BbxDEnkSI-M": {
 "miss": "2026-11-20"
@@ -527,12 +569,12 @@
 "al": "Planetary Duality",
 "y": 2008
 },
-"CK0TPuifgxs": {
-"miss": "2026-11-20"
-},
 "CLtP8GYdpoY": {
 "al": "The Formation of Damnation",
 "y": 2008
+},
+"CMmNTexVYfk": {
+"miss": "2026-11-24"
 },
 "CO5eQLy47ZI": {
 "al": "New Junk Aesthetic",
@@ -556,6 +598,9 @@
 "Cdru3Z_F_Sw": {
 "al": "Metallica",
 "y": 2021
+},
+"Cel-3ojNUpg": {
+"miss": "2026-11-24"
 },
 "Cgcm7OWQvg8": {
 "miss": "2026-11-20"
@@ -654,6 +699,10 @@
 "al": "Fed Through the Teeth Machine",
 "y": 2009
 },
+"F-GBjyJFBVI": {
+"al": "Macro",
+"y": 2019
+},
 "F-uQmvoIzW4": {
 "miss": "2026-11-20"
 },
@@ -677,8 +726,8 @@
 "al": "Eternal Blue",
 "y": 2020
 },
-"FjYLLZZ-xDI": {
-"miss": "2026-11-20"
+"Fas1dkyd-5w": {
+"miss": "2026-11-24"
 },
 "FjwNA4f_bwk": {
 "al": "rEVOLVEr",
@@ -837,6 +886,10 @@
 "al": "Servitude",
 "y": 2024
 },
+"JScaa2kBtxQ": {
+"al": "Cursum perficio",
+"y": 2026
+},
 "JYALpvUGNk8": {
 "miss": "2026-11-20"
 },
@@ -899,12 +952,12 @@
 "al": "Blood In Blood Out",
 "y": 2014
 },
-"LNd_SlINFLM": {
-"miss": "2026-11-20"
-},
 "LR5K4N4dqXc": {
 "al": "Sun Eater",
 "y": 2014
+},
+"LVhJy-CR64Q": {
+"miss": "2026-11-24"
 },
 "LY1opvOcS9Q": {
 "al": "Bonded by Blood",
@@ -1019,6 +1072,10 @@
 "al": "The Grinding Wheel",
 "y": 2017
 },
+"OPGSs7SMglE": {
+"al": "Death on Display",
+"y": 2026
+},
 "OTiQADZf3ss": {
 "al": "The Call",
 "y": 2012
@@ -1030,6 +1087,10 @@
 "OfXEG0Y4jlc": {
 "al": "Unhallowed",
 "y": 2003
+},
+"Oiw7hEapI0c": {
+"al": "The Hollowing of Godflesh",
+"y": 2026
 },
 "OpNUfqaGkSg": {
 "al": "Imprint",
@@ -1082,6 +1143,10 @@
 "al": "obZen",
 "y": 2008
 },
+"Q5w7053diyY": {
+"al": "Cursum perficio",
+"y": 2026
+},
 "QQ8qNqMGZFA": {
 "al": "Deflorate",
 "y": 2009
@@ -1117,6 +1182,10 @@
 "al": "Dark Roots of Earth",
 "y": 2012
 },
+"R3IbiD7tGAA": {
+"al": "UNLIMITED",
+"y": 2026
+},
 "RBtHRHDfSUg": {
 "al": "Slaughter in the Vatican",
 "y": 1987
@@ -1124,6 +1193,10 @@
 "REg2dN-H0lI": {
 "al": "The Chosen One",
 "y": 2019
+},
+"RKlYW5oCQFI": {
+"al": "Rust in Peace",
+"y": 1990
 },
 "RLXSLw3nz_M": {
 "al": "The Atrocity Exhibition: Exhibit A",
@@ -1156,6 +1229,10 @@
 "RjOo4uO74jA": {
 "al": "Periphery II: This Time It’s Personal",
 "y": 2012
+},
+"RpVkaTXxEzs": {
+"al": "Capitol Punishment: The Megadeth Years",
+"y": 2000
 },
 "RtynUskruts": {
 "al": "Demonocracy",
@@ -1191,6 +1268,10 @@
 "al": "King of Everything",
 "y": 2016
 },
+"T1NfOluDr0o": {
+"al": "Arriba la L",
+"y": 2026
+},
 "T3Nx2wSb9c8": {
 "al": "Shades of Sorrow",
 "y": 2023
@@ -1210,6 +1291,9 @@
 "T6R4QASBJQQ": {
 "al": "Solitude in Madness",
 "y": 2020
+},
+"TBV8_0BqIw8": {
+"miss": "2026-11-24"
 },
 "TFaUrogeR24": {
 "al": "Genesis",
@@ -1277,9 +1361,6 @@
 "al": "Roboticist",
 "y": 2027
 },
-"V_lptHHokws": {
-"miss": "2026-11-20"
-},
 "Ve_lslfE5to": {
 "miss": "2026-11-20"
 },
@@ -1338,6 +1419,10 @@
 "WjqGDEv5-k0": {
 "al": "Terrasite",
 "y": 2023
+},
+"WkXAAHDIN7U": {
+"al": "Rust in Peace",
+"y": 1990
 },
 "WpfSarkuxVA": {
 "miss": "2026-11-20"
@@ -1422,6 +1507,10 @@
 "al": "Periphery III: Select Difficulty",
 "y": 2016
 },
+"Z-pFNdFtORA": {
+"al": "Crown in the Grave",
+"y": 2026
+},
 "Z3LRHlUDClk": {
 "al": "Metallica",
 "y": 1991
@@ -1458,6 +1547,10 @@
 "al": "Genesis",
 "y": 2007
 },
+"Zmu6_1HCalQ": {
+"al": "Cursum perficio",
+"y": 2026
+},
 "ZwB8pkzGSoQ": {
 "al": "Sun Eater",
 "y": 2014
@@ -1481,9 +1574,17 @@
 "al": "Fortitude",
 "y": 2021
 },
+"_Fc8XReTHOk": {
+"al": "Arriba la L",
+"y": 2026
+},
 "_JkK0IlEDB4": {
 "al": "Symbolic",
 "y": 1995
+},
+"_KAFfjzWsjE": {
+"al": "Megadeth",
+"y": 2026
 },
 "_NYabS_axpI": {
 "al": "Sun Eater",
@@ -1536,6 +1637,10 @@
 "a_ITtP033RI": {
 "miss": "2026-11-20"
 },
+"as1j4UbGHAo": {
+"al": "Megadeth",
+"y": 2026
+},
 "b0Qn3xsiML0": {
 "miss": "2026-11-20"
 },
@@ -1559,12 +1664,13 @@
 "al": "The Sound of Perseverance",
 "y": 1998
 },
-"bCypb--lv1M": {
-"miss": "2026-11-20"
-},
 "bG5qiZMWjL4": {
 "al": "King of Everything",
 "y": 2016
+},
+"bM4wny_u4oA": {
+"al": "Micro",
+"y": 2019
 },
 "bYL_50wiTCA": {
 "al": "Danse Macabre",
@@ -1747,6 +1853,10 @@
 "eVmaqj668Fk": {
 "miss": "2026-11-20"
 },
+"eXtVeHqmCZw": {
+"al": "Fatal Paradox",
+"y": 2026
+},
 "eYaXaLQYTQI": {
 "al": "Solitude in Madness",
 "y": 2020
@@ -1785,6 +1895,9 @@
 "al": "Micro",
 "y": 2019
 },
+"fTvKX_zCOx4": {
+"miss": "2026-11-24"
+},
 "fZfTvpmgnz4": {
 "al": "A Means to No End",
 "y": 2016
@@ -1821,6 +1934,10 @@
 "al": "Periphery II: This Time It’s Personal",
 "y": 2012
 },
+"g9QqN74MZRE": {
+"al": "The Allfather Awakens",
+"y": 2026
+},
 "gBB1OJL-4Ew": {
 "al": "Roboticist",
 "y": 2027
@@ -1828,6 +1945,10 @@
 "gCGYfG-Zggg": {
 "al": "Immutable",
 "y": 2022
+},
+"gGuowImzSxU": {
+"al": "Crocodile.",
+"y": 2026
 },
 "gMCXDcfa3T0": {
 "al": "The Violent Sleep of Reason",
@@ -1856,8 +1977,16 @@
 "al": "The Outer Ones",
 "y": 2018
 },
+"h8YN7WVPiIQ": {
+"al": "Juggernaut: Omega",
+"y": 2015
+},
 "hAMQIvEtcJM": {
 "miss": "2026-11-20"
+},
+"hEihQoMJC98": {
+"al": "Rust in Peace",
+"y": 1990
 },
 "hN8XncMtwAA": {
 "al": "The Sound of Perseverance",
@@ -1944,6 +2073,10 @@
 "al": "Cloud Factory",
 "y": 2014
 },
+"jSTUQO0XyaM": {
+"al": "Rust in Peace",
+"y": 1990
+},
 "j_dzLt_l0w4": {
 "al": "Kezia",
 "y": 2005
@@ -1992,6 +2125,10 @@
 "al": "Periphery II: This Time It’s Personal",
 "y": 2012
 },
+"k7tZ8gcrJ3I": {
+"al": "Wallflowers",
+"y": 2021
+},
 "kDJK5wRpwwI": {
 "al": "The Outer Ones",
 "y": 2018
@@ -2022,6 +2159,10 @@
 "kSzJjlq_LT0": {
 "al": "Violence Unimagined",
 "y": 2021
+},
+"kfTcE89sBXU": {
+"al": "Killing Is My Business… and Business Is Good!",
+"y": 1985
 },
 "ksbX6a0hbmU": {
 "al": "Strike and Kill",
@@ -2073,8 +2214,16 @@
 "al": "Hidden Evolution",
 "y": 2015
 },
+"lU3YgJWy24U": {
+"al": "Neverending Nightmare",
+"y": 2026
+},
 "lbBym2PgYbI": {
 "miss": "2026-11-23"
+},
+"lcYM9eZmBM0": {
+"al": "The Bestiary",
+"y": 2025
 },
 "lcdsa4AmRis": {
 "al": "Volume V",
@@ -2088,12 +2237,13 @@
 "al": "Scurrilous",
 "y": 2011
 },
-"lwukyfOljXg": {
-"miss": "2026-11-20"
-},
 "m-nTXQeEqSQ": {
 "al": "Welcome to the Morbid Reich",
 "y": 2011
+},
+"mAIdrXFJh1o": {
+"al": "Dystopia",
+"y": 2016
 },
 "mDATU5_jeC0": {
 "al": "Cowboys From Hell",
@@ -2102,6 +2252,10 @@
 "mFm1xMoqk3s": {
 "al": "Periphery",
 "y": 2010
+},
+"mLv9GsT3P2s": {
+"al": "Graceless",
+"y": 2026
 },
 "mSNKnMJ4A_g": {
 "al": "Onset of Putrefaction",
@@ -2126,6 +2280,10 @@
 "mltCRJBHgRA": {
 "al": "Ruination",
 "y": 2009
+},
+"muoHUavIyMU": {
+"al": "Countdown to Extinction",
+"y": 1992
 },
 "my8kOqVAHTU": {
 "al": "The Never Was",
@@ -2158,6 +2316,10 @@
 "al": "Sin After Sin",
 "y": 1977
 },
+"ntweTEPPm6k": {
+"al": "Yearning: The unbeautiful after",
+"y": 2026
+},
 "o1cD17A3H0k": {
 "al": "Necropolis",
 "y": 2009
@@ -2180,6 +2342,9 @@
 },
 "oKdRLlOq9nU": {
 "miss": "2026-11-20"
+},
+"oawPn5VEaWg": {
+"miss": "2026-11-24"
 },
 "okjbuPE7OX8": {
 "al": "Periphery",
@@ -2224,6 +2389,10 @@
 "al": "Welcome To Shell Town",
 "y": 2026
 },
+"pV_Pltul7qE": {
+"al": "United Abominations",
+"y": 2007
+},
 "pbg7bIMxEcM": {
 "al": "The King Is Fat 'n' Old",
 "y": 2010
@@ -2239,6 +2408,10 @@
 "q7baXE1MsC0": {
 "al": "Cancer Culture",
 "y": 2022
+},
+"qB82xnoX9XM": {
+"al": "Arriba la L",
+"y": 2026
 },
 "qIB_tQ3F_DU": {
 "al": "Wallflowers",
@@ -2259,6 +2432,10 @@
 "qSUwEiltXc0": {
 "al": "Everblack",
 "y": 2013
+},
+"qfbcI5UMGAs": {
+"al": "The Sick, the Dying… and the Dead!",
+"y": 2022
 },
 "qh-H671MH4s": {
 "al": "Concrete Jungle",
@@ -2543,6 +2720,10 @@
 "al": "Burn Eternal",
 "y": 2027
 },
+"w-SL2mZXLng": {
+"al": "Cloud Factory",
+"y": 2014
+},
 "w6J8wVYEhfE": {
 "al": "Sacrament",
 "y": 2006
@@ -2553,6 +2734,9 @@
 },
 "wBzFgGn8g2Y": {
 "miss": "2026-11-20"
+},
+"wLBGnDUg7t8": {
+"miss": "2026-11-24"
 },
 "wWmFLePAF24": {
 "al": "The Call",
@@ -2593,11 +2777,12 @@
 "wvR9_d901OE": {
 "miss": "2026-11-20"
 },
-"x3nqOGML6uo": {
-"miss": "2026-11-20"
-},
 "xA-qx8ht2j0": {
 "miss": "2026-11-20"
+},
+"xNGtIOGNWNE": {
+"al": "Crown in the Grave",
+"y": 2026
 },
 "xQoGnJs3o54": {
 "al": "Unleashed in the East: Live in Japan",
@@ -2614,6 +2799,10 @@
 "xghjnKMZOmw": {
 "al": "Unleashed in the East: Live in Japan",
 "y": 1993
+},
+"xl3xKemd5hc": {
+"al": "The Bestiary",
+"y": 2025
 },
 "xnS1Cbi9OSU": {
 "al": "The Great Southern Trendkill",
@@ -2638,6 +2827,9 @@
 "yRxg8yVhbQY": {
 "al": "Far Beyond Driven",
 "y": 1994
+},
+"yTMekmMCIyk": {
+"miss": "2026-11-24"
 },
 "yUg99Ryrk00": {
 "al": "Exhibit B: The Human Condition",
@@ -2682,6 +2874,10 @@
 "zgychWIo6UA": {
 "al": "Magma",
 "y": 2016
+},
+"zhasTtlEoLs": {
+"al": "Social Apocalypse",
+"y": 2027
 },
 "zpOlgWZ2oSw": {
 "al": "Clear",
