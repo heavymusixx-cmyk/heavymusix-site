@@ -609,3 +609,25 @@ body.popout #hmx-dock .dock-video{min-width:200px;min-height:200px}
 .vdet a:focus-visible{outline:3px solid var(--blood-text);outline-offset:2px}
 ul.shows .sinfo .vdet span{opacity:1}
 ul.morenews li .vdet{margin-top:8px}
+
+/* ---- Polish pass, Nov 24, 2026 ---- */
+/* Outline buttons: the cut-corner shape clipped two corners off the outline, so it looked broken. Draw the two diagonal edges back in. */
+.btn.ghost,.hero .btn.ghost,body section:not(.hero) .btn.ghost{background:
+  linear-gradient(to top right,transparent calc(50% - .8px),var(--bone-dim) calc(50% - .8px),var(--bone-dim) calc(50% + .8px),transparent calc(50% + .8px)) top right/12px 12px no-repeat,
+  linear-gradient(to top right,transparent calc(50% - .8px),var(--bone-dim) calc(50% - .8px),var(--bone-dim) calc(50% + .8px),transparent calc(50% + .8px)) bottom left/12px 12px no-repeat}
+/* Arizona shows: date block lines up with the band names instead of floating mid-row */
+ul.shows li{align-items:flex-start}
+ul.shows .sdate{margin-top:2px}
+/* Home on phones: the 3 newest stories, then "All news" (the page was ~10,000px tall) */
+@media (max-width:700px){#latest>:nth-child(n+4){display:none}}
+/* Home on computers: headline and radio side by side, so the radio is on the first screen */
+@media (min-width:1000px){
+  body:not(.az) section.hero .wrap:has(>.player){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);column-gap:56px;align-items:start}
+  body:not(.az) section.hero .wrap:has(>.player)>*{grid-column:1}
+  body:not(.az) section.hero .wrap:has(>.player)>.player{grid-column:2;grid-row:1/span 4;margin-top:8px;align-self:center}
+  body:not(.az) section.hero .wrap:has(>.player)>.jump{grid-column:1/-1}
+  body:not(.az) section.hero .wrap:has(>.player) h1{font-size:clamp(64px,7.2vw,118px)}
+  body:not(.az) section.hero .wrap:has(>.player) .pc-title{font-size:clamp(44px,5vw,76px)}
+}
+/* Holiday skins: keep the quick-jump buttons clear of the mascot art in the hero's bottom-right corner */
+@media (min-width:900px){html:is([data-skin="halloween"],[data-skin="christmas"],[data-skin="newyear"],[data-skin="july4"],[data-skin="thanksgiving"],[data-skin="valentine"],[data-skin="stpatrick"]) body:not(.az) section.hero .jump{max-width:calc(100% - 250px)}}
