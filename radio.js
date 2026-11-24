@@ -461,46 +461,71 @@
   });
 
 
-  /* Our own playlist: every listener gets a personal shuffle of the WHOLE song list (all songs, any size),
-     with bands spread out (no band again until several others have played). Nothing repeats until every
-     song has played; then it reshuffles. New songs added to the playlist slot in after the current song. */
-  var ORDER = 'hmxOrder';
-  function bandSpread(ids){
+  /* Our own playlist: every listener gets a personal shuffle of the WHOLE song list (all songs, any size).
+     Bands are spread EVENLY (same method as the YouTube reshuffle): each band's songs get evenly spaced
+     spots across the pass, and a band waits up to 20 songs before playing again (bands with lots of songs
+     wait a little less so they still fit), never twice in a row. Nothing repeats until every song has
+     played; then it reshuffles, remembering the last bands heard so the new pass doesn't start with them.
+     New songs added to the playlist slot in after the current song, away from their own band. */
+  var ORDER = 'hmxOrder', ORDER_VER = 2, GAP = 20;
+  function bandKey(v){ var s = SONGS[v] || {}; return s.b || (s.n || v).toLowerCase(); }
+  function shuffleArr(a){ for (var i = a.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function bandSpread(ids, recent){   // recent = band keys heard just before this stretch (oldest first)
     var by = {}, bands = [];
-    ids.forEach(function(v){ var b = ((SONGS[v] || {}).n || v).toLowerCase(); if (!by[b]){ by[b] = []; bands.push(b); } by[b].push(v); });
-    bands.forEach(function(b){ var a = by[b]; for (var i = a.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } });
-    var out = [], recent = [], gap = Math.min(8, Math.max(0, bands.length - 1));
-    while (out.length < ids.length){
-      var pool = bands.filter(function(b){ return by[b].length && recent.indexOf(b) < 0; });
-      if (!pool.length) pool = bands.filter(function(b){ return by[b].length; });
-      var total = 0; pool.forEach(function(b){ total += by[b].length; });
-      var r = Math.random() * total, pick = pool[0];
-      for (var k = 0; k < pool.length; k++){ r -= by[pool[k]].length; if (r < 0){ pick = pool[k]; break; } }
-      out.push(by[pick].shift()); recent.push(pick); if (recent.length > gap) recent.shift();
+    ids.forEach(function(v){ var b = bandKey(v); if (!by[b]){ by[b] = []; bands.push(b); } by[b].push(v); });
+    var spot = {}, wait = {}, lastAt = {}, left = ids.length, pos = 0;
+    bands.forEach(function(b){
+      var a = shuffleArr(by[b]), n = a.length, u = Math.random();
+      a.forEach(function(v, j){ spot[v] = (j + u) / n; });
+      wait[b] = Math.max(1, Math.min(GAP, Math.floor(0.75 * left / n)));
+    });
+    (recent || []).forEach(function(b, i, r){ lastAt[b] = i - r.length; });   // negative spots: heard before this pass
+    var out = [];
+    while (left){
+      var active = bands.filter(function(b){ return by[b].length; }), cap = active.length - 1;
+      var ok = cap > 0 ? active.filter(function(b){ return !(b in lastAt) || pos - lastAt[b] - 1 >= Math.min(wait[b], cap); }) : [];
+      if (!ok.length) ok = active.filter(function(b){ return lastAt[b] !== pos - 1; });
+      if (!ok.length) ok = active;
+      var pick = ok[0];
+      ok.forEach(function(b){ if (spot[by[b][0]] < spot[by[pick][0]]) pick = b; });
+      out.push(by[pick].shift()); lastAt[pick] = pos; pos++; left--;
     }
     return out;
   }
-  function personalOrder(){
+  function bandsBefore(ids, i){ return ids.slice(Math.max(0, i - GAP + 1), i + 1).map(bandKey); }   // bands of the last GAP songs up to spot i
+  function slotIn(ids, v, from){   // put a new song somewhere after `from`, at least 5 songs away from its own band
+    var b = bandKey(v), room = ids.length - from, at = ids.length;
+    for (var t = 0; t < 40; t++){
+      var c = from + Math.floor(Math.random() * Math.max(1, room)), clear = true;
+      for (var k = Math.max(0, c - 5); k < Math.min(ids.length, c + 5); k++) if (bandKey(ids[k]) === b){ clear = false; break; }
+      if (clear){ at = c; break; }
+    }
+    ids.splice(Math.min(at, ids.length), 0, v);
+  }
+  function personalOrder(recent){
     var all = (catalog || []).filter(function(v){ return !BAD[v]; });
     if (!all.length) return [];
     var o = null; try { o = JSON.parse(localStorage.getItem(ORDER) || 'null'); } catch (x) {}
     var ids = o && o.ids ? o.ids : null;
-    if (!ids){ ids = bandSpread(all); }
+    if (!ids){ ids = bandSpread(all, recent); }
     else {
       var have = {}; all.forEach(function(v){ have[v] = 1; });
       ids = ids.filter(function(v){ return have[v]; });                       // drop songs removed from the playlist
+      var p = savedPos(); p = p === null ? -1 : Math.min(p, ids.length - 1);
+      if (o.ver !== ORDER_VER && p + 1 < ids.length)                          // order made by the old shuffle: re-deal what's left
+        ids = ids.slice(0, p + 1).concat(bandSpread(ids.slice(p + 1), p >= 0 ? bandsBefore(ids, p) : []));
       var inList = {}; ids.forEach(function(v){ inList[v] = 1; });
       var fresh = all.filter(function(v){ return !inList[v]; });              // new songs: slot them in after the listener's spot
-      if (fresh.length){
-        var p = savedPos(); p = p === null ? 0 : Math.max(0, p + 1);
-        fresh = bandSpread(fresh);
-        fresh.forEach(function(v, i){ var at = Math.min(ids.length, p + 1 + Math.floor(Math.random() * Math.max(1, ids.length - p))); ids.splice(at, 0, v); });
-      }
+      shuffleArr(fresh).forEach(function(v){ slotIn(ids, v, Math.max(0, p + 2)); });
     }
-    try { localStorage.setItem(ORDER, JSON.stringify({ids: ids, made: (o && o.made) || Date.now()})); } catch (x) {}
+    try { localStorage.setItem(ORDER, JSON.stringify({ids: ids, ver: ORDER_VER, made: (o && o.ids && o.made) || Date.now()})); } catch (x) {}
     return ids;
   }
-  function reshuffle(){ try { localStorage.removeItem(ORDER); } catch (x) {} return personalOrder(); }
+  function reshuffle(prev){   // prev = the order just finished, so the new pass doesn't open with the same bands
+    var recent = prev && prev.length ? bandsBefore(prev, prev.length - 1) : [];
+    try { localStorage.removeItem(ORDER); } catch (x) {}
+    return personalOrder(recent);
+  }
   var orderCache = null;
   function goodSongs(){ if (!orderCache) orderCache = personalOrder(); return orderCache; }
   function savedPos(){ try { var p = JSON.parse(localStorage.getItem(POS) || 'null'); return p && typeof p.i === 'number' ? p.i : null; } catch (x) { return null; } }
@@ -512,7 +537,7 @@
       player.loadPlaylist({list: PL, listType: 'playlist', index: 0});
       player.setLoop(true); return;
     }
-    if (from >= list.length){ orderCache = reshuffle(); list = orderCache; from = 0; savePos(-1); }   // heard every song: new full shuffle
+    if (from >= list.length){ orderCache = reshuffle(list); list = orderCache; from = 0; savePos(-1); }   // heard every song: new full shuffle
     from = ((from % list.length) + list.length) % list.length;
     chunkStart = from;
     var ids = list.slice(from, from + CHUNK);
