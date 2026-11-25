@@ -220,7 +220,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--max", type=int, default=5)
-    ap.add_argument("--pull-back", type=int, default=10, help="robot-added songs moved from Radio back to review per day")
+    ap.add_argument("--pull-back", type=int, default=0, help="robot-added songs moved from Radio back to review per day")
     a = ap.parse_args()
     data = json.load(open(QUEUE, encoding="utf-8"))
     left = [q for q in data["songs"] if q.get("status") in ("queued", "failed", "pull_back")]
