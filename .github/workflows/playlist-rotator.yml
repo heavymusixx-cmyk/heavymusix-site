@@ -43,7 +43,7 @@ jobs:
         run: python rotator/roots_move.py --apply
       - name: Send new songs to the HeavyMusix New Songs review playlist (up to 5 a day, each song only once)
         continue-on-error: true
-        run: python rotator/add_songs.py --apply --max 5
+        run: python rotator/add_songs.py --apply --max 5 --pull-back 10
       - name: Reshuffle the playlist (budget lowered by the songs just added, to stay inside YouTube's daily limit)
         run: |
           ADDED=$(cat rotator/added_today.txt 2>/dev/null || echo 0)
