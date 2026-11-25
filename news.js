@@ -929,7 +929,7 @@ var NEWS = [
     title: "Welcome to heavymusix.com (work in progress)",
     text: [
       "HeavyMusix is being built in public, and this site is the new home base.",
-      "HeavyMusix Radio is live right now on the home page. Coming soon: the Band Survival Kit animated series, merch and band tools in the shop, and features on hand-picked unsigned bands.",
+      "HeavyMusix Radio is live right now on the home page. Coming soon: the Band Survival Kit animated comedy, HeavyMusix shirts and stickers, and features on hand-picked unsigned bands.",
       "Follow @heavymusixradio on Instagram and Threads to see each piece as it lands."
     ]
   },
@@ -938,9 +938,9 @@ var NEWS = [
     tag: "Coming soon",
     title: "Band Survival Kit: an animated series for unsigned bands",
     text: [
-      "Meet Grave Budget: a broke Phoenix metal band learning to run like a business the hard way.",
-      "Each episode covers one real problem: finding members, splitting money, budgeting, contracts, merch, booking, and not getting ripped off. Each one comes with a free checklist right here on the site.",
-      "Episode 1, \"Wanted: Screamer,\" is in production."
+      "Band Survival Kit is an animated comedy for metal bands, packed with truth nuggets about the music business.",
+      "Each episode takes on one real problem bands run into, from money and contracts to booking and not getting ripped off, and comes with a free checklist right here on the site.",
+      "The first episode is in production."
     ]
   },
   {
