@@ -38,11 +38,11 @@
 <section class="hero"><div class="wrap">
   <p class="kicker">Free, once a week</p>
   <h1>Get the HeavyMusix email</h1>
-  <p class="lead">The week&rsquo;s biggest metal news, Arizona shows coming up, what&rsquo;s new on HeavyMusix, and first word when band submissions open, merch drops and the Radio Show goes live.</p>
+  <p class="lead">The week&rsquo;s biggest metal news, Arizona shows coming up, what&rsquo;s new on HeavyMusix, and first word when band submissions open, merch drops and the Radio Show goes live. Sign up now and you&rsquo;re on the list for the very first one.</p>
   <div id="signup" class="signup">
     <p class="callout" id="signup-soon" role="status"><strong>Sign-ups open very soon.</strong> The HeavyMusix email is built and almost ready. Check back in a few days, or put HeavyMusix on your phone so you don&rsquo;t forget.</p>
     <div class="btns">
-      <a class="btn" id="signup-btn" href="newsletter.html" hidden>Sign me up</a>
+      <a class="btn" id="signup-btn" href="newsletter.html" aria-label="Sign me up, free (opens in a new tab)" hidden>Sign me up (free)</a>
       <button type="button" class="btn ghost" data-install>Get the HeavyMusix app</button>
     </div>
   </div>
@@ -72,9 +72,9 @@
 </div></section>
 
 <script>
-/* When the sign-up form is ready, put its link here and the button appears. */
+/* Brevo sign-up form (HeavyMusix Fans list, double opt-in). Clear SIGNUP to hide the button. */
 (function(){
-  var SIGNUP = "";
+  var SIGNUP = "https://30fca79f.sibforms.com/serve/MUIFAHFPPTTndp_xDILGvRpWTQeLUCB6yhpGYwt2lPJ2nlMagXgNOg_gE4Wj8abuD9FZaJuwwzyXBbwrtuU7eg7I_xPua-172m60leXIIFm9PpJ0HWMAPMDTgvgyfJIBZ-sA97CYJV2HLJR1pZNuP_FQyW0scEmuEZeZmNm7wIpJKLUEIqo6yPTMrauqfWcwTk8pt6b0xUqERXbLtw";
   if (!SIGNUP) return;
   var b = document.getElementById("signup-btn"), soon = document.getElementById("signup-soon");
   if (b){ b.href = SIGNUP; b.target = "_blank"; b.rel = "noopener"; b.hidden = false; }
