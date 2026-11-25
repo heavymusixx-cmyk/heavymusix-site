@@ -2,7 +2,8 @@ name: Playlist reshuffle
 
 # Reshuffles the HeavyMusix Radio playlist on YouTube every morning
 # Version 3: rolling reshuffle of the whole playlist, ~180 songs a day, bands spread evenly.
-# Also adds owner-approved songs from rotator/add_queue.json, up to 20 a day, before reshuffling.
+# Also sends new songs from rotator/add_queue.json, up to 20 a day, to the private "HeavyMusix New Songs" review playlist
+# (never straight into HeavyMusix Radio: Heavy adds the keepers by hand). Each song is sent only once, ever.
 # Runs on GitHub's computers, so your laptop can stay off.
 on:
   schedule:
@@ -40,7 +41,7 @@ jobs:
       - name: Move classical/jazz songs into the private HeavyMusix Roots playlist (only when some are waiting)
         continue-on-error: true
         run: python rotator/roots_move.py --apply
-      - name: Add approved new songs (up to 20 a day, from rotator/add_queue.json)
+      - name: Send new songs to the HeavyMusix New Songs review playlist (up to 20 a day, each song only once)
         continue-on-error: true
         run: python rotator/add_songs.py --apply --max 20
       - name: Reshuffle the playlist (budget lowered by the songs just added, to stay inside YouTube's daily limit)
@@ -56,7 +57,7 @@ jobs:
         run: |
           git config user.name "HeavyMusix Playlist Bot"
           git config user.email "playlist-bot@users.noreply.github.com"
-          git add rotator/rotator_memory.json rotator/add_queue.json rotator/roots_pending.json rotator/remove_queue.json; [ -f rotator/roots_playlist.txt ] && git add rotator/roots_playlist.txt || true
+          git add rotator/rotator_memory.json rotator/add_queue.json rotator/roots_pending.json rotator/remove_queue.json; [ -f rotator/roots_playlist.txt ] && git add rotator/roots_playlist.txt || true; [ -f rotator/review_playlist.txt ] && git add rotator/review_playlist.txt || true
           if git diff --cached --quiet; then
             echo "Nothing to save."
           else

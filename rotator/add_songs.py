@@ -1,5 +1,8 @@
 """
-Adds songs from add_queue.json to the HeavyMusix Radio playlist, a few a day.
+Sends new songs from add_queue.json to the private "HeavyMusix New Songs" review playlist, a few a day.
+Owner's rule (Nov 24, 2026): the robot never adds songs to HeavyMusix Radio itself. Heavy listens to the
+review playlist and adds or deletes songs himself. A song is sent only once, ever: if he deletes it from the
+review playlist, it is never sent again (add_queue.json keeps the history). There is no "never" list here.
 
 Why a few a day: YouTube gives the playlist robot about 10,000 "units" a day. The morning
 reshuffle uses about 9,000 (each moved song costs 50). Adding a song also costs 50, so this
@@ -15,6 +18,10 @@ Usage:  python add_songs.py --apply [--max 20]     (without --apply it only show
 import argparse, json, os, re, sys, time, unicodedata
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+REVIEW_FILE = os.path.join(HERE, "review_playlist.txt")
+REVIEW_TITLE = "HeavyMusix New Songs"
+REVIEW_DESC = "New songs for Heavy to check. Add the keepers to HeavyMusix Radio by hand; delete the rest. Each song is sent here only once."
+SENT = ("sent", "added", "already_there")   # statuses that mean this song was already handled once
 QUEUE = os.path.join(HERE, "add_queue.json")
 COUNT = os.path.join(HERE, "added_today.txt")
 sys.path.insert(0, HERE)
@@ -25,18 +32,6 @@ def norm(s):
     s = re.sub(r"\((?:[^)]*(?:remaster|live|official|video|audio|lyric|version|edit|explicit|feat|ft\.)[^)]*)\)|\[[^\]]*\]", "", s)
     s = re.sub(r"\b(feat|ft)\.?\s.*$", "", s)
     return re.sub(r"[^a-z0-9]", "", s.replace("&", "and"))
-
-
-def owner_blocks():
-    """Songs and bands the owner removed (remove_queue.json): (video ids, (band, song) pairs, bands), all normalized."""
-    try:
-        d = json.load(open(os.path.join(HERE, "remove_queue.json"), encoding="utf-8"))
-    except (OSError, ValueError):
-        return set(), set(), set()
-    songs = d.get("songs", [])
-    return ({s.get("v") for s in songs if s.get("v")},
-            {(norm(s["band"]), norm(s["song"])) for s in songs},
-            {norm(b["band"]) for b in d.get("blocked_bands", [])})
 
 
 def first_band(band):
@@ -94,25 +89,54 @@ def roots_bands():
         return set()
 
 
-def run(yt, playlist_id, search, queue, max_add, apply, fetch_items):
-    """Adds up to max_add queued songs. Returns how many were added. Updates queue in place."""
-    have_vids, have_titles = set(), set()
-    for it in fetch_items(yt, playlist_id):
-        sn = it.get("snippet", {})
-        have_vids.add(sn.get("resourceId", {}).get("videoId"))
-        have_titles.add(norm(sn.get("title", "")))
+def review_id(yt, apply):
+    """The private review playlist: from review_playlist.txt, else one with that title, else a new one."""
+    if os.path.exists(REVIEW_FILE):
+        pid = open(REVIEW_FILE, encoding="utf-8").read().strip()
+        if pid:
+            return pid
+    token = None
+    while True:
+        r = yt.playlists().list(part="snippet", mine=True, maxResults=50, pageToken=token).execute()
+        for p in r.get("items", []):
+            if p["snippet"]["title"] == REVIEW_TITLE:
+                open(REVIEW_FILE, "w", encoding="utf-8").write(p["id"] + "\n")
+                return p["id"]
+        token = r.get("nextPageToken")
+        if not token:
+            break
+    if not apply:
+        print(f"   would create the private playlist \"{REVIEW_TITLE}\"")
+        return None
+    p = yt.playlists().insert(part="snippet,status", body={
+        "snippet": {"title": REVIEW_TITLE, "description": REVIEW_DESC},
+        "status": {"privacyStatus": "private"}}).execute()
+    open(REVIEW_FILE, "w", encoding="utf-8").write(p["id"] + "\n")
+    print(f"   created private playlist \"{REVIEW_TITLE}\": https://www.youtube.com/playlist?list={p['id']}")
+    return p["id"]
+
+
+def run(yt, playlist_id, search, queue, max_add, apply, fetch_items, main_id=None):
+    """Sends up to max_add queued songs to the review playlist (playlist_id). Returns how many were sent.
+    Never sends a song twice: skips anything sent before (even if Heavy deleted it since), anything
+    already in HeavyMusix Radio (main_id) and anything already in the review playlist."""
+    have_vids = set()
+    for pid in (playlist_id, main_id):
+        if pid:
+            for it in fetch_items(yt, pid):
+                have_vids.add(it.get("snippet", {}).get("resourceId", {}).get("videoId"))
+    done_vids = {q.get("videoId") for q in queue if q.get("status") in SENT and q.get("videoId")}
+    done_songs = {(norm(first_band(q["band"])), norm(q["song"])) for q in queue if q.get("status") in SENT}
     added, blank = 0, 0
     roots = roots_bands()
-    blocked_vids, blocked_songs, blocked_bands = owner_blocks()
     for q in queue:
         if added >= max_add:
             break
         if q.get("status") not in ("queued", "failed"):
             continue
-        if (q.get("videoId") in blocked_vids or (norm(first_band(q["band"])), norm(q["song"])) in blocked_songs
-                or norm(first_band(q["band"])) in blocked_bands):   # the owner took these off: never add back
-            q["status"] = "blocked"
-            print(f"   blocked by the owner, not added: {q['band']} - {q['song']}")
+        key = (norm(first_band(q["band"])), norm(q["song"]))
+        if key in done_songs:   # sent once already (maybe deleted by Heavy since): never again
+            q["status"] = "duplicate"
             continue
         if norm(first_band(q["band"])) in roots:   # classical/jazz never go in the main playlist
             q["status"] = "held_roots"
@@ -130,20 +154,22 @@ def run(yt, playlist_id, search, queue, max_add, apply, fetch_items):
             q["status"] = "not_found"
             print(f"   not found (add by hand if you want it): {q['band']} - {q['song']}")
             continue
-        if vid in have_vids:
+        if vid in have_vids or vid in done_vids:
             q["status"], q["videoId"] = "already_there", vid
+            done_songs.add(key)
             continue
         if not apply:
-            print(f"   would add: {q['band']} - {q['song']} ({vid})")
+            print(f"   would send for review: {q['band']} - {q['song']} ({vid})")
+            done_songs.add(key)
             added += 1
             continue
         try:
             yt.playlistItems().insert(part="snippet", body={"snippet": {
                 "playlistId": playlist_id, "resourceId": {"kind": "youtube#video", "videoId": vid}}}).execute()
-            q["status"], q["videoId"] = "added", vid
-            have_vids.add(vid)
+            q["status"], q["videoId"] = "sent", vid
+            have_vids.add(vid); done_vids.add(vid); done_songs.add(key)
             added += 1
-            print(f"   added: {q['band']} - {q['song']}")
+            print(f"   sent for review: {q['band']} - {q['song']}")
         except Exception as e:
             msg = str(e)
             q["status"] = "failed"
@@ -167,14 +193,18 @@ def main():
         return
     import playlist_rotator as R
     yt = R.youtube_client(scheduled=True)
-    pid = R.extract_id(open(R.LINK_FILE).read())
-    n = run(yt, pid, ytmusic_search(), data["songs"], a.max, a.apply, R.fetch_items)
+    main_id = R.extract_id(open(R.LINK_FILE).read())
+    pid = review_id(yt, a.apply)
+    if not pid:
+        print("No review playlist yet (dry run); nothing sent.")
+        return
+    n = run(yt, pid, ytmusic_search(), data["songs"], a.max, a.apply, R.fetch_items, main_id)
     open(COUNT, "w").write(str(n if a.apply else 0))
     json.dump(data, open(QUEUE, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
     s = {}
     for q in data["songs"]:
         s[q["status"]] = s.get(q["status"], 0) + 1
-    print(f"Added today: {n}. Queue now: " + ", ".join(f"{v} {k}" for k, v in sorted(s.items())))
+    print(f"Sent for review today: {n}. Queue now: " + ", ".join(f"{v} {k}" for k, v in sorted(s.items())))
 
 
 if __name__ == "__main__":
