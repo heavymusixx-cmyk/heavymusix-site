@@ -1,5 +1,5 @@
 {
- "_about": "New songs for Heavy to review (Liquid Metal + Full Metal Jackie scout). Owner's rule, Nov 24, 2026: add_songs.py sends up to 20 a day to the private \"HeavyMusix New Songs\" review playlist, never into HeavyMusix Radio; Heavy adds keepers to HeavyMusix Radio and deletes the rest himself. Each song is sent only once, ever: this file is the history, so a song he deleted is never sent again. status: queued, sent (to review), added (older: went straight into Radio before Nov 24), already_there, duplicate, not_found, failed, held_roots.",
+ "_about": "New songs for Heavy to review (Liquid Metal + Full Metal Jackie scout). Owner's rule, Nov 24, 2026: add_songs.py sends up to 5 a day to the private \"HeavyMusix New Songs\" review playlist, never into HeavyMusix Radio; Heavy adds keepers to HeavyMusix Radio and deletes the rest himself. Each song is sent only once, ever: this file is the history, so a song he deleted is never sent again. status: queued, sent (to review), added (older: went straight into Radio before Nov 24), already_there, duplicate, not_found, failed, held_roots.",
  "songs": [
   {
    "band": "Machine Head",
