@@ -27,7 +27,7 @@ AZ = dt.timezone(dt.timedelta(hours=-7))
 # Channel names that are not the band's own name
 ALIASES = {
     "Jinjer Metal Band": "Jinjer", "Jinjer Metal Band and Napalm Records": "Jinjer",
-    "Dr. Otep Shamaya, Esquire": "Otep", "Cryptopsy Official": "Cryptopsy",
+    "Dr. Otep Shamaya, Esquire": "Otep", "Cryptopsy Official": "Cryptopsy", "OfficialClutch": "Clutch", "Orbit Culture Official": "Orbit Culture",
     "HAVOKband": "Havok", "Spiritbox Official": "Spiritbox", "Annihilator Official": "Annihilator",
     "Diamond Head Official": "Diamond Head", "OfficialIcedEarth": "Iced Earth",
     "Body Count Band Official": "Body Count", "ANALEPSY Official": "Analepsy",

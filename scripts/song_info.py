@@ -94,7 +94,7 @@ def main():
         if not v or not s.get("t") or not s.get("n"):
             continue
         have = info.get(v)
-        if have and have.get("al"):
+        if have and (have.get("al") or have.get("y")):   # a year filled in by hand counts as found
             continue
         if have and have.get("miss"):
             try:
