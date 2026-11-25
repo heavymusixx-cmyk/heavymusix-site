@@ -4,6 +4,7 @@ Run by the "Brand images" workflow (it downloads the free Metal Mania font, SIL 
 Writes images/brand/: profile.png (1080 square, stacked, fits a round profile crop),
 playlist.png (1280 square, for the YouTube Music playlist cover) and banner.png (1500x500).
 """
+import os
 import sys
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
@@ -68,6 +69,7 @@ def small(im, text, size, cx, cy, color=BONE, spacing=.35):
         x += d.textlength(c, font=f) + size * spacing
 
 
+os.makedirs("images/brand", exist_ok=True)
 im = canvas(1080, 1080)
 words(im, [[("Heavy", BONE)], [("Musix", RED)]], 300, 540, 540, gap=-40, maxw=700)   # stays inside a round crop
 im.save("images/brand/profile.png")
