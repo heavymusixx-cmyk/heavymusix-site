@@ -71,8 +71,14 @@ var HISTORY = {
   ],
   "11-25": [
     {year: 1972, type: "Born", text: "Lamb of God guitarist Mark Morton is born in Williamsburg, Virginia.", band: "lamb-of-god", source: "Wikipedia, This Day In Metal"},
+    {year: 1989, type: "Event", text: "Alice Cooper's \"Poison\", the lead single from \"Trash\", peaks at No. 7 on the Billboard Hot 100, his last US top-ten single.", band: "", source: "Metal Shop Radio, Metal Odyssey"},
     {year: 1990, type: "Event", text: "Judas Priest's \"Painkiller\" tour, with Megadeth and Testament on the North American leg, plays the Omaha Civic Auditorium.", band: "judas-priest", source: "Wikipedia, Metal Shop Radio"},
     {year: 2007, type: "Remembering", text: "Quiet Riot singer Kevin DuBrow is found dead at his Las Vegas home, aged 52.", band: "", source: "Blabbermouth, Wikipedia"},
     {year: 2014, type: "Album", text: "Ireland's Primordial release their eighth album, \"Where Greater Men Have Fallen\", on Metal Blade.", band: "", source: "Wikipedia, The Obelisk"}
+  ],
+  "11-26": [
+    {year: 1983, type: "Event", text: "Quiet Riot's \"Metal Health\" reaches No. 1 on the Billboard 200, the first heavy metal album to top that chart.", band: "", source: "WCSX, Metal Odyssey"},
+    {year: 1983, type: "Event", text: "Black Sabbath's \"Born Again\" tour, with Quiet Riot opening, plays the Arizona Veterans Memorial Coliseum in Phoenix.", band: "black-sabbath", source: "Metal Odyssey, Black-Sabbath.com"},
+    {year: 2013, type: "Album", text: "Deicide release their 11th studio album, \"In the Minds of Evil\", on Century Media.", band: "", source: "This Day In Metal, Dead Rhetoric"}
   ]
 };

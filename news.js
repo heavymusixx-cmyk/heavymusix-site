@@ -6,6 +6,49 @@
 */
 var NEWS = [
   {
+    date: "2026-11-25",
+    tag: "Tours",
+    title: "Beyond Creation will play \"The Aura\" in full on a 2027 North American tour with Decrepit Birth and Vulvodynia, including Mesa on February 20",
+    text: [
+      "Montreal tech-death band Beyond Creation are marking 15 years of their debut album \"The Aura\" by playing it front to back across North America for the first time. Decrepit Birth and Vulvodynia are on every date of the run, which starts February 7 in Detroit and reaches Montreal on March 5, with more dates still to be announced.",
+      "Arizona gets the 11th of the 22 announced shows: Saturday, February 20, 2027 at The Rosetta Room in Mesa, between West Hollywood and Albuquerque. Tickets go on sale Friday, November 27 at noon local time.",
+      "The band will also play \"Reverence\", their first new song in eight years, every night. They are working on a fourth album, and a 15th-anniversary double vinyl reissue of \"The Aura\" is out now on Season of Mist.",
+      "Source: Season of Mist"
+    ]
+  },
+  {
+    date: "2026-11-25",
+    tag: "World",
+    title: "Poland's Mgła surprise-release fifth album \"Traitors to the Human Cause\", their first in seven years",
+    text: [
+      "Kraków black metal duo Mgła dropped their fifth full-length, \"Traitors to the Human Cause\", on November 24 with no warning and no promo run, the way fans have come to expect from them. It is their first studio album since \"Age of Excuse\" in 2019.",
+      "The record runs seven tracks and about 42 minutes, closing with the eight-minute title track. M handles guitars, bass and vocals and Darkside plays drums. It is out now digitally on the band's own No Solace label, with the CD shipping around December 7 and cassette and vinyl planned for 2027.",
+      "Mgła are already booked for a run of 2027 European festivals, including Inferno in Oslo, Ragnarök in Germany, Brutal Assault in the Czech Republic and Party.San.",
+      "Source: The MetalList, Chaoszine"
+    ]
+  },
+  {
+    date: "2026-11-25",
+    tag: "Tours",
+    title: "Paradise Lost celebrate 40 years with \"The Final Ascension\" European tour in November 2027, with Voivod and Dool",
+    text: [
+      "British doom-death pioneers Paradise Lost will mark their 40th year with \"The Final Ascension\", a November 2027 European tour that the band frames as closing a chapter. Canadian sci-fi thrash veterans Voivod and Dutch band Dool are the support.",
+      "The run opens in Dublin on November 4 and takes in Glasgow, Lisbon, London, Paris, Tilburg, Düsseldorf, Brno, Dresden and Munich, with one date still to be announced. The set will draw on \"Ascension\", the band's 17th album, released in 2025.",
+      "An artist presale opens today, November 25, at 10 a.m. GMT for the band's mailing list, and general sale starts Friday, November 27.",
+      "Source: Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-25",
+    tag: "Throwback",
+    title: "On this day in metal: Alice Cooper's \"Poison\" peaks at No. 7 on the Billboard Hot 100 (1989)",
+    text: [
+      "On November 25, 1989, Alice Cooper's \"Poison\" reached its peak of No. 7 on the Billboard Hot 100, the high point of his late-'80s comeback and his last trip into the US top ten.",
+      "The song was the lead single from his 18th album, \"Trash\", released by Epic in July 1989. Cooper wrote it with Desmond Child and John McCurry, and Child produced it.",
+      "Source: Metal Shop Radio, Metal Odyssey, Wikipedia"
+    ]
+  },
+  {
     date: "2026-11-24",
     tag: "Tours",
     title: "Iron Maiden close their 2026 run in Yokohama tonight; one last North American leg comes in spring, with Phoenix on April 26",
