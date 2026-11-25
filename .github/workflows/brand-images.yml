@@ -1,0 +1,24 @@
+name: Brand images
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - name: Get the Metal Mania font (free, SIL Open Font License)
+        run: curl -sSfL -o /tmp/MetalMania-Regular.ttf https://raw.githubusercontent.com/google/fonts/main/ofl/metalmania/MetalMania-Regular.ttf
+      - run: python scripts/brand_images.py /tmp/MetalMania-Regular.ttf
+      - name: Commit
+        run: |
+          git config user.name "HeavyMusix"
+          git config user.email "heavymusixx-cmyk@users.noreply.github.com"
+          git add images/brand
+          git diff --cached --quiet || git commit -m "Brand images: header-style logo for profiles and the playlist"
+          git pull --rebase origin main && git push
