@@ -639,3 +639,10 @@ ul.aztime li{padding:16px 0 16px 18px;border-left:3px solid var(--blood-text);bo
 ul.aztime li::before{content:"";position:absolute;left:-9px;top:21px;width:15px;height:15px;background:var(--blood-text);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
 ul.aztime li>strong{font-size:19px}
 ul.aztime .wsrc{font-size:13px;opacity:.75;margin-top:4px}
+
+/* Brand line under the logo on every page (owner's pick, Nov 26, 2026) */
+.brand{display:flex;flex-direction:column;align-items:flex-start;min-width:0;line-height:1}
+.brand .logo{white-space:nowrap}
+.brand-tag{font:600 13px/1.2 var(--text);color:var(--bone);opacity:.9;letter-spacing:.02em;margin-top:5px;white-space:nowrap}
+@media (max-width:640px){header.site .wrap{flex-wrap:nowrap}.brand{flex:1 1 auto}.brand-tag{font-size:10.5px;margin-top:3px;white-space:normal;max-width:24ch}}
+.logo .tm{font:600 .32em/1 var(--text);vertical-align:super;margin-left:.08em;color:var(--bone);text-shadow:none;opacity:.85}
