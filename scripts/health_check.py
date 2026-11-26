@@ -200,6 +200,44 @@ try:
 except FileNotFoundError:
     notes.append("Robot run list not available here (no gh).")
 
+# 10. Brand watch (owner, Nov 26, 2026): every HeavyMusix domain stays paid and locked,
+# and the site's security certificate stays valid. Expiry soon = problem; unlocked = note.
+DOMAINS = ["heavymusix.com", "heavymusix.net", "heavymetalworld.com", "heavymetalworld.net",
+           "heavymusicworld.com", "heavymusicworld.net"]
+utcnow = datetime.datetime.now(datetime.timezone.utc)
+unlocked = []
+for d in DOMAINS:
+    tld = d.rsplit(".", 1)[1]
+    try:
+        req = urllib.request.Request(f"https://rdap.verisign.com/{tld}/v1/domain/{d}",
+                                     headers={"User-Agent": "HeavyMusix health check"})
+        info = json.load(urllib.request.urlopen(req, timeout=30))
+        exp = next((e["eventDate"] for e in info.get("events", []) if e.get("eventAction") == "expiration"), None)
+        if exp:
+            days = (datetime.datetime.fromisoformat(exp.replace("Z", "+00:00")) - utcnow).days
+            if days < 45:
+                problems.append(f"Domain {d} expires in {days} days: renew it in GoDaddy (turn Auto-renew on).")
+        if "client transfer prohibited" not in info.get("status", []):
+            unlocked.append(d)
+    except Exception as e:
+        notes.append(f"Could not check domain {d} ({e}).")
+if unlocked:
+    notes.append("Domains without the GoDaddy transfer lock: " + ", ".join(unlocked) + ".")
+else:
+    notes.append("All HeavyMusix domains are locked.")
+try:
+    import socket, ssl
+    with socket.create_connection(("heavymusix.com", 443), timeout=30) as s:
+        with ssl.create_default_context().wrap_socket(s, server_hostname="heavymusix.com") as t:
+            cert_end = datetime.datetime.strptime(t.getpeercert()["notAfter"], "%b %d %H:%M:%S %Y %Z")
+    cert_days = (cert_end.replace(tzinfo=datetime.timezone.utc) - utcnow).days
+    if cert_days < 14:
+        problems.append(f"The site's security certificate expires in {cert_days} days (GitHub Pages should renew it; check Settings > Pages).")
+    else:
+        notes.append(f"Security certificate good for {cert_days} more days.")
+except Exception as e:
+    problems.append(f"Could not check the site's security certificate ({e}).")
+
 report = ["# HeavyMusix health check", f"Checked {now.strftime('%Y-%m-%d %H:%M')} Arizona time.", ""]
 report += ["## Problems"] + [f"- {p}" for p in problems] + [""] if problems else ["All good."]
 report += ["## Details"] + [f"- {n}" for n in notes]
