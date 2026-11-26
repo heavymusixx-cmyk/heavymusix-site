@@ -143,7 +143,7 @@ if spell:
     problems.append("Misspelled names: " + "; ".join(sorted(spell)[:10]))
 # Outside links on phones must open in the same tab (a new tab is left as a blank white page when the phone hands the link to an app; owner, Nov 26, 2026)
 _rj = open("radio.js", encoding="utf-8").read()
-if "matchMedia('(pointer: coarse)')" not in _rj or "location.href = a.href" not in _rj:
+if "function isPhone()" not in _rj or "a.removeAttribute('target')" not in _rj or "if (isPhone()){ return; }" not in _rj:
     problems.append("radio.js lost the phone rule for outside links (same tab on phones, so Back never shows a blank white page). Put it back in the outside-link click handler.")
 # Arizona shows: every venue needs an address in venues.js so the show gets Directions (and tap-to-call when it has a phone)
 try:

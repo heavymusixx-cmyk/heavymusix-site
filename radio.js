@@ -774,21 +774,27 @@
     }).catch(function(){ location.href = url; });
   }
 
+  function isPhone(){ return matchMedia('(pointer: coarse)').matches && !matchMedia('(any-pointer: fine)').matches; }
+  /* Phones: take target="_blank" off outside links before the tap lands, so the phone opens them in this tab. */
+  function sameTabOnPhone(e){
+    if (!isPhone()) return;
+    var a = e.target && e.target.closest && e.target.closest('a[target]');
+    if (a && /^https?:/.test(a.href) && new URL(a.href).origin !== location.origin){ a.removeAttribute('target'); }
+  }
+  ['touchstart', 'pointerdown', 'click'].forEach(function(t){ document.addEventListener(t, sameTabOnPhone, {capture: true, passive: true}); });
+
   /* Outside links (news stories, YouTube, Instagram...) always open in a new tab,
      so HeavyMusix stays open and the music keeps playing. */
   document.addEventListener('click', function(e){
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     var a = e.target.closest('a');
     if (a && /^https?:/.test(a.href) && new URL(a.href).origin !== location.origin){
+      /* Phones and tablets: let the phone follow the link itself, in this same tab (no new tab, no script
+         navigation). A real tap on an Instagram, YouTube, Threads or Maps link hands it to the app and leaves
+         HeavyMusix open right where it was; any other site opens in this tab and Back returns here. A new tab
+         (or a script-made jump) was left behind as a blank white page (owner, Nov 26, 2026). */
+      if (isPhone()){ return; }
       e.preventDefault();
-      /* Phones and tablets: open outside links in this same tab. The phone often hands the link to an app
-         (YouTube, Instagram, Threads, Maps), and a new tab was left behind as an empty white page when the
-         fan came back. In the same tab, Back returns straight to HeavyMusix. (Phones pause the radio in a
-         background tab anyway, so a new tab gains nothing there.) Computers still get a new tab. */
-      if (matchMedia('(pointer: coarse)').matches && !matchMedia('(any-pointer: fine)').matches){
-        location.href = a.href;
-        return;
-      }
       window.open(a.href, '_blank', 'noopener');
       return;
     }
