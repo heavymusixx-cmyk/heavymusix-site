@@ -203,7 +203,7 @@ except FileNotFoundError:
 # 10. Brand watch (owner, Nov 26, 2026): every HeavyMusix domain stays paid and locked,
 # and the site's security certificate stays valid. Expiry soon = problem; unlocked = note.
 DOMAINS = ["heavymusix.com", "heavymusix.net", "heavymetalworld.com", "heavymetalworld.net",
-           "heavymusicworld.com", "heavymusicworld.net"]
+           "heavymusicworld.com"]  # heavymusicworld.net is not registered (checked Nov 26, 2026)
 utcnow = datetime.datetime.now(datetime.timezone.utc)
 unlocked = []
 for d in DOMAINS:
