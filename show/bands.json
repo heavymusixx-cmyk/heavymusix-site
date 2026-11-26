@@ -547,7 +547,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 2
+  "songs": 1
  },
  "machine-head": {
   "name": "Machine Head",
@@ -1471,7 +1471,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 0
  },
  "left-to-suffer": {
   "name": "Left to Suffer",
@@ -1515,7 +1515,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 0
  },
  "justifications": {
   "name": "Justifications",
@@ -1548,7 +1548,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 0
  },
  "falling-in-reverse": {
   "name": "Falling In Reverse",
@@ -1570,7 +1570,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 0
  },
  "peelingflesh": {
   "name": "PeelingFlesh",
@@ -1581,7 +1581,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 0
  },
  "saltwound": {
   "name": "Saltwound",
@@ -1592,7 +1592,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 0
  },
  "amon-amarth": {
   "name": "Amon Amarth",
@@ -1625,7 +1625,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 0
  },
  "starkill": {
   "name": "Starkill",
@@ -1636,7 +1636,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 0
  },
  "hatebreed": {
   "name": "Hatebreed",
@@ -1658,7 +1658,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 0
  },
  "orbit-culture-official": {
   "name": "Orbit Culture Official",
@@ -1669,7 +1669,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 0
  },
  "gideon": {
   "name": "Gideon",
@@ -1691,7 +1691,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 0
  },
  "to-the-grave": {
   "name": "To The Grave",
@@ -1702,7 +1702,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 0
  },
  "chained-saint": {
   "name": "Chained Saint",
@@ -1724,7 +1724,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 0
  },
  "forbidden": {
   "name": "Forbidden",
@@ -1746,7 +1746,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 0
  },
  "ice-nine-kills": {
   "name": "Ice Nine Kills",
@@ -1779,7 +1779,7 @@
   "unsigned": false,
   "links": {},
   "bio": "",
-  "songs": 1
+  "songs": 0
  },
  "ladrones": {
   "name": "Ladrones",
@@ -1852,6 +1852,17 @@
   "city": "",
   "region": "",
   "country": "",
+  "genre": "",
+  "unsigned": false,
+  "links": {},
+  "bio": "",
+  "songs": 1
+ },
+ "clutch": {
+  "name": "Clutch",
+  "city": "",
+  "region": "",
+  "country": "USA",
   "genre": "",
   "unsigned": false,
   "links": {},
