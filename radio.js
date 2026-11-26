@@ -781,9 +781,11 @@
     var a = e.target.closest('a');
     if (a && /^https?:/.test(a.href) && new URL(a.href).origin !== location.origin){
       e.preventDefault();
-      /* Map directions on phones: open in this same tab. The phone hands the link to the Maps app,
-         and a new tab would be left behind as an empty white page when the fan comes back. */
-      if (/^(www\.)?google\.[a-z.]+$|^maps\.apple\.com$/.test(new URL(a.href).hostname) && /\/maps|maps\.apple/.test(a.href) && matchMedia('(pointer: coarse)').matches){
+      /* Phones and tablets: open outside links in this same tab. The phone often hands the link to an app
+         (YouTube, Instagram, Threads, Maps), and a new tab was left behind as an empty white page when the
+         fan came back. In the same tab, Back returns straight to HeavyMusix. (Phones pause the radio in a
+         background tab anyway, so a new tab gains nothing there.) Computers still get a new tab. */
+      if (matchMedia('(pointer: coarse)').matches && !matchMedia('(any-pointer: fine)').matches){
         location.href = a.href;
         return;
       }
