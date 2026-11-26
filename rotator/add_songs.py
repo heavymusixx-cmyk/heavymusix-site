@@ -180,50 +180,13 @@ def run(yt, playlist_id, search, queue, max_add, apply, fetch_items, main_id=Non
     return added
 
 
-def pull_back(yt, review, main_id, queue, max_n, apply, fetch_items):
-    """Owner's request (Nov 24, 2026): songs the robot put straight into HeavyMusix Radio before the
-    review playlist existed (status "pull_back") are taken back out of Radio and put in the review
-    playlist, so Heavy can decide on each one again. Each costs 2 YouTube changes (add + delete).
-    Returns the number of YouTube changes made."""
-    todo = [q for q in queue if q.get("status") == "pull_back" and q.get("videoId")][:max_n]
-    if not todo:
-        return 0
-    in_main, in_review = {}, set()
-    for it in fetch_items(yt, main_id):
-        in_main.setdefault(it.get("snippet", {}).get("resourceId", {}).get("videoId"), []).append(it["id"])
-    for it in fetch_items(yt, review):
-        in_review.add(it.get("snippet", {}).get("resourceId", {}).get("videoId"))
-    changes = 0
-    for q in todo:
-        v = q["videoId"]
-        if not apply:
-            print(f"   would move back for review: {q['band']} - {q['song']}")
-            continue
-        try:
-            if v not in in_review:   # add to review first, so a song is never lost
-                yt.playlistItems().insert(part="snippet", body={"snippet": {
-                    "playlistId": review, "resourceId": {"kind": "youtube#video", "videoId": v}}}).execute()
-                in_review.add(v); changes += 1
-            for item_id in in_main.get(v, []):
-                yt.playlistItems().delete(id=item_id).execute()
-                changes += 1
-            q["status"] = "sent"
-            print(f"   moved back for review: {q['band']} - {q['song']}")
-        except Exception as e:
-            print(f"   could not move back {q['band']} - {q['song']}: {str(e)[:160]}")
-            if "quota" in str(e).lower():
-                break
-    return changes
-
-
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--max", type=int, default=5)
-    ap.add_argument("--pull-back", type=int, default=0, help="robot-added songs moved from Radio back to review per day")
     a = ap.parse_args()
     data = json.load(open(QUEUE, encoding="utf-8"))
-    left = [q for q in data["songs"] if q.get("status") in ("queued", "failed", "pull_back")]
+    left = [q for q in data["songs"] if q.get("status") in ("queued", "failed")]
     open(COUNT, "w").write("0")
     if not left:
         print("Nothing waiting to be added.")
@@ -235,13 +198,8 @@ def main():
     if not pid:
         print("No review playlist yet (dry run); nothing sent.")
         return
-    moved = pull_back(yt, pid, main_id, data["songs"], a.pull_back, a.apply, R.fetch_items)
-    if any(q.get("status") == "pull_back" for q in data["songs"]):   # keep Heavy's review small: new songs wait
-        print("Songs are still moving back for review; new songs start after that.")
-        n = 0
-    else:
-        n = run(yt, pid, ytmusic_search(), data["songs"], a.max, a.apply, R.fetch_items, main_id)
-    open(COUNT, "w").write(str((n + moved) if a.apply else 0))
+    n = run(yt, pid, ytmusic_search(), data["songs"], a.max, a.apply, R.fetch_items, main_id)
+    open(COUNT, "w").write(str(n if a.apply else 0))
     json.dump(data, open(QUEUE, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
     s = {}
     for q in data["songs"]:
