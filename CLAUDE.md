@@ -22,6 +22,12 @@ Fixes and improvements toward this standard never need approval.
 
 **Standing permission (owner, Nov 21, 2026: "No more asking me permission to do what needs to be done").** Always review, analyze, fix and change the site to make it efficient, attention-getting, organized and polished, without asking: design, layout, page organization, navigation, how content is presented, interactive touches, speed. This overrides any older "new features need approval" wording for site work. Just do it, test it, and log it in the playbook's Work log. Still ask the owner first for: new accounts, anything that brings in money (store, ads, sponsors, prices), anything with legal effect (opening band submissions, terms, collecting personal data), and big new services or whole new sections (a gig board, a store, band sign-ups).
 
+## Brand lines (owner, Nov 26, 2026)
+
+- The one brand line is **"Where every MetalHead and Band belongs."** (capital M, H and B), with a ™ after it in the header. It sits under the logo on every page and in the footer.
+- **Do not use "Every band gets a turn" anywhere** (owner dropped it). Home page headline: "Arizona's home for metal."
+- Use ™ (never ®) on HeavyMusix and the brand line until the USPTO registers them.
+
 ## How the site is built
 
 - Hand-made pages (`index.html`, `news.html` and so on) share the header and footer. **Change the header or footer in every hand-made page AND in `article.html`.** `scripts/build_pages.py` copies its header and footer from `article.html` into every generated story, band, genre, history and episode page, and wraps each page body in `<main id="main">`.

@@ -81,6 +81,6 @@ im.save("images/brand/playlist.png")
 
 im = canvas(1500, 500)
 words(im, [[("Heavy", BONE), ("Musix", RED)]], 230, 750, 230, maxw=1200)
-small(im, "EVERY BAND GETS A TURN", 44, 750, 400, spacing=.18)
+small(im, "WHERE EVERY METALHEAD AND BAND BELONGS", 36, 750, 400, spacing=.18)
 im.save("images/brand/banner.png")
 print("brand images written")

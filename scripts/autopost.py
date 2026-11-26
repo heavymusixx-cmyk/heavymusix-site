@@ -175,7 +175,7 @@ if os.getenv("BLUESKY_HANDLE") and os.getenv("BLUESKY_APP_PASSWORD") and "bluesk
 if os.getenv("DISCORD_WEBHOOK_URL") and "discord" not in done:
     try:
         emb = {"title": clip(title, 250), "url": item["link"], "description": clip(blurb, 1000), "color": 0xA3121B,
-               "footer": {"text": "HeavyMusix Radio: every band gets a turn"}}
+               "footer": {"text": "HeavyMusix: Where every MetalHead and Band belongs"}}
         if img:
             emb["image"] = {"url": img}
         m = call_json(os.environ["DISCORD_WEBHOOK_URL"] + "?wait=true",

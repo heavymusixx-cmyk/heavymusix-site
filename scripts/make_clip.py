@@ -66,7 +66,8 @@ for i in range(FPS * SECS):
         d.text((W // 2, 760), link, font=f(int(56 + 8 * a)), fill=HOT, anchor="mm")
         d.text((W // 2, 980), "Underground + heavy hitters.", font=f(48), fill=BONE, anchor="mm")
         d.text((W // 2, 1060), "Free radio, daily metal news.", font=f(48), fill=BONE, anchor="mm")
-        d.text((W // 2, 1300), "Every band gets a turn.", font=f(60), fill=HOT, anchor="mm")
+        d.text((W // 2, 1280), "Where every MetalHead", font=f(60), fill=HOT, anchor="mm")
+        d.text((W // 2, 1360), "and Band belongs.", font=f(60), fill=HOT, anchor="mm")
     d.rectangle([0, H - 14, int(W * (t / SECS)), H], fill=HOT)  # progress bar
     im.save(f"{tmp}/f{i:04d}.png")
 

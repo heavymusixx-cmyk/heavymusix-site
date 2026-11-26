@@ -155,7 +155,7 @@ def share_picture(path, headline, footer, force=False):
         d.line([(0, i), (W, i)], fill=(int(8 + 90 * max(0, 1 - i / 420)), 8, 10))
     d.rectangle([0, 0, W, 86], fill=(163, 18, 27))
     d.text((48, 18), "HEAVYMUSIX", font=ImageFont.truetype(FONT, 46), fill=(244, 236, 220))
-    d.text((W - 48, 30), "Every band gets a turn.", font=ImageFont.truetype(FONT, 26), fill=(244, 236, 220), anchor="ra")
+    d.text((W - 48, 30), "Where every MetalHead and Band belongs.", font=ImageFont.truetype(FONT, 26), fill=(244, 236, 220), anchor="ra")
     size = 64
     while size > 34:
         f = ImageFont.truetype(FONT, size)

@@ -1045,7 +1045,7 @@ var NEWS = [
     title: "HeavyMusix Radio is live",
     text: [
       "HeavyMusix Radio: Underground + Heavy Hitters mixes unsigned bands with the heavy hitters you already love.",
-      "The playlist reshuffles every day so every band in it gets a turn. Hit play at the top of the home page, or save it in YouTube Music."
+      "The playlist reshuffles every day so every band in it gets heard. Hit play at the top of the home page, or save it in YouTube Music."
     ]
   }
 ];
