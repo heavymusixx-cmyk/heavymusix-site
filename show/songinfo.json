@@ -3,10 +3,6 @@
 "al": "Magma",
 "y": 2016
 },
-"-IWhulpbPZM": {
-"al": "PeelingFlesh",
-"y": 2026
-},
 "-JjUyiWxpXo": {
 "al": "It Is Going to Get Dark",
 "y": 2026
@@ -44,6 +40,10 @@
 "0VN0TAynWQQ": {
 "al": "Demonocracy",
 "y": 2012
+},
+"0Z8UTty9dgM": {
+"al": "Volume V",
+"y": 2026
 },
 "0Zz5tWsDSw0": {
 "al": "Slime and Punishment",
@@ -96,6 +96,10 @@
 "1Lvc60X3hvA": {
 "al": "Juggernaut: Alpha",
 "y": 2015
+},
+"1SEdCT_-JXg": {
+"al": "Omens",
+"y": 2022
 },
 "1WOW_J0wUk0": {
 "al": "The Art Of Partying",
@@ -332,9 +336,6 @@
 "6uUR4Xf2pBA": {
 "al": "Servitude",
 "y": 2024
-},
-"74CqAMOhbf4": {
-"miss": "2026-11-24"
 },
 "74nTzbgDGWM": {
 "al": "Christ Illusion",
@@ -767,10 +768,6 @@
 "al": "As the Palaces Burn",
 "y": 2003
 },
-"GSwFAwf6iaA": {
-"al": "Into Despair",
-"y": 2026
-},
 "Ge7gxWxisOc": {
 "al": "Epitaph",
 "y": 2004
@@ -905,6 +902,10 @@
 },
 "JScaa2kBtxQ": {
 "al": "Cursum perficio",
+"y": 2026
+},
+"JUeOwTTDDU8": {
+"al": "Megadeth",
 "y": 2026
 },
 "JYALpvUGNk8": {
@@ -1092,10 +1093,6 @@
 "al": "The Grinding Wheel",
 "y": 2017
 },
-"OPGSs7SMglE": {
-"al": "Death on Display",
-"y": 2026
-},
 "OTiQADZf3ss": {
 "al": "The Call",
 "y": 2012
@@ -1107,10 +1104,6 @@
 "OfXEG0Y4jlc": {
 "al": "Unhallowed",
 "y": 2003
-},
-"Oiw7hEapI0c": {
-"al": "The Hollowing of Godflesh",
-"y": 2026
 },
 "OpNUfqaGkSg": {
 "al": "Imprint",
@@ -1337,6 +1330,10 @@
 "TnRZhLRv6eM": {
 "al": "Grr Spit Breathe Fire!!!",
 "y": 2010
+},
+"U3UBvkwfhdk": {
+"al": "The Bestiary",
+"y": 2025
 },
 "U6pfJEieW2Y": {
 "al": "Koloss",
@@ -1623,6 +1620,10 @@
 "_nr_QHgoXTA": {
 "al": "The Call",
 "y": 2012
+},
+"_paSxDMuGZI": {
+"al": "Duél",
+"y": 2025
 },
 "_uf749MpADI": {
 "al": "Are You Kidding Me? No.",
@@ -2250,10 +2251,6 @@
 "al": "Hidden Evolution",
 "y": 2015
 },
-"lU3YgJWy24U": {
-"al": "Neverending Nightmare",
-"y": 2026
-},
 "lbBym2PgYbI": {
 "miss": "2026-11-23"
 },
@@ -2288,10 +2285,6 @@
 "mFm1xMoqk3s": {
 "al": "Periphery",
 "y": 2010
-},
-"mLv9GsT3P2s": {
-"al": "Graceless",
-"y": 2026
 },
 "mP0-1urIlb8": {
 "y": 1990
@@ -2359,10 +2352,6 @@
 "al": "Sin After Sin",
 "y": 1977
 },
-"ntweTEPPm6k": {
-"al": "Yearning: The unbeautiful after",
-"y": 2026
-},
 "o1cD17A3H0k": {
 "al": "Necropolis",
 "y": 2009
@@ -2370,10 +2359,6 @@
 "o49vZIdW0rM": {
 "al": "Macro",
 "y": 2019
-},
-"o5bVjNwatiY": {
-"al": "Liberation Front",
-"y": 2026
 },
 "oFryS0Z6HBk": {
 "al": "Damnation and a Day",
@@ -2427,10 +2412,6 @@
 "pTKqWmpNPiI": {
 "al": "King of Everything",
 "y": 2016
-},
-"pUnl4kmdyiA": {
-"al": "Welcome To Shell Town",
-"y": 2026
 },
 "pV_Pltul7qE": {
 "al": "United Abominations",
@@ -2603,10 +2584,6 @@
 "al": "King of Everything",
 "y": 2016
 },
-"suLozOIMTVk": {
-"al": "Precinct 3 / Scavenger",
-"y": 2026
-},
 "sxiklX-P77o": {
 "al": "Reign Supreme",
 "y": 2012
@@ -2735,10 +2712,6 @@
 "vJIVF7VWIvU": {
 "y": 1990
 },
-"vV-xCofyQpU": {
-"al": "Hellraiser",
-"y": 2026
-},
 "vYdNhgGQxSg": {
 "al": "Duél",
 "y": 2025
@@ -2746,10 +2719,6 @@
 "vZtpZSF1qU8": {
 "al": "Solitude in Madness",
 "y": 2020
-},
-"v_JQy_ctPAw": {
-"al": "Decay",
-"y": 2026
 },
 "vcYKGwiYSMg": {
 "al": "Wallflowers",
@@ -2788,10 +2757,6 @@
 },
 "wBzFgGn8g2Y": {
 "y": 1984
-},
-"wIN8LWo_o8I": {
-"al": "Pound of Flesh",
-"y": 2026
 },
 "wLBGnDUg7t8": {
 "miss": "2026-11-24"
@@ -2919,10 +2884,6 @@
 "zU6SzyzSfEk": {
 "al": "Once Was Not",
 "y": 2005
-},
-"zXDn0me5IvM": {
-"al": "Lowest Form",
-"y": 2027
 },
 "zcS8nu0S0KA": {
 "al": "Duél",
