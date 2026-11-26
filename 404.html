@@ -19,7 +19,7 @@
 <script src="skin.js?v=6"></script>
 <meta property="og:image" content="https://heavymusix.com/og/default.png">
 <meta name="twitter:card" content="summary_large_image">
-<script>if(/^\/genres\//.test(location.pathname))location.replace("/bands.html");</script>
+<script>var p=location.pathname;if(/^\/genres\//.test(p)||/^\/bands\/(index\.html)?$/.test(p))location.replace("/bands.html");else if(/^\/news\/(index\.html)?$/.test(p))location.replace("/news.html");</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
