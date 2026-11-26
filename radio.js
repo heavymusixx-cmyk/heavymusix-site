@@ -16,6 +16,8 @@
     {k: 'threads', name: 'Threads', note: '@heavymusixradio', href: 'https://www.threads.com/@heavymusixradio', icon: 'M16 12a4 4 0 1 1-1.2-2.8M16 9v4.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-3.5 7.1'},
     {k: 'youtube', name: 'YouTube', note: '@HeavyMusix', href: 'https://www.youtube.com/@HeavyMusix', icon: 'M8 5v14l11-7z'},
     {k: 'facebook', name: 'Facebook', note: 'Coming soon', href: '', icon: 'M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8.5a.5.5 0 0 1 .5-.5z'},
+    {k: 'tiktok', name: 'TikTok', note: 'Coming soon', href: '', icon: 'M14 4v10.5a3.5 3.5 0 1 1-3-3.46M14 4c.5 2.5 2.5 4 5 4'},
+    {k: 'x', name: 'X', note: 'Coming soon', href: '', icon: 'M5 4l14 16M19 4L5 20'},
     {k: 'bluesky', name: 'Bluesky', note: 'Coming soon', href: '', icon: 'M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 9.5 4.3 4.3 0 0 0 7 18z'},
     {k: 'discord', name: 'Discord', note: 'Coming soon', href: '', icon: 'M4 5h16v10H9l-5 4z'}
   ];
