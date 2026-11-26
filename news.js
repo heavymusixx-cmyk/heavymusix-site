@@ -6,6 +6,49 @@
 */
 var NEWS = [
   {
+    date: "2026-11-26",
+    tag: "Tours",
+    title: "Anthrax announce 19-date 2027 UK and European tour with Kerry King and Arizona's Sacred Reich",
+    text: [
+      "Anthrax will take the \"Cursum Perficio Tour 2027\" across the UK and Europe next spring, with Slayer's Kerry King and his solo band as direct support and Arizona's own Sacred Reich on every date. The run is 19 shows in 12 countries, opening March 14 at Dublin's 3Arena and closing April 10 at London's OVO Arena Wembley.",
+      "Stops include Amsterdam, Paris's L'Olympia, Bilbao, Madrid, Barcelona, Milan, Zurich, Padova, Hamburg, Cologne, Berlin, Munich, Budapest, Prague and Brussels, plus Katowice's Spodek as part of Maniac Festival. More support acts will be announced in the coming months.",
+      "The tour follows \"Cursum Perficio\", released earlier this year. Tickets go on sale Friday, November 27 at 10 a.m. local time, with limited VIP packages for every date. Back in the States, Anthrax and Kerry King play Phoenix with Megadeth on May 15.",
+      "Source: Nuclear Blast"
+    ]
+  },
+  {
+    date: "2026-11-26",
+    tag: "World",
+    title: "Sweden's Entombed reunite for Sweden Rock Festival 2027 and work on their first album together since 1997",
+    text: [
+      "Swedish death metal pioneers Entombed will play Sweden Rock Festival in Sölvesborg, which runs June 9 to 12, 2027. The lineup is guitarists Alex Hellid and Uffe Cederlund with drummer Nicke Andersson, the trio behind \"Left Hand Path\" and \"Wolverine Blues\". The singer and the day of the show have not been announced yet.",
+      "The three are also writing new music. The album in progress will be their first together since 1997; a title and release date are still to come.",
+      "The show lands more than six years after the death of singer L-G Petrov, who died in March 2021 at 49.",
+      "Source: The MetalList, Chaoszine"
+    ]
+  },
+  {
+    date: "2026-11-26",
+    tag: "News",
+    title: "The Black Dahlia Murder bring back guitarist Brandon Ellis as Wes Hauch departs",
+    text: [
+      "The Black Dahlia Murder have welcomed guitarist Brandon Ellis back into the band. He takes over from Wes Hauch, who leaves on good terms to give his full attention to his band Alluvial.",
+      "Ellis first joined in 2016 and played on 2024's \"Servitude\", the band's latest album. He stepped away in February 2025 after nine years, and Hauch was named his replacement that May.",
+      "The band's message to fans was short and hopeful: \"We have a big year coming up.\" It starts this winter with the 20th anniversary \"Nocturnal\" run across Europe.",
+      "Source: Loudwire, Lambgoat"
+    ]
+  },
+  {
+    date: "2026-11-26",
+    tag: "Throwback",
+    title: "On this day in metal: Quiet Riot's \"Metal Health\" becomes the first heavy metal album to hit No. 1 (1983)",
+    text: [
+      "On November 26, 1983, Quiet Riot's \"Metal Health\" climbed to No. 1 on the Billboard 200, knocking The Police's \"Synchronicity\" off the top. It was the first heavy metal album ever to reach No. 1 on that chart.",
+      "The album had been out since February 1983 on Pasha Records, produced by Spencer Proffer, and it took about nine months of steady climbing to get to the top.",
+      "Source: WCSX, iHeartRadio"
+    ]
+  },
+  {
     date: "2026-11-25",
     tag: "Tours",
     title: "Beyond Creation will play \"The Aura\" in full on a 2027 North American tour with Decrepit Birth and Vulvodynia, including Mesa on February 20",

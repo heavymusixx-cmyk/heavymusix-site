@@ -79,6 +79,14 @@ var HISTORY = {
   "11-26": [
     {year: 1983, type: "Event", text: "Quiet Riot's \"Metal Health\" reaches No. 1 on the Billboard 200, the first heavy metal album to top that chart.", band: "", source: "WCSX, Metal Odyssey"},
     {year: 1983, type: "Event", text: "Black Sabbath's \"Born Again\" tour, with Quiet Riot opening, plays the Arizona Veterans Memorial Coliseum in Phoenix.", band: "black-sabbath", source: "Metal Odyssey, Black-Sabbath.com"},
-    {year: 2013, type: "Album", text: "Deicide release their 11th studio album, \"In the Minds of Evil\", on Century Media.", band: "", source: "This Day In Metal, Dead Rhetoric"}
+    {year: 2013, type: "Album", text: "Deicide release their 11th studio album, \"In the Minds of Evil\", on Century Media.", band: "", source: "This Day In Metal, Dead Rhetoric"},
+    {year: 1982, type: "Album", text: "Led Zeppelin release \"Coda\", their final studio album, on Swan Song. It reaches No. 4 in the UK and No. 6 in the US.", band: "", source: "WCSX, Wikipedia"},
+    {year: 2002, type: "Album", text: "System of a Down release their third album, \"Steal This Album!\", produced by Rick Rubin and Daron Malakian.", band: "", source: "iHeartRadio, Wikipedia"}
+  ],
+  "11-27": [
+    {year: 1942, type: "Born", text: "Jimi Hendrix is born in Seattle. His guitar sound helped lay the ground for hard rock and heavy metal.", band: "", source: "Metal Odyssey, History.com"},
+    {year: 1962, type: "Born", text: "Charlie Benante, Anthrax's drummer since 1983, is born in the Bronx, New York.", band: "anthrax", source: "Metal Shop Radio, Wikipedia"},
+    {year: 1962, type: "Born", text: "Mike Bordin is born. The Faith No More drummer also spent years behind the kit for Ozzy Osbourne.", band: "", source: "Metal Shop Radio, Wikipedia"},
+    {year: 1963, type: "Born", text: "Dave Prichard, co-founder and lead guitarist of Armored Saint, is born. He played with the band until his death in 1990.", band: "", source: "Metal Shop Radio, Wikipedia"}
   ]
 };
