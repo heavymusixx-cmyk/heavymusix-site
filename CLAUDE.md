@@ -25,7 +25,7 @@ Fixes and improvements toward this standard never need approval.
 ## Brand lines (owner, Nov 26, 2026)
 
 - The one brand line is **"Where every MetalHead and Band belongs."** (capital M, H and B), with a ™ after it in the header. It sits under the logo on every page and in the footer.
-- **Do not use "Every band gets a turn" anywhere** (owner dropped it). Home page headline: "Arizona's home for metal."
+- **Do not use "Every band gets a turn" anywhere** (owner dropped it). Home page headline is the brand line itself (the small line under the logo is hidden on the home page only, via body class "home"); "Arizona's home for metal." is the headline of the Arizona page (arizona.html).
 - Use ™ (never ®) on HeavyMusix and the brand line until the USPTO registers them.
 
 ## How the site is built

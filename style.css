@@ -646,3 +646,6 @@ ul.aztime .wsrc{font-size:13px;opacity:.75;margin-top:4px}
 .brand-tag{font:600 13px/1.2 var(--text);color:var(--bone);opacity:.9;letter-spacing:.02em;margin-top:5px;white-space:nowrap}
 @media (max-width:640px){header.site .wrap{flex-wrap:nowrap}.brand{flex:1 1 auto}.brand-tag{font-size:10.5px;margin-top:3px;white-space:normal;max-width:24ch}}
 .logo .tm{font:600 .32em/1 var(--text);vertical-align:super;margin-left:.08em;color:var(--bone);text-shadow:none;opacity:.85}
+.home .brand-tag{display:none}
+.tm-h{font-size:.3em;vertical-align:super;margin-left:.06em;letter-spacing:0}
+@media (min-width:900px){body.home:not(.az) section.hero .wrap:has(>.player) h1.compact{font-size:clamp(42px,4.2vw,62px);max-width:none}}
