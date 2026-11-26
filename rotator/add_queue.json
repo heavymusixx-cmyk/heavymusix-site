@@ -22,7 +22,7 @@
   {
    "band": "thrown",
    "song": "split",
-   "status": "pull_back",
+   "status": "sent",
    "videoId": "N1rIFiCuoq0"
   },
   {
@@ -364,27 +364,32 @@
   {
    "band": "Mastodon",
    "song": "Your Ghost Again",
-   "status": "queued"
+   "status": "sent",
+   "videoId": "rlPOGaeTwjE"
   },
   {
    "band": "Darkest Hour",
    "song": "Suffer Divine",
-   "status": "queued"
+   "status": "sent",
+   "videoId": "oSnonrSrPOA"
   },
   {
    "band": "Loathe",
    "song": "Gemini",
-   "status": "queued"
+   "status": "sent",
+   "videoId": "OUwxsLXuk4E"
   },
   {
    "band": "Mastodon",
    "song": "Poisonous Weapons",
-   "status": "queued"
+   "status": "sent",
+   "videoId": "iGeIJMISjmA"
   },
   {
    "band": "Hatebreed",
    "song": "Kill Count Increase",
-   "status": "queued"
+   "status": "sent",
+   "videoId": "7Eid6QUWMn4"
   },
   {
    "band": "Mastodon",
