@@ -87,6 +87,13 @@ var HISTORY = {
     {year: 1942, type: "Born", text: "Jimi Hendrix is born in Seattle. His guitar sound helped lay the ground for hard rock and heavy metal.", band: "", source: "Metal Odyssey, History.com"},
     {year: 1962, type: "Born", text: "Charlie Benante, Anthrax's drummer since 1983, is born in the Bronx, New York.", band: "anthrax", source: "Metal Shop Radio, Wikipedia"},
     {year: 1962, type: "Born", text: "Mike Bordin is born. The Faith No More drummer also spent years behind the kit for Ozzy Osbourne.", band: "", source: "Metal Shop Radio, Wikipedia"},
-    {year: 1963, type: "Born", text: "Dave Prichard, co-founder and lead guitarist of Armored Saint, is born. He played with the band until his death in 1990.", band: "", source: "Metal Shop Radio, Wikipedia"}
+    {year: 1963, type: "Born", text: "Dave Prichard, co-founder and lead guitarist of Armored Saint, is born. He played with the band until his death in 1990.", band: "", source: "Metal Shop Radio, Wikipedia"},
+    {year: 1982, type: "Album", text: "Ozzy Osbourne's double live album \"Talk of the Devil\" (\"Speak of the Devil\" in the US) is on the UK albums chart, where it reaches No. 21.", band: "ozzy-osbourne", source: "Metal Odyssey, Metal Shop Radio"}
+  ],
+  "11-28": [
+    {year: 1962, type: "Born", text: "Matt Cameron is born in San Diego, California. He drummed on every Soundgarden studio album and later spent years in Pearl Jam.", band: "", source: "Wikipedia, Brave Words"},
+    {year: 1971, type: "Born", text: "Gylve \"Fenriz\" Nagell is born in Norway. The Darkthrone drummer and songwriter helped shape the sound of Norwegian black metal.", band: "", source: "Wikipedia, Brave Words"},
+    {year: 1975, type: "Born", text: "Sigurd \"Satyr\" Wongraven, founder, singer and guitarist of Satyricon, is born in Oslo, Norway.", band: "", source: "Wikipedia, Brave Words"},
+    {year: 2014, type: "Album", text: "AC/DC release \"Rock or Bust\" in Australia, New Zealand and parts of Europe, their first album without founding guitarist Malcolm Young. It hit No. 1 in 12 countries.", band: "", source: "Brave Words, Sony Music press release"}
   ]
 };

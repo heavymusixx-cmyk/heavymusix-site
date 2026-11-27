@@ -6,6 +6,49 @@
 */
 var NEWS = [
   {
+    date: "2026-11-27",
+    tag: "News",
+    title: "Ex-Lamb of God drummer Chris Adler and Stone Sour bassist Johny Chow form new band Insidias, booked for Hellfest 2027",
+    text: [
+      "Chris Adler is back behind a full band. The former Lamb of God drummer has teamed up with Stone Sour bassist Johny Chow, French guitarist and songwriter Peter Scheithauer (ex-Temple of Brutality) and singer Jon Rioux of Defined in a new band called Insidias.",
+      "The four came together and rehearsed in Nashville in October. Their debut album is being made now with producer and mixer Machine. There is no title or release date yet, and the band has no record label behind it.",
+      "The first show is already set: Insidias will play Hellfest 2027 in Clisson, France, the festival's 20th-anniversary edition on June 17 to 20. Adler left Lamb of God in 2019, so this is the biggest new step yet from one of the most influential metal drummers of the last 25 years.",
+      "Source: Blabbermouth, The MetalList"
+    ]
+  },
+  {
+    date: "2026-11-27",
+    tag: "Tours",
+    title: "Mastodon book 28-date \"Poisonous Weapons Tour\" across Europe and the UK in spring 2027, with Monolord and Green Lung",
+    text: [
+      "Mastodon are taking \"Marrow Deep\", the album they released this summer, across Europe and the UK. \"The Poisonous Weapons Tour\" runs from March 14 at L'Olympia in Paris to April 23 at Große Freiheit 36 in Hamburg, with stops in Spain, Portugal, Germany, Scandinavia, Finland, Poland, Hungary, Austria and more.",
+      "Swedish doom band Monolord support on every date. London's Green Lung join for the four UK nights: Brixton Academy in London on March 30, Manchester on March 31, Glasgow on April 2 and Birmingham on April 3. The London show is Mastodon's first UK headline night since January 2019.",
+      "This is the first full European headline run for the current lineup of Troy Sanders, Brann Dailor, Bill Kelliher, Nick Johnston and João Nogueira. General tickets go on sale today, November 27, at 10 a.m. local time.",
+      "Source: Loaded Radio, Lambgoat, Nuclear Blast"
+    ]
+  },
+  {
+    date: "2026-11-27",
+    tag: "Tours",
+    title: "Carcass announce \"Europa Rigor Mortis Part III\", a 20-date March 2027 European tour with Rotten Sound and BAT",
+    text: [
+      "Carcass are heading back across Europe in March 2027. \"Europa Rigor Mortis Part III\" packs 20 shows in 15 countries into just over three weeks, starting March 5 at Astra Kulturhaus in Berlin and ending March 27 at Gruenspan in Hamburg.",
+      "The run takes the Liverpool legends through Poland, Czechia, Slovenia, Slovakia, Hungary, Bulgaria, Greece, Serbia, Croatia, Italy, Switzerland and Scandinavia, including a slot at Oslo's Inferno Metal Festival on March 25.",
+      "Finnish grind veterans Rotten Sound support on every date, and BAT, the Richmond, Virginia speed-punk trio led by Ryan Waste of Municipal Waste, open the bill. Carcass are still touring behind \"Torn Arteries\", released in September 2021 on Nuclear Blast.",
+      "Source: Nuclear Blast, Blabbermouth"
+    ]
+  },
+  {
+    date: "2026-11-27",
+    tag: "Throwback",
+    title: "On this day in metal: Ozzy Osbourne's double live album \"Talk of the Devil\" climbs the UK chart (1982)",
+    text: [
+      "On November 27, 1982, Ozzy Osbourne's double live album \"Talk of the Devil\" was riding the UK albums chart, where it reached No. 21. In the United States and most other countries the same record was called \"Speak of the Devil\".",
+      "It came out in a hard year for Ozzy's band, months after the death of guitarist Randy Rhoads, and it kept the Prince of Darkness on the charts while he looked to the future. Forty-four years later it is still a favorite with fans of his early solo era.",
+      "Source: Metal Odyssey, Metal Shop Radio, I Love Heavy Metal Radio"
+    ]
+  },
+  {
     date: "2026-11-26",
     tag: "Tours",
     title: "Anthrax announce 19-date 2027 UK and European tour with Kerry King and Arizona's Sacred Reich",
