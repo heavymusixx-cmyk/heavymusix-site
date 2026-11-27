@@ -23,6 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: main   # build from the newest main, not the older commit that started this run (Nov 27 failure)
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
@@ -41,9 +43,20 @@ jobs:
             echo "Pages already up to date."
           else
             git commit -m "Pages: rebuild $(date -u '+%F %H:%M')"
-            # Retry: another robot can push between our pull and push (Nov 24 failure)
+            # Retry: another robot can push between our pull and push (Nov 24 failure).
+            # If its pages clash with ours (Nov 27 failure), drop ours, take the newest main and rebuild on top.
             for i in 1 2 3 4; do
-              git pull --rebase && git push && break
+              if git pull --rebase; then
+                git push && break
+              else
+                git rebase --abort || true
+                git fetch origin main && git reset --hard origin/main
+                python scripts/build_pages.py
+                git add -A news bands episodes og history this-week-in-metal.html feed.xml sitemap.xml news-sitemap.xml arizona-metal-shows.html
+                git diff --cached --quiet && { echo "Pages already up to date."; exit 0; }
+                git commit -m "Pages: rebuild $(date -u '+%F %H:%M')"
+                git push && break
+              fi
               [ "$i" = 4 ] && exit 1
               sleep $((i*10))
             done
