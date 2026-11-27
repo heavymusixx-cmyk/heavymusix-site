@@ -1,0 +1,5 @@
+{
+ "_about": "One-time duplicate cleanup for HeavyMusix Radio (owner, Nov 27, 2026: 'Delete duplicates and spread as far apart as possible'). While status is 'pending', the next daily reshuffle deletes extra copies of the same band + same song (keeping one: the band's own, '- Topic' or label upload first, then the one higher in the playlist), lists each one under 'removed', then sets status to 'done' and never runs again. Live versions and anything not clearly the same song are kept; looser look-alikes are listed under 'possible_duplicates_kept' for the owner. To get a song back, add it to the playlist again by its videoId.",
+ "status": "pending",
+ "removed": []
+}

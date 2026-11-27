@@ -1,7 +1,10 @@
 name: Playlist reshuffle
 
 # Reshuffles the HeavyMusix Radio playlist on YouTube every morning
-# Version 3: rolling reshuffle of the whole playlist, ~180 songs a day, bands spread evenly.
+# Version 4: the same band never within 30 songs of itself anywhere in the playlist (aims for 33); bands with
+# too many songs for that keep them all, spread as far apart as possible. Repairs top first, ~180 changes a day.
+# One-time duplicate cleanup (owner, Nov 27, 2026): while rotator/removed_duplicates.json says "pending", extra
+# copies of the same song are deleted first and listed in that file; then it switches itself off for good.
 # Also sends new songs from rotator/add_queue.json, up to 5 a day, to the private "HeavyMusix New Songs" review playlist
 # (never straight into HeavyMusix Radio: Heavy adds the keepers by hand). Each song is sent only once, ever.
 # Runs on GitHub's computers, so your laptop can stay off.
@@ -44,7 +47,7 @@ jobs:
       - name: Send new songs to the HeavyMusix New Songs review playlist (up to 5 a day, each song only once)
         continue-on-error: true
         run: python rotator/add_songs.py --apply --max 5
-      - name: Reshuffle the playlist (budget lowered by the songs just added, to stay inside YouTube's daily limit)
+      - name: Remove duplicates once, then space bands 30+ songs apart (budget lowered by the changes above, to stay inside YouTube's daily limit)
         run: |
           ADDED=$(cat rotator/added_today.txt 2>/dev/null || echo 0)
           ROOTS=$(cat rotator/roots_moved_today.txt 2>/dev/null || echo 0)
@@ -53,11 +56,12 @@ jobs:
       - name: Remove the sign-in file
         if: always()
         run: rm -f rotator/token.json rotator/client_secret.json
-      - name: Save which songs have had their turn
+      - name: Save which songs have had their turn (and what the duplicate cleanup removed)
+        if: always()
         run: |
           git config user.name "HeavyMusix Playlist Bot"
           git config user.email "playlist-bot@users.noreply.github.com"
-          git add rotator/rotator_memory.json rotator/add_queue.json rotator/roots_pending.json rotator/remove_queue.json; [ -f rotator/roots_playlist.txt ] && git add rotator/roots_playlist.txt || true; [ -f rotator/review_playlist.txt ] && git add rotator/review_playlist.txt || true
+          git add rotator/rotator_memory.json rotator/add_queue.json rotator/roots_pending.json rotator/remove_queue.json rotator/removed_duplicates.json; [ -f rotator/roots_playlist.txt ] && git add rotator/roots_playlist.txt || true; [ -f rotator/review_playlist.txt ] && git add rotator/review_playlist.txt || true
           if git diff --cached --quiet; then
             echo "Nothing to save."
           else
