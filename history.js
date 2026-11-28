@@ -95,5 +95,12 @@ var HISTORY = {
     {year: 1971, type: "Born", text: "Gylve \"Fenriz\" Nagell is born in Norway. The Darkthrone drummer and songwriter helped shape the sound of Norwegian black metal.", band: "", source: "Wikipedia, Brave Words"},
     {year: 1975, type: "Born", text: "Sigurd \"Satyr\" Wongraven, founder, singer and guitarist of Satyricon, is born in Oslo, Norway.", band: "", source: "Wikipedia, Brave Words"},
     {year: 2014, type: "Album", text: "AC/DC release \"Rock or Bust\" in Australia, New Zealand and parts of Europe, their first album without founding guitarist Malcolm Young. It hit No. 1 in 12 countries.", band: "", source: "Brave Words, Sony Music press release"}
+  ],
+  "11-29": [
+    {year: 1962, type: "Born", text: "Andy LaRocque is born in Gothenburg, Sweden. He joined King Diamond in 1985 and became the guitarist behind decades of the band's albums, and he also played on Death's \"Individual Thought Patterns\".", band: "", source: "Wikipedia, Blabbermouth"},
+    {year: 1982, type: "Event", text: "Metallica play their first headlining show in San Francisco, with Exodus, featuring future Metallica guitarist Kirk Hammett, opening. A recording of the night became the \"Metal Up Your Ass\" live demo.", band: "metallica", source: "I Love Heavy Metal Radio, Metal Odyssey"},
+    {year: 1993, type: "Album", text: "Motörhead release \"Bastards\", their eleventh studio album.", band: "", source: "I Love Heavy Metal Radio, This Day in Metal"},
+    {year: 2013, type: "Album", text: "American heavy metal band Benedictum release their fourth album, \"Obey\".", band: "", source: "I Love Heavy Metal Radio, This Day in Metal"},
+    {year: 2019, type: "Album", text: "San Diego's Cattle Decapitation release \"Death Atlas\" on Metal Blade Records.", band: "cattle-decapitation", source: "Wikipedia, Blabbermouth"}
   ]
 };

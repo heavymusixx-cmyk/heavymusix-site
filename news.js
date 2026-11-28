@@ -6,6 +6,50 @@
 */
 var NEWS = [
   {
+    date: "2026-11-28",
+    tag: "Tours",
+    title: "Hellfest 2027 goes huge for its 20th edition: 308 bands on 10 stages, with Gojira, Judas Priest and Faith No More",
+    text: [
+      "France's Hellfest has revealed the full bill for its 20th edition, and it is the biggest in the festival's history: 308 bands across 10 stages in Clisson, near Nantes, from June 17 to 20, 2027. Last year's edition had 184 bands on six stages. Four new stages have been added, and 163 of the bands have never played Hellfest before.",
+      "Gojira close the festival on Sunday, June 20, at the top of an all-French day, in what the festival calls their only European show of the year. Judas Priest, Mötley Crüe, Faith No More, Evanescence, blink-182, Turnstile, Primus and The Prodigy are among the other headliners, with Bruce Dickinson, Slash featuring Myles Kennedy and the Conspirators, Clutch, Converge and GWAR also on the bill.",
+      "The extreme-metal side gets its own zone of four stages and 124 bands. Highlights include the reunited Children of Bodom, Venom, Overkill, Forbidden, Coroner, Neurosis and Kylesa, plus French heavyweights Landmvrks and Rise of the Northstar. Four-day passes go on sale November 30, with single-day tickets to follow.",
+      "Source: Blabbermouth, Consequence"
+    ]
+  },
+  {
+    date: "2026-11-28",
+    tag: "Tours",
+    title: "Reunited Murderdolls book their first U.S. show for June 4, 2027 at the Whisky A Go Go",
+    text: [
+      "Murderdolls have announced their first American show since reuniting: Friday, June 4, 2027, at the Whisky A Go Go in West Hollywood, California. Tickets went on sale November 27.",
+      "The lineup is Wednesday 13 on vocals, Eric Griffin moving from bass to guitar, Acey Slade on guitar, Jack Tankersley on bass and Mike Dupke on drums. The band is also booked for Download in the UK and Graspop Metal Meeting in Belgium later that June.",
+      "The 2027 shows mark 25 years of the debut album \"Beyond The Valley Of The Murderdolls\" and pay tribute to the late Joey Jordison and Ben Graves, with the blessing of Jordison's family. It will be the band's first time on stage since 2018.",
+      "Source: Blabbermouth, ThePRP"
+    ]
+  },
+  {
+    date: "2026-11-28",
+    tag: "Tips",
+    title: "Band business tip: give every recording its own ISRC code so your streams get counted and paid",
+    text: [
+      "An ISRC (International Standard Recording Code) is a 12-character code that identifies one specific sound recording or music video. Streaming services, stores and royalty organizations use it to track plays and sales and to send the money to the right place. Once a recording has one, it keeps it for life, even if the rights change hands.",
+      "Every version needs its own code: a radio edit, a remix, a live take or a cover each gets a new ISRC, and so does a version whose length changes by more than 10 seconds. An exact copy of the same recording keeps the same code, and a code is never reused. Most distributors and labels assign ISRCs for you, so check your distributor's dashboard before you release.",
+      "If nobody has assigned one, independent artists in the U.S. can get codes through an ISRC Manager listed at usisrc.org, and bands in other countries apply to their national ISRC agency. You do not need to join any trade body. Keep a simple spreadsheet of every song, version and code; it saves real headaches when you register songs or chase missing royalties later.",
+      "Source: IFPI, The MLC"
+    ]
+  },
+  {
+    date: "2026-11-28",
+    tag: "Throwback",
+    title: "On this day in metal: Darkthrone's Fenriz is born in Norway (1971)",
+    text: [
+      "Gylve \"Fenriz\" Nagell was born on November 28, 1971, and grew up in Kolbotn, Norway, where he still lives. In 1986 he founded the band Black Death, which became Darkthrone a couple of years later.",
+      "With Nocturno Culto, his Darkthrone partner since 1993, he made some of the most important records in Norwegian black metal, including \"A Blaze in the Northern Sky\" (1992), \"Under a Funeral Moon\" (1993) and \"Transilvanian Hunger\" (1994), and the duo is still making albums today. He has also played in Valhall, Isengard and Neptune Towers, among many other projects.",
+      "Fenriz is one of metal's great fans, too: his \"Band of the Week\" blog has championed underground bands for years and helps pick the lineup for the Live Evil festival. Happy birthday to a true champion of the underground.",
+      "Source: Wikipedia, Metal Injection"
+    ]
+  },
+  {
     date: "2026-11-27",
     tag: "News",
     title: "Ex-Lamb of God drummer Chris Adler and Stone Sour bassist Johny Chow form new band Insidias, booked for Hellfest 2027",
