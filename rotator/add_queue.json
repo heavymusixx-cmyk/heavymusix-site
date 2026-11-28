@@ -424,27 +424,32 @@
   {
    "band": "Lorna Shore",
    "song": "Glenwood",
-   "status": "queued"
+   "status": "sent",
+   "videoId": "UahGI5hY6Sw"
   },
   {
    "band": "Make Them Suffer",
    "song": "BLACK SHEEP",
-   "status": "queued"
+   "status": "sent",
+   "videoId": "PiqQAQNsjOI"
   },
   {
    "band": "Hatebreed",
    "song": "Fatal Paradox",
-   "status": "queued"
+   "status": "sent",
+   "videoId": "btufuvhR__Y"
   },
   {
    "band": "Killswitch Engage",
    "song": "The Fall of Us",
-   "status": "queued"
+   "status": "sent",
+   "videoId": "Ct2XhZeIimU"
   },
   {
    "band": "Paleface Swiss",
    "song": "Let Me Sleep",
-   "status": "queued"
+   "status": "sent",
+   "videoId": "7O2ol7NMzRE"
   },
   {
    "band": "Poison The Well",

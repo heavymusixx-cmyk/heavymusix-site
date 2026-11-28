@@ -1,5 +1,351 @@
 {
  "_about": "One-time duplicate cleanup for HeavyMusix Radio (owner, Nov 27, 2026: 'Delete duplicates and spread as far apart as possible'). While status is 'pending', the next daily reshuffle deletes extra copies of the same band + same song (keeping one: the band's own, '- Topic' or label upload first, then the one higher in the playlist), lists each one under 'removed', then sets status to 'done' and never runs again. Live versions and anything not clearly the same song are kept; looser look-alikes are listed under 'possible_duplicates_kept' for the owner. To get a song back, add it to the playlist again by its videoId.",
- "status": "pending",
- "removed": []
+ "status": "done",
+ "removed": [
+  {
+   "band": "Megadeth",
+   "song": "Holy Wars...The Punishment Due",
+   "title": "Holy Wars...The Punishment Due",
+   "videoId": "z1y6caEW65w",
+   "channel": "Megadeth - Topic",
+   "position": 196,
+   "kept_videoId": "J5o8Daw1ZsY",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Evile",
+   "song": "Hell Unleashed",
+   "title": "EVILE - Hell Unleashed (Official Video) | Napalm Records",
+   "videoId": "PZWPMwQJL60",
+   "channel": "Napalm Records",
+   "position": 211,
+   "kept_videoId": "6U3RMcSfLcQ",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Meshuggah",
+   "song": "Combustion",
+   "title": "Combustion",
+   "videoId": "RL7RFrInBww",
+   "channel": "Meshuggah - Topic",
+   "position": 307,
+   "kept_videoId": "2RTfZGysTZE",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Havok",
+   "song": "No Amnesty",
+   "title": "Havok - No Amnesty (HD/1080i)",
+   "videoId": "X2BR5W_7kas",
+   "channel": "AGNT Thrasher",
+   "position": 376,
+   "kept_videoId": "VoQQfszPn9k",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Job For A Cowboy",
+   "song": "The Agony Seeping Storm",
+   "title": "The Agony Seeping Storm",
+   "videoId": "mVnvgCw1ELQ",
+   "channel": "Job For A Cowboy - Topic",
+   "position": 452,
+   "kept_videoId": "HRGk4bNosbU",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "The Faceless",
+   "song": "The Spiraling Void",
+   "title": "The Spiraling Void",
+   "videoId": "aBzKReiQIIE",
+   "channel": "The Faceless - Topic",
+   "position": 473,
+   "kept_videoId": "5T7Xne4HG70",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Angelus Apatrida",
+   "song": "The Age of Disinformation",
+   "title": "The Age of Disinformation",
+   "videoId": "e71SjfjCtiU",
+   "channel": "Angelus Apatrida - Topic",
+   "position": 476,
+   "kept_videoId": "we3uRu9cVwc",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Jinjer",
+   "song": "Dreadful Moments",
+   "title": "Dreadful Moments",
+   "videoId": "bM4wny_u4oA",
+   "channel": "Jinjer - Topic",
+   "position": 518,
+   "kept_videoId": "fONo-OLpquQ",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Meshuggah",
+   "song": "New Millennium Cyanide Christ",
+   "title": "New Millennium Cyanide Christ",
+   "videoId": "QdUny2XVZ5o",
+   "channel": "Meshuggah - Topic",
+   "position": 519,
+   "kept_videoId": "szVR-_YckT8",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Jinjer",
+   "song": "Vortex",
+   "title": "Vortex",
+   "videoId": "7NyFdSbBVOc",
+   "channel": "Jinjer - Topic",
+   "position": 522,
+   "kept_videoId": "K4Dc9-iKYX4",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Dio",
+   "song": "Eat Your Heart Out",
+   "title": "Eat Your Heart Out",
+   "videoId": "dhNxgNJNkto",
+   "channel": "Dio - Topic",
+   "position": 544,
+   "kept_videoId": "yCxKf3H3PLU",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Dio",
+   "song": "Evil Eyes",
+   "title": "Evil Eyes",
+   "videoId": "fq1jMaYT2AI",
+   "channel": "Dio - Topic",
+   "position": 585,
+   "kept_videoId": "zMAYyimekGk",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Lamb Of God",
+   "song": "A Devil In God's Country",
+   "title": "A Devil In God's Country",
+   "videoId": "RqpaK9T3hDg",
+   "channel": "Lamb Of God - Topic",
+   "position": 587,
+   "kept_videoId": "voSyN2Uucfw",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Black Sabbath",
+   "song": "Wishing Well",
+   "title": "Wishing Well (2021 Remaster)",
+   "videoId": "fTvKX_zCOx4",
+   "channel": "Black Sabbath - Topic",
+   "position": 615,
+   "kept_videoId": "BMdhVpTfuAU",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Meshuggah",
+   "song": "Pravus",
+   "title": "Pravus",
+   "videoId": "6JTsS2QFDqM",
+   "channel": "Meshuggah - Topic",
+   "position": 616,
+   "kept_videoId": "6KJ2RCm-bcs",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Jinjer",
+   "song": "Rogue",
+   "title": "Rogue",
+   "videoId": "mWp1hFPlliY",
+   "channel": "Jinjer - Topic",
+   "position": 627,
+   "kept_videoId": "8u_oAhW6lN8",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Meshuggah",
+   "song": "Pineal Gland Optics",
+   "title": "Pineal Gland Optics",
+   "videoId": "Q2XyaUGPN1A",
+   "channel": "Meshuggah - Topic",
+   "position": 628,
+   "kept_videoId": "VgD2Ks_gxxw",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "The Faceless",
+   "song": "Ancient Covenant",
+   "title": "Ancient Covenant",
+   "videoId": "CEo5DtM7Ip8",
+   "channel": "The Faceless - Topic",
+   "position": 631,
+   "kept_videoId": "z-xtCehg1kM",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Judas Priest",
+   "song": "Dissident Aggressor",
+   "title": "Dissident Aggressor",
+   "videoId": "4_sSV_KqU4o",
+   "channel": "Judas Priest - Topic",
+   "position": 666,
+   "kept_videoId": "sm7SjWokC6I",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Lamb Of God",
+   "song": "Vigil",
+   "title": "Vigil",
+   "videoId": "GSNgbI7znP8",
+   "channel": "Lamb Of God - Topic",
+   "position": 695,
+   "kept_videoId": "crLFov1RbGU",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Jinjer",
+   "song": "Someone's Daughter",
+   "title": "Someone's Daughter",
+   "videoId": "e9UHfq4Fi8c",
+   "channel": "Jinjer - Topic",
+   "position": 705,
+   "kept_videoId": "uFfpX2OX1qA",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Judas Priest",
+   "song": "Dissident Aggressor",
+   "title": "Judas Priest - Dissident Aggressor (Official Audio)",
+   "videoId": "ntvF-VZ-ppQ",
+   "channel": "JudasPriestVEVO",
+   "position": 706,
+   "kept_videoId": "sm7SjWokC6I",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Jinjer",
+   "song": "Dead Hands Feel No Pain",
+   "title": "Dead Hands Feel No Pain",
+   "videoId": "pIsBd4c-ClE",
+   "channel": "Jinjer - Topic",
+   "position": 713,
+   "kept_videoId": "HlYulwaFS2Y",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Job For A Cowboy",
+   "song": "Beyond the Chemical Doorway",
+   "title": "Beyond the Chemical Doorway",
+   "videoId": "t04LQ1wl6hk",
+   "channel": "Job For A Cowboy - Topic",
+   "position": 714,
+   "kept_videoId": "7E7xBMebANM",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Jinjer",
+   "song": "Duél",
+   "title": "Duél",
+   "videoId": "da-ZGY16xQo",
+   "channel": "Jinjer - Topic",
+   "position": 721,
+   "kept_videoId": "FOIck8I_IEg",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Death",
+   "song": "Crystal Mountain",
+   "title": "Crystal Mountain",
+   "videoId": "8F4tT_JNl40",
+   "channel": "Death - Topic",
+   "position": 726,
+   "kept_videoId": "dRx2qP8yXuY",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Jinjer",
+   "song": "Wallflower",
+   "title": "Wallflower",
+   "videoId": "5rR807ky3OQ",
+   "channel": "Jinjer - Topic",
+   "position": 729,
+   "kept_videoId": "Qtp33CLac4U",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Megadeth",
+   "song": "Tornado Of Souls",
+   "title": "Tornado Of Souls (2004 Remix)",
+   "videoId": "sONL6QUMR9E",
+   "channel": "Megadeth - Topic",
+   "position": 735,
+   "kept_videoId": "L8HhOMNrulE",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Jinjer",
+   "song": "Call Me a Symbol",
+   "title": "Call Me a Symbol",
+   "videoId": "uHUqHRuFHEo",
+   "channel": "Jinjer - Topic",
+   "position": 737,
+   "kept_videoId": "drISyzDT0Io",
+   "date": "2026-11-28"
+  },
+  {
+   "band": "Dio",
+   "song": "Don't Talk to Strangers",
+   "title": "Don't Talk to Strangers",
+   "videoId": "Doy4V1xEOXw",
+   "channel": "Dio - Topic",
+   "position": 748,
+   "kept_videoId": "skVaKPQ72tA",
+   "date": "2026-11-28"
+  }
+ ],
+ "possible_duplicates_kept": [
+  [
+   {
+    "band": "Necrophagist",
+    "song": "Extreme Unction",
+    "videoId": "1w3rdHOM1VE",
+    "position": 55
+   },
+   {
+    "band": "Necrophagist",
+    "song": "Extreme Unction (Live)",
+    "videoId": "5CSx0o7qAHs",
+    "position": 410
+   }
+  ],
+  [
+   {
+    "band": "Jinjer",
+    "song": "Waltz",
+    "videoId": "6IdEFbygYcQ",
+    "position": 265
+   },
+   {
+    "band": "Jinjer",
+    "song": "Waltz (Live)",
+    "videoId": "b0Qn3xsiML0",
+    "position": 395
+   }
+  ],
+  [
+   {
+    "band": "Jinjer",
+    "song": "Pisces (Live Session)",
+    "videoId": "SQNtGoM3FVU",
+    "position": 610
+   },
+   {
+    "band": "Jinjer",
+    "song": "Pisces",
+    "videoId": "sq7DG1NFXAw",
+    "position": 634
+   }
+  ]
+ ],
+ "finished": "2026-11-28"
 }
